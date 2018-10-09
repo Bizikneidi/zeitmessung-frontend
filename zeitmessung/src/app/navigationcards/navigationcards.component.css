@@ -5,21 +5,22 @@
     
 }
 
-
 .row{
     height:100vh;
 }
 
 p{
-    font-size: 11px;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;   
+}
+
+h3{
+    font-weight: bold;
 }
 
 a{
     border-bottom: 2px solid #26D2B3;
     padding-bottom: 3px;
     color: #26D2B3;
-    font-size: 14px;
-    font-family: 'Segoe UI';
+    font-size: 14px;  
     font-weight: bold;
 }
