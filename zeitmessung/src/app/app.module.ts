@@ -5,14 +5,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { NavigationcardsComponent } from './navigationcards/navigationcards.component';
-import { HeaderComponent } from './header/header.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationcardsComponent,
-    HeaderComponent
+    NavigationcardsComponent
+   
   ],
   imports: [
     BrowserModule,
