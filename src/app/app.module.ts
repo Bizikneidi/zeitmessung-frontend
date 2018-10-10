@@ -5,13 +5,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { NavigationcardsComponent } from './navigationcards/navigationcards.component';
+import { RegisterparticipantComponent } from './registerparticipant/registerparticipant.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationcardsComponent
+    NavigationcardsComponent,
+    RegisterparticipantComponent
    
   ],
   imports: [
