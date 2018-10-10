@@ -1,0 +1,13 @@
+table {
+    border: none
+}
+
+.card {
+    border-style: none;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.row {
+    height: 100vh;
+}
