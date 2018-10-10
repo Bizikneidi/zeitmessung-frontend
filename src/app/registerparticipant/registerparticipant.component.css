@@ -11,3 +11,12 @@ table {
 .row {
     height: 100vh;
 }
+
+input[type=text], input[type=number], input[type=email] {
+    border-style: none none solid none;
+    border-radius: 0;
+}
+
+input[type=text] {
+    outline: none !important;
+}
