@@ -13,16 +13,16 @@
             <th>
               <p>Sex</p>
 
-              <label class="container">m
-                <input type="radio" name="sex">
+              <label class="radio">m
+                <input type="radio" name="sex" value="m">
                 <span class="checkmark"></span>
               </label>
-              <label class="container">w
-                <input type="radio" name="sex">
+              <label class="radio">w
+                <input type="radio" name="sex" value="m">
                 <span class="checkmark"></span>
               </label>
-              <label class="container">o
-                <input type="radio" name="sex">
+              <label class="radio">o
+                <input type="radio" name="sex" value="m">
                 <span class="checkmark"></span>
               </label>
             </th>
@@ -50,8 +50,13 @@
           </tr>
         </table>
 
-        <input type="radio" value="agree">I accept the data agreement<br>
-        <a href="#" class="card-link">REGISTER ➜</a>
+
+        <label class="radio">I accept the data agreement
+          <input type="radio" name="agreement" value="true">
+          <span class="checkmark"></span>
+        </label><br>
+
+        <div class="card-link" style="padding-top: 1rem"><a href="#" class="card-link mt-5">REGISTER ➜</a></div>
       </div>
     </div>
   </div>
