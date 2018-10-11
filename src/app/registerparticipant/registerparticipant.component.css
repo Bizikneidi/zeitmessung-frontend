@@ -1,52 +1,64 @@
 table {
-    border: none
+  border: none
 }
 
 .card {
-    border-style: none;
-    background-color: white;
-    border-radius: 20px;
+  border-style: none;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .row {
-    height: 100vh;
+  height: 100vh;
 }
 
 table {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 th {
-    padding: 0px 20px 20px 0;
+  padding: 0px 20px 20px 0;
 }
 
 h2 {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
-input[type=text], input[type=number], input[type=email] {
-    border-radius: 0;
-    border: none;
-    border-bottom: 2px solid lightgray;
+select {
+  width: 100%;
+  background-color: white;
+  border-radius: 0;
+  -webkit-appearance: none;
+  font-size: 1rem;
+  padding: 6px 12px;
+  color: #495057;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transition-property: none;
+  outline: none !important;
 }
 
-input[type=text]:focus, input[type=number]:focus, input[type=email]:focus {
-    border-color: #26D2B3;
-    box-shadow: none;
+select:focus, option:focus {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  transition-property: none;
+  outline: none !important;
 }
 
-input[type=text] {
-    outline: none !important;
+input[type=text], input[type=number], input[type=email], select {
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid #e8e8e8;
 }
 
-/*.radio {
-    width: 12px;
-    height: 12px;
-    border: 10px black;
-    border-radius: 6px;
-    background-color: lightgray;
-    display: inline-block;
-}*/
+input[type=text]:focus, input[type=number]:focus, input[type=email]:focus, select:focus {
+  border-color: #26D2B3;
+  box-shadow: none;
+}
+
+#selectstandard {
+  font-size: 10px;
+}
 
 /* The container */
 .container {
@@ -69,6 +81,10 @@ input[type=text] {
   cursor: pointer;
 }
 
+label.container {
+  color: #8e8e8e;
+}
+
 /* Create a custom radio button */
 .checkmark {
   position: absolute;
@@ -76,13 +92,13 @@ input[type=text] {
   left: 0;
   height: 20px;
   width: 20px;
-  background-color: #eee;
+  background-color: #e8e8e8;
   border-radius: 50%;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #e8e8e8;
 }
 
 /* When the radio button is checked, add a blue background */
@@ -113,5 +129,23 @@ input[type=text] {
 }
 
 a {
-    color: #26D2B3;
+  color: #26D2B3;
+}
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px);
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
 }
