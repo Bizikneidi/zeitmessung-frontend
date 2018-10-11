@@ -1,11 +1,15 @@
 <div class="container row justify-content-center align-items-center">
-    <div class="card m-5 shadow-lg">
-      <div class="card-body">
-          <a [routerLink]="['/']" class="card-link">
-            <h3>🠬 Viewer</h3>
-          </a>
-          <p class="card-text">Waiting for a run to start!</p>
-
+    <div class="card shadow-lg">
+      <div class="card-titel m-4">
+        <a [routerLink]="['/']" class="card-link">
+          <h3>🠬 Viewer</h3>
+        </a>
+        <p>{{viewerMessage}}</p>
+      </div>
+      <div class="card-body m-4">
+          <div class="container row-10 colum-12 justify-content-center align-items-center">
+            <p>{{stopTime | milliSecondsToTime}}</p>
+          </div>
           <div *ngIf="!measuring && (prevTime >= 0)">
             <p>Previous run:</p>
             <p>{{prevTime | milliSecondsToTime}}</p>
