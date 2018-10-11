@@ -20,7 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterparticipantComponent
+    RegisterparticipantComponent,
     NavigationcardsComponent,
     HeaderComponent,
     AdminComponent,
