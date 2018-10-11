@@ -3,7 +3,9 @@
 
 body{
     font-family: 'Montserrat', sans-serif !important;
-    background-size:cover; 
-    background-image: url(../src/assets/images/bgCurve.png) ;
-    height:100vh;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
 }
