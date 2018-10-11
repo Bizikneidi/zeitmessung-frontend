@@ -1,19 +1,26 @@
 <div class="container" style="height:100%">
   <div class="d-flex justify-content-center align-items-center" style="height:100%">
     <div class="card shadow">
-      <div class="card-title">
-            <a class="card-link" [routerLink]="['/']">
-              <fa-icon [icon]="faArrow"></fa-icon>
-            </a>       
+      <div class="row">
+        <div class="col-1">
+          <a  [routerLink]="['/']">
+            <fa-icon [icon]="faArrow"></fa-icon>
+          </a>
+        </div>
+        <div class="col-10">
+          <div class="card-title">
+
             Admin
-            <p >You can press start, once a station has connected</p>
-      </div>
-      <div class="card-body text-center">
-        
-        <button class="btn" [disabled]="false">
-          Start
-        </button>
-       
+            <p>You can press start, once a station has connected</p>
+          </div>
+          <div class="card-body text-center">
+
+            <button class="btn" [disabled]="false">
+              Start
+            </button>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
