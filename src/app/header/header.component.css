@@ -7,10 +7,10 @@ nav {
     top: 0;
 }
 
-span {
-    margin-left: -20px;
+img {
+    float: left;
 }
 
-img {
-    margin-top: -5px;
+h1 {
+    padding-top: 18px;
 }
