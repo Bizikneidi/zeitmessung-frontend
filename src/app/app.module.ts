@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { AdminComponent } from './admin/admin.component';
 import { ViewerComponent } from './viewer/viewer.component';
 import { environment } from '../environments/environment';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { environment } from '../environments/environment';
     NavigationcardsComponent,
     HeaderComponent,
     AdminComponent,
-    ViewerComponent
+    ViewerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
