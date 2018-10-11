@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,13 +15,37 @@ import { AdminComponent } from './admin/admin.component';
 import { ViewerComponent } from './viewer/viewer.component';
 import { environment } from '../environments/environment';
 
+
+@Pipe({
+  name: "milliSecondsToTime"
+})
+class MilliSecondsToTimePipe {
+  transform(value: number): string {
+    if (typeof value !== "number" || value < 0){
+      return "00:00:00:00";
+    }
+    value /= 100;
+    var hours = Math.floor(value / 36000),
+      minutes = Math.floor((value % 36000) / 60),
+      seconds = Math.floor(value % 60),
+      milliseconds = Math.floor(value % 10);
+
+    return this.padTime(hours) + ":" + this.padTime(minutes) + ":" + this.padTime(seconds) + ":" + this.padTime(milliseconds);
+  };
+    
+  padTime(t) {
+    return t < 10 ? "0" + t : t;
+  }
+}
+
 @NgModule({
   declarations: [
     AppComponent,
     NavigationcardsComponent,
     HeaderComponent,
     AdminComponent,
-    ViewerComponent
+    ViewerComponent,
+    MilliSecondsToTimePipe
   ],
   imports: [
     BrowserModule,
