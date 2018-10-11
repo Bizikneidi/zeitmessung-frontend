@@ -12,9 +12,27 @@ table {
     height: 100vh;
 }
 
+table {
+    margin-top: 50px;
+}
+
+th {
+    padding: 0px 20px 20px 0;
+}
+
+h2 {
+    font-weight: bolder;
+}
+
 input[type=text], input[type=number], input[type=email] {
-    border-style: none none solid none;
     border-radius: 0;
+    border: none;
+    border-bottom: 2px solid lightgray;
+}
+
+input[type=text]:focus, input[type=number]:focus, input[type=email]:focus {
+    border-color: #26D2B3;
+    box-shadow: none;
 }
 
 input[type=text] {
