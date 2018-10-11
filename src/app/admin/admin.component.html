@@ -1,3 +1,20 @@
-<p>
-  admin works!
-</p>
+<div class="container" style="height:100%">
+  <div class="d-flex justify-content-center align-items-center" style="height:100%">
+    <div class="card shadow">
+      <div class="card-title">
+            <a class="card-link" [routerLink]="['/']">
+              <fa-icon [icon]="faArrow"></fa-icon>
+            </a>       
+            Admin
+            <p >You can press start, once a station has connected</p>
+      </div>
+      <div class="card-body text-center">
+        
+        <button class="btn" [disabled]="false">
+          Start
+        </button>
+       
+      </div>
+    </div>
+  </div>
+</div>

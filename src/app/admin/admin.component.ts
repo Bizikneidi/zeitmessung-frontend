@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { faUser, faLock, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+  faArrow = faLongArrowAltLeft;
   constructor() { }
 
   ngOnInit() {
