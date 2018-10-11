@@ -3,3 +3,6 @@ a{
     font-size: 2em
 }
 
+nav{
+    position: absolute;
+}
