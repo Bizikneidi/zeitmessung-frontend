@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-registerparticipant',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registerparticipant.component.css']
 })
 export class RegisterparticipantComponent implements OnInit {
+
+  icon = faLongArrowAltLeft;
 
   constructor() { }
 
