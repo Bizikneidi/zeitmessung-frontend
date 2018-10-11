@@ -2,8 +2,25 @@
   box-shadow: 0px 0px 16px #888888;
 }*/
 
+.card-link {
+  padding-top: 1rem !important;
+}
+
+.card-footer {
+  opacity: 0;
+}
+
+.form-control {
+  height: 2rem;
+}
+
 table {
   border: none
+}
+
+input {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .card {
@@ -20,7 +37,7 @@ table {
 }
 
 th {
-  padding: 0px 20px 20px 0;
+  padding: 0px 20px 10px 0;
   font-size: 11px;
 }
 
@@ -69,12 +86,13 @@ input[type=text]:focus, input[type=number]:focus, input[type=email]:focus, selec
 p {
   color: #8e8e8e;
   margin-bottom: 8px;
+  padding-left: 12px;
 }
 
 .radio {
   display: inline;
   position: relative;
-  padding-left: 30px;
+  padding-left: 20px;
   padding-top: 2px;
   margin-bottom: 10px;
   margin-right: 5px;
@@ -101,10 +119,10 @@ label.radio {
 /* Create a custom radio button */
 .checkmark {
   position: absolute;
-  top: 0;
+  top: 3px;
   left: 0;
-  height: 20px;
-  width: 20px;
+  height: 12px;
+  width: 12px;
   background-color: #e8e8e8;
   border-radius: 50%;
 }
@@ -132,14 +150,14 @@ label.radio {
 }
 
 /* Style the indicator (dot/circle) */
-.radio .checkmark:after {
+/*.radio .checkmark:after {
   top: 6px;
   left: 6px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: white;
-}
+}*/
 
 a {
   border-bottom: 2px solid #26D2B3;
@@ -151,8 +169,8 @@ a {
 
 select.minimal {
   background-image:
-    linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%);
+    linear-gradient(45deg, transparent 50%, #8e8e8e 50%),
+    linear-gradient(135deg, #8e8e8e 50%, transparent 50%);
   background-position:
     calc(100% - 20px) calc(1em + 2px),
     calc(100% - 15px) calc(1em + 2px);
