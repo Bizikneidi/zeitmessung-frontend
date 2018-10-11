@@ -6,3 +6,11 @@ nav {
     position: absolute;
     top: 0;
 }
+
+span {
+    margin-left: -20px;
+}
+
+img {
+    margin-top: -5px;
+}
