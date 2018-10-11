@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavigationcardsComponent } from './navigationcards/navigationcards.component';
+import { RegisterparticipantComponent } from './registerparticipant/registerparticipant.component';
 import { WebsocketService } from './services/websocket/websocket.service';
 import { AdminService } from './services/admin/admin.service';
 import { ParticipantService } from './services/participant/participant.service';
@@ -19,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
+    RegisterparticipantComponent
     NavigationcardsComponent,
     HeaderComponent,
     AdminComponent,
