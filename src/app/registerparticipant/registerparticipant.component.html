@@ -37,8 +37,8 @@
                 </tr>
                 <tr>
                   <th>
-                    <select name="nationality" class="minimal">
-                      <option selected="selected" id="selectstandard" disabled>nationality</option>
+                    <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality">
+                      <option selected="selected" id="selectstandard" [ngValue]="nationality" disabled>nationality</option>
                     </select>
                   </th>
                   <th><input type="text" class="form-control" name="city" placeholder="city" [(ngModel)]="participant.City"></th>
