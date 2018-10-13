@@ -12,9 +12,16 @@ export class RegisterparticipantComponent implements OnInit {
   icon = faLongArrowAltLeft;
   participant = new Participant();
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  changeSex(c) {
+    this.participant.Sex = c;
+  }
+
+  register() {
+  }
 }

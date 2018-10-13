@@ -20,15 +20,15 @@
                     <p>Sex</p>
 
                     <label class="radio">m
-                      <input type="radio" name="sex" value="m">
+                      <input type="radio" name="sex" [checked]="participant.Sex === 'm'" (change)="changeSex('m')">
                       <span class="checkmark"></span>
                     </label>
                     <label class="radio">f
-                      <input type="radio" name="sex" value="w">
+                      <input type="radio" name="sex" [checked]="participant.Sex === 'w'" (change)="changeSex('w')">
                       <span class="checkmark"></span>
                     </label>
                     <label class="radio">o
-                      <input type="radio" name="sex" value="o">
+                      <input type="radio" name="sex" [checked]="participant.Sex === 'o'" (change)="changeSex('o')">
                       <span class="checkmark"></span>
                     </label>
                   </th>
@@ -63,7 +63,7 @@
                 <span class="checkmark"></span>
               </label><br>
 
-              <div class="card-link"><a href="#" class="card-link mt-5">REGISTER ➜</a></div>
+              <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()">REGISTER ➜</a></div>
             </div>
           </div>
         </div>
