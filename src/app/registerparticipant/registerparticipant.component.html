@@ -12,8 +12,8 @@
               <sub>Fill in the form to register for the run</sub>
               <table>
                 <tr>
-                  <th><input type="text" class="form-control" name="firstname" placeholder="first name"></th>
-                  <th><input type="text" class="form-control" name="lastname" placeholder="last name"></th>
+                  <th><input type="text" class="form-control" name="firstname" placeholder="first name" [(ngModel)]="participant.Firstname"></th>
+                  <th><input type="text" class="form-control" name="lastname" placeholder="last name" [(ngModel)]="participant.Lastname"></th>
                 </tr>
                 <tr>
                   <th>
@@ -33,7 +33,7 @@
                     </label>
                   </th>
                   <th><input type="number" min="1920" max="3000" class="form-control" name="dob"
-                             placeholder="year of birth"></th>
+                             placeholder="year of birth" [(ngModel)]="participant.YearGroup"></th>
                 </tr>
                 <tr>
                   <th>
@@ -41,19 +41,19 @@
                       <option selected="selected" id="selectstandard" disabled>nationality</option>
                     </select>
                   </th>
-                  <th><input type="text" class="form-control" name="place" placeholder="place"></th>
+                  <th><input type="text" class="form-control" name="city" placeholder="city" [(ngModel)]="participant.City"></th>
                 </tr>
                 <tr>
-                  <th><input type="text" class="form-control" name="street" placeholder="street"></th>
-                  <th><input type="text" class="form-control" name="postcode" placeholder="postcode"></th>
+                  <th><input type="text" class="form-control" name="street" placeholder="street" [(ngModel)]="participant.Street"></th>
+                  <th><input type="text" class="form-control" name="postalcode" placeholder="postalcode" [(ngModel)]="participant.PostalCode"></th>
                 </tr>
                 <tr>
-                  <th><input type="text" class="form-control" name="housenumber" placeholder="house number"></th>
-                  <th><input type="text" class="form-control" name="team" placeholder="team"></th>
+                  <th><input type="text" class="form-control" name="housenumber" placeholder="house number" [(ngModel)]="participant.HouseNumber"></th>
+                  <th><input type="text" class="form-control" name="team" placeholder="team" [(ngModel)]="participant.Team"></th>
                 </tr>
                 <tr>
-                  <th><input type="email" class="form-control" name="email" placeholder="email"></th>
-                  <th><input type="text" class="form-control" name="phone" placeholder="phone"></th>
+                  <th><input type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="participant.Email"></th>
+                  <th><input type="text" class="form-control" name="phone" placeholder="phone" [(ngModel)]="participant.PhoneNumber"></th>
                 </tr>
               </table>
 

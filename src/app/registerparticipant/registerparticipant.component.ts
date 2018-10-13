@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
+import { Participant} from '../entities/participant';
 
 @Component({
   selector: 'app-registerparticipant',
@@ -9,8 +10,9 @@ import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 export class RegisterparticipantComponent implements OnInit {
 
   icon = faLongArrowAltLeft;
+  participant = new Participant();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
