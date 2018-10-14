@@ -4,7 +4,11 @@ export class Country {
   public ISO: string;
 
   public constructor(name: string, iso: string) {
-    this.Name = name;
+    if (name.length > 20) {
+      this.Name = name.substr(0, 20) + '...';
+    } else {
+      this.Name = name;
+    }
     this.ISO = iso;
   }
 }

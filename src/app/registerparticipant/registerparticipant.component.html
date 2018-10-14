@@ -39,6 +39,8 @@
                   <th>
                     <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality">
                       <option selected="selected" id="selectstandard" [ngValue]="nationality" disabled>nationality</option>
+
+                      <option *ngFor="let country of countryList" [ngValue]="country.ISO">{{country.Name}}</option>
                     </select>
                   </th>
                   <th><input type="text" class="form-control" name="city" placeholder="city" [(ngModel)]="participant.City"></th>
