@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Participant} from '../entities/participant';
 import { CountryList, Country } from '../entities/countryList';
+import {ParticipantService} from '../services/participant/participant.service';
 
 @Component({
   selector: 'app-registerparticipant',
@@ -14,7 +15,7 @@ export class RegisterparticipantComponent implements OnInit {
   participant = new Participant();
   countryList = CountryList.ListOfCountries;
 
-  constructor() {
+  constructor(private ws: ParticipantService) {
   }
 
   ngOnInit() {
@@ -25,5 +26,7 @@ export class RegisterparticipantComponent implements OnInit {
   }
 
   register() {
+    this.ws.register(this.participant);
+    this.ws.disconnect();
   }
 }
