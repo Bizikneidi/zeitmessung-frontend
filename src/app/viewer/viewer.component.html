@@ -8,11 +8,11 @@
       </div>
       <div class="card-body m-4">
           <div class="container row-10 colum-12 justify-content-center align-items-center">
-            <p>{{stopTime | milliSecondsToTime}}</p>
+            <p>{{curTime | milliSecondsToTime}}{{curTime | milliSecondsToTime:true}}</p>
           </div>
           <div *ngIf="!measuring && (prevTime >= 0)">
             <p>Previous run:</p>
-            <p>{{prevTime | milliSecondsToTime}}</p>
+            <p>{{prevTime | milliSecondsToTime}}{{prevTime | milliSecondsToTime:true}}</p>
           </div>
       </div>
   </div>

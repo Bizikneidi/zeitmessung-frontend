@@ -20,19 +20,20 @@ import { environment } from '../environments/environment';
   name: "milliSecondsToTime"
 })
 class MilliSecondsToTimePipe {
-  transform(value: number): string {
+  transform(value: number, deciMil: boolean = false): string {
     if (typeof value !== "number" || value < 0){
-      return "00:00:00:00";
+      return "invalid number";
     }
-    value /= 100;
-    var hours = Math.floor(value / 36000),
-      minutes = Math.floor((value % 36000) / 60),
-      seconds = Math.floor(value % 60),
-      milliseconds = Math.floor(value % 10);
-
-    return this.padTime(hours) + ":" + this.padTime(minutes) + ":" + this.padTime(seconds) + ":" + this.padTime(milliseconds);
+    let deciSeconds = Math.floor((value / 100) % 10),
+    seconds = Math.floor((value / 1000) % 60),
+    minutes = Math.floor((value / (1000*60)) % 60),
+    hours = Math.floor(value / (1000*60*60));
+    if(deciMil){
+      return this.padTime(deciSeconds);
+    }
+    return this.padTime(hours) + ":" + this.padTime(minutes) + ":" + this.padTime(seconds);
   };
-    
+
   padTime(t) {
     return t < 10 ? "0" + t : t;
   }

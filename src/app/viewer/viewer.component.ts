@@ -14,6 +14,9 @@ export class ViewerComponent implements OnInit {
   measuring: boolean;
   viewerMessage: string = "Ready and waiting for a run to start!";
   prevTime: number = 0;
+  curTime: number = 0;
+  localStartTime: number = 0;
+
 
   timeMeter: TimeMeterState;
   mesStart: MeasurementStart;
@@ -30,11 +33,22 @@ export class ViewerComponent implements OnInit {
      });
     this.startSubscription = this.viewerService.start.subscribe(ms => { 
       this.mesStart = ms;
+
+      this.localStartTime = new Date().getMilliseconds();
+      let timeDif = this.localStartTime -  this.mesStart.CurrentTime;
+      this.localStartTime - timeDif;
     });
     this.stopSubscription = this.viewerService.stop.subscribe(sn => { 
       this.stopNum = sn; 
       this.prevTime = sn - this.mesStart.StartTime;
     });
+
+    setInterval(() => {
+      if(this.measuring){
+        this.curTime = Date.now()- this.localStartTime;
+        //console.log(this.curTime);
+      }
+    }, 0);
   }
 
   ngOnInit() {
