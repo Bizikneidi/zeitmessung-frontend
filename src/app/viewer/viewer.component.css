@@ -12,19 +12,48 @@
 }
 
 p{
-    font-size: 11px;   
+    display: inline;
+}
+
+.time{
+    font-size: 64px;   
+    color: #26D2B3;
+    font-weight: bold;
+}
+
+.time-grey{
+    font-size: 64px;   
+    font-weight: bold;
+    color: lightgray;
+}
+
+.time-small{
+    font-size: 18px;   
+    font-weight: bold;
+    color: lightgray;
+}
+
+.decis{
+    font-size: 36px;   
+    color: #26D2B3;
+    font-weight: bold;
+}
+
+.decis-grey{
+    font-size: 36px;   
+    font-weight: bold;
+    color: lightgray;
+}
+
+.decis-small{
+    font-size: 12px;   
+    font-weight: bold;
+    color: lightgray;
 }
 
 h3{
     font-weight: bold;
-}
-
-.time{
-    border-bottom: 2px solid #26D2B3;
-    padding-bottom: 3px;
-    color: #26D2B3;
-    font-size: 14px;  
-    font-weight: bold;
+    display: inline;
 }
 
 a{

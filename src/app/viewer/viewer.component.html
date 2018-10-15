@@ -1,19 +1,33 @@
-<div class="container row justify-content-center align-items-center">
+<div class="container row justify-content-md-center align-items-md-center">
     <div class="card shadow-lg">
       <div class="card-titel m-4">
-        <a [routerLink]="['/']" class="card-link">
-          <h3>🠬 Viewer</h3>
-        </a>
-        <p>{{viewerMessage}}</p>
+        <div class="row-md-0">
+            <a [routerLink]="['/']" class="card-link">
+              <h3>🠬</h3>
+              <h3 class="offset-md-0">Viewer</h3>
+            </a>
+        </div>
+        <div class="row-md-0">
+            <p class="offset-md-1">{{viewerMessage}}</p>
+        </div>
       </div>
       <div class="card-body m-4">
-          <div class="container row-10 colum-12 justify-content-center align-items-center">
-            <p>{{curTime | milliSecondsToTime}}{{curTime | milliSecondsToTime:true}}</p>
-          </div>
-          <div *ngIf="!measuring && (prevTime >= 0)">
-            <p>Previous run:</p>
-            <p>{{prevTime | milliSecondsToTime}}{{prevTime | milliSecondsToTime:true}}</p>
-          </div>
+          <div class="container">
+            <div class="row-md-0 justify-content-md-center align-items-md-center">
+                <div *ngIf="!measuring" class="offset-md-1 align-self-center">
+                    <p class="time-grey">{{curTime | milliSecondsToTime}}</p>
+                    <p class="decis-grey">{{curTime | milliSecondsToTime:true}}</p>
+                </div>
+                <div *ngIf="measuring" class="offset-md-1 align-self-center">
+                    <p class="time">{{curTime | milliSecondsToTime}}</p>
+                    <p class="decis">{{curTime | milliSecondsToTime:true}}</p>
+                </div>
+                <div *ngIf="!measuring && (prevTime >= 0)" class="offset-md-1 align-self-end">
+                    <p class="time-small">Previous run:</p>
+                    <br/>
+                    <p class="time-small">{{prevTime | milliSecondsToTime}}</p><p class="decis-small">{{prevTime | milliSecondsToTime:true}}</p>
+                </div>
+            </div>
       </div>
   </div>
 </div>
