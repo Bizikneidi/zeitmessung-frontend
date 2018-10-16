@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="card col-11 col-md-10 shadow">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-1">
+            <fa-icon [icon]="icon"></fa-icon>
+          </div>
+          <div class="col-11 col-md-8">
+            <div>
+              <h2>Participant</h2>
+              <sub>Fill in the form to register for the run</sub>
+              <table>
+                <tr>
+                  <th><input type="text" class="form-control" name="firstname" placeholder="first name" [(ngModel)]="participant.Firstname"></th>
+                  <th><input type="text" class="form-control" name="lastname" placeholder="last name" [(ngModel)]="participant.Lastname"></th>
+                </tr>
+                <tr>
+                  <th>
+                    <p>Sex</p>
+
+                    <label class="radio">m
+                      <input type="radio" name="sex" [checked]="participant.Sex === 'm'" (change)="changeSex('m')">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="radio">f
+                      <input type="radio" name="sex" [checked]="participant.Sex === 'w'" (change)="changeSex('w')">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="radio">o
+                      <input type="radio" name="sex" [checked]="participant.Sex === 'o'" (change)="changeSex('o')">
+                      <span class="checkmark"></span>
+                    </label>
+                  </th>
+                  <th><input type="number" min="1920" max="3000" class="form-control" name="dob"
+                             placeholder="year of birth" [(ngModel)]="participant.YearGroup"></th>
+                </tr>
+                <tr>
+                  <th>
+                    <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality">
+                      <option selected="selected" id="selectstandard" [ngValue]="nationality" disabled>nationality</option>
+
+                      <option *ngFor="let country of countryList" [ngValue]="country.ISO">{{country.Name}}</option>
+                    </select>
+                  </th>
+                  <th><input type="text" class="form-control" name="city" placeholder="city" [(ngModel)]="participant.City"></th>
+                </tr>
+                <tr>
+                  <th><input type="text" class="form-control" name="street" placeholder="street" [(ngModel)]="participant.Street"></th>
+                  <th><input type="text" class="form-control" name="postalcode" placeholder="postalcode" [(ngModel)]="participant.PostalCode"></th>
+                </tr>
+                <tr>
+                  <th><input type="text" class="form-control" name="housenumber" placeholder="house number" [(ngModel)]="participant.HouseNumber"></th>
+                  <th><input type="text" class="form-control" name="team" placeholder="team" [(ngModel)]="participant.Team"></th>
+                </tr>
+                <tr>
+                  <th><input type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="participant.Email"></th>
+                  <th><input type="text" class="form-control" name="phone" placeholder="phone" [(ngModel)]="participant.PhoneNumber"></th>
+                </tr>
+              </table>
+
+
+              <label class="radio">I accept the data agreement
+                <input type="radio" name="agreement" value="true">
+                <span class="checkmark"></span>
+              </label><br>
+
+              <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()">REGISTER ➜</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>

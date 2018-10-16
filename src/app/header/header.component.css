@@ -1,8 +1,16 @@
-
-a{
+a {
     font-size: 2em
 }
 
-nav{
+nav {
     position: absolute;
+    top: 0;
+}
+
+img {
+    float: left;
+}
+
+h1 {
+    padding-top: 18px;
 }
