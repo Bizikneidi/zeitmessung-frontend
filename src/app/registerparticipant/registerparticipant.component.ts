@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Directive, OnInit} from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Participant} from '../entities/participant';
 import { CountryList, Country } from '../entities/countryList';
