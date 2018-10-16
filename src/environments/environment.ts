@@ -15,7 +15,7 @@ export const environment = {
     { path: 'participant', component: RegisterparticipantComponent },
     { path: 'viewer', component: ViewerComponent },
     { path: 'admin', component: AdminComponent },
-    { path: '**', component: NavigationcardsComponent },
-    { path: 'policies', component: PoliciesComponent }
+    { path: 'policies', component: PoliciesComponent },
+    { path: '**', component: NavigationcardsComponent }
   ]
 };

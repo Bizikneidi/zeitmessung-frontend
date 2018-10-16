@@ -29,7 +29,7 @@ import { PoliciesComponent } from './policies/policies.component';
     FooterComponent,
     MilliSecondsToTimePipe,
     ViewerComponent,
-    PoliciesComponent,
+    PoliciesComponent
   ],
   imports: [
     BrowserModule,
