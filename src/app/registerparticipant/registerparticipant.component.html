@@ -48,8 +48,8 @@
                         <option *ngFor="let country of countryList" [ngValue]="country.ISO">{{country.Name}}</option>
                       </select>
                     </th>
-                    <th><input type="text" class="form-control" name="city" placeholder="city"
-                               [(ngModel)]="participant.City"></th>
+                    <th><input type="text" class="form-control" [ngClass]="city.errors && (city.touched || city.dirty) ? 'has-error' : 'x'" name="city" placeholder="city"
+                               [(ngModel)]="participant.City" #city="ngModel" required [pattern]="'^([A-Za-z ./-])*$'"></th>
                   </tr>
                   <tr>
                     <th><input type="text" class="form-control" name="street" placeholder="street"
