@@ -1,47 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { AdminService } from '../services/admin/admin.service';
-import { Message, AdminCommands } from '../entities/networking';
 import { TimeMeterState } from '../entities/timemeterstate';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
-  notready = true;
-  message: string;
-  readyMessage = 'A station is connected, press start to start a race!';
-  disabledMessage = 'You can press start, once a station has connected';
-  measureMessage = 'Currently measuring';
-  constructor(public service: AdminService) {
-    this.message = this.disabledMessage;
-  }
+  notReady = true;
+  message = '';
+
+  constructor(public service: AdminService) { }
 
   ngOnInit() {
      this.service.state.subscribe((data: TimeMeterState) => {
         if (data === TimeMeterState.Ready) {
-          this.notready = false;
-          this.message = this.readyMessage;
-
-        }
-        else if (data === TimeMeterState.Measuring) {
-          this.notready = true;
-          this.message = this.measureMessage;
-        }
-        else if (data === TimeMeterState.Disabled) {
-          this.notready = true;
-          this.message = this.disabledMessage;
+          this.notReady = false;
+          this.message = 'Currently measuring';
+        } else if (data === TimeMeterState.Measuring) {
+          this.notReady = true;
+          this.message = 'A station is connected, press start to start a race!';
+        } else if (data === TimeMeterState.Disabled) {
+          this.notReady = true;
+          this.message = 'You can press start, once a station has connected';
         }
      });
   }
 
   onStartRunClicked() {
     this.service.startRun();
-    // this.notready = true;
   }
 
+  ngOnDestroy() {
+    this.service.disconnect();
+  }
 
 }

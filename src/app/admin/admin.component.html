@@ -4,29 +4,19 @@
         <div class="row ">
           <div class="col-1">
             <a  [routerLink]="['/']" class="card-title">
-              <fa-icon  [icon]="faArrow"></fa-icon>
+              <fa-icon [icon]="faArrow"></fa-icon>
             </a>
           </div>
-         
             <div class="card-title">
               Admin
               <p>{{message}}</p>
             </div>
-         
         </div>
-         
-
           <div class="card-body text-center">
-
-            <button class="btn" [disabled]="notready" (click)="onStartRunClicked()">
+            <button class="btn" [disabled]="notReady" (click)="onStartRunClicked()">
               Start
             </button>
-
           </div>
-       
-      
-
     </div>
-
   </div>
 </div>
