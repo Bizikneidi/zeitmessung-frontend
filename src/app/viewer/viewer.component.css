@@ -1,0 +1,61 @@
+.card{
+    height: 500px;
+    border-radius: 20px;
+}
+
+.card-title{
+    padding: 30px;
+    font-size: 2em;
+}
+
+a{
+    display: block;
+    color:black;
+}
+
+.card-title>p{
+    font-size: 15px
+}
+
+.time{
+    font-size: 64px;   
+    color: #26D2B3;
+    font-weight: bold;
+    display: inline;
+}
+
+.time-grey{
+    font-size: 64px;   
+    font-weight: bold;
+    color: lightgray;
+    display: inline;
+}
+
+.time-small{
+    font-size: 18px;   
+    font-weight: bold;
+    color: lightgray;
+    display: inline;
+}
+
+.decis{
+    font-size: 36px;   
+    color: #26D2B3;
+    font-weight: bold;
+    display: inline;
+}
+
+.decis-grey{
+    font-size: 36px;   
+    font-weight: bold;
+    color: lightgray;
+    display: inline;
+}
+
+.decis-small{
+    font-size: 12px;   
+    font-weight: bold;
+    color: lightgray;
+    display: inline;
+}
+
