@@ -14,10 +14,10 @@
                 <table>
                   <tr>
                     <th><input type="text" class="form-control" [ngClass]="firstName.errors && (firstName.touched || firstName.dirty) ? 'has-error' : 'x'" name="firstName" placeholder="first name"
-                               [(ngModel)]="participant.Firstname" #firstName="ngModel" required [pattern]="'^[A-ZÄÜÖ][a-zäüö]+(-[A-ZÄÜÖ][a-zäüö]+)?$'">
+                               [(ngModel)]="participant.Firstname" #firstName="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([ ][A-ZÄÜÖ][a-zäüö]+)*$'">
                     </th>
-                    <th><input type="text" class="form-control" name="lastname" placeholder="last name"
-                               [(ngModel)]="participant.Lastname"></th>
+                    <th><input type="text" class="form-control" [ngClass]="lastName.errors && (lastName.touched || lastName.dirty) ? 'has-error' : 'x'" name="lastName" placeholder="last name"
+                               [(ngModel)]="participant.Lastname" #lastName="ngModel" required [pattern]="'^[A-ZÄÜÖ][a-zäüö]+(-[A-ZÄÜÖ][a-zäüö]+)?$'"></th>
                   </tr>
                   <tr>
                     <th>
