@@ -16,7 +16,7 @@ export class WebsocketService {
   }
 
   public connect(path: string) {
-    if (this.ws) { // If websocket has been initialized, disconnect
+    if (this.ws && !this.ws.CLOSED) { // If websocket has been initialized, disconnect
       this.disconnect();
     }
     this.ws = new WebSocket('ws://localhost:53932/' + path); // Connect to path
@@ -27,7 +27,9 @@ export class WebsocketService {
   }
 
   public disconnect() {
-    this.ws.close(); // Close the connection
+    if (!this.ws.CLOSED) {
+      this.ws.close(); // Close the connection
+    }
   }
 
   // Send a message of any command to another socket (as JSON string)
