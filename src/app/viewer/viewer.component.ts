@@ -3,6 +3,7 @@ import { ViewerService } from '../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
 import { TimeMeterState } from '../entities/timemeterstate';
 import { MeasurementStart } from '../entities/measurementstart';
+import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-viewer',
@@ -11,6 +12,7 @@ import { MeasurementStart } from '../entities/measurementstart';
 })
 export class ViewerComponent implements OnInit {
 
+  faArrow = faLongArrowAltLeft;
   measuring: boolean;
   viewerMessage: string = "Ready and waiting for a run to start!";
   prevTime: number = 0;
