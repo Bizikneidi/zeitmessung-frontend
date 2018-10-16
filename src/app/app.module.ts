@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -31,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     FormsModule,
     FontAwesomeModule,
-    RouterModule.forRoot(environment.appRoutes as Routes)
+    RouterModule.forRoot(environment.appRoutes as Routes),
+    ReactiveFormsModule
   ],
   providers: [
     WebsocketService,

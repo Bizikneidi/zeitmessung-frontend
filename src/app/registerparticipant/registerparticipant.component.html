@@ -10,10 +10,10 @@
             <div>
               <h2>Participant</h2>
               <sub>Fill in the form to register for the run</sub>
-              <table>
-                <tr>
-                  <th><input type="text" class="form-control" name="firstname" placeholder="first name" [(ngModel)]="participant.Firstname"></th>
-                  <th><input type="text" class="form-control" name="lastname" placeholder="last name" [(ngModel)]="participant.Lastname"></th>
+              <form [formGroup]="participantForm">
+            <input type="text" class="form-control"  placeholder="first name" formControlName="firstname" required>
+                <span  *ngIf="participantForm.get('firstname').errors && participantForm.get('firstname').dirty">ES FUNKT</span>
+               <!--     <th><input type="text" class="form-control" name="lastname" placeholder="last name" [(ngModel)]="participant.Lastname"></th>
                 </tr>
                 <tr>
                   <th>
@@ -58,10 +58,10 @@
                   <th><input type="text" class="form-control" name="phone" placeholder="phone" [(ngModel)]="participant.PhoneNumber"></th>
                 </tr>
               </table>
-
-
+            -->
+            </form>
               <label class="radio">I accept the data agreement
-                <input type="radio" name="agreement" value="true">
+                <input type="radio" name="agreement" (click)="onAgreementClicked()" [checked]="clicked">
                 <span class="checkmark"></span>
               </label><br>
 
