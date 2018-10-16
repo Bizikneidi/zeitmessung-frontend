@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { AdminService } from '../services/admin/admin.service';
 import { TimeMeterState } from '../entities/timemeterstate';
+import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -11,12 +12,13 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
   notReady = true;
-  message = '';
+  subscription: Subscription;
+  message = 'Loading...';
 
   constructor(public service: AdminService) { }
 
   ngOnInit() {
-     this.service.state.subscribe((data: TimeMeterState) => {
+     this.subscription = this.service.state.subscribe((data: TimeMeterState) => {
         if (data === TimeMeterState.Ready) {
           this.notReady = false;
           this.message = 'Currently measuring';
@@ -35,6 +37,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.subscription.unsubscribe();
     this.service.disconnect();
   }
 

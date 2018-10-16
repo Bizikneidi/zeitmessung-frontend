@@ -1,22 +1,22 @@
 <div class="container" style="height:100%">
   <div class="row justify-content-center align-items-center" style="height:100%">
     <div class="card col-6 shadow">
-        <div class="row ">
-          <div class="col-1">
-            <a  [routerLink]="['/']" class="card-title">
-              <fa-icon [icon]="faArrow"></fa-icon>
-            </a>
-          </div>
-            <div class="card-title">
-              Admin
-              <p>{{message}}</p>
-            </div>
+      <div class="row ">
+        <div class="col-1">
+          <a [routerLink]="['/']" class="card-title">
+            <fa-icon [icon]="faArrow"></fa-icon>
+          </a>
         </div>
-          <div class="card-body text-center">
-            <button class="btn" [disabled]="notReady" (click)="onStartRunClicked()">
-              Start
-            </button>
-          </div>
+        <div class="card-title">
+          Admin
+          <p>{{message}}</p>
+        </div>
+      </div>
+      <div class="card-body text-center">
+        <button class="btn" [disabled]="notReady" (click)="onStartRunClicked()">
+          Start
+        </button>
+      </div>
     </div>
   </div>
 </div>
