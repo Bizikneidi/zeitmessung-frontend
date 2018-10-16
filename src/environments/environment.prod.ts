@@ -2,6 +2,7 @@ import { NavigationcardsComponent } from '../app/navigationcards/navigationcards
 import { AdminComponent } from '../app/admin/admin.component';
 import { ViewerComponent } from '../app/viewer/viewer.component';
 import {RegisterparticipantComponent} from '../app/registerparticipant/registerparticipant.component';
+import { PoliciesComponent } from '../app/policies/policies.component';
 
 export const environment = {
   production: true,
@@ -9,6 +10,7 @@ export const environment = {
     { path: 'participant', component: RegisterparticipantComponent },
     { path: 'viewer', component: ViewerComponent },
     { path: 'admin', component: AdminComponent },
+    { path: 'policies', component: PoliciesComponent },
     { path: '**', component: NavigationcardsComponent }
   ]
 };
