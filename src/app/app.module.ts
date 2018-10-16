@@ -17,6 +17,7 @@ import { ViewerComponent } from './viewer/viewer.component';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './footer/footer.component';
 import { MilliSecondsToTimePipe } from './pipes/millisecondstotimepipe';
+import { PoliciesComponent } from './policies/policies.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MilliSecondsToTimePipe } from './pipes/millisecondstotimepipe';
     FooterComponent,
     MilliSecondsToTimePipe,
     ViewerComponent,
+    PoliciesComponent,
   ],
   imports: [
     BrowserModule,
