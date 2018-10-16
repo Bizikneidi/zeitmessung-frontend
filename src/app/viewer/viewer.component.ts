@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ViewerService } from '../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
 import { TimeMeterState } from '../entities/timemeterstate';
@@ -10,15 +10,14 @@ import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './viewer.component.html',
   styleUrls: ['./viewer.component.css']
 })
-export class ViewerComponent implements OnInit {
+export class ViewerComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
   measuring: boolean;
-  viewerMessage: string = "Ready and waiting for a run to start!";
-  prevTime: number = 0;
-  curTime: number = 0;
-  localStartTime: number = 0;
-
+  viewerMessage = 'Ready and waiting for a run to start!';
+  prevTime = 0;
+  curTime = 0;
+  localStartTime = 0;
 
   timeMeter: TimeMeterState;
   mesStart: MeasurementStart;
@@ -28,27 +27,27 @@ export class ViewerComponent implements OnInit {
   stopSubscription: Subscription;
 
 
-  constructor(private viewerService: ViewerService) { 
-    this.stateSubscription = this.viewerService.state.subscribe(tm => { 
-      this.measuring = (tm == TimeMeterState.Measuring);
+  constructor(private viewerService: ViewerService) {
+    this.stateSubscription = this.viewerService.state.subscribe(tm => {
+      this.measuring = (tm === TimeMeterState.Measuring);
       this.setViewerMessage(tm);
      });
-    this.startSubscription = this.viewerService.start.subscribe(ms => { 
+    this.startSubscription = this.viewerService.start.subscribe(ms => {
       this.mesStart = ms;
 
       this.localStartTime = new Date().getMilliseconds();
-      let timeDif = this.localStartTime -  this.mesStart.CurrentTime;
-      this.localStartTime - timeDif;
+      const timeDif = this.localStartTime -  this.mesStart.CurrentTime;
+      this.localStartTime -= timeDif;
     });
-    this.stopSubscription = this.viewerService.stop.subscribe(sn => { 
-      this.stopNum = sn; 
+    this.stopSubscription = this.viewerService.stop.subscribe(sn => {
+      this.stopNum = sn;
       this.prevTime = sn - this.mesStart.StartTime;
     });
 
     setInterval(() => {
-      if(this.measuring){
-        this.curTime = Date.now()- this.localStartTime;
-        //console.log(this.curTime);
+      if (this.measuring) {
+        this.curTime = Date.now() - this.localStartTime;
+        // console.log(this.curTime);
       }
     }, 0);
   }
@@ -64,19 +63,19 @@ export class ViewerComponent implements OnInit {
   }
 
 
-  setViewerMessage(tm: TimeMeterState){
-    switch(tm){
+  setViewerMessage(tm: TimeMeterState) {
+    switch (tm) {
       case TimeMeterState.Ready:
-        this.viewerMessage = "Ready and waiting for a run to start!";
+        this.viewerMessage = 'Ready and waiting for a run to start!';
         break;
       case TimeMeterState.MeasurementRequested:
-        this.viewerMessage = "Measurement requested, waiting for station";
+        this.viewerMessage = 'Measurement requested, waiting for station';
         break;
       case TimeMeterState.Measuring:
-        this.viewerMessage = "Currently measuring";
+        this.viewerMessage = 'Currently measuring';
         break;
       default:
-        this.viewerMessage = "Measurement disabled or not working";
+        this.viewerMessage = 'Measurement disabled or not working';
     }
   }
 }
