@@ -13,7 +13,7 @@
               <form #registerform="ngForm" (ngSubmit)="register()">
                 <table>
                   <tr>
-                    <th><input type="text" class="form-control" [ngClass]="firstName.errors ? 'has-error' : 'x'" name="firstName" placeholder="first name"
+                    <th><input type="text" class="form-control" [ngClass]="firstName.errors && (firstName.touched || firstName.dirty) ? 'has-error' : 'x'" name="firstName" placeholder="first name"
                                [(ngModel)]="participant.Firstname" #firstName="ngModel" required [pattern]="'^[A-ZÄÜÖ][a-zäüö]+(-[A-ZÄÜÖ][a-zäüö]+)?$'">
                     </th>
                     <th><input type="text" class="form-control" name="lastname" placeholder="last name"
