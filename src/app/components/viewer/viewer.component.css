@@ -1,20 +1,30 @@
-.card{
-    height: 500px;
+.card {
     border-radius: 20px;
 }
 
-.card-title{
-    padding: 30px;
+.card-title {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color:#2a2a2a;
+}
+
+a {
     font-size: 2em;
-}
-
-a{
     display: block;
-    color:black;
+    color:#2a2a2a;
 }
 
-.card-title>p{
-    font-size: 15px
+.card-title > p {
+    font-size: 14px
+}
+
+.card-body {
+    padding-bottom: 150px;
+}
+
+.placeholder {
+    height: 50px;
 }
 
 .time{
@@ -27,14 +37,14 @@ a{
 .time-grey{
     font-size: 64px;   
     font-weight: bold;
-    color: lightgray;
+    color: #E8E8E8;
     display: inline;
 }
 
 .time-small{
     font-size: 18px;   
     font-weight: bold;
-    color: lightgray;
+    color: #E8E8E8;
     display: inline;
 }
 
@@ -48,14 +58,18 @@ a{
 .decis-grey{
     font-size: 36px;   
     font-weight: bold;
-    color: lightgray;
+    color: #E8E8E8;
     display: inline;
 }
 
 .decis-small{
     font-size: 12px;   
     font-weight: bold;
-    color: lightgray;
+    color: #E8E8E8;
     display: inline;
 }
 
+.container {
+    margin-top: 20vh;
+    margin-bottom: 80px;
+}

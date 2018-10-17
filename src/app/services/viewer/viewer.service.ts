@@ -42,6 +42,9 @@ export class ViewerService {
         this.stopSubject.next(received.Data as number);
       }
     });
+  }
+
+  connect() {
     this.ws.connect('viewer'); // Connect as viewer
   }
 

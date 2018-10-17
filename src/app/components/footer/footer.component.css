@@ -6,7 +6,12 @@ footer {
 }
 
 p {
+    color: #2a2a2a;
     font-size: 12px;
     text-align: center;
+}
+
+a > p {
+    text-decoration: underline;
     margin-bottom: 0 !important;
 }

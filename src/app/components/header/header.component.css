@@ -1,5 +1,5 @@
-a {
-    font-size: 2em
+h1 {
+    padding-top: 18px;
 }
 
 nav {
@@ -9,8 +9,4 @@ nav {
 
 img {
     float: left;
-}
-
-h1 {
-    padding-top: 18px;
 }

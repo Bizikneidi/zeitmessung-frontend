@@ -1,0 +1,40 @@
+#background {
+    position: absolute;
+    top: 0;
+    background-size:cover; 
+    background-repeat: no-repeat;
+    background-image: url('../../../assets/images/bgCurve.png');
+    height: 100%;
+    width: 100%;
+}
+
+h2 {
+    font-weight: bold;
+    color: #2a2a2a;
+}
+
+p {
+    font-size: 14px
+}
+
+a {
+    border-bottom: 3px solid #26D2B3;
+    padding-bottom: 5px;
+    color: #26D2B3;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.card-img-top {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.container {
+    margin-top: 20vh;
+    margin-bottom: 80px;
+}

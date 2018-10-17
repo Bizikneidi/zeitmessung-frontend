@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-11 col-md-9 col-lg-8">
+      <div class="card shadow-lg pb-3">
+        <div class="row">
+          <div class="col-1">
+            <a class="card-title" [routerLink]="['/']">
+              <fa-icon [icon]="faArrow"></fa-icon>
+            </a>
+          </div>
+          <div class="col-11">
+            <div class="card-title">
+              <h2>Registrierung</h2>
+              <p>Füllen Sie das Formular aus, um teilzunehmen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-1 col-11">
+            <div class="card-body">
+              <form #registerform="ngForm" (ngSubmit)="register()">
+                <table>
+                  <tr>
+                    <td>
+                      <input type="text" class="form-control" [ngClass]="firstName.errors && (firstName.touched || firstName.dirty) ? 'has-error' : 'x'"
+                        name="firstName" placeholder="Vorname" [(ngModel)]="participant.Firstname" #firstName="ngModel"
+                        required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([ ][A-ZÄÜÖ][a-zäüö]+)*$'">
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" [ngClass]="lastName.errors && (lastName.touched || lastName.dirty) ? 'has-error' : 'x'"
+                        name="lastName" placeholder="Nachname" [(ngModel)]="participant.Lastname" #lastName="ngModel"
+                        required [pattern]="'^[A-ZÄÜÖ][a-zäüö]+(-[A-ZÄÜÖ][a-zäüö]+)?$'">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Geschlecht</p>
+                      <div class="sex">
+                        <label class="radio">m
+                          <input type="radio" name="sex" [checked]="participant.Sex === 'm'" (change)="changeSex('m')">
+                          <span class="checkmark"></span>
+                        </label>
+                        <label class="radio">f
+                          <input type="radio" name="sex" [checked]="participant.Sex === 'w'" (change)="changeSex('w')">
+                          <span class="checkmark"></span>
+                        </label>
+                        <label class="radio">s
+                          <input type="radio" name="sex" [checked]="participant.Sex === 'o'" (change)="changeSex('o')">
+                          <span class="checkmark"></span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <input type="number" min="1920" max="3000" class="form-control" name="dob" placeholder="Geburtsjahr"
+                        [(ngModel)]="participant.YearGroup" required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality" required>
+                        <option selected="selected" id="selectstandard" [ngValue]="Nationalitaet" disabled>Nationalität</option>
+                        <option *ngFor="let country of countryList" [ngValue]="country.ISO">{{country.Name}}</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" [ngClass]="city.errors && (city.touched || city.dirty) ? 'has-error' : 'x'"
+                        name="city" placeholder="Stadt" [(ngModel)]="participant.City" #city="ngModel" required
+                        [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" class="form-control" [ngClass]="street.errors && (street.touched || street.dirty) ? 'has-error' : 'x'"
+                        name="street" placeholder="Strasse" [(ngModel)]="participant.Street" #street="ngModel" required
+                        [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'">
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" [ngClass]="postalCode.errors && (postalCode.touched || postalCode.dirty) ? 'has-error' : 'x'"
+                        name="postalCode" placeholder="PLZ" [(ngModel)]="participant.PostalCode" #postalCode="ngModel"
+                        required [pattern]="'^([A-ZÄÜÖa-zäüö0-9-:\/]+)$'">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" class="form-control" [ngClass]="housenumber.errors && (housenumber.touched || housenumber.dirty) ? 'has-error' : 'x'"
+                        name="housenumber" placeholder="Hausnummer" [(ngModel)]="participant.HouseNumber" #housenumber="ngModel"
+                        required [pattern]="'^([A-ZÄÜÖa-zäüö0-9\/])+$'">
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" [ngClass]="team.errors && (team.touched || team.dirty) ? 'has-error' : 'x'"
+                        name="team" placeholder="Verein / Team" [(ngModel)]="participant.Team" #team="ngModel" required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="email" class="form-control" [ngClass]="mail.errors && (mail.touched || mail.dirty) ? 'has-error' : 'x'"
+                        name="email" placeholder="Email" [(ngModel)]="participant.Email" #mail="ngModel" required email="true">
+                    </td>
+
+                    <td>
+                      <input type="text" class="form-control" name="phone" [ngClass]="phone.errors && (phone.touched || phone.dirty) ? 'has-error' : 'x'"
+                        placeholder="Telefon" [(ngModel)]="participant.PhoneNumber" #phone="ngModel" required [pattern]="'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[- \./0-9]*$'">
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="mt-3">
+                  <label class="radio">Ich stimme den Datenschutzrichtlinien zu.
+                    <input type="radio" name="agreement" value="true">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <a href="#" class="card-link" (click)="register()" [ngClass]="registerform.valid && sexAndCountryAreSet() ? '' : 'form-invalid'">
+                  REGISTRIEREN ➜
+                </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
