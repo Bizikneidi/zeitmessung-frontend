@@ -17,7 +17,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   curTime = 0;
   localStartTime = 0;
   measuring: boolean;
-  viewerMessage = 'Lade...';
+  message = 'Lade...';
 
   mesStart: MeasurementStart;
   stopNum: number;
@@ -69,13 +69,13 @@ export class ViewerComponent implements OnInit, OnDestroy {
   setViewerMessage(tm: TimeMeterState) {
     switch (tm) {
       case TimeMeterState.Ready:
-        this.viewerMessage = 'Eine Station ist bereit, warte auf Admin.';
+        this.message = 'Eine Station ist bereit, warte auf Admin.';
         break;
       case TimeMeterState.Measuring:
-        this.viewerMessage = 'Eine Messung ist derzeitig im gange.';
+        this.message = 'Eine Messung ist derzeitig im gange.';
         break;
       case TimeMeterState.Disabled:
-        this.viewerMessage = 'Warte auf Station.';
+        this.message = 'Warte auf Station.';
         break;
     }
   }
