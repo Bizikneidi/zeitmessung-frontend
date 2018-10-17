@@ -81,7 +81,7 @@
                   <span class="checkmark"></span>
                 </label><br>
 
-                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()" [ngClass]="registerform.valid ? 'x' : 'form-invalid'">REGISTER ➜</a></div>
+                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()" [ngClass]="registerform.valid && sexIsSet() ? 'x' : 'form-invalid'">REGISTER ➜</a></div>
               </form>
             </div>
           </div>
