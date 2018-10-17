@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   faArrow = faLongArrowAltLeft;
   notReady = true;
   subscription: Subscription;
-  message = 'Loading...';
+  message = 'Lade...';
 
   constructor(public service: AdminService) { }
 
@@ -21,13 +21,13 @@ export class AdminComponent implements OnInit, OnDestroy {
      this.subscription = this.service.state.subscribe((data: TimeMeterState) => {
         if (data === TimeMeterState.Ready) {
           this.notReady = false;
-          this.message = 'Currently measuring';
+          this.message = 'Eine Station ist bereit, drücken Sie START, um zu starten!';
         } else if (data === TimeMeterState.Measuring) {
           this.notReady = true;
-          this.message = 'A station is connected, press start to start a race!';
+          this.message = 'Eine Messung ist derzeitig im gange.';
         } else if (data === TimeMeterState.Disabled) {
           this.notReady = true;
-          this.message = 'You can press start, once a station has connected';
+          this.message = 'Sie können starten, sobald eine Station verbunden ist.';
         }
      });
   }
@@ -40,5 +40,4 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
     this.service.disconnect();
   }
-
 }

@@ -8,7 +8,7 @@
                     </a>
                 </div>
                 <div class="card-title mb-0">
-                    Viewer
+                    Zuschauer
                     <p>{{viewerMessage}}</p>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     <p class="decis">{{curTime | milliSecondsToTime:true}}</p>
                 </div>
                 <div *ngIf="!measuring && (prevTime >= 0)" class="offset-md-2 align-self-end">
-                    <p class="time-small">Previous run:</p>
+                    <p class="time-small">Vorheriges Rennen:</p>
                     <br />
                     <p class="time-small">{{prevTime | milliSecondsToTime}}</p>
                     <p class="decis-small">{{prevTime | milliSecondsToTime:true}}</p>

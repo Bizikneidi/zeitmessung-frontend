@@ -26,7 +26,6 @@ export class ViewerComponent implements OnInit, OnDestroy {
   startSubscription: Subscription;
   stopSubscription: Subscription;
 
-
   constructor(private viewerService: ViewerService) {
     this.stateSubscription = this.viewerService.state.subscribe(tm => {
       this.measuring = (tm === TimeMeterState.Measuring);
@@ -66,16 +65,14 @@ export class ViewerComponent implements OnInit, OnDestroy {
   setViewerMessage(tm: TimeMeterState) {
     switch (tm) {
       case TimeMeterState.Ready:
-        this.viewerMessage = 'Ready and waiting for a run to start!';
-        break;
-      case TimeMeterState.MeasurementRequested:
-        this.viewerMessage = 'Measurement requested, waiting for station';
+        this.viewerMessage = 'Eine Station ist bereit, warte auf Admin.';
         break;
       case TimeMeterState.Measuring:
-        this.viewerMessage = 'Currently measuring';
+        this.viewerMessage = 'Eine Messung ist derzeitig im gange.';
         break;
-      default:
-        this.viewerMessage = 'Measurement disabled or not working';
+        case TimeMeterState.Disabled:
+        this.viewerMessage = 'Warte auf Station.';
+        break;
     }
   }
 }

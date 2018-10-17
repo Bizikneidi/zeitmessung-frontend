@@ -8,8 +8,8 @@
           </div>
           <div class="col-11 col-md-8">
             <div>
-              <h2>Participant</h2>
-              <sub>Fill in the form to register for the run</sub>
+              <h2>Registrierung</h2>
+              <sub>Füllen Sie das Formular aus, um teilzunehmen.</sub>
               <form #registerform="ngForm" (ngSubmit)="register()">
                 <table>
                   <tr>
@@ -21,7 +21,7 @@
                   </tr>
                   <tr>
                     <th>
-                      <p>Sex</p>
+                      <p>Geschlecht</p>
 
                       <label class="radio">m
                         <input type="radio" name="sex" [checked]="participant.Sex === 'm'" (change)="changeSex('m')">
@@ -31,7 +31,7 @@
                         <input type="radio" name="sex" [checked]="participant.Sex === 'w'" (change)="changeSex('w')">
                         <span class="checkmark"></span>
                       </label>
-                      <label class="radio">o
+                      <label class="radio">s
                         <input type="radio" name="sex" [checked]="participant.Sex === 'o'" (change)="changeSex('o')">
                         <span class="checkmark"></span>
                       </label>
@@ -42,7 +42,7 @@
                   <tr>
                     <th>
                       <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality" required>
-                        <option selected="selected" id="selectstandard" [ngValue]="nationality" disabled>nationality
+                        <option selected="selected" id="selectstandard" [ngValue]="nationality" disabled>Nationalität
                         </option>
 
                         <option *ngFor="let country of countryList" [ngValue]="country.ISO">{{country.Name}}</option>
@@ -76,12 +76,12 @@
                 </table>
 
 
-                <label class="radio">I accept the data agreement
+                <label class="radio">Ich stimme den Datenschutzrichtlinien zu.
                   <input type="radio" name="agreement" value="true">
                   <span class="checkmark"></span>
                 </label><br>
 
-                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()" [ngClass]="registerform.valid && sexAndCountryAreSet() ? 'x' : 'form-invalid'">REGISTER ➜</a></div>
+                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()" [ngClass]="registerform.valid && sexAndCountryAreSet() ? 'x' : 'form-invalid'">REGISTRIEREN ➜</a></div>
               </form>
             </div>
           </div>
