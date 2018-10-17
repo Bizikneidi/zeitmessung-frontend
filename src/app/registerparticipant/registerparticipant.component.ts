@@ -19,10 +19,15 @@ export class RegisterparticipantComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.participant.Sex = null;
   }
 
   changeSex(c) {
     this.participant.Sex = c;
+  }
+
+  sexAndCountryAreSet(): Boolean {
+    return this.participant.Sex !== null && this.participant.Nationality !== 'nationality';
   }
 
   register() {

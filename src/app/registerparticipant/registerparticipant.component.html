@@ -37,11 +37,11 @@
                       </label>
                     </th>
                     <th><input type="number" min="1920" max="3000" class="form-control" name="dob"
-                               placeholder="year of birth" [(ngModel)]="participant.YearGroup"></th>
+                               placeholder="year of birth" [(ngModel)]="participant.YearGroup" required></th>
                   </tr>
                   <tr>
                     <th>
-                      <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality">
+                      <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality" required>
                         <option selected="selected" id="selectstandard" [ngValue]="nationality" disabled>nationality
                         </option>
 
@@ -49,25 +49,29 @@
                       </select>
                     </th>
                     <th><input type="text" class="form-control" [ngClass]="city.errors && (city.touched || city.dirty) ? 'has-error' : 'x'" name="city" placeholder="city"
-                               [(ngModel)]="participant.City" #city="ngModel" required [pattern]="'^([A-Za-z ./-])*$'"></th>
+                               [(ngModel)]="participant.City" #city="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'"></th>
                   </tr>
                   <tr>
-                    <th><input type="text" class="form-control" name="street" placeholder="street"
-                               [(ngModel)]="participant.Street"></th>
-                    <th><input type="text" class="form-control" name="postalcode" placeholder="postalcode"
-                               [(ngModel)]="participant.PostalCode"></th>
+                    <th><input type="text" class="form-control" [ngClass]="street.errors && (street.touched || street.dirty) ? 'has-error' : 'x'" name="street" placeholder="street"
+                               [(ngModel)]="participant.Street" #street="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'"></th>
+
+                    <th><input type="text" class="form-control" [ngClass]="postalCode.errors && (postalCode.touched || postalCode.dirty) ? 'has-error' : 'x'" name="postalCode" placeholder="postalcode"
+                               [(ngModel)]="participant.PostalCode" #postalCode="ngModel" required [pattern]="'^([A-ZÄÜÖa-zäüö0-9-:\/]+)$'"></th>
+                  </tr>
+
+                  <tr>
+                    <th><input type="text" class="form-control" [ngClass]="housenumber.errors && (housenumber.touched || housenumber.dirty) ? 'has-error' : 'x'" name="housenumber" placeholder="house number"
+                               [(ngModel)]="participant.HouseNumber" #housenumber="ngModel" required [pattern]="'^([A-ZÄÜÖa-zäüö0-9\/])+$'"></th>
+
+                    <th><input type="text" class="form-control" [ngClass]="team.errors && (team.touched || team.dirty) ? 'has-error' : 'x'" name="team" placeholder="team"
+                               [(ngModel)]="participant.Team" #team="ngModel" required></th>
                   </tr>
                   <tr>
-                    <th><input type="text" class="form-control" name="housenumber" placeholder="house number"
-                               [(ngModel)]="participant.HouseNumber"></th>
-                    <th><input type="text" class="form-control" name="team" placeholder="team"
-                               [(ngModel)]="participant.Team"></th>
-                  </tr>
-                  <tr>
-                    <th><input type="email" class="form-control" name="email" placeholder="email"
-                               [(ngModel)]="participant.Email"></th>
-                    <th><input type="text" class="form-control" name="phone" placeholder="phone"
-                               [(ngModel)]="participant.PhoneNumber"></th>
+                    <th><input type="email" class="form-control" [ngClass]="mail.errors && (mail.touched || mail.dirty) ? 'has-error' : 'x'" name="email" placeholder="email"
+                               [(ngModel)]="participant.Email" #mail="ngModel" required email="true"></th>
+
+                    <th><input type="text" class="form-control" name="phone" [ngClass]="phone.errors && (phone.touched || phone.dirty) ? 'has-error' : 'x'" placeholder="phone"
+                               [(ngModel)]="participant.PhoneNumber" #phone="ngModel"required [pattern]="'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[- \./0-9]*$'"></th>
                   </tr>
                 </table>
 
@@ -77,7 +81,7 @@
                   <span class="checkmark"></span>
                 </label><br>
 
-                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()">REGISTER ➜</a></div>
+                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()" [ngClass]="registerform.valid && sexAndCountryAreSet() ? 'x' : 'form-invalid'">REGISTER ➜</a></div>
               </form>
             </div>
           </div>

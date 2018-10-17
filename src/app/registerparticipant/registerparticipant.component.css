@@ -192,3 +192,8 @@ select:-moz-focusring {
 .x {
 
 }
+
+.form-invalid {
+  pointer-events: none;
+  cursor: default;
+}
