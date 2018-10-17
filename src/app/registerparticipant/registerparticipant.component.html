@@ -49,11 +49,11 @@
                       </select>
                     </th>
                     <th><input type="text" class="form-control" [ngClass]="city.errors && (city.touched || city.dirty) ? 'has-error' : 'x'" name="city" placeholder="city"
-                               [(ngModel)]="participant.City" #city="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'"></th>
+                               [(ngModel)]="participant.City" #city="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖa-zäüö]+)*$'"></th>
                   </tr>
                   <tr>
                     <th><input type="text" class="form-control" [ngClass]="street.errors && (street.touched || street.dirty) ? 'has-error' : 'x'" name="street" placeholder="street"
-                               [(ngModel)]="participant.Street" #street="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'"></th>
+                               [(ngModel)]="participant.Street" #street="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖa-zäüö]+)*$'"></th>
 
                     <th><input type="text" class="form-control" [ngClass]="postalCode.errors && (postalCode.touched || postalCode.dirty) ? 'has-error' : 'x'" name="postalCode" placeholder="postalcode"
                                [(ngModel)]="participant.PostalCode" #postalCode="ngModel" required [pattern]="'^([A-ZÄÜÖa-zäüö0-9-:\/]+)$'"></th>
