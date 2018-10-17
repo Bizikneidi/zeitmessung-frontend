@@ -13,11 +13,13 @@
               <form #registerform="ngForm" (ngSubmit)="register()">
                 <table>
                   <tr>
-                    <th><input type="text" class="form-control" [ngClass]="firstName.errors && (firstName.touched || firstName.dirty) ? 'has-error' : 'x'" name="firstName" placeholder="first name"
-                               [(ngModel)]="participant.Firstname" #firstName="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([ ][A-ZÄÜÖ][a-zäüö]+)*$'">
+                    <th><input type="text" class="form-control" [ngClass]="firstName.errors && (firstName.touched || firstName.dirty) ? 'has-error' : 'x'"
+                        name="firstName" placeholder="Vorname" [(ngModel)]="participant.Firstname" #firstName="ngModel"
+                        required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([ ][A-ZÄÜÖ][a-zäüö]+)*$'">
                     </th>
-                    <th><input type="text" class="form-control" [ngClass]="lastName.errors && (lastName.touched || lastName.dirty) ? 'has-error' : 'x'" name="lastName" placeholder="last name"
-                               [(ngModel)]="participant.Lastname" #lastName="ngModel" required [pattern]="'^[A-ZÄÜÖ][a-zäüö]+(-[A-ZÄÜÖ][a-zäüö]+)?$'"></th>
+                    <th><input type="text" class="form-control" [ngClass]="lastName.errors && (lastName.touched || lastName.dirty) ? 'has-error' : 'x'"
+                        name="lastName" placeholder="Nachname" [(ngModel)]="participant.Lastname" #lastName="ngModel"
+                        required [pattern]="'^[A-ZÄÜÖ][a-zäüö]+(-[A-ZÄÜÖ][a-zäüö]+)?$'"></th>
                   </tr>
                   <tr>
                     <th>
@@ -36,42 +38,46 @@
                         <span class="checkmark"></span>
                       </label>
                     </th>
-                    <th><input type="number" min="1920" max="3000" class="form-control" name="dob"
-                               placeholder="year of birth" [(ngModel)]="participant.YearGroup" required></th>
+                    <th><input type="number" min="1920" max="3000" class="form-control" name="dob" placeholder="Geburtsdatum"
+                        [(ngModel)]="participant.YearGroup" required></th>
                   </tr>
                   <tr>
                     <th>
                       <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality" required>
-                        <option selected="selected" id="selectstandard" [ngValue]="Nationalität" disabled>Nationalität
+                        <option selected="selected" id="selectstandard" [ngValue]="Nationalitaet" disabled>Nationalität
                         </option>
 
                         <option *ngFor="let country of countryList" [ngValue]="country.ISO">{{country.Name}}</option>
                       </select>
                     </th>
-                    <th><input type="text" class="form-control" [ngClass]="city.errors && (city.touched || city.dirty) ? 'has-error' : 'x'" name="city" placeholder="city"
-                               [(ngModel)]="participant.City" #city="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'"></th>
+                    <th><input type="text" class="form-control" [ngClass]="city.errors && (city.touched || city.dirty) ? 'has-error' : 'x'"
+                        name="city" placeholder="Stadt" [(ngModel)]="participant.City" #city="ngModel" required
+                        [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'"></th>
                   </tr>
                   <tr>
-                    <th><input type="text" class="form-control" [ngClass]="street.errors && (street.touched || street.dirty) ? 'has-error' : 'x'" name="street" placeholder="street"
-                               [(ngModel)]="participant.Street" #street="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'"></th>
+                    <th><input type="text" class="form-control" [ngClass]="street.errors && (street.touched || street.dirty) ? 'has-error' : 'x'"
+                        name="street" placeholder="Strasse" [(ngModel)]="participant.Street" #street="ngModel" required
+                        [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'"></th>
 
-                    <th><input type="text" class="form-control" [ngClass]="postalCode.errors && (postalCode.touched || postalCode.dirty) ? 'has-error' : 'x'" name="postalCode" placeholder="postalcode"
-                               [(ngModel)]="participant.PostalCode" #postalCode="ngModel" required [pattern]="'^([A-ZÄÜÖa-zäüö0-9-:\/]+)$'"></th>
+                    <th><input type="text" class="form-control" [ngClass]="postalCode.errors && (postalCode.touched || postalCode.dirty) ? 'has-error' : 'x'"
+                        name="postalCode" placeholder="PLZ" [(ngModel)]="participant.PostalCode" #postalCode="ngModel"
+                        required [pattern]="'^([A-ZÄÜÖa-zäüö0-9-:\/]+)$'"></th>
                   </tr>
 
                   <tr>
-                    <th><input type="text" class="form-control" [ngClass]="housenumber.errors && (housenumber.touched || housenumber.dirty) ? 'has-error' : 'x'" name="housenumber" placeholder="house number"
-                               [(ngModel)]="participant.HouseNumber" #housenumber="ngModel" required [pattern]="'^([A-ZÄÜÖa-zäüö0-9\/])+$'"></th>
+                    <th><input type="text" class="form-control" [ngClass]="housenumber.errors && (housenumber.touched || housenumber.dirty) ? 'has-error' : 'x'"
+                        name="housenumber" placeholder="Hausnummer" [(ngModel)]="participant.HouseNumber"
+                        #housenumber="ngModel" required [pattern]="'^([A-ZÄÜÖa-zäüö0-9\/])+$'"></th>
 
-                    <th><input type="text" class="form-control" [ngClass]="team.errors && (team.touched || team.dirty) ? 'has-error' : 'x'" name="team" placeholder="team"
-                               [(ngModel)]="participant.Team" #team="ngModel" required></th>
+                    <th><input type="text" class="form-control" [ngClass]="team.errors && (team.touched || team.dirty) ? 'has-error' : 'x'"
+                        name="team" placeholder="Verein / Team" [(ngModel)]="participant.Team" #team="ngModel" required></th>
                   </tr>
                   <tr>
-                    <th><input type="email" class="form-control" [ngClass]="mail.errors && (mail.touched || mail.dirty) ? 'has-error' : 'x'" name="email" placeholder="email"
-                               [(ngModel)]="participant.Email" #mail="ngModel" required email="true"></th>
+                    <th><input type="email" class="form-control" [ngClass]="mail.errors && (mail.touched || mail.dirty) ? 'has-error' : 'x'"
+                        name="email" placeholder="Email" [(ngModel)]="participant.Email" #mail="ngModel" required email="true"></th>
 
-                    <th><input type="text" class="form-control" name="phone" [ngClass]="phone.errors && (phone.touched || phone.dirty) ? 'has-error' : 'x'" placeholder="phone"
-                               [(ngModel)]="participant.PhoneNumber" #phone="ngModel"required [pattern]="'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[- \./0-9]*$'"></th>
+                    <th><input type="text" class="form-control" name="phone" [ngClass]="phone.errors && (phone.touched || phone.dirty) ? 'has-error' : 'x'"
+                        placeholder="Telefon" [(ngModel)]="participant.PhoneNumber" #phone="ngModel" required [pattern]="'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[- \./0-9]*$'"></th>
                   </tr>
                 </table>
 
@@ -81,7 +87,8 @@
                   <span class="checkmark"></span>
                 </label><br>
 
-                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()" [ngClass]="registerform.valid && sexAndCountryAreSet() ? 'x' : 'form-invalid'">REGISTRIEREN ➜</a></div>
+                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()" [ngClass]="registerform.valid && sexAndCountryAreSet() ? 'x' : 'form-invalid'">REGISTRIEREN
+                    ➜</a></div>
               </form>
             </div>
           </div>

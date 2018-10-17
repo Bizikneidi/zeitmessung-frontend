@@ -27,7 +27,7 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
   }
 
   sexAndCountryAreSet(): Boolean {
-    return this.participant.Sex !== null && this.participant.Nationality !== 'Nationalität';
+    return this.participant.Sex !== null && this.participant.Nationality !== 'Nationalitaet';
   }
 
   register() {

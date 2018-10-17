@@ -1,24 +1,25 @@
-.card{
-   
-    height: 500px;
+.card {
     border-radius: 20px;
 }
 
-.card-title{
-    padding: 30px;
+.card-title {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
     font-size: 2em;
+    color:#2a2a2a;
 }
 
-a{
+a {
     display: block;
-    color:black;
+    color:#2a2a2a;
 }
 
-.card-title>p{
+.card-title > p {
     font-size: 15px
 }
 
-button{
+button {
     width: 180px;
     height: 180px;
     border-radius: 90px;
@@ -26,9 +27,20 @@ button{
     color: #26D2B3;
     font-size: 25px;
     background-color: white;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+button:enabled {
+    cursor: pointer;
 }
 
 button:disabled{
     color: #E8E8E8;
     border-color: #E8E8E8;
+}
+
+.container {
+    margin-top: 20vh;
+    margin-bottom: 80px;
 }
