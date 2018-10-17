@@ -1,8 +1,8 @@
-import { NavigationcardsComponent } from '../app/navigationcards/navigationcards.component';
-import { AdminComponent } from '../app/admin/admin.component';
-import { ViewerComponent } from '../app/viewer/viewer.component';
-import {RegisterparticipantComponent} from '../app/registerparticipant/registerparticipant.component';
-import { PoliciesComponent } from '../app/policies/policies.component';
+import { RegisterparticipantComponent } from '../app/components/registerparticipant/registerparticipant.component';
+import { ViewerComponent } from '../app/components/viewer/viewer.component';
+import { AdminComponent } from '../app/components/admin/admin.component';
+import { PoliciesComponent } from '../app/components/policies/policies.component';
+import { NavigationcardsComponent } from '../app/components/navigationcards/navigationcards.component';
 
 export const environment = {
   production: true,

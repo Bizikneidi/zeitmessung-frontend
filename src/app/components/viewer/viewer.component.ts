@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ViewerService } from '../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
-import { TimeMeterState } from '../entities/timemeterstate';
-import { MeasurementStart } from '../entities/measurementstart';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
+import { MeasurementStart } from '../../entities/measurementstart';
+import { ViewerService } from '../../services/viewer/viewer.service';
+import { TimeMeterState } from '../../entities/timemeterstate';
 
 @Component({
   selector: 'app-viewer',
@@ -13,15 +13,15 @@ import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 export class ViewerComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
-  measuring: boolean;
-  viewerMessage = 'Ready and waiting for a run to start!';
   prevTime = 0;
   curTime = 0;
   localStartTime = 0;
+  measuring: boolean;
+  viewerMessage = 'Lade...';
 
-  timeMeter: TimeMeterState;
   mesStart: MeasurementStart;
   stopNum: number;
+
   stateSubscription: Subscription;
   startSubscription: Subscription;
   stopSubscription: Subscription;
@@ -31,6 +31,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
       this.measuring = (tm === TimeMeterState.Measuring);
       this.setViewerMessage(tm);
      });
+
     this.startSubscription = this.viewerService.start.subscribe(ms => {
       this.mesStart = ms;
 
@@ -38,6 +39,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
       const timeDif = this.localStartTime -  this.mesStart.CurrentTime;
       this.localStartTime -= timeDif;
     });
+
     this.stopSubscription = this.viewerService.stop.subscribe(sn => {
       this.stopNum = sn;
       this.prevTime = sn - this.mesStart.StartTime;
@@ -46,7 +48,6 @@ export class ViewerComponent implements OnInit, OnDestroy {
     setInterval(() => {
       if (this.measuring) {
         this.curTime = Date.now() - this.localStartTime;
-        // console.log(this.curTime);
       }
     }, 0);
   }
@@ -59,6 +60,8 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.stateSubscription.unsubscribe();
     this.startSubscription.unsubscribe();
     this.stopSubscription.unsubscribe();
+
+    this.viewerService.disconnect();
   }
 
 
