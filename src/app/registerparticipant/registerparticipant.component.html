@@ -60,16 +60,18 @@
                   </tr>
 
                   <tr>
-                    <th><input type="text" class="form-control" name="housenumber" placeholder="house number"
-                               [(ngModel)]="participant.HouseNumber"></th>
-                    <th><input type="text" class="form-control" name="team" placeholder="team"
-                               [(ngModel)]="participant.Team"></th>
+                    <th><input type="text" class="form-control" [ngClass]="housenumber.errors && (housenumber.touched || housenumber.dirty) ? 'has-error' : 'x'" name="housenumber" placeholder="house number"
+                               [(ngModel)]="participant.HouseNumber" #housenumber="ngModel" required [pattern]="'^([A-ZÄÜÖa-zäüö0-9\/])+$'"></th>
+
+                    <th><input type="text" class="form-control" [ngClass]="team.errors && (team.touched || team.dirty) ? 'has-error' : 'x'" name="team" placeholder="team"
+                               [(ngModel)]="participant.Team" #team="ngModel" required></th>
                   </tr>
                   <tr>
-                    <th><input type="email" class="form-control" name="email" placeholder="email"
-                               [(ngModel)]="participant.Email"></th>
-                    <th><input type="text" class="form-control" name="phone" placeholder="phone"
-                               [(ngModel)]="participant.PhoneNumber"></th>
+                    <th><input type="email" class="form-control" [ngClass]="mail.errors && (mail.touched || mail.dirty) ? 'has-error' : 'x'" name="email" placeholder="email"
+                               [(ngModel)]="participant.Email" #mail="ngModel" required email="true"></th>
+
+                    <th><input type="text" class="form-control" name="phone" [ngClass]="phone.errors && (phone.touched || phone.dirty) ? 'has-error' : 'x'" placeholder="phone"
+                               [(ngModel)]="participant.PhoneNumber" #phone="ngModel"required [pattern]="'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$'"></th>
                   </tr>
                 </table>
 
