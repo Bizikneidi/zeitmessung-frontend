@@ -71,7 +71,7 @@
                                [(ngModel)]="participant.Email" #mail="ngModel" required email="true"></th>
 
                     <th><input type="text" class="form-control" name="phone" [ngClass]="phone.errors && (phone.touched || phone.dirty) ? 'has-error' : 'x'" placeholder="phone"
-                               [(ngModel)]="participant.PhoneNumber" #phone="ngModel"required [pattern]="'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$'"></th>
+                               [(ngModel)]="participant.PhoneNumber" #phone="ngModel"required [pattern]="'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[- \./0-9]*$'"></th>
                   </tr>
                 </table>
 
