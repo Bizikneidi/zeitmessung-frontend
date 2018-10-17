@@ -26,8 +26,8 @@ export class RegisterparticipantComponent implements OnInit {
     this.participant.Sex = c;
   }
 
-  sexIsSet(): Boolean {
-    return this.participant.Sex !== null;
+  sexAndCountryAreSet(): Boolean {
+    return this.participant.Sex !== null && this.participant.Nationality !== 'nationality';
   }
 
   register() {

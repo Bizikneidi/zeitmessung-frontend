@@ -41,7 +41,7 @@
                   </tr>
                   <tr>
                     <th>
-                      <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality">
+                      <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality" required>
                         <option selected="selected" id="selectstandard" [ngValue]="nationality" disabled>nationality
                         </option>
 
@@ -81,7 +81,7 @@
                   <span class="checkmark"></span>
                 </label><br>
 
-                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()" [ngClass]="registerform.valid && sexIsSet() ? 'x' : 'form-invalid'">REGISTER ➜</a></div>
+                <div class="card-link"><a href="#" class="card-link mt-5" (click)="register()" [ngClass]="registerform.valid && sexAndCountryAreSet() ? 'x' : 'form-invalid'">REGISTER ➜</a></div>
               </form>
             </div>
           </div>
