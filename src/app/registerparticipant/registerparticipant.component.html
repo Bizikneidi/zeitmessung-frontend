@@ -53,10 +53,10 @@
                   </tr>
                   <tr>
                     <th><input type="text" class="form-control" [ngClass]="street.errors && (street.touched || street.dirty) ? 'has-error' : 'x'" name="street" placeholder="street"
-                               [(ngModel)]="participant.Street" #street="ngModel" required [pattern]="'^[A-ZÄÜÖ][a-zäüö]+(-[A-ZÄÜÖ][a-zäüö]+)?$'"></th>
+                               [(ngModel)]="participant.Street" #street="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'"></th>
 
                     <th><input type="text" class="form-control" [ngClass]="postalCode.errors && (postalCode.touched || postalCode.dirty) ? 'has-error' : 'x'" name="postalCode" placeholder="postalcode"
-                               [(ngModel)]="participant.PostalCode" #postalCode="ngModel" required [pattern]="'^[A-ZÄÜÖ][a-zäüö]+(-[A-ZÄÜÖ][a-zäüö]+)?$'"></th>
+                               [(ngModel)]="participant.PostalCode" #postalCode="ngModel" required [pattern]="'^([A-ZÄÜÖa-zäüö0-9-:\/]+)$'"></th>
                   </tr>
 
                   <tr>
