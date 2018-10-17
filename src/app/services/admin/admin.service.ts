@@ -22,7 +22,6 @@ export class AdminService {
         this.stateSubject.next(received.Data as TimeMeterState); // Pass status to observers
       }
     });
-    this.ws.connect('admin'); // Connect as admin
   }
 
   // send the start command to the server
@@ -31,6 +30,10 @@ export class AdminService {
     msg.Command = AdminCommands.Start;
     msg.Data = null; // No data
     this.ws.send(msg);
+  }
+
+  connect() {
+    this.ws.connect('admin'); // Connect as admin
   }
 
   disconnect() {

@@ -16,7 +16,7 @@ export class WebsocketService {
   }
 
   public connect(path: string) {
-    if (this.ws && !this.ws.CLOSED) { // If websocket has been initialized, disconnect
+    if (this.ws && this.ws.readyState === WebSocket.OPEN) { // If websocket has been initialized, disconnect
       this.disconnect();
     }
     this.ws = new WebSocket('wss://localhost:44307/' + path); // Connect to path
@@ -27,7 +27,7 @@ export class WebsocketService {
   }
 
   public disconnect() {
-    if (!this.ws.CLOSED) {
+    if (this.ws.readyState === WebSocket.OPEN) {
       this.ws.close(); // Close the connection
     }
   }

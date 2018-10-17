@@ -15,10 +15,11 @@ export class AdminComponent implements OnInit, OnDestroy {
   notReady = true;
   message = 'Lade...';
 
-  constructor(public service: AdminService) { }
+  constructor(public admin: AdminService) { }
 
   ngOnInit() {
-    this.subscription = this.service.state.subscribe((data: TimeMeterState) => {
+    this.admin.connect();
+    this.subscription = this.admin.state.subscribe((data: TimeMeterState) => {
       this.notReady = data !== TimeMeterState.Ready;
       switch (data) {
         case TimeMeterState.Ready:
@@ -38,11 +39,11 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   onStartRunClicked() {
-    this.service.startRun();
+    this.admin.startRun();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-    this.service.disconnect();
+    this.admin.disconnect();
   }
 }

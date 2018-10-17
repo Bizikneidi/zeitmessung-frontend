@@ -26,21 +26,25 @@ export class ViewerComponent implements OnInit, OnDestroy {
   startSubscription: Subscription;
   stopSubscription: Subscription;
 
-  constructor(private viewerService: ViewerService) {
-    this.stateSubscription = this.viewerService.state.subscribe(tm => {
+  constructor(private viewer: ViewerService) { }
+
+  ngOnInit() {
+    this.viewer.connect();
+
+    this.stateSubscription = this.viewer.state.subscribe(tm => {
       this.measuring = (tm === TimeMeterState.Measuring);
       this.setViewerMessage(tm);
-     });
+    });
 
-    this.startSubscription = this.viewerService.start.subscribe(ms => {
+    this.startSubscription = this.viewer.start.subscribe(ms => {
       this.mesStart = ms;
 
       this.localStartTime = new Date().getMilliseconds();
-      const timeDif = this.localStartTime -  this.mesStart.CurrentTime;
+      const timeDif = this.localStartTime - this.mesStart.CurrentTime;
       this.localStartTime -= timeDif;
     });
 
-    this.stopSubscription = this.viewerService.stop.subscribe(sn => {
+    this.stopSubscription = this.viewer.stop.subscribe(sn => {
       this.stopNum = sn;
       this.prevTime = sn - this.mesStart.StartTime;
     });
@@ -52,16 +56,13 @@ export class ViewerComponent implements OnInit, OnDestroy {
     }, 0);
   }
 
-  ngOnInit() {
-  }
-
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.stateSubscription.unsubscribe();
     this.startSubscription.unsubscribe();
     this.stopSubscription.unsubscribe();
 
-    this.viewerService.disconnect();
+    this.viewer.disconnect();
   }
 
 
@@ -73,7 +74,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
       case TimeMeterState.Measuring:
         this.viewerMessage = 'Eine Messung ist derzeitig im gange.';
         break;
-        case TimeMeterState.Disabled:
+      case TimeMeterState.Disabled:
         this.viewerMessage = 'Warte auf Station.';
         break;
     }

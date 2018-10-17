@@ -42,7 +42,7 @@
                   <tr>
                     <th>
                       <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality" required>
-                        <option selected="selected" id="selectstandard" [ngValue]="nationality" disabled>Nationalität
+                        <option selected="selected" id="selectstandard" [ngValue]="Nationalität" disabled>Nationalität
                         </option>
 
                         <option *ngFor="let country of countryList" [ngValue]="country.ISO">{{country.Name}}</option>

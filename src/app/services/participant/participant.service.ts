@@ -6,9 +6,7 @@ import { Participant } from '../../entities/participant';
 @Injectable()
 export class ParticipantService {
 
-  constructor(private ws: WebsocketService) {
-    this.ws.connect('participant'); // Connect as potential participant
-  }
+  constructor(private ws: WebsocketService) {  }
 
   // Send a participant entity to store into db
   register(data: Participant) {
@@ -16,6 +14,10 @@ export class ParticipantService {
     msg.Command = ParticipantCommands.Register;
     msg.Data = data;
     this.ws.send(msg);
+  }
+
+  connect() {
+    this.ws.connect('participant'); // Connect as potential participant
   }
 
   disconnect() {

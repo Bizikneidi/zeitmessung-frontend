@@ -1,4 +1,4 @@
-import {Component, Directive, OnInit} from '@angular/core';
+import { Component, Directive, OnInit, OnDestroy } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Participant } from '../../entities/participant';
 import { CountryList } from '../../entities/countryList';
@@ -9,16 +9,16 @@ import { ParticipantService } from '../../services/participant/participant.servi
   templateUrl: './registerparticipant.component.html',
   styleUrls: ['./registerparticipant.component.css']
 })
-export class RegisterparticipantComponent implements OnInit {
+export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
   icon = faLongArrowAltLeft;
   participant = new Participant();
   countryList = CountryList.ListOfCountries;
 
-  constructor(private ws: ParticipantService) {
-  }
+  constructor(private ps: ParticipantService) { }
 
   ngOnInit() {
+    this.ps.connect();
     this.participant.Sex = null;
   }
 
@@ -27,11 +27,14 @@ export class RegisterparticipantComponent implements OnInit {
   }
 
   sexAndCountryAreSet(): Boolean {
-    return this.participant.Sex !== null && this.participant.Nationality !== 'nationality';
+    return this.participant.Sex !== null && this.participant.Nationality !== 'Nationalität';
   }
 
   register() {
-    this.ws.register(this.participant);
-    this.ws.disconnect();
+    this.ps.register(this.participant);
+  }
+
+  ngOnDestroy() {
+    this.ps.disconnect();
   }
 }
