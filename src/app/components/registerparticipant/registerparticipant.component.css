@@ -1,26 +1,32 @@
-/*.card {
-  box-shadow: 0px 0px 16px #888888;
-}*/
+.card {
+  border-radius: 20px;
+}
+
+.card-title {
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color:#2a2a2a;
+}
+
+a {
+  font-size: 2em;
+  display: block;
+  color:#2a2a2a;
+}
+
+.card-title > p {
+  font-size: 14px
+}
 
 .card-link {
+  border-bottom: 3px solid #26D2B3;
+  padding-bottom: 5px;
+  color: #26D2B3;
+  font-size: 14px;
+  font-weight: bold;
   padding-top: 1rem !important;
-}
-
-.card-footer {
-  opacity: 0;
-}
-
-.form-control {
-  height: 2rem;
-}
-
-table {
-  border: none
-}
-
-input {
-  padding-top: 0;
-  padding-bottom: 0;
+  width: fit-content;
 }
 
 .card {
@@ -28,41 +34,27 @@ input {
   border-radius: 20px;
 }
 
-.row {
-  margin-top: 5vh;
+form p {
+  font-size: 14px; 
 }
 
-table {
-  margin-top: 50px;
-}
-
-th {
-  padding: 0px 20px 10px 0;
-  font-size: 11px;
-}
-
-h2 {
-  font-weight: bolder;
+td {
+  padding-right: 30px;
+  padding-bottom: 10px;
 }
 
 select {
-  width: 100%;
   background-color: white;
   border-radius: 0;
-  -webkit-appearance: none;
   font-size: 1rem;
   padding: 6px 12px;
   color: #495057;
-  -webkit-box-shadow: none;
   box-shadow: none;
-  transition-property: none;
   outline: none !important;
 }
 
 select:focus, option:focus {
   box-shadow: none;
-  -webkit-box-shadow: none;
-  transition-property: none;
   outline: none !important;
 }
 
@@ -70,7 +62,7 @@ input[type=text], input[type=number], input[type=email], select {
   border-radius: 0;
   border: none;
   border-bottom: 2px solid #e8e8e8;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 input[type=text]:focus, input[type=number]:focus, input[type=email]:focus, select:focus {
@@ -78,15 +70,15 @@ input[type=text]:focus, input[type=number]:focus, input[type=email]:focus, selec
   box-shadow: none;
 }
 
-#selectstandard {
-  font-size: 11px;
+.sex {
+  padding-left: 15px;
 }
 
 /* The radio */
-p {
+form p {
   color: #8e8e8e;
   margin-bottom: 8px;
-  padding-left: 12px;
+  padding-left: 10px;
 }
 
 .radio {
@@ -94,7 +86,6 @@ p {
   position: relative;
   padding-left: 20px;
   padding-top: 2px;
-  margin-bottom: 10px;
   margin-right: 5px;
   cursor: pointer;
   font-size: 22px;
@@ -113,7 +104,7 @@ p {
 
 label.radio {
   color: #8e8e8e;
-  font-size: 11px;
+  font-size: 14px;
 }
 
 /* Create a custom radio button */
@@ -149,37 +140,6 @@ label.radio {
   display: inline;
 }
 
-/* Style the indicator (dot/circle) */
-/*.radio .checkmark:after {
-  top: 6px;
-  left: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-}*/
-
-a {
-  border-bottom: 2px solid #26D2B3;
-  padding-bottom: 3px;
-  color: #26D2B3;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-select.minimal {
-  background-image:
-    linear-gradient(45deg, transparent 50%, #8e8e8e 50%),
-    linear-gradient(135deg, #8e8e8e 50%, transparent 50%);
-  background-position:
-    calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px);
-  background-size:
-    5px 5px,
-    5px 5px;
-  background-repeat: no-repeat;
-}
-
 select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
@@ -189,16 +149,12 @@ select:-moz-focusring {
   border-color: red !important;
 }
 
-.x {
-
-}
-
 .form-invalid {
   pointer-events: none;
   cursor: default;
 }
 
-fa-icon {
-  font-size: 2em;
-  cursor: pointer;
+.container {
+  margin-top: 20vh;
+  margin-bottom: 80px;
 }

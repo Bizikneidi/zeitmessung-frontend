@@ -11,14 +11,15 @@ import { ParticipantService } from '../../services/participant/participant.servi
 })
 export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
-  icon = faLongArrowAltLeft;
-  participant = new Participant();
+  faArrow = faLongArrowAltLeft;
+  participant: Participant;
   countryList = CountryList.ListOfCountries;
 
   constructor(private ps: ParticipantService) { }
 
   ngOnInit() {
     this.ps.connect();
+    this.participant = new Participant();
     this.participant.Sex = null;
   }
 
