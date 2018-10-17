@@ -34,7 +34,6 @@ export class RegisterparticipantComponent implements OnInit {
 
   register() {
     this.ws.register(this.participant);
-    this.ws.disconnect();
   }
 
   onAgreementClicked() {
