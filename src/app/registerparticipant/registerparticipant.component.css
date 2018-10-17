@@ -197,3 +197,8 @@ select:-moz-focusring {
   pointer-events: none;
   cursor: default;
 }
+
+fa-icon {
+  font-size: 2em;
+  cursor: pointer;
+}
