@@ -23,7 +23,6 @@ export class WebsocketService {
     // Pass results to subject
     this.ws.onmessage = ev => this.receivedSubject.next(JSON.parse(ev.data));
     this.ws.onerror = ev => this.receivedSubject.error(ev);
-    this.ws.onclose = () => this.receivedSubject.complete();
   }
 
   public disconnect() {
