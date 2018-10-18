@@ -78,7 +78,7 @@
                   </div>
                   <div class="col-12 col-md-6">
                     <input type="text" class="form-control" [ngClass]="team.errors && (team.touched || team.dirty) ? 'has-error' : 'x'"
-                      name="team" placeholder="Verein / Team" [(ngModel)]="participant.Team" #team="ngModel" required>
+                      name="team" placeholder="Verein / Team" [(ngModel)]="participant.Team" #team="ngModel">
                   </div>
                   <div class="col-12 col-md-6">
                     <input type="email" class="form-control" [ngClass]="mail.errors && (mail.touched || mail.dirty) ? 'has-error' : 'x'"
