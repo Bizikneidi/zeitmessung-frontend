@@ -15,7 +15,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   faArrow = faLongArrowAltLeft;
   prevTime = 0;
   curTime = 0;
-  localStartTime = 0;
+  recTime = 0;
   measuring: boolean;
   message = 'Lade...';
 
@@ -38,22 +38,25 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
     this.startSubscription = this.viewer.start.subscribe(ms => {
       this.mesStart = ms;
-
-      this.localStartTime = new Date().getMilliseconds();
-      const timeDif = this.localStartTime - this.mesStart.CurrentTime;
-      this.localStartTime -= timeDif;
+      this.recTime = Date.now();
     });
 
     this.stopSubscription = this.viewer.stop.subscribe(sn => {
       this.stopNum = sn;
       this.prevTime = sn - this.mesStart.StartTime;
+      this.curTime = 0;
     });
 
     setInterval(() => {
       if (this.measuring) {
-        this.curTime = Date.now() - this.localStartTime;
+        this.curTime = this.approximateCurrentTime() - this.mesStart.StartTime;
       }
     }, 0);
+  }
+
+  approximateCurrentTime() {
+    const diff = this.recTime - this.mesStart.CurrentTime;
+    return Date.now() - diff;
   }
 
   ngOnDestroy() {
@@ -65,7 +68,6 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.viewer.disconnect();
   }
 
-
   setViewerMessage(tm: TimeMeterState) {
     switch (tm) {
       case TimeMeterState.Ready:
@@ -73,6 +75,9 @@ export class ViewerComponent implements OnInit, OnDestroy {
         break;
       case TimeMeterState.Measuring:
         this.message = 'Eine Messung ist derzeitig im gange.';
+        break;
+      case TimeMeterState.MeasurementRequested:
+        this.message = 'Warte auf Server.';
         break;
       case TimeMeterState.Disabled:
         this.message = 'Warte auf Station.';
