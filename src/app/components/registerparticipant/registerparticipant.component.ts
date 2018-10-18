@@ -14,6 +14,7 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
   faArrow = faLongArrowAltLeft;
   participant: Participant;
   countryList = CountryList.ListOfCountries;
+  agreed = false;
 
   constructor(private ps: ParticipantService) { }
 
@@ -37,5 +38,9 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.ps.disconnect();
+  }
+
+  onAgreementClicked() {
+    this.agreed = !this.agreed;
   }
 }
