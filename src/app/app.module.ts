@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Pipe, PipeTransform } from '@angular/core';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppComponent } from './app.component';
+import { ContentComponent } from './components/content/content.component';
 import { WebsocketService } from './services/websocket/websocket.service';
 import { AdminService } from './services/admin/admin.service';
 import { ParticipantService } from './services/participant/participant.service';
@@ -21,7 +21,7 @@ import { PoliciesComponent } from './components/policies/policies.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    ContentComponent,
     RegisterparticipantComponent,
     NavigationcardsComponent,
     HeaderComponent,
@@ -35,8 +35,7 @@ import { PoliciesComponent } from './components/policies/policies.component';
     BrowserModule,
     FormsModule,
     FontAwesomeModule,
-    RouterModule.forRoot(environment.appRoutes as Routes),
-    ReactiveFormsModule
+    RouterModule.forRoot(environment.appRoutes as Routes)
   ],
   providers: [
     WebsocketService,
@@ -44,6 +43,6 @@ import { PoliciesComponent } from './components/policies/policies.component';
     ParticipantService,
     ViewerService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ContentComponent]
 })
 export class AppModule { }
