@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="mt-3">
-                  <label class="radio">Ich stimme den Datenschutzrichtlinien zu.
+                  <label class="radio">Ich stimme den <a [routerLink]="['/policies']" target="_blank" class="data-agreement">Datenschutzrichtlinien</a> zu.
                     <input type="radio" name="agreement" [checked]="agreed" (click)="onAgreementClicked()">
                     <span class="checkmark"></span>
                   </label>
