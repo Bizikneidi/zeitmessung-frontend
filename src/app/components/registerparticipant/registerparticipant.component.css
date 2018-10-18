@@ -15,6 +15,12 @@ a {
   color:#2a2a2a;
 }
 
+.data-agreement {
+  color: #2a2a2a;
+  font-size: 14px;
+  display: inline;
+}
+
 .card-title > p {
   font-size: 14px
 }

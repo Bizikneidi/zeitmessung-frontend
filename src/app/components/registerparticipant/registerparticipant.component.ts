@@ -1,9 +1,8 @@
-import { Component, Directive, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Participant } from '../../entities/participant';
 import { CountryList } from '../../entities/countryList';
 import { ParticipantService } from '../../services/participant/participant.service';
-
 @Component({
   selector: 'app-registerparticipant',
   templateUrl: './registerparticipant.component.html',
@@ -43,4 +42,5 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
   onAgreementClicked() {
     this.agreed = !this.agreed;
   }
+
 }
