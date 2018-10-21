@@ -8,7 +8,7 @@ import { ParticipantService } from '../../services/participant/participant.servi
   templateUrl: './registerparticipant.component.html',
   styleUrls: ['./registerparticipant.component.css']
 })
-export class RegisterparticipantComponent implements OnInit, OnDestroy {
+export class RegisterparticipantComponent implements OnInit {
 
   faArrow = faLongArrowAltLeft;
   participant: Participant;
@@ -18,24 +18,25 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
   constructor(private ps: ParticipantService) { }
 
   ngOnInit() {
-    this.ps.connect();
+    // create empty participant
     this.participant = new Participant();
     this.participant.Sex = null;
   }
 
   changeSex(c) {
+    // Must be changed via ts because custom checkboxes don't support binding
     this.participant.Sex = c;
   }
 
   sexAndCountryAreSet(): Boolean {
+    // Required attribute does not work due to default values
     return this.participant.Sex !== null && this.participant.Nationality !== 'Nationalitaet';
   }
 
   register() {
+    // No need to keept the connection open all the time.
+    this.ps.connect();
     this.ps.register(this.participant);
-  }
-
-  ngOnDestroy() {
     this.ps.disconnect();
   }
 

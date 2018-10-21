@@ -13,15 +13,17 @@ import { TimeMeterState } from '../../entities/timemeterstate';
 export class ViewerComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
-  prevTime = 0;
-  curTime = 0;
-  recTime = 0;
+
+  prevResultStationTime = 0; // The result of the latest completed run
+  curResultStationTime = 0; // The result of the current run (is being updated live)
+  recOwnTime = 0; // The local time the client received the start packet
+  recStationTime = 0; // The station time the client received the start packet
+  startStationTime = 0; // The station time when the run was started
+
   measuring: boolean;
   message = 'Lade...';
 
-  mesStart: MeasurementStart;
-  stopNum: number;
-
+  // For cleaning up in onDestroy()
   stateSubscription: Subscription;
   startSubscription: Subscription;
   stopSubscription: Subscription;
@@ -29,33 +31,38 @@ export class ViewerComponent implements OnInit, OnDestroy {
   constructor(private viewer: ViewerService) { }
 
   ngOnInit() {
-    this.viewer.connect();
+    this.viewer.connect(); // Connect on website visit
 
+    // Check for state updates
     this.stateSubscription = this.viewer.state.subscribe(tm => {
       this.measuring = (tm === TimeMeterState.Measuring);
       this.setViewerMessage(tm);
     });
 
+    // Check for the start of a race
     this.startSubscription = this.viewer.start.subscribe(ms => {
-      this.mesStart = ms;
-      this.recTime = Date.now();
+      this.recOwnTime = Date.now();
+      this.recStationTime = ms.CurrentTime;
+      this.startStationTime = ms.StartTime;
     });
 
-    this.stopSubscription = this.viewer.stop.subscribe(sn => {
-      this.stopNum = sn;
-      this.prevTime = sn - this.mesStart.StartTime;
-      this.curTime = 0;
+    // Check for the end of a race
+    this.stopSubscription = this.viewer.stop.subscribe(endTime => {
+      this.prevResultStationTime = endTime - this.startStationTime;
+      this.curResultStationTime = 0;
     });
 
+    // Start live updates for timer
     setInterval(() => {
       if (this.measuring) {
-        this.curTime = this.approximateCurrentTime() - this.mesStart.StartTime;
+        this.curResultStationTime = this.approximateCurrentStationTime() - this.startStationTime;
       }
     }, 0);
   }
 
-  approximateCurrentTime() {
-    const diff = this.recTime - this.mesStart.CurrentTime;
+  // Calculates the current time of the station
+  approximateCurrentStationTime() {
+    const diff = this.recOwnTime - this.recStationTime;
     return Date.now() - diff;
   }
 
@@ -69,6 +76,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   }
 
   setViewerMessage(tm: TimeMeterState) {
+    // Display status to user
     switch (tm) {
       case TimeMeterState.Ready:
         this.message = 'Eine Station ist bereit, warte auf Admin.';
