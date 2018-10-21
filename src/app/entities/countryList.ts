@@ -4,7 +4,7 @@ export class Country {
   public ISO: string;
 
   public constructor(name: string, iso: string) {
-    if (name.length > 20) {
+    if (name.length > 20) { // Shorten for better display
       this.Name = name.substr(0, 20) + '...';
     } else {
       this.Name = name;
@@ -13,6 +13,7 @@ export class Country {
   }
 }
 
+// All known country names and their ISO values
 export class CountryList {
   static ListOfCountries: Array<Country> = [
     new Country('Afghanistan', 'AFG'),

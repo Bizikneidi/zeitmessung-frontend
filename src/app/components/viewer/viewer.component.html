@@ -20,9 +20,9 @@
                         <div class="card-body">
                             <div *ngIf="prevTime == 0" class="placeholder"></div>
                             <div>
-                                <p class="time" [ngClass]="measuring ? 'time' : 'time-grey'">{{curTime |
+                                <p class="time" [ngClass]="measuring ? 'time' : 'time-grey'">{{curResultStationTime |
                                     milliSecondsToTime}}</p>
-                                <p class="decis" [ngClass]="measuring ? 'decis' : 'decis-grey'">{{curTime |
+                                <p class="decis" [ngClass]="measuring ? 'decis' : 'decis-grey'">{{curResultStationTime |
                                     milliSecondsToTime:true}}</p>
                             </div>
                             <div *ngIf="prevTime > 0">

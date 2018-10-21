@@ -29,15 +29,21 @@ button {
     background-color: white;
     margin-top: 100px;
     margin-bottom: 100px;
+    transition: all 0.3s;
 }
 
 button:enabled {
     cursor: pointer;
 }
 
-button:disabled{
+button:disabled {
     color: #E8E8E8;
     border-color: #E8E8E8;
+}
+
+button:hover:enabled {
+    border-width: 18px;
+    font-size: 30px;
 }
 
 .container {
