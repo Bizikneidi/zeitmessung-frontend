@@ -1,0 +1,12 @@
+h1 {
+    padding-top: 18px;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+}
+
+img {
+    float: left;
+}

@@ -1,0 +1,52 @@
+.card {
+    border-radius: 20px;
+}
+
+.card-title {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color:#2a2a2a;
+}
+
+a {
+    font-size: 2em;
+    display: block;
+    color:#2a2a2a;
+}
+
+.card-title > p {
+    font-size: 14px
+}
+
+button {
+    width: 180px;
+    height: 180px;
+    border-radius: 90px;
+    border: 14px solid #26D2B3;
+    color: #26D2B3;
+    font-size: 25px;
+    background-color: white;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    transition: all 0.3s;
+}
+
+button:enabled {
+    cursor: pointer;
+}
+
+button:disabled {
+    color: #E8E8E8;
+    border-color: #E8E8E8;
+}
+
+button:hover:enabled {
+    border-width: 18px;
+    font-size: 30px;
+}
+
+.container {
+    margin-top: 20vh;
+    margin-bottom: 80px;
+}

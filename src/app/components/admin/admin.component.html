@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-11 col-md-9 col-lg-7 col-xl-6">
+      <div class="card shadow-lg">
+        <div class="card-title">
+          <div class="row">
+            <div class="col-1">
+              <a [routerLink]="['/']">
+                <fa-icon [icon]="faArrow"></fa-icon>
+              </a>
+            </div>
+            <div class="col-11">
+              <h2>Admin</h2>
+              <p>{{message}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card-body text-center">
+              <button class="btn" [disabled]="notReady" (click)="onStartRunClicked()">
+                Start
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
