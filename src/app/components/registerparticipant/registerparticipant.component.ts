@@ -8,7 +8,7 @@ import { ParticipantService } from '../../services/participant/participant.servi
   templateUrl: './registerparticipant.component.html',
   styleUrls: ['./registerparticipant.component.css']
 })
-export class RegisterparticipantComponent implements OnInit {
+export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
   participant: Participant;
@@ -21,6 +21,11 @@ export class RegisterparticipantComponent implements OnInit {
     // create empty participant
     this.participant = new Participant();
     this.participant.Sex = null;
+    this.ps.connect();
+  }
+
+  ngOnDestroy() {
+    this.ps.disconnect();
   }
 
   changeSex(c) {
@@ -34,10 +39,7 @@ export class RegisterparticipantComponent implements OnInit {
   }
 
   register() {
-    // No need to keept the connection open all the time.
-    this.ps.connect();
     this.ps.register(this.participant);
-    this.ps.disconnect();
   }
 
   onAgreementClicked() {
