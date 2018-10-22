@@ -53,7 +53,7 @@
                   </div>
                   <div class="col-12 col-md-6">
                     <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality" required>
-                      <option selected="selected" id="selectstandard" [ngValue]="Nationalitaet" disabled>Nationalität</option>
+                      <option selected="selected" id="selectstandard" value="Nationalitaet" disabled>Nationalität</option>
                       <option *ngFor="let country of countryList" [ngValue]="country.ISO">{{country.Name}}</option>
                     </select>
                   </div>
