@@ -23,12 +23,12 @@
                   <div class="col-12 col-md-6">
                     <input type="text" class="form-control" [ngClass]="firstName.errors && (firstName.touched || firstName.dirty) ? 'has-error' : 'x'"
                       name="firstName" placeholder="Vorname" [(ngModel)]="participant.Firstname" #firstName="ngModel"
-                      required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([ ][A-ZÄÜÖ][a-zäüö]+)*$'">
+                      required [pattern]="'^([A-ZÄÜÖ][a-zäüö\u00df]+)([ ][A-ZÄÜÖ][a-zäüö\u00df]+)*$'">
                   </div>
                   <div class="col-12 col-md-6">
                     <input type="text" class="form-control" [ngClass]="lastName.errors && (lastName.touched || lastName.dirty) ? 'has-error' : 'x'"
                       name="lastName" placeholder="Nachname" [(ngModel)]="participant.Lastname" #lastName="ngModel"
-                      required [pattern]="'^[A-ZÄÜÖ][a-zäüö]+(-[A-ZÄÜÖ][a-zäüö]+)?$'">
+                      required [pattern]="'^[A-ZÄÜÖ][a-zäüö\u00df]+(-[A-ZÄÜÖ][a-zäüö\u00df]+)?$'">
                   </div>
                   <div class="col-12 col-md-6">
                     <p>Geschlecht</p>
@@ -59,22 +59,22 @@
                   </div>
                   <div class="col-12 col-md-6">
                     <input type="text" class="form-control" [ngClass]="city.errors && (city.touched || city.dirty) ? 'has-error' : 'x'"
-                      name="city" placeholder="Stadt" [(ngModel)]="participant.City" #city="ngModel" required [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'">
+                      name="city" placeholder="Stadt" [(ngModel)]="participant.City" #city="ngModel" required [pattern]="'^([A-ZÄÜÖa-zäüö\u00df]+)([- \.\/][A-ZÄÜÖa-zäüö\u00df]+)*$'">
                   </div>
                   <div class="col-12 col-md-6">
                     <input type="text" class="form-control" [ngClass]="street.errors && (street.touched || street.dirty) ? 'has-error' : 'x'"
                       name="street" placeholder="Strasse" [(ngModel)]="participant.Street" #street="ngModel" required
-                      [pattern]="'^([A-ZÄÜÖ][a-zäüö]+)([- \.\/][A-ZÄÜÖ][a-zäüö]+)*$'">
+                      [pattern]="'^([A-ZÄÜÖa-zäüö\u00df]+)([- \.\/][A-ZÄÜÖa-zäüö\u00df]+)*$'">
                   </div>
                   <div class="col-12 col-md-6">
                     <input type="text" class="form-control" [ngClass]="postalCode.errors && (postalCode.touched || postalCode.dirty) ? 'has-error' : 'x'"
                       name="postalCode" placeholder="PLZ" [(ngModel)]="participant.PostalCode" #postalCode="ngModel"
-                      required [pattern]="'^([A-ZÄÜÖa-zäüö0-9-:\/]+)$'">
+                      required [pattern]="'^([A-ZÄÜÖa-zäüö\u00df0-9-:\/]+)$'">
                   </div>
                   <div class="col-12 col-md-6">
                     <input type="text" class="form-control" [ngClass]="housenumber.errors && (housenumber.touched || housenumber.dirty) ? 'has-error' : 'x'"
                       name="housenumber" placeholder="Hausnummer" [(ngModel)]="participant.HouseNumber" #housenumber="ngModel"
-                      required [pattern]="'^([A-ZÄÜÖa-zäüö0-9\/])+$'">
+                      required [pattern]="'^([A-ZÄÜÖa-zäüö\u00df0-9\/])+$'">
                   </div>
                   <div class="col-12 col-md-6">
                     <input type="text" class="form-control" [ngClass]="team.errors && (team.touched || team.dirty) ? 'has-error' : 'x'"
