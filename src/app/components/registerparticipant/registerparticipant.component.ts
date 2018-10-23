@@ -35,7 +35,8 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
   sexAndCountryAreSet(): Boolean {
     // Required attribute does not work due to default values
-    return this.participant.Sex !== null && this.participant.Nationality !== 'Nationalitaet';
+    return this.participant.Sex !== null
+      ;
   }
 
   register() {
