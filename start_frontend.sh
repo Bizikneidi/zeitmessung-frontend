@@ -3,4 +3,5 @@
 git pull;
 killall -9 @angular/cli;
 ng build --prod;
-mv dist/* /var/www/html
+rm -rf /var/www/html/*
+mv -f dist/* /var/www/html
