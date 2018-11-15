@@ -4,6 +4,10 @@ import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { MeasurementStart } from '../../entities/measurementstart';
 import { ViewerService } from '../../services/viewer/viewer.service';
 import { TimeMeterState } from '../../entities/timemeterstate';
+import { Runner } from '../../entities/runnner';
+import { Participant } from '../../entities/participant';
+import { Time } from '../../entities/time';
+import { Race } from '../../entities/race';
 
 @Component({
   selector: 'app-viewer',
@@ -19,6 +23,9 @@ export class ViewerComponent implements OnInit, OnDestroy {
   recOwnTime = 0; // The local time the client received the start packet
   recStationTime = 0; // The station time the client received the start packet
   startStationTime = 0; // The station time when the run was started
+
+  participantList: Array<Runner> = [{Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time, Race: new Race()},
+                                    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time, Race: new Race()}];
 
   measuring: boolean;
   message = 'Lade...';
