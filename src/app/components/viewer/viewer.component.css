@@ -77,3 +77,44 @@ a {
 .no-wrap {
     white-space: nowrap;
 }
+
+.item {
+  background-color: white;
+  width: calc(100% - 10px);
+  height: 35px;
+  font-size: 11px;
+  border-radius: 50px;
+  color: #8e8e8e;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.child:last-child > .item {
+  width: 100% !important;
+  margin-right: 0 !important;
+}
+
+.header > .row {
+  margin: 0;
+}
+
+.header > .row > * {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#races {
+  margin-top: -7px;
+  width: calc(100% - 20px);
+  height: 31px;
+  border: none;
+  outline: none;
+  background: white;
+  color: #8e8e8e;
+}
