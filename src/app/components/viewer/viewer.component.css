@@ -91,12 +91,13 @@ a {
   margin-right: 10px;
 }
 
-.child:last-child {
-  margin-right: 0 !important;
+.item:hover {
+  cursor: pointer;
 }
 
 .child:last-child > .item {
   width: 100% !important;
+  margin-right: 0 !important;
 }
 
 .header > .row {
@@ -106,4 +107,14 @@ a {
 .header > .row > * {
   padding-left: 0;
   padding-right: 0;
+}
+
+#races {
+  margin-top: -6px;
+  width: calc(100% - 20px);
+  height: 31px;
+  border: none;
+  outline: none;
+  background: white;
+  color: #8e8e8e;
 }
