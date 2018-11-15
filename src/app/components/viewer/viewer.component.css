@@ -73,3 +73,7 @@ a {
     margin-top: 20vh;
     margin-bottom: 80px;
 }
+
+.no-wrap {
+    white-space: nowrap;
+}
