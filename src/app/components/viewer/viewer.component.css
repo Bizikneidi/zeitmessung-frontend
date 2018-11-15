@@ -55,11 +55,16 @@ a {
     display: inline;
 }
 
-.decis-grey{
+.decis-grey, .rank-grey{
     font-size: 36px;   
     font-weight: bold;
     color: #E8E8E8;
     display: inline;
+}
+
+.runner {
+    display: inline;
+    text-align: center;
 }
 
 .decis-small{

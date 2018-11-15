@@ -10,14 +10,15 @@
                             </a>
                         </div>
                         <div class="col-sm">
-                            <h2 class="no-wrap">Live now</h2>
+                            <h2>Live now</h2>
                             <p>{{message}}</p>
                         </div>
                         <div class="col-sm">
                             <div class="no-wrap">
                                 <p class="time" [ngClass]="measuring ? 'time' : 'time-grey'">{{curResultStationTime |
                                     milliSecondsToTime}}</p>
-                                <p class="decis" [ngClass]="measuring ? 'decis' : 'decis-grey'">{{curResultStationTime |
+                                <p class="decis" [ngClass]="measuring ? 'decis' : 'decis-grey'">{{curResultStationTime
+                                    |
                                     milliSecondsToTime:true}}</p>
                             </div>
                             <!--<div *ngIf="prevResultStationTime > 0">
@@ -28,9 +29,22 @@
                             </div>-->
                         </div>
                     </div>
-                    
                 </div>
             </div>
+            <ng-template ngFor let-i [ngForOf]="participantList">
+                <div class="card shadow-lg">
+                    <div class="card-title">
+                        <div class="row ">
+                            <div class="col-1">
+                                <p class="rank-grey no-wrap">??</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
         </div>
     </div>
 </div>
