@@ -29,6 +29,7 @@ export class LiveresultlistComponent implements OnInit {
 
     // Check for the start of a race
     this.startSubscription = this.viewer.start.subscribe(ms => {
+      this.participantList = ms.Runners
     });
 
     // Check for the end of a race
