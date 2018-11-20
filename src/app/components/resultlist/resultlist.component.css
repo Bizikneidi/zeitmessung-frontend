@@ -1,0 +1,16 @@
+#body {
+    background-color: white;
+    margin-top: 15px;
+    height: calc(100% - 15px);
+    border-radius: 20px;
+}
+
+.runner {
+    background-color: #8e8e8e;
+    width: 100%;
+    height: 20px;
+}
+
+.runner:nth-child(odd) {
+    background-color: #26D2B3;
+}
