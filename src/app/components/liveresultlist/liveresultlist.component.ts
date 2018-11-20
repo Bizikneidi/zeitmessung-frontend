@@ -5,7 +5,6 @@ import { Time } from '../../entities/time';
 import { Race } from '../../entities/race';
 import { ViewerService } from '../../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-liveresultlist',
