@@ -18,7 +18,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ViewerComponent } from './components/viewer/viewer.component';
 import { PoliciesComponent } from './components/policies/policies.component';
-import { LiveresultlistComponent } from './liveresultlist/liveresultlist.component';
+import { LiveresultlistComponent } from './components/liveresultlist/liveresultlist.component';
 
 @NgModule({
   declarations: [

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Runner } from '../entities/runnner';
-import { Participant } from '../entities/participant';
-import { Time } from '../entities/time';
-import { Race } from '../entities/race';
-import { ViewerService } from '../services/viewer/viewer.service';
+import { Runner } from '../../entities/runnner';
+import { Participant } from '../../entities/participant';
+import { Time } from '../../entities/time';
+import { Race } from '../../entities/race';
+import { ViewerService } from '../../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
