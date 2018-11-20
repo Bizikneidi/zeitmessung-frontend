@@ -31,20 +31,8 @@
                     </div>
                 </div>
             </div>
-            <ng-template ngFor let-i [ngForOf]="participantList">
-                <div class="card shadow-lg">
-                    <div class="card-title">
-                        <div class="row ">
-                            <div class="col-1">
-                                <p class="rank-grey no-wrap">??</p>
-                            </div>
-                            <div class="col-sm">
-                                <p>{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
+            <app-liveresultlist></app-liveresultlist>
+            <!-- route -->
         </div>
     </div>
 </div>

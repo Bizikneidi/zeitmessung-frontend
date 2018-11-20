@@ -1,0 +1,15 @@
+.runner {
+    display: inline;
+    text-align: center;
+}
+
+.rank-grey{
+    font-size: 36px;   
+    font-weight: bold;
+    color: #E8E8E8;
+    display: inline;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
