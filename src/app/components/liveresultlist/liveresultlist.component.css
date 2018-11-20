@@ -17,6 +17,12 @@
     display: inline;
 }
 
+.participant{
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .no-wrap {
     white-space: nowrap;
 }

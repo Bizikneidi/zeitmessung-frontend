@@ -2,22 +2,18 @@
   <div class="card shadow-lg">
     <div class="row">
       <div *ngIf="i.Time.End - i.Time.Start > 0">
-        <div class="col-1">
+        <div class="col-2">
           <p class="rank no-wrap">{{getRank(i)}}</p>
         </div>
-        <div class="col-sm">
-          <p>{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
+      </div>
+      <div *ngIf="i.Time.End - i.Time.Start <= 0">
+        <div class="col-2">
+          <p class="rank-grey no-wrap">??</p>
         </div>
       </div>
-
-      <div *ngIf="i.Time.End - i.Time.Start <= 0">
-          <div class="col-1">
-            <p class="rank-grey no-wrap">??</p>
-          </div>
-          <div class="col-sm">
-            <p>{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
-          </div>
-        </div>
+      <div class="col-md-5">
+        <p class="participant">{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
+      </div>
     </div>
   </div>
 </ng-template>
