@@ -13,4 +13,9 @@ export class Participant {
     public Street: string;
     public Team: string;
     public YearGroup: number;
+
+    constructor(fname: string, lname: string) {
+        this.Firstname = fname;
+        this.Lastname = lname;
+    }
 }

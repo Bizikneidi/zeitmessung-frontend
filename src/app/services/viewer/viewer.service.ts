@@ -36,9 +36,9 @@ export class ViewerService {
       const received = msg as Message<ViewerCommands>;
       if (received.Command === ViewerCommands.Status) {
         this.stateSubject.next(received.Data as TimeMeterState);
-      } else if (received.Command === ViewerCommands.MeasuredStart) {
+      } else if (received.Command === ViewerCommands.RunStart) {
         this.startSubject.next(received.Data as MeasurementStart);
-      } else if (received.Command === ViewerCommands.MeasuredEnd) {
+      } else if (received.Command === ViewerCommands.RunnerFinished) {
         this.stopSubject.next(received.Data as number);
       }
     });
