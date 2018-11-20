@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultlistComponent implements OnInit {
 
+  runners = [1, 2, 3];
+
   constructor() { }
 
   ngOnInit() {
