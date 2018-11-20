@@ -5,6 +5,7 @@ import { Time } from '../../entities/time';
 import { Race } from '../../entities/race';
 import { ViewerService } from '../../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
+import { FinishedRunner } from '../../entities/finishedrunner';
 
 @Component({
   selector: 'app-liveresultlist',
@@ -34,10 +35,21 @@ export class LiveresultlistComponent implements OnInit {
 
     // Check for the start of a race
     this.startSubscription = this.viewer.start.subscribe(ms => {
+      this.participantList = ms.Runners;
     });
 
     // Check for the end of a race
-    this.stopSubscription = this.viewer.stop.subscribe(endTime => {
+    this.stopSubscription = this.viewer.stop.subscribe((finishedRunner: FinishedRunner) => {
+      // Set end of time for runner
+      this.participantList.find(item => item.Starter == finishedRunner.Starter).Time.End = finishedRunner.Time
+
+      // Sort list by time
+      this.participantList = this.participantList.sort((a, b) => {
+        if (a.Time.End - a.Time.Start <= 0) {
+          return 1;
+        }
+        return (a.Time.End - a.Time.Start) - (b.Time.End - b.Time.Start);
+      });
     });
   }
 

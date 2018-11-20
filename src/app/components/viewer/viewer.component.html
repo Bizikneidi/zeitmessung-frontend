@@ -1,8 +1,26 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-9 col-lg-7 col-xl-7">
+            <div class="header">
+                <div class="row">
+                    <div class="col-2 child"><div class="item shadow-lg">Live now</div></div>
+                    <div class="col-2 child"><div class="item shadow-lg">07.12.18</div></div>
+                    <div class="col-2 child"><div class="item shadow-lg">09.12.18</div></div>
+                    <div class="col-2 child"><div class="item shadow-lg">11.12.18</div></div>
+                    <div class="col-4 child"><div class="item shadow-lg">
+                      <select name="races" id="races">
+                        <option value="" selected disabled hidden>Datum des Rennens</option>
+                        <option value="15.15.15">15.15.15</option>
+                        <option value="15.15.16">15.15.16</option>
+                        <option value="15.15.17">15.15.17</option>
+                      </select>
+                    </div></div>
+                </div>
+            </div>
+
             <div class="card shadow-lg">
                 <div class="card-title">
+
                     <div class="row">
                         <div class="col-1">
                             <a [routerLink]="['/']">
