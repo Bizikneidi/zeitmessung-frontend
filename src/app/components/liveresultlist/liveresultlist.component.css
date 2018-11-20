@@ -1,3 +1,7 @@
+.card {
+    border-radius: 20px;
+}
+
 .runner {
     display: inline;
     text-align: center;
@@ -18,8 +22,6 @@
 }
 
 .participant{
-    text-align: center;
-    display: table-cell;
     vertical-align: middle;
 }
 
