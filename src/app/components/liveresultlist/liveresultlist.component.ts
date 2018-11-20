@@ -20,6 +20,19 @@ export class LiveresultlistComponent implements OnInit {
 
     participantList: Array<Runner> = [
                                     {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
                                     {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(0, 0), Race: new Race()},
                                     {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: new Time(2, 0), Race: new Race()}
                                     ];
@@ -41,7 +54,7 @@ export class LiveresultlistComponent implements OnInit {
     // Check for the end of a race
     this.stopSubscription = this.viewer.stop.subscribe((finishedRunner: FinishedRunner) => {
       // Set end of time for runner
-      this.participantList.find(item => item.Starter == finishedRunner.Starter).Time.End = finishedRunner.Time
+      this.participantList.find(item => item.Starter === finishedRunner.Starter).Time.End = finishedRunner.Time;
 
       // Sort list by time
       this.participantList = this.participantList.sort((a, b) => {
