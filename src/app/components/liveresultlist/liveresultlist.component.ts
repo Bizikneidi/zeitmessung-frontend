@@ -14,8 +14,8 @@ import { Subscription } from 'rxjs/Subscription';
 export class LiveresultlistComponent implements OnInit {
 
 
-  participantList: Array<Runner> = [{Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time, Race: new Race()},
-                                    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time, Race: new Race()}];
+  participantList: Array<Runner> = [{Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(0, 1), Race: new Race()},
+                                    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(0, 2), Race: new Race()}];
 
 
   // For cleaning up in onDestroy()
