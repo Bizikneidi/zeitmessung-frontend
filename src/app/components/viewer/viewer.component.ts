@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { ViewerService } from '../../services/viewer/viewer.service';
 import { TimeMeterState } from '../../entities/timemeterstate';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewer',
@@ -27,7 +28,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   startSubscription: Subscription;
   stopSubscription: Subscription;
 
-  constructor(private viewer: ViewerService) { }
+  constructor(private viewer: ViewerService, private router: Router) { }
 
   ngOnInit() {
     this.viewer.connect(); // Connect on website visit
@@ -91,4 +92,5 @@ export class ViewerComponent implements OnInit, OnDestroy {
         break;
     }
   }
+
 }
