@@ -7,7 +7,8 @@
 			<p class="participant">{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
 		</div>
 		<div class="col mx-3">
-			<p class="rank no-wrap">{{ i.Time.toString() }}</p>
+			<span class="rank no-wrap">{{ i.Time.toString().split("/")[0] }}</span>
+			<span class="little-rank no-wrap">{{ i.Time.toString().split("/")[1] }}</span>
 		</div>
 	</div>
 </div>
