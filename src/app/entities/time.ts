@@ -10,13 +10,23 @@ export class Time {
 	toString() {
 		let timeInMs = this.End - this.Start;
 		let delim = ":";
-		let hours = Math.ceil(timeInMs / (1000 * 60 * 60) % 60);
-		let minutes = Math.floor(timeInMs / (1000 * 60) % 60);
-		let seconds = Math.floor(timeInMs / 1000 % 60);
+		let hours = 0;
+		let minutes = 0;
+		let seconds = 0;
+
+		if(timeInMs > 1000 * 60 * 60) {
+			hours = timeInMs / (1000 * 60 * 60);
+			timeInMs = timeInMs % (1000 * 60 * 60);
+		}
+
+		if(timeInMs > 1000 * 60) {
+			minutes = timeInMs / (1000 * 60);
+			timeInMs = timeInMs % (1000 * 60);
+		}
 	  
-		let hoursStr = hours < 10 ? '0' + hours : hours;
-		let minutesStr = minutes < 10 ? '0' + minutes : minutes;
-		let secondsStr = seconds < 10 ? '0' + seconds : seconds;
-		return hoursStr + delim + minutesStr + delim + secondsStr;
+		let hoursStr = hours === 0 ? '00' : hours < 10 ? '0' + hours : hours;
+		let minutesStr = minutes === 0 ? '00' : minutes < 10 ? '0' + minutes : minutes;
+		let secondsStr = seconds === 0 ? '00' : seconds < 10 ? '0' + seconds : seconds;
+		return hoursStr + delim + minutesStr + delim + secondsStr + "/" + timeInMs;
 	}
 }
