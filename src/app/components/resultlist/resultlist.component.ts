@@ -39,7 +39,7 @@ export class ResultlistComponent implements OnInit {
 
   private getRunners() {
 	  this.runners = [
-		{Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
+		{Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(3680001, 0), Race: new Race()},
 		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(2, 0), Race: new Race()},
 		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: new Time(3, 0), Race: new Race()},
 		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(4, 0), Race: new Race()},
