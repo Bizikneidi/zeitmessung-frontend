@@ -1,0 +1,13 @@
+<div class="card mt-3 shadow" *ngFor="let i of runners; let idx = index">
+	<div class="row">
+		<div class="col-1 mx-3">
+			<p class="rank no-wrap">{{ idx + 1 }}</p>
+		</div>
+		<div class="col-8 mt-3">
+			<p class="participant">{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
+		</div>
+		<div class="col mx-3">
+			<p class="rank-grey no-wrap">{{ this.getEffectiveTime(i) }}</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+.card {
+    border-radius: 20px;
+}
+
+.runner {
+    display: inline;
+    text-align: center;
+}
+
+.rank-grey{
+    font-size: 36px;   
+    font-weight: bold;
+    color: #E8E8E8;
+    display: inline;
+}
+
+.rank{
+    font-size: 36px;   
+    font-weight: bold;
+    color: #26D2B3;
+    display: inline;
+}
+
+.participant{
+    vertical-align: middle;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}

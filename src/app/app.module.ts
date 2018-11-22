@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ViewerComponent } from './components/viewer/viewer.component';
 import { PoliciesComponent } from './components/policies/policies.component';
 import { LiveresultlistComponent } from './components/liveresultlist/liveresultlist.component';
+import { ResultlistComponent } from './components/resultlist/resultlist.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LiveresultlistComponent } from './components/liveresultlist/liveresultl
     MilliSecondsToTimePipe,
     ViewerComponent,
     PoliciesComponent,
-    LiveresultlistComponent
+    LiveresultlistComponent,
+    ResultlistComponent
   ],
   imports: [
     BrowserModule,
