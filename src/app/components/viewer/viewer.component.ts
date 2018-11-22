@@ -47,7 +47,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
     // Check for the end of a race
     this.stopSubscription = this.viewer.stop.subscribe(endTime => {
-      this.prevResultStationTime = endTime - this.startStationTime;
+      this.prevResultStationTime = endTime.Time - this.startStationTime; //rework here
       this.curResultStationTime = 0;
     });
 
