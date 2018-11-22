@@ -7,7 +7,7 @@
 			<p class="participant">{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
 		</div>
 		<div class="col mx-3">
-			<p class="rank-grey no-wrap">??</p>
+			<p class="rank-grey no-wrap">{{ this.getEffectiveTime(i) }}</p>
 		</div>
 	</div>
 </div>
