@@ -1,9 +1,13 @@
-<div class="runner shadow-lg" *ngFor="let runner of runners; let i = index">
-  <div class="container-fluid">
-      <div class="row">
-		  <div class="col-1" id="placement">{{ i }}</div>
-		  <div class="col-8" id="name">{{ runner.Starter }} - {{ runner.Participant.Lastname }} {{ runner.Participant.Firstname }}</div>
-		  <div class="col-3" id="time">{{ runner.Time.End - runner.Time.Start }}</div>
-      </div>
-  </div>
+<div class="card mt-3 shadow" *ngFor="let i of runners; let idx = index">
+	<div class="row">
+		<div class="col-1 mx-3">
+			<p class="rank no-wrap">{{ idx + 1 }}</p>
+		</div>
+		<div class="col-8 mt-3">
+			<p class="participant">{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
+		</div>
+		<div class="col mx-3">
+			<p class="rank-grey no-wrap">??</p>
+		</div>
+	</div>
 </div>
