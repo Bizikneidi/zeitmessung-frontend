@@ -27,6 +27,9 @@ export class Time {
 		let hoursStr = hours === 0 ? '00' : hours < 10 ? '0' + hours : hours;
 		let minutesStr = minutes === 0 ? '00' : minutes < 10 ? '0' + minutes : minutes;
 		let secondsStr = seconds === 0 ? '00' : seconds < 10 ? '0' + seconds : seconds;
+
+		if(timeInMs < 10)
+			return hoursStr + delim + minutesStr + delim + secondsStr + "/0" + timeInMs;
 		return hoursStr + delim + minutesStr + delim + secondsStr + "/" + timeInMs;
 	}
 }
