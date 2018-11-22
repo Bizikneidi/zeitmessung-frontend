@@ -14,6 +14,16 @@ export class ResultlistComponent implements OnInit {
   runners: Array<Runner> = [
     {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
     {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(0, 0), Race: new Race()},
+    {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: new Time(2, 0), Race: new Race()},
+    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(0, 0), Race: new Race()},
+    {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: new Time(2, 0), Race: new Race()},
+    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(0, 0), Race: new Race()},
+    {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: new Time(2, 0), Race: new Race()},
+    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(0, 0), Race: new Race()},
+    {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: new Time(2, 0), Race: new Race()},
+    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(0, 0), Race: new Race()},
+    {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: new Time(2, 0), Race: new Race()},
+    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(0, 0), Race: new Race()},
     {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: new Time(2, 0), Race: new Race()}
   ];
 
