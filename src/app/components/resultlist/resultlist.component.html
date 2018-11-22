@@ -1,7 +1,9 @@
-<div class="runner shadow-lg" *ngFor="let runner of runners">
+<div class="runner shadow-lg" *ngFor="let runner of runners; let i = index">
   <div class="container-fluid">
       <div class="row">
-          <div class="col-1">{{ runner.Starter }}</div>
+		  <div class="col-1" id="placement">{{ i }}</div>
+		  <div class="col-8" id="name">{{ runner.Starter }} - {{ runner.Participant.Lastname }} {{ runner.Participant.Firstname }}</div>
+		  <div class="col-3" id="time">{{ runner.Time.End - runner.Time.Start }}</div>
       </div>
   </div>
 </div>
