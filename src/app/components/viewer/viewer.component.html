@@ -3,18 +3,32 @@
         <div class="col-md-9 col-lg-7 col-xl-7">
             <div class="header">
                 <div class="row">
-                    <div class="col-2 child"><div class="item shadow-lg">Live now</div></div>
-                    <div class="col-2 child"><div class="item shadow-lg">07.12.18</div></div>
-                    <div class="col-2 child"><div class="item shadow-lg">09.12.18</div></div>
-                    <div class="col-2 child"><div class="item shadow-lg">11.12.18</div></div>
-                    <div class="col-4 child"><div class="item shadow-lg">
-                      <select name="races" id="races">
-                        <option value="" selected disabled hidden>Datum des Rennens</option>
-                        <option value="15.15.15">15.15.15</option>
-                        <option value="15.15.16">15.15.16</option>
-                        <option value="15.15.17">15.15.17</option>
-                      </select>
-                    </div></div>
+                    <div class="col-2 child">
+                        <a [routerLink]="[{ outlets: {resultlist: ['live'] } }]">
+                            <div class="item shadow-lg">Live now</div>
+                        </a>
+                    </div>
+                    <div class="col-2 child">
+                        <a [routerLink]="[{ outlets: {resultlist: ['old'] } }]">
+                            <div class="item shadow-lg">07.12.18</div>
+                        </a>
+                    </div>
+                    <div class="col-2 child">
+                        <div class="item shadow-lg">09.12.18</div>
+                    </div>
+                    <div class="col-2 child">
+                        <div class="item shadow-lg">11.12.18</div>
+                    </div>
+                    <div class="col-4 child">
+                        <div class="item shadow-lg">
+                            <select name="races" id="races">
+                                <option value="" selected disabled hidden>Datum des Rennens</option>
+                                <option value="15.15.15">15.15.15</option>
+                                <option value="15.15.16">15.15.16</option>
+                                <option value="15.15.17">15.15.17</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -50,8 +64,7 @@
                 </div>
             </div>
             <div class="mt-3" style="height: 40vh; overflow-y:auto; overflow-x: hidden;">
-                <app-resultlist></app-resultlist>
-                <!-- route -->
+                <router-outlet name="resultlist"></router-outlet>
             </div>
         </div>
     </div>

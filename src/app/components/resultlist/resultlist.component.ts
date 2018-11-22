@@ -1,41 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import {Runner} from '../../entities/runnner';
-import {Participant} from '../../entities/participant';
-import {Time} from '../../entities/time';
-import {Race} from '../../entities/race';
+import { Runner } from '../../entities/runnner';
+import { Participant } from '../../entities/participant';
+import { Time } from '../../entities/time';
+import { Race } from '../../entities/race';
 
 @Component({
-  selector: 'app-resultlist',
-  templateUrl: './resultlist.component.html',
-  styleUrls: ['./resultlist.component.css']
+	selector: 'app-resultlist',
+	templateUrl: './resultlist.component.html',
+	styleUrls: ['./resultlist.component.css']
 })
 export class ResultlistComponent implements OnInit {
 
-  runners: Array<Runner> = [];
+	runners: Array<Runner> = [];
 
-  constructor() {
-	  this.getRunners();
-	  this.sortRunners();
-  }
+	constructor() {
+		this.getRunners();
+		this.sortRunners();
+	}
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
-  sortRunners() {
-	for(let i = 0; i < this.runners.length; i++) {
-		for(let j = 0; j < this.runners.length; j++) {
-			if(this.getEffectiveTime(this.runners[i]) < this.getEffectiveTime(this.runners[j])) {
-				let temp = this.runners[i];
-				this.runners[i] = this.runners[j];
-				this.runners[j] = temp;
+	sortRunners() {
+		for (let i = 0; i < this.runners.length; i++) {
+			for (let j = 0; j < this.runners.length; j++) {
+				if (this.getEffectiveTime(this.runners[i]) < this.getEffectiveTime(this.runners[j])) {
+					let temp = this.runners[i];
+					this.runners[i] = this.runners[j];
+					this.runners[j] = temp;
+				}
 			}
 		}
 	}
-  }
 
-  private getEffectiveTime(runner: Runner) {
-	  return runner.Time.End - runner.Time.Start;
-  }
+	private getEffectiveTime(runner: Runner) {
+		return runner.Time.End - runner.Time.Start;
+	}
 
   private getRunners() {
 	  this.runners = [
