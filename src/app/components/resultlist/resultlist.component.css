@@ -21,6 +21,13 @@
     display: inline;
 }
 
+.little-rank {
+    font-size: 24px;   
+    font-weight: bold;
+    color: #26D2B3;
+    display: inline;
+}
+
 .participant{
     vertical-align: middle;
 }

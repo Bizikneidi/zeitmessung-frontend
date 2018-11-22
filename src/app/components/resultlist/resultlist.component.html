@@ -3,11 +3,12 @@
 		<div class="col-1 mx-3">
 			<p class="rank no-wrap">{{ idx + 1 }}</p>
 		</div>
-		<div class="col-8 mt-3">
+		<div class="col-6 mt-3">
 			<p class="participant">{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
 		</div>
 		<div class="col mx-3">
-			<p class="rank-grey no-wrap">{{ this.getEffectiveTime(i) }}</p>
+			<span class="rank no-wrap">{{ i.Time.toString().split("/")[0] }}</span>
+			<span class="little-rank no-wrap">{{ i.Time.toString().split("/")[1] }}</span>
 		</div>
 	</div>
 </div>
