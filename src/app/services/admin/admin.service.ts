@@ -57,7 +57,7 @@ export class AdminService {
   assignTime(runner: any) {
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.AssignTime;
-    msg.Data = runner; // No data
+    msg.Data = runner;
     this.ws.send(msg);
   }
 
