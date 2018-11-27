@@ -14,7 +14,6 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
 
-  prevResultStationTime = 0; // The result of the latest completed run
   curResultStationTime = 0; // The result of the current run (is being updated live)
   recOwnTime = 0; // The local time the client received the start packet
   recStationTime = 0; // The station time the client received the start packet
@@ -47,9 +46,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
     });
 
     // Check for the end of a race
-    this.stopSubscription = this.viewer.stop.subscribe(endTime => {
-      this.prevResultStationTime = endTime.Time - this.startStationTime; //rework here
-      this.curResultStationTime = 0;
+    this.stopSubscription = this.viewer.stop.subscribe(runner => {
     });
 
     // Start live updates for timer
