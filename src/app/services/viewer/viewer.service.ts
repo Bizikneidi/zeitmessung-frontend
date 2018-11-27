@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import { ViewerCommands, Message } from '../../entities/networking';
 import { TimeMeterState } from '../../entities/timemeterstate';
 import { MeasurementStart } from '../../entities/measurementstart';
-import { FinishedRunner } from '../../entities/finishedrunner';
+import { Runner } from '../../entities/runnner';
 
 @Injectable()
 export class ViewerService {
@@ -15,8 +15,8 @@ export class ViewerService {
   private startSubject: Subject<MeasurementStart>;
 
   // Observe stop of run
-  public stop: Observable<FinishedRunner>;
-  private stopSubject: Subject<FinishedRunner>;
+  public stop: Observable<Runner>;
+  private stopSubject: Subject<Runner>;
 
   // Observe state of run
   public state: Observable<TimeMeterState>;
@@ -29,7 +29,7 @@ export class ViewerService {
     this.startSubject = new Subject<MeasurementStart>();
     this.start = this.startSubject.asObservable();
 
-    this.stopSubject = new Subject<FinishedRunner>();
+    this.stopSubject = new Subject<Runner>();
     this.stop = this.stopSubject.asObservable();
 
     this.ws.received.subscribe(msg => {
@@ -40,7 +40,7 @@ export class ViewerService {
       } else if (received.Command === ViewerCommands.RunStart) {
         this.startSubject.next(received.Data as MeasurementStart);
       } else if (received.Command === ViewerCommands.RunnerFinished) {
-        this.stopSubject.next(received.Data as FinishedRunner);
+        this.stopSubject.next(received.Data as Runner);
       }
     });
   }
