@@ -1,4 +1,4 @@
-export class Assignment {
+export class AssignmentDTO {
     public Starter: number;
     public Time: number;
 }
