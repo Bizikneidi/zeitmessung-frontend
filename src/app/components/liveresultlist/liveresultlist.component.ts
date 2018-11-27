@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Runner } from '../../entities/runnner';
 import { Participant } from '../../entities/participant';
-import { Time } from '../../entities/time';
 import { Race } from '../../entities/race';
 import { ViewerService } from '../../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -19,22 +18,22 @@ export class LiveresultlistComponent implements OnInit {
                                     {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time, Race: new Race()}];*/
 
     participantList: Array<Runner> = [
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time(1, 0), Race: new Race()},
-                                    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time(0, 0), Race: new Race()},
-                                    {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: new Time(2, 0), Race: new Race()}
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
+                                    {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 33333333, Race: new Race()},
+                                    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 3332333, Race: new Race()},
+                                    {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 3333133, Race: new Race()}
                                     ];
 
   // For cleaning up in onDestroy()
@@ -54,16 +53,20 @@ export class LiveresultlistComponent implements OnInit {
     // Check for the end of a race
     this.stopSubscription = this.viewer.stop.subscribe((finishedRunner: FinishedRunner) => {
       // Set end of time for runner
-      this.participantList.find(item => item.Starter === finishedRunner.Starter).Time.End = finishedRunner.Time;
+      this.participantList.find(item => item.Starter === finishedRunner.Starter).Time = finishedRunner.Time;
 
       // Sort list by time
       this.participantList = this.participantList.sort((a, b) => {
-        if (a.Time.End - a.Time.Start <= 0) {
-          return 1;
-        }
-        return (a.Time.End - a.Time.Start) - (b.Time.End - b.Time.Start);
+        return (a.Time) - (b.Time);
       });
+      this.moveZerosToEnd(this.participantList);
     });
+
+    // for the test list
+    this.participantList = this.participantList.sort((a, b) => {
+      return (a.Time) - (b.Time);
+    });
+    this.moveZerosToEnd(this.participantList);
   }
 
   ngOnDestroy() {
@@ -77,16 +80,28 @@ export class LiveresultlistComponent implements OnInit {
   getRank(runner: Runner) {
     if (!this.participantList.some(function(r) {
       return r === runner;
-    }) || runner.Time.End <= runner.Time.Start) {
+    }) || runner.Time <= 0) {
       return 0;
     }
     let rank = 1;
     for (const r of this.participantList) {
-      if (r.Time.End > r.Time.Start && r.Time.End - r.Time.Start < runner.Time.End - runner.Time.Start){
+      if (r.Time > 0 && r.Time < runner.Time) {
         rank++;
       }
     }
     return rank;
+  }
+
+
+  moveZerosToEnd(runners: Array<Runner>) {
+    let i, temp;
+
+    for (i = runners.length - 1; i >= 0; i--) {
+        if (runners[i].Time === 0) {
+            temp = runners.splice(i, 1);
+            runners.push(temp[0]);
+        }
+      }
   }
 
 }
