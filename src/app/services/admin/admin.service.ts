@@ -4,6 +4,8 @@ import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import {AdminCommands, Message} from '../../entities/networking';
 import {TimeMeterState} from '../../entities/timemeterstate';
+import { Assignment } from '../../entities/assignment';
+import { RunStartDTO } from '../../entities/runstart';
 
 @Injectable()
 export class AdminService {
@@ -11,11 +13,11 @@ export class AdminService {
   public state: Observable<TimeMeterState>;
   private stateSubject: Subject<TimeMeterState>;
 
-  public runStart: Observable<TimeMeterState>;
-  private runStartSubject: Subject<TimeMeterState>;
+  public runStart: Observable<RunStartDTO>;
+  private runStartSubject: Subject<RunStartDTO>;
 
-  public measuredStop: Observable<TimeMeterState>;
-  private measuredStopSubject: Subject<TimeMeterState>;
+  public measuredStop: Observable<number>;
+  private measuredStopSubject: Subject<number>;
 
   //
 
@@ -24,10 +26,10 @@ export class AdminService {
     this.stateSubject = new Subject<TimeMeterState>();
     this.state = this.stateSubject.asObservable();
 
-    this.runStartSubject = new Subject<TimeMeterState>();
+    this.runStartSubject = new Subject<RunStartDTO>();
     this.runStart = this.runStartSubject.asObservable();
 
-    this.measuredStopSubject = new Subject<TimeMeterState>();
+    this.measuredStopSubject = new Subject<number>();
     this.measuredStop = this.measuredStopSubject.asObservable();
 
     this.ws.received.subscribe(msg => {
@@ -37,10 +39,10 @@ export class AdminService {
           this.stateSubject.next(received.Data as TimeMeterState); // Pass status to observers
           break;
         case AdminCommands.RunStart:
-          this.runStartSubject.next(received.Data as TimeMeterState); // Pass status to observers
+          this.runStartSubject.next(received.Data as RunStartDTO); // Pass status to observers
           break;
         case AdminCommands.MeasuredStop:
-          this.measuredStopSubject.next(received.Data as TimeMeterState); // Pass status to observers
+          this.measuredStopSubject.next(received.Data as number); // Pass status to observers
           break;
       }
     });
@@ -54,7 +56,7 @@ export class AdminService {
     this.ws.send(msg);
   }
 
-  assignTime(runner: any) {
+  assignTime(runner: Assignment) {
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.AssignTime;
     msg.Data = runner;
