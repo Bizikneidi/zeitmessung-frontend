@@ -1,4 +1,4 @@
-import { Runner } from "./runnner";
+import { Runner } from './runnner';
 
 export class RunStartDTO {
     public CurrentTime: number;
