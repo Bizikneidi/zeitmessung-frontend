@@ -107,4 +107,8 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.races = races.sort();
   }
 
+  selectedRace(id) {
+    console.log(id);
+  }
+
 }
