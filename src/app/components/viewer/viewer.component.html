@@ -9,23 +9,25 @@
                         </a>
                     </div>
                     <div class="col-2 child">
-                        <a [routerLink]="[{ outlets: {resultlist: ['old'] } }]">
-                            <div class="item shadow-lg">07.12.18</div>
+                        <a *ngIf="races[0]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[0].Id}">
+                            <div class="item shadow-lg">{{ races[0].Id }}</div>
                         </a>
                     </div>
                     <div class="col-2 child">
-                        <div class="item shadow-lg">09.12.18</div>
+                      <a *ngIf="races[1]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[1].Id}">
+                        <div class="item shadow-lg">{{ races[1].Id }}</div>
+                      </a>
                     </div>
                     <div class="col-2 child">
-                        <div class="item shadow-lg">11.12.18</div>
+                      <a *ngIf="races[2]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[2].Id}">
+                        <div class="item shadow-lg">{{ races[2].Id }}</div>
+                      </a>
                     </div>
                     <div class="col-4 child">
                         <div class="item shadow-lg">
                             <select name="races" id="races">
                                 <option value="" selected disabled hidden>Datum des Rennens</option>
-                                <option value="15.15.15">15.15.15</option>
-                                <option value="15.15.16">15.15.16</option>
-                                <option value="15.15.17">15.15.17</option>
+                                <option *ngFor="let race of races" value="{{ race.Id }}">{{ getDate(race) }}</option>
                             </select>
                         </div>
                     </div>
