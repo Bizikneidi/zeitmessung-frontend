@@ -100,13 +100,11 @@ export class ViewerComponent implements OnInit, OnDestroy {
   }
 
   getDate(race): string {
-    return new Date(race).toString();
+    return new Date(race.Date).toDateString();
   }
 
   fetchRaces(races) {
-    const newraces = races.sort();
-    console.log(newraces);
-    this.races = newraces;
+    this.races = races.sort();
   }
 
 }
