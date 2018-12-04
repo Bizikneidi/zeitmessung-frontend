@@ -10,17 +10,17 @@
                     </div>
                     <div class="col-2 child">
                         <a *ngIf="races[0]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[0].Id}">
-                            <div class="item shadow-lg">{{ races[0].Id }}</div>
+                            <div class="item shadow-lg">{{ getDate(races[0]) }}</div>
                         </a>
                     </div>
                     <div class="col-2 child">
                       <a *ngIf="races[1]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[1].Id}">
-                        <div class="item shadow-lg">{{ races[1].Id }}</div>
+                        <div class="item shadow-lg">{{ getDate(races[1]) }}</div>
                       </a>
                     </div>
                     <div class="col-2 child">
                       <a *ngIf="races[2]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[2].Id}">
-                        <div class="item shadow-lg">{{ races[2].Id }}</div>
+                        <div class="item shadow-lg">{{ getDate(races[2]) }}</div>
                       </a>
                     </div>
                     <div class="col-4 child">

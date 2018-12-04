@@ -100,7 +100,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   }
 
   getDate(race): string {
-    return new Date(race.Date).toDateString();
+    return new Date(race.Date).toLocaleDateString();
   }
 
   fetchRaces(races) {
