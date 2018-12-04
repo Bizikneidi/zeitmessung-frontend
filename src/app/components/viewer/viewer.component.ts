@@ -4,6 +4,7 @@ import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { ViewerService } from '../../services/viewer/viewer.service';
 import { TimeMeterState } from '../../entities/timemeterstate';
 import { Router } from '@angular/router';
+import {Race} from '../../entities/race';
 
 @Component({
   selector: 'app-viewer',
@@ -18,6 +19,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   recOwnTime = 0; // The local time the client received the start packet
   recStationTime = 0; // The station time the client received the start packet
   startStationTime = 0; // The station time when the run was started
+  races = new Array<Race>(); // Storing all races;
 
   measuring: boolean;
   message = 'Lade...';
@@ -26,6 +28,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   stateSubscription: Subscription;
   startSubscription: Subscription;
   stopSubscription: Subscription;
+  racesSubscription: Subscription;
 
   constructor(private viewer: ViewerService, private router: Router) { }
 
@@ -49,6 +52,11 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.stopSubscription = this.viewer.stop.subscribe(runner => {
     });
 
+    // Fetch all races
+    this.racesSubscription = this.viewer.races.subscribe(races => {
+      this.fetchRaces(races);
+    });
+
     // Start live updates for timer
     setInterval(() => {
       if (this.measuring) {
@@ -68,6 +76,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.stateSubscription.unsubscribe();
     this.startSubscription.unsubscribe();
     this.stopSubscription.unsubscribe();
+    this.racesSubscription.unsubscribe();
 
     this.viewer.disconnect();
   }
@@ -88,6 +97,21 @@ export class ViewerComponent implements OnInit, OnDestroy {
         this.message = 'Warte auf Station.';
         break;
     }
+  }
+
+  fetchRaces(races) {
+    const newraces = races;
+    for (let i = 0; i < races.length; i++) {
+      for (let j = 0; j < races.length; j++) {
+        if (newraces[i].Date >= newraces[j].Date) {
+          const tmp = newraces[i];
+          newraces[i] = newraces[j];
+          newraces[j] = tmp;
+        }
+      }
+    }
+
+    this.races = newraces;
   }
 
 }
