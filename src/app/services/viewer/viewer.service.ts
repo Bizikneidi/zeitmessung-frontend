@@ -62,4 +62,11 @@ export class ViewerService {
   disconnect() {
     this.ws.disconnect();
   }
+
+  getRunners(raceid: number) {
+    const msg = new Message<ViewerCommands>();
+    msg.Command = ViewerCommands.GetRunners;
+    msg.Data = raceid;
+    this.ws.send(msg);
+  }
 }

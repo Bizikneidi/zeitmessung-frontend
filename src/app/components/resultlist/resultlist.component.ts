@@ -47,7 +47,7 @@ export class ResultlistComponent implements OnInit {
 	}
 
   private getRunners() {
-	  this.runners = [
+	  /* this.runners = [
 		{Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 3680201, Race: new Race()},
 		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 3680013, Race: new Race()},
 		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 36802344, Race: new Race()},
@@ -61,7 +61,9 @@ export class ResultlistComponent implements OnInit {
 		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 0, Race: new Race()},
 		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 0, Race: new Race()},
 		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 0, Race: new Race()}
-	  ];
+	  ];*/
+
+
   }
 
 }
