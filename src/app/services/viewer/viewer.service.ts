@@ -27,6 +27,10 @@ export class ViewerService {
   public races: Observable<Array<Race>>;
   private racesSubject: Subject<Array<Race>>;
 
+  // Observe all runners per race
+  public runners: Observable<Array<Runner>>;
+  private runnersSubject: Subject<Array<Runner>>;
+
   constructor(private ws: WebsocketService) {
     this.stateSubject = new Subject<TimeMeterState>();
     this.state = this.stateSubject.asObservable();
@@ -40,6 +44,9 @@ export class ViewerService {
     this.racesSubject = new Subject<Array<Race>>();
     this.races = this.racesSubject.asObservable();
 
+    this.runnersSubject = new Subject<Array<Runner>>();
+    this.runners = this.runnersSubject.asObservable();
+
     this.ws.received.subscribe(msg => {
       // Cast to Viewer command and pass to correct observable
       const received = msg as Message<ViewerCommands>;
@@ -51,6 +58,8 @@ export class ViewerService {
         this.stopSubject.next(received.Data as Runner);
       } else if (received.Command === ViewerCommands.Races) {
         this.racesSubject.next(received.Data as Array<Race>);
+      } else if (received.Command === ViewerCommands.Runners) {
+        this.runnersSubject.next(received.Data as Array<Runner>);
       }
     });
   }
