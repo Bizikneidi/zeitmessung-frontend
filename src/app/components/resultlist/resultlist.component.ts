@@ -3,6 +3,7 @@ import { Runner } from '../../entities/runnner';
 import { Participant } from '../../entities/participant';
 import { Race } from '../../entities/race';
 import {Router, ActivatedRoute, RoutesRecognized} from '@angular/router';
+import {ViewerService} from '../../services/viewer/viewer.service';
 
 @Component({
 	selector: 'app-resultlist',
@@ -16,18 +17,22 @@ export class ResultlistComponent implements OnInit {
 
 	constructor(
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private viewers: ViewerService) {
 
 		this.getRunners();
 		this.sortRunners();
 
 		router.events.subscribe(evt => {
 		  this.raceid = this.route.snapshot.queryParams.raceid;
+		  console.log(this.raceid)
+		  this.getRunners();
     });
 	}
 
 	ngOnInit() {
     this.raceid = this.route.snapshot.queryParams.raceid;
+    this.getRunners();
 	}
 
 	sortRunners() {
@@ -63,7 +68,15 @@ export class ResultlistComponent implements OnInit {
 		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 0, Race: new Race()}
 	  ];*/
 
+	  this.viewers.getRunners(this.raceid);
 
+	  console.log('i am in getRunners');
+    this.viewers.runners.subscribe(runners => {
+      console.log('i am in getRunners in subscribe');
+      console.log(runners);
+      this.runners = runners;
+      this.sortRunners();
+    });
   }
 
 }
