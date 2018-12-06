@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Runner } from '../../entities/runnner';
 import { Participant } from '../../entities/participant';
 import { Race } from '../../entities/race';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-resultlist',
@@ -11,13 +12,22 @@ import { Race } from '../../entities/race';
 export class ResultlistComponent implements OnInit {
 
 	runners: Array<Runner> = [];
+	raceid = -1;
 
-	constructor() {
+	constructor(
+    private route: ActivatedRoute,
+    private router: Router) {
+
 		this.getRunners();
 		this.sortRunners();
+
+		router.events.subscribe((evt: Event) => {
+
+    })
 	}
 
 	ngOnInit() {
+    this.raceid = this.route.snapshot.queryParams.raceid;
 	}
 
 	sortRunners() {
