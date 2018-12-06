@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Runner } from '../../entities/runnner';
 import { Participant } from '../../entities/participant';
 import { Race } from '../../entities/race';
+import {Router, ActivatedRoute, RoutesRecognized} from '@angular/router';
+import {ViewerService} from '../../services/viewer/viewer.service';
 
 @Component({
 	selector: 'app-resultlist',
@@ -11,14 +13,20 @@ import { Race } from '../../entities/race';
 export class ResultlistComponent implements OnInit {
 
 	runners: Array<Runner> = [];
+	raceid = -1;
 
-	constructor() {
-		this.getRunners();
-		this.sortRunners();
+	constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private viewers: ViewerService) {
+
+		this.router.events.subscribe(evt => {
+		  this.raceid = this.route.snapshot.queryParams.raceid;
+		  this.getRunners();
+    });
 	}
 
-	ngOnInit() {
-	}
+	ngOnInit() { }
 
 	sortRunners() {
 		for (let i = 0; i < this.runners.length; i++) {
@@ -37,21 +45,15 @@ export class ResultlistComponent implements OnInit {
 	}
 
   private getRunners() {
-	  this.runners = [
-		{Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 3680201, Race: new Race()},
-		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 3680013, Race: new Race()},
-		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 36802344, Race: new Race()},
-		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 0, Race: new Race()},
-		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 0, Race: new Race()},
-		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 0, Race: new Race()},
-		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 0, Race: new Race()},
-		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 0, Race: new Race()},
-		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 0, Race: new Race()},
-		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 0, Race: new Race()},
-		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 0, Race: new Race()},
-		{Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 0, Race: new Race()},
-		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 0, Race: new Race()}
-	  ];
+    console.log('i am in getRunners');
+    this.viewers.runners.subscribe(runners => {
+      console.log('i am in getRunners in subscribe');
+      console.log(runners);
+      this.runners = runners;
+      this.sortRunners();
+    });
+
+	  this.viewers.getRunners(this.raceid);
   }
 
 }

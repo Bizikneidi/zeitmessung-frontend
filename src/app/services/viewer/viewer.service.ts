@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
-import { WebsocketService } from '../websocket/websocket.service';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import { ViewerCommands, Message } from '../../entities/networking';
-import { TimeMeterState } from '../../entities/timemeterstate';
-import { MeasurementStart } from '../../entities/measurementstart';
-import { Runner } from '../../entities/runnner';
+import {Injectable} from '@angular/core';
+import {WebsocketService} from '../websocket/websocket.service';
+import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
+import {Message, ViewerCommands} from '../../entities/networking';
+import {TimeMeterState} from '../../entities/timemeterstate';
+import {MeasurementStart} from '../../entities/measurementstart';
+import {Runner} from '../../entities/runnner';
+import {Race} from '../../entities/race';
 
 @Injectable()
 export class ViewerService {
@@ -22,6 +23,14 @@ export class ViewerService {
   public state: Observable<TimeMeterState>;
   private stateSubject: Subject<TimeMeterState>;
 
+  // Observe all races
+  public races: Observable<Array<Race>>;
+  private racesSubject: Subject<Array<Race>>;
+
+  // Observe all runners per race
+  public runners: Observable<Array<Runner>>;
+  private runnersSubject: Subject<Array<Runner>>;
+
   constructor(private ws: WebsocketService) {
     this.stateSubject = new Subject<TimeMeterState>();
     this.state = this.stateSubject.asObservable();
@@ -32,7 +41,14 @@ export class ViewerService {
     this.stopSubject = new Subject<Runner>();
     this.stop = this.stopSubject.asObservable();
 
+    this.racesSubject = new Subject<Array<Race>>();
+    this.races = this.racesSubject.asObservable();
+
+    this.runnersSubject = new Subject<Array<Runner>>();
+    this.runners = this.runnersSubject.asObservable();
+
     this.ws.received.subscribe(msg => {
+      console.log(msg);
       // Cast to Viewer command and pass to correct observable
       const received = msg as Message<ViewerCommands>;
       if (received.Command === ViewerCommands.Status) {
@@ -41,6 +57,10 @@ export class ViewerService {
         this.startSubject.next(received.Data as MeasurementStart);
       } else if (received.Command === ViewerCommands.RunnerFinished) {
         this.stopSubject.next(received.Data as Runner);
+      } else if (received.Command === ViewerCommands.Races) {
+        this.racesSubject.next(received.Data as Array<Race>);
+      } else if (received.Command === ViewerCommands.Runners) {
+        this.runnersSubject.next(received.Data as Array<Runner>);
       }
     });
   }
@@ -51,5 +71,12 @@ export class ViewerService {
 
   disconnect() {
     this.ws.disconnect();
+  }
+
+  getRunners(raceid: number) {
+    const msg = new Message<ViewerCommands>();
+    msg.Command = ViewerCommands.GetRunners;
+    msg.Data = raceid;
+    this.ws.send(msg);
   }
 }

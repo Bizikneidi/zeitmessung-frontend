@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Runner } from '../../entities/runnner';
 import { Participant } from '../../entities/participant';
 import { Race } from '../../entities/race';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './liveresultlist.component.html',
   styleUrls: ['./liveresultlist.component.css']
 })
-export class LiveresultlistComponent implements OnInit {
+export class LiveresultlistComponent implements OnInit, OnDestroy {
 
 
   /*participantList: Array<Runner> = [{Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time, Race: new Race()},
@@ -42,8 +42,6 @@ export class LiveresultlistComponent implements OnInit {
   constructor(private viewer: ViewerService) { }
 
   ngOnInit() {
-    this.viewer.connect(); // Connect on website visit
-
     // Check for the start of a race
     this.startSubscription = this.viewer.start.subscribe(ms => {
       this.participantList = ms.Runners;
@@ -72,8 +70,6 @@ export class LiveresultlistComponent implements OnInit {
     // unsubscribe to ensure no memory leaks
     this.startSubscription.unsubscribe();
     this.stopSubscription.unsubscribe();
-
-    this.viewer.disconnect();
   }
 
   getRank(runner: Runner) {
