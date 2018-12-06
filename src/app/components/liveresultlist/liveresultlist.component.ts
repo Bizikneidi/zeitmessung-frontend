@@ -70,8 +70,6 @@ export class LiveresultlistComponent implements OnInit, OnDestroy {
     // unsubscribe to ensure no memory leaks
     this.startSubscription.unsubscribe();
     this.stopSubscription.unsubscribe();
-
-    this.viewer.disconnect();
   }
 
   getRank(runner: Runner) {

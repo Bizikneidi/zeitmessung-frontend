@@ -48,6 +48,7 @@ export class ViewerService {
     this.runners = this.runnersSubject.asObservable();
 
     this.ws.received.subscribe(msg => {
+      console.log(msg);
       // Cast to Viewer command and pass to correct observable
       const received = msg as Message<ViewerCommands>;
       if (received.Command === ViewerCommands.Status) {

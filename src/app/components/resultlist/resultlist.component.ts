@@ -20,20 +20,14 @@ export class ResultlistComponent implements OnInit {
     private router: Router,
     private viewers: ViewerService) {
 
-		this.getRunners();
-		this.sortRunners();
-
-		router.events.subscribe(evt => {
+		this.router.events.subscribe(evt => {
 		  this.raceid = this.route.snapshot.queryParams.raceid;
 		  console.log(this.raceid)
 		  this.getRunners();
     });
 	}
 
-	ngOnInit() {
-    this.raceid = this.route.snapshot.queryParams.raceid;
-    this.getRunners();
-	}
+	ngOnInit() { }
 
 	sortRunners() {
 		for (let i = 0; i < this.runners.length; i++) {
@@ -68,15 +62,17 @@ export class ResultlistComponent implements OnInit {
 		{Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 0, Race: new Race()}
 	  ];*/
 
-	  this.viewers.getRunners(this.raceid);
-
-	  console.log('i am in getRunners');
+    console.log('i am in getRunners');
     this.viewers.runners.subscribe(runners => {
       console.log('i am in getRunners in subscribe');
       console.log(runners);
       this.runners = runners;
       this.sortRunners();
     });
+
+	  this.viewers.getRunners(this.raceid);
+
+
   }
 
 }

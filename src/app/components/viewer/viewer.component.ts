@@ -77,7 +77,6 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.startSubscription.unsubscribe();
     this.stopSubscription.unsubscribe();
     this.racesSubscription.unsubscribe();
-
     this.viewer.disconnect();
   }
 
