@@ -21,6 +21,8 @@ import { ViewerComponent } from './components/viewer/viewer.component';
 import { PoliciesComponent } from './components/policies/policies.component';
 import { LiveresultlistComponent } from './components/liveresultlist/liveresultlist.component';
 import { ResultlistComponent } from './components/resultlist/resultlist.component';
+import { StateToTextPipe } from './pipes/statetotextpipe';
+import { RaceToStringPipe } from './pipes/racetostringpipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ResultlistComponent } from './components/resultlist/resultlist.componen
     AdminComponent,
     FooterComponent,
     MilliSecondsToTimePipe,
+    StateToTextPipe,
+    RaceToStringPipe,
     ViewerComponent,
     PoliciesComponent,
     LiveresultlistComponent,

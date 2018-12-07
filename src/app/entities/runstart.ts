@@ -1,7 +1,7 @@
 import { Runner } from './runnner';
 
 export class RunStartDTO {
-    public CurrentTime: number;
-    public Runners: Array<Runner>;
-    public StartTime: number;
+    public CurrentTime: number; // The current time of the station
+    public Runners: Array<Runner>; // All runners participating in this event
+    public StartTime: number; // The start time of the station
 }

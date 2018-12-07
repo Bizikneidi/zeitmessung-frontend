@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-12">
           <div class="card-body text-center" [hidden]="startRun">
-            <button class="btn" [disabled]="notReady" (click)="onStartRunClicked()">
+            <button class="btn" [disabled]="admin.state != readyState" (click)="onStartRunClicked()">
               Start
             </button>
           </div>
