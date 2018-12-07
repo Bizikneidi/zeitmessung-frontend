@@ -4,24 +4,26 @@ import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import {Message, ViewerCommands} from '../../entities/networking';
 import {TimeMeterState} from '../../entities/timemeterstate';
-import {MeasurementStart} from '../../entities/measurementstart';
 import {Runner} from '../../entities/runnner';
 import {Race} from '../../entities/race';
+import { RunStartDTO } from '../../entities/runstart';
 
 @Injectable()
 export class ViewerService {
 
+  public state: TimeMeterState;
+
   // Observe start of run
-  public start: Observable<MeasurementStart>;
-  private startSubject: Subject<MeasurementStart>;
+  public start: Observable<RunStartDTO>;
+  private startSubject: Subject<RunStartDTO>;
 
-  // Observe stop of run
-  public stop: Observable<Runner>;
-  private stopSubject: Subject<Runner>;
+  // Observe runner finish run
+  public measuredStop: Observable<Runner>;
+  private measuredStopSubject: Subject<Runner>;
 
-  // Observe state of run
-  public state: Observable<TimeMeterState>;
-  private stateSubject: Subject<TimeMeterState>;
+  // Observe end of run
+  public end: Observable<null>;
+  private endSubject: Subject<null>;
 
   // Observe all races
   public races: Observable<Array<Race>>;
@@ -32,14 +34,14 @@ export class ViewerService {
   private runnersSubject: Subject<Array<Runner>>;
 
   constructor(private ws: WebsocketService) {
-    this.stateSubject = new Subject<TimeMeterState>();
-    this.state = this.stateSubject.asObservable();
-
-    this.startSubject = new Subject<MeasurementStart>();
+    this.startSubject = new Subject<RunStartDTO>();
     this.start = this.startSubject.asObservable();
 
-    this.stopSubject = new Subject<Runner>();
-    this.stop = this.stopSubject.asObservable();
+    this.measuredStopSubject = new Subject<Runner>();
+    this.measuredStop = this.measuredStopSubject.asObservable();
+
+    this.endSubject = new Subject<null>();
+    this.end = this.endSubject.asObservable();
 
     this.racesSubject = new Subject<Array<Race>>();
     this.races = this.racesSubject.asObservable();
@@ -48,15 +50,16 @@ export class ViewerService {
     this.runners = this.runnersSubject.asObservable();
 
     this.ws.received.subscribe(msg => {
-      console.log(msg);
       // Cast to Viewer command and pass to correct observable
       const received = msg as Message<ViewerCommands>;
       if (received.Command === ViewerCommands.Status) {
-        this.stateSubject.next(received.Data as TimeMeterState);
+        this.state = received.Data as TimeMeterState;
       } else if (received.Command === ViewerCommands.RunStart) {
-        this.startSubject.next(received.Data as MeasurementStart);
+        this.startSubject.next(received.Data as RunStartDTO);
+      } else if (received.Command === ViewerCommands.RunEnd) {
+        this.endSubject.next();
       } else if (received.Command === ViewerCommands.RunnerFinished) {
-        this.stopSubject.next(received.Data as Runner);
+        this.measuredStopSubject.next(received.Data as Runner);
       } else if (received.Command === ViewerCommands.Races) {
         this.racesSubject.next(received.Data as Array<Race>);
       } else if (received.Command === ViewerCommands.Runners) {

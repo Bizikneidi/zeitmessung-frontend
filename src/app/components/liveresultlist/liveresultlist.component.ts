@@ -39,7 +39,8 @@ export class LiveresultlistComponent implements OnInit, OnDestroy {
   startSubscription: Subscription;
   stopSubscription: Subscription;
 
-  constructor(private viewer: ViewerService) { }
+  constructor(private viewer: ViewerService) {
+  }
 
   ngOnInit() {
     // Check for the start of a race
@@ -48,7 +49,7 @@ export class LiveresultlistComponent implements OnInit, OnDestroy {
     });
 
     // Check for the end of a race
-    this.stopSubscription = this.viewer.stop.subscribe((runner: Runner) => {
+    this.stopSubscription = this.viewer.measuredStop.subscribe((runner: Runner) => {
       // Set end of time for runner
       this.participantList.find(item => item.Starter === runner.Starter).Time = runner.Time;
 
