@@ -10,24 +10,24 @@
                     </div>
                     <div class="col-2 child">
                         <a *ngIf="races[0]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[0].Id}">
-                            <div class="item shadow-lg">{{ getDate(races[0]) }}</div>
+                            <div class="item shadow-lg">{{ races[0] | raceToString }}</div>
                         </a>
                     </div>
                     <div class="col-2 child">
                       <a *ngIf="races[1]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[1].Id}">
-                        <div class="item shadow-lg">{{ getDate(races[1]) }}</div>
+                        <div class="item shadow-lg">{{ races[1] | raceToString }}</div>
                       </a>
                     </div>
                     <div class="col-2 child">
                       <a *ngIf="races[2]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[2].Id}">
-                        <div class="item shadow-lg">{{ getDate(races[2]) }}</div>
+                        <div class="item shadow-lg">{{ races[2] | raceToString }}</div>
                       </a>
                     </div>
                     <div class="col-4 child">
                         <div class="item shadow-lg">
                             <select name="races" id="races" #t (change)="selectedRace(t.value)">
                                 <option value="" selected disabled hidden>Datum des Rennens</option>
-                                <option *ngFor="let race of races" value="{{ race.Id }}">{{ getDate(race) }}</option>
+                                <option *ngFor="let race of races" value="{{ race.Id }}">{{ race | raceToString }}</option>
                             </select>
                         </div>
                     </div>
@@ -45,13 +45,13 @@
                         </div>
                         <div class="col-sm">
                             <h2>Live now</h2>
-                            <p>{{message}}</p>
+                            <p>{{viewer.state | stateToText}}</p>
                         </div>
                         <div class="col-sm">
                             <div class="no-wrap">
-                                <p class="time" [ngClass]="measuring ? 'time' : 'time-grey'">{{curResultStationTime |
+                                <p class="time" [ngClass]="liveTimer.currentTime != 0 ? 'time' : 'time-grey'">{{liveTimer.currentTime |
                                     milliSecondsToTime}}</p>
-                                <p class="decis" [ngClass]="measuring ? 'decis' : 'decis-grey'">{{curResultStationTime
+                                <p class="decis" [ngClass]="liveTimer.currentTime != 0 ? 'decis' : 'decis-grey'">{{liveTimer.currentTime
                                     |
                                     milliSecondsToTime:true}}</p>
                             </div>
