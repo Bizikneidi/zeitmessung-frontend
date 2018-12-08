@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Runner } from '../../entities/runnner';
+import { Runner } from '../../entities/runner';
 import { ActivatedRoute } from '@angular/router';
 import { ViewerService } from '../../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';

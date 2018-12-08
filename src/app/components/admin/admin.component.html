@@ -15,22 +15,21 @@
             </div>
             <div class="col-auto align-self-center time">
               <div class="no-wrap">
-                <p [ngClass]="startRun ? 'time': 'time-grey'">{{curResultStationTime | milliSecondsToTime}}</p>
-                <p [ngClass]="startRun ? 'decis': 'decis-grey'">{{curResultStationTime | milliSecondsToTime:true}}</p>
+                <p [ngClass]="startRun && liveTimer.currentTime != 0 ? 'time': 'time-grey'">{{liveTimer.currentTime | milliSecondsToTime}}</p>
+                <p [ngClass]="startRun && liveTimer.currentTime != 0 ? 'decis': 'decis-grey'">{{liveTimer.currentTime | milliSecondsToTime:true}}</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
         <div class="col-12">
-          <div class="card-body text-center" [hidden]="startRun">
-            <button class="btn" [disabled]="admin.state != readyState" (click)="onStartRunClicked()">
-              Start
-            </button>
+            <div class="card-body text-center" >
+              <button class="btn" [disabled]="admin.state != readyState" (click)="onStartRunClicked()">
+                Start
+              </button>
+            </div>
           </div>
-        </div>
       </div>
+     
       <!--[hidden]="hiddenElements[i]"-->
       <div class="container mt-3"  [@slideAnimation]="finishedRunnerList.length" *ngIf="startRun" style="height:50vh; overflow:auto; ">
         <div class="card shadow rank-item mt-2" [hidden]="hiddenAssignedRunners[i]" *ngFor="let runner of finishedRunnerList; let i= index">

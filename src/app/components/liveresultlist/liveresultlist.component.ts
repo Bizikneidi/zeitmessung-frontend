@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { Runner } from '../../entities/runnner';
 import { LiveresultService } from '../../services/liveresult/liveresult.service';
 
 @Component({
