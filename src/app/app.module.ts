@@ -23,6 +23,7 @@ import { LiveresultlistComponent } from './components/liveresultlist/liveresultl
 import { ResultlistComponent } from './components/resultlist/resultlist.component';
 import { StateToTextPipe } from './pipes/statetotextpipe';
 import { RaceToStringPipe } from './pipes/racetostringpipe';
+import { LiveresultService } from './services/liveresult/liveresult.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { RaceToStringPipe } from './pipes/racetostringpipe';
     WebsocketService,
     AdminService,
     ParticipantService,
-    ViewerService
+    ViewerService,
+    LiveresultService
   ],
   bootstrap: [ContentComponent]
 })
