@@ -1,4 +1,4 @@
-import { Runner } from './runnner';
+import { Runner } from './runner';
 
 // entity to store the start and current time for state - and measurment start messages
 // Can be used by viewers to calculate time differences and run local timer

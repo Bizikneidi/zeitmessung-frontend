@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import { ViewerCommands, Message } from '../../entities/networking';
 import { TimeMeterState } from '../../entities/timemeterstate';
 import { MeasurementStart } from '../../entities/measurementstart';
-import { Runner } from '../../entities/runnner';
+import { Runner } from '../../entities/runner';
 
 @Injectable()
 export class ViewerService {

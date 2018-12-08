@@ -1,62 +1,70 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-11 col-md-9 col-lg-7 col-xl-7" >
+    <div class="col-11 col-md-9 col-lg-7 col-xl-7">
       <div class=" card shadow-lg">
-      <div class="card-title">
-        <div class="row">
-          <div class="col-1">
-            <a [routerLink]="['/']">
-              <fa-icon [icon]="faArrow"></fa-icon>
-            </a>
-          </div>
-          <div class="col-6">
-            <h2>Admin</h2>
-            <p>{{message}}</p>
-          </div>
-          <div class="col-auto align-self-center time" [hidden]="!startRun">
-            <h1>03:55:02 s</h1>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="card-body text-center" [hidden]="startRun">
-            <button class="btn" [disabled]="notReady" (click)="onStartRunClicked()">
-              Start
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container mt-3" [@slideAnimation]="runnerlist.length" *ngIf="startRun" style="height:50vh; overflow:auto; ">
-    <div class="card shadow rank-item mt-2"   *ngFor="let runner of runnerlist; let i= index">
-      <div class="card-block ">
-        <div class="row m-2  align-items-center">
-          <div class="col-9">
-            <div class="row align-items-center">
-              <h4 class="rank col-auto">#{{i+1}}</h4>
-              <input type="number" class="form-control col-3 mb-3" placeholder="runner number">
-
-              <a class="card-link col-auto" href="javascript:void(0)" (click)="onRunnerFinishedClicked(i)">
-                <h5 class="arrow">➜</h5>
+        <div class="card-title">
+          <div class="row">
+            <div class="col-1">
+              <a [routerLink]="['/']">
+                <fa-icon [icon]="faArrow"></fa-icon>
               </a>
+            </div>
+            <div class="col-4">
+              <h2>Admin</h2>
+              <p>{{message}}</p>
+            </div>
+            <div class="col-auto align-self-center time">
+              <div class="no-wrap">
+                <p [ngClass]="startRun ? 'time': 'time-grey'">{{curResultStationTime | milliSecondsToTime}}</p>
+                <p [ngClass]="startRun ? 'decis': 'decis-grey'">{{curResultStationTime | milliSecondsToTime:true}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card-body text-center" *ngIf="!startRun">
+              <button class="btn" [disabled]="notReady" (click)="onStartRunClicked()">
+                Start
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--[hidden]="hiddenElements[i]"-->
+      <div class="container mt-3"  [@slideAnimation]="finishedRunnerList.length" *ngIf="startRun" style="height:50vh; overflow:auto; ">
+        <div class="card shadow rank-item mt-2" [hidden]="hiddenAssignedRunners[i]" *ngFor="let runner of finishedRunnerList; let i= index">
+          <div class="card-block ">
+            <div class="row m-2  align-items-center">
+              <div class="col-9">
+                <div class="row align-items-center">
+                  <h4 class="rank col-auto">#{{i+1}}</h4>
+                  <input type="number" class="form-control col-3 mb-3" placeholder="runner number" [(ngModel)]="runner.Start">
+
+                  <a class="card-link col-auto" href="javascript:void(0)" (click)="onAssignTimeToRunnerClicked(i)">
+                    <h5 class="arrow">➜</h5>
+                  </a>
+
+                </div>
+
+              </div>
+
+              <div class="col-3">
+                <div class="no-wrap">
+                  <p class="time-sm">{{runner.Time | milliSecondsToTime}}</p>
+                  <p class="decis-sm">{{runner.Time | milliSecondsToTime:true}}</p>
+                </div>
+
+              </div>
+
+
 
             </div>
 
           </div>
-
-          <div class="col-3">
-            <h5 class="time">03:00:56 s</h5>
-          </div>
-
-
-
         </div>
-
       </div>
     </div>
-    </div>
-  </div>
 
 
 
