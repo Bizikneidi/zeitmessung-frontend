@@ -4,6 +4,10 @@ import { Subscription } from 'rxjs/Subscription';
 import { AdminService } from '../../services/admin/admin.service';
 import { TimeMeterState } from '../../entities/timemeterstate';
 import { query, keyframes, trigger, transition, animate, style, stagger } from '@angular/animations';
+import { Runner } from '../../entities/runner';
+import { RunStartDTO } from '../../entities/runstart';
+import { AssignmentDTO } from '../../entities/assignment';
+import { ViewerService } from '../../services/viewer/viewer.service';
 import { LiveTimerService } from '../../services/livetimer/livetimer.service';
 @Component({
   selector: 'app-admin',
@@ -32,7 +36,17 @@ export class AdminComponent implements OnInit, OnDestroy {
   faArrow = faLongArrowAltLeft;
   readyState = TimeMeterState.Ready;
   startRun = false;
-  runnerlist: number[] = new Array(10).fill(1);
+  message = 'Lade...';
+  runnerList: Runner[]; // list of all participating runners
+  hiddenAssignedRunners: boolean[] = []; // array to hide assigned runners
+  finishedRunnerList: Runner[] = []; // list of all finshed runners 
+  prevResultStationTime = 0; // The result of the latest completed run
+  curResultStationTime = 0; // The result of the current run (is being updated live)
+  recOwnTime = 0; // The local time the client received the start packet
+  recStationTime = 0; // The station time the client received the start packet
+  startStationTime = 0; // The station time when the run was started
+  measuring: boolean;
+  // For cleaning up in onDestroy()
 
   // For cleaning up in onDestroy
   startSubscription: Subscription;
@@ -43,17 +57,54 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
     this.admin.connect(); // Connect as Admin on page visit
 
     // Check for the start of a race
     this.startSubscription = this.admin.start.subscribe(ms => {
       this.liveTimer.start(ms.CurrentTime, ms.StartTime);
+    this.subscription = this.admin.state.subscribe((data: TimeMeterState) => {
+
+      this.notReady = data !== TimeMeterState.Ready; // Can only press start if the server is ready
+      this.measuring = data === TimeMeterState.Measuring;
+
+      // Display correct text
+      switch (data) {
+        case TimeMeterState.Ready:
+          this.message = 'Eine Station ist bereit, drücken Sie START, um zu starten!';
+          break;
+        case TimeMeterState.Disabled:
+          this.message = 'Sie können starten, sobald eine Station verbunden ist.';
+          break;
+        case TimeMeterState.Measuring:
+          this.message = 'Eine Messung ist derzeitig im gange.';
+          this.startRun = true;
+          break;
+        case TimeMeterState.MeasurementRequested:
+          this.message = 'Gestartet! Warte auf Server';
+          break;
+      }
     });
 
     // Check for the end of a race
     this.endSubscription = this.admin.measuredStop.subscribe(() => {
       this.liveTimer.stop();
     });
+     // get current run and runnerlist
+     this.runStartSubscription = this.admin.runStart.subscribe((runDto: RunStartDTO) => {
+      this.runnerList = runDto.Runners;
+      // alert(JSON.stringify(this.runnerList));
+      this.hiddenAssignedRunners.fill(false, 0, this.runnerList.length);
+    });
+    // get time of finished runner
+    this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
+      const runner = new Runner();
+      runner.Time = time;
+      this.finishedRunnerList.push(runner);
+      this.hiddenAssignedRunners.push(false);
+    });
+    this.admin.runEnd.subscribe(end => this.resetRun());
+    // time subscriptions
   }
 
   onStartRunClicked() {
@@ -61,16 +112,33 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.startRun = true;
   }
 
-  onRunnerFinishedClicked(index: number) {
-    this.runnerlist.splice(index, 1);
+  onAssignTimeToRunnerClicked(index: number) {
+    const finishedRunner = this.finishedRunnerList[index];
+    alert(JSON.stringify(finishedRunner));
+    this.hiddenAssignedRunners[index] = true;
+    this.admin.assignTime(new AssignmentDTO(finishedRunner.Starter, finishedRunner.Time));
   }
 
+  resetRun() {
+    this.startRun = false;
+    this.runnerList = [];
+    this.hiddenAssignedRunners = [];
+    this.finishedRunnerList = [];
+    this.measuring = false;
+  }
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.startSubscription.unsubscribe();
     this.endSubscription.unsubscribe();
 
     // Clean up
+    this.subscription.unsubscribe();
+    this.runStartSubscription.unsubscribe();
+    this.measuredStopSubscription.unsubscribe();
+
+    this.startSubscription.unsubscribe();
+    this.stopSubscription.unsubscribe();
+    this.viewer.disconnect();
     this.admin.disconnect();
   }
 

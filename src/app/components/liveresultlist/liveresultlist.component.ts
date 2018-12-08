@@ -1,5 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import { Runner } from '../../entities/runnner';
+import { Component, OnInit } from '@angular/core';
+import { Runner } from '../../entities/runner';
 import { Participant } from '../../entities/participant';
 import { Race } from '../../entities/race';
 import { ViewerService } from '../../services/viewer/viewer.service';

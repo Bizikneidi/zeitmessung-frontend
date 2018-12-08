@@ -84,11 +84,43 @@ select:focus {
   color: #26D2B3;
 }
 
-.time {
+.time-sm {
   color: #26D2B3;
-
+  font-size: 18px;
+  display: inline;
 }
 
+.decis-sm{
+  font-size: 12px;   
+  color: #26D2B3;
+  display: inline;
+}
+.time{
+  font-size: 64px;   
+  color: #26D2B3;
+  font-weight: bold;
+  display: inline;
+}
+
+.time-grey{
+  font-size: 64px;   
+  font-weight: bold;
+  color: #E8E8E8;
+  display: inline;
+}
+.decis{
+  font-size: 36px;   
+  color: #26D2B3;
+  font-weight: bold;
+  display: inline;
+}
+
+.decis-grey{
+  font-size: 36px;   
+  font-weight: bold;
+  color: #E8E8E8;
+ display: inline;
+}
 .rank-item {
   border-radius: 20px;
   border: none;
@@ -97,4 +129,8 @@ select:focus {
 .rank-item:hover {
   transform: scale(1.05);
   transition: transform ease 0.2s;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
