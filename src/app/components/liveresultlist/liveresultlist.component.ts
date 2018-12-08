@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Runner } from '../../entities/runner';
 import { Participant } from '../../entities/participant';
 import { Race } from '../../entities/race';

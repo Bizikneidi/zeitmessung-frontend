@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import {Message, ViewerCommands} from '../../entities/networking';
 import {TimeMeterState} from '../../entities/timemeterstate';
-import {Runner} from '../../entities/runnner';
+import {Runner} from '../../entities/runner';
 import {Race} from '../../entities/race';
 import { RunStartDTO } from '../../entities/runstart';
 
