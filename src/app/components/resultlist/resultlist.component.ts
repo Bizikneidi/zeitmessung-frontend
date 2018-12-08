@@ -1,59 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Runner } from '../../entities/runnner';
-import { Participant } from '../../entities/participant';
-import { Race } from '../../entities/race';
-import {Router, ActivatedRoute, RoutesRecognized} from '@angular/router';
-import {ViewerService} from '../../services/viewer/viewer.service';
+import { ActivatedRoute } from '@angular/router';
+import { ViewerService } from '../../services/viewer/viewer.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-	selector: 'app-resultlist',
-	templateUrl: './resultlist.component.html',
-	styleUrls: ['./resultlist.component.css']
+  selector: 'app-resultlist',
+  templateUrl: './resultlist.component.html',
+  styleUrls: ['./resultlist.component.css']
 })
-export class ResultlistComponent implements OnInit {
+export class ResultlistComponent implements OnInit, OnDestroy {
 
-	runners: Array<Runner> = [];
-	raceid = -1;
+  runners: Array<Runner> = [];
 
-	constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private viewers: ViewerService) {
+  runnersSub: Subscription;
+  routerSub: Subscription;
 
-		this.router.events.subscribe(evt => {
-		  this.raceid = this.route.snapshot.queryParams.raceid;
-		  this.getRunners();
-    });
-	}
-
-	ngOnInit() { }
-
-	sortRunners() {
-		for (let i = 0; i < this.runners.length; i++) {
-			for (let j = 0; j < this.runners.length; j++) {
-				if (this.getEffectiveTime(this.runners[i]) < this.getEffectiveTime(this.runners[j])) {
-					const temp = this.runners[i];
-					this.runners[i] = this.runners[j];
-					this.runners[j] = temp;
-				}
-			}
-		}
-	}
-
-	private getEffectiveTime(runner: Runner) {
-		return runner.Time;
-	}
-
-  private getRunners() {
-    console.log('i am in getRunners');
-    this.viewers.runners.subscribe(runners => {
-      console.log('i am in getRunners in subscribe');
-      console.log(runners);
-      this.runners = runners;
-      this.sortRunners();
-    });
-
-	  this.viewers.getRunners(this.raceid);
+  constructor(private route: ActivatedRoute, private viewers: ViewerService) {
   }
 
+  ngOnInit() {
+    this.runnersSub = this.viewers.runners.subscribe(runners => {
+      this.runners = runners.sort((r1, r2) => r1.Time - r2.Time);
+    });
+
+    this.routerSub = this.route.queryParams.subscribe(evt => {
+      this.getRunners();
+    });
+    this.getRunners();
+  }
+
+  ngOnDestroy() {
+    this.runnersSub.unsubscribe();
+    this.routerSub.unsubscribe();
+  }
+
+  getRunners() {
+    const raceid = Number.parseInt(this.route.snapshot.queryParams.raceid);
+    this.viewers.getRunners(raceid);
+  }
 }
