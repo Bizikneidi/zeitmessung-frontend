@@ -53,37 +53,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   stopSubscription: Subscription;
 
   constructor(public admin: AdminService, public viewer: ViewerService) {
-    // get current run and runnerlist
-    this.runStartSubscription = this.admin.runStart.subscribe((runDto: RunStartDTO) => {
-      this.runnerList = runDto.Runners;
-      // alert(JSON.stringify(this.runnerList));
-      this.hiddenAssignedRunners.fill(false, 0, this.runnerList.length);
-    });
-    // get time of finished runner
-    this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
-      const runner = new Runner();
-      runner.Time = time;
-      this.finishedRunnerList.push(runner);
-      this.hiddenAssignedRunners.push(false);
-    });
-    this.admin.runEnd.subscribe(end => this.resetRun());
-    // time subscriptions
-    this.startSubscription = this.viewer.start.subscribe(ms => {
-      this.recOwnTime = Date.now();
-      this.recStationTime = ms.CurrentTime;
-      this.startStationTime = ms.StartTime;
-    });
 
-    this.stopSubscription = this.viewer.stop.subscribe(endTime => {
-      this.prevResultStationTime = endTime.Time - this.startStationTime; // rework here
-      this.curResultStationTime = 0;
-    });
-
-    setInterval(() => {
-      if (this.measuring) {
-        this.curResultStationTime = this.approximateCurrentStationTime() - this.startStationTime;
-      }
-    }, 0);
   }
 
   ngOnInit() {
@@ -111,6 +81,21 @@ export class AdminComponent implements OnInit, OnDestroy {
           break;
       }
     });
+     // get current run and runnerlist
+     this.runStartSubscription = this.admin.runStart.subscribe((runDto: RunStartDTO) => {
+      this.runnerList = runDto.Runners;
+      // alert(JSON.stringify(this.runnerList));
+      this.hiddenAssignedRunners.fill(false, 0, this.runnerList.length);
+    });
+    // get time of finished runner
+    this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
+      const runner = new Runner();
+      runner.Time = time;
+      this.finishedRunnerList.push(runner);
+      this.hiddenAssignedRunners.push(false);
+    });
+    this.admin.runEnd.subscribe(end => this.resetRun());
+    // time subscriptions
   }
 
   onStartRunClicked() {
@@ -124,10 +109,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.hiddenAssignedRunners[index] = true;
     this.admin.assignTime(new AssignmentDTO(finishedRunner.Starter, finishedRunner.Time));
   }
-  approximateCurrentStationTime() {
-    const diff = this.recOwnTime - this.recStationTime;
-    return Date.now() - diff;
-  }
+
   resetRun() {
     this.startRun = false;
     this.runnerList = [];
