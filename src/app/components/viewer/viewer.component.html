@@ -4,8 +4,8 @@
             <div class="header">
                 <div class="row">
                     <div class="col-2 child" (click)="changeCurrentRace('live')">
-                        <a [routerLink]="[{ outlets: {resultlist: ['live'] } }]">
-                            <div class="item shadow-lg" [ngClass]="{ active: activeRace === 'live' }">Live now</div>
+                        <a [routerLink]="[{ outlets: {resultlist: ['live'] } }]" [ngClass]="{ active: activeRace === 'live' }">
+                            <div class="item shadow-lg">Live now</div>
                         </a>
                     </div>
                     <div class="col-2 child">

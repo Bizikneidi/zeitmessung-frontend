@@ -121,11 +121,11 @@ a {
   color: #8e8e8e;
 }
 
-.active {
+.active > div {
     background: #26D2B3 !important;
     color: white !important;
 }
 
-.inactive {
-    background: white !important;
+.active {
+    color: white;
 }
