@@ -55,6 +55,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   selectedRace(id) {
     this.router.navigateByUrl('viewer/(resultlist:old)?raceid=' + id);
+    this.activeRace = "another";
     console.log(id);
   }
 
