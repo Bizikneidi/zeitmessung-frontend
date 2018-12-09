@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { LiveresultService } from '../../services/liveresult/liveresult.service';
+import { Runner } from './../../entities/runner';
 
 @Component({
   selector: 'app-liveresultlist',
