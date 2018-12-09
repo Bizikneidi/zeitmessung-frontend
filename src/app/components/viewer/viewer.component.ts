@@ -16,6 +16,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
   races = new Array<Race>();
+  activeRace = "live";
 
   // For cleaning up in onDestroy
   startSubscription: Subscription;
