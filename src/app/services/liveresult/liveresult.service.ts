@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ViewerService } from '../viewer/viewer.service';
-import { Runner } from '../../entities/runnner';
+import { Runner } from '../../entities/runner';
 import { Participant } from '../../entities/participant';
 import { Race } from '../../entities/race';
 
