@@ -120,3 +120,12 @@ a {
   background: white;
   color: #8e8e8e;
 }
+
+.active > div {
+    background: #26D2B3 !important;
+    color: white !important;
+}
+
+.active {
+    color: white;
+}

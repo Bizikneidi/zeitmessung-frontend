@@ -3,29 +3,32 @@
         <div class="col-md-9 col-lg-7 col-xl-7">
             <div class="header">
                 <div class="row">
-                    <div class="col-2 child">
-                        <a [routerLink]="[{ outlets: {resultlist: ['live'] } }]">
+                    <div class="col-2 child" (click)="changeCurrentRace('live')">
+                        <a [routerLink]="[{ outlets: {resultlist: ['live'] } }]" [ngClass]="{ active: activeRace === 'live' }">
                             <div class="item shadow-lg">Live now</div>
                         </a>
                     </div>
-                    <div class="col-2 child">
-                        <a *ngIf="races[0]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[0].Id}">
+                    <div class="col-2 child" (click)="changeCurrentRace('first')">
+                        <a *ngIf="races[0]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[0].Id}"
+                            [ngClass]="{ active: activeRace === 'first' }">
                             <div class="item shadow-lg">{{ races[0] | raceToString }}</div>
                         </a>
                     </div>
-                    <div class="col-2 child">
-                      <a *ngIf="races[1]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[1].Id}">
-                        <div class="item shadow-lg">{{ races[1] | raceToString }}</div>
-                      </a>
+                    <div class="col-2 child" (click)="changeCurrentRace('second')">
+                        <a *ngIf="races[1]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[1].Id}"
+                            ngClass]="{ active: activeRace === 'second' }">
+                            <div class="item shadow-lg">{{ races[1] | raceToString }}</div>
+                        </a>
                     </div>
-                    <div class="col-2 child">
-                      <a *ngIf="races[2]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[2].Id}">
-                        <div class="item shadow-lg">{{ races[2] | raceToString }}</div>
-                      </a>
+                    <div class="col-2 child" (click)="changeCurrentRace('third')">
+                        <a *ngIf="races[2]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[2].Id}"
+                            [ngClass]="{ active: activeRace === 'third' }">
+                            <div class="item shadow-lg">{{ races[2] | raceToString }}</div>
+                        </a>
                     </div>
                     <div class="col-4 child">
                         <div class="item shadow-lg">
-                            <select name="races" id="races" #t (change)="selectedRace(t.value)">
+                            <select name="races" id="races" #t (change)="selectedRace(t.value)" [ngClass]="{ active: activeRace === 'another' }">
                                 <option value="" selected disabled hidden>Datum des Rennens</option>
                                 <option *ngFor="let race of races" value="{{ race.Id }}">{{ race | raceToString }}</option>
                             </select>
@@ -49,7 +52,8 @@
                         </div>
                         <div class="col-sm">
                             <div class="no-wrap">
-                                <p class="time" [ngClass]="liveTimer.currentTime != 0 ? 'time' : 'time-grey'">{{liveTimer.currentTime |
+                                <p class="time" [ngClass]="liveTimer.currentTime != 0 ? 'time' : 'time-grey'">{{liveTimer.currentTime
+                                    |
                                     milliSecondsToTime}}</p>
                                 <p class="decis" [ngClass]="liveTimer.currentTime != 0 ? 'decis' : 'decis-grey'">{{liveTimer.currentTime
                                     |

@@ -16,6 +16,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
   races = new Array<Race>();
+  activeRace = "live";
 
   // For cleaning up in onDestroy
   startSubscription: Subscription;
@@ -54,7 +55,13 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   selectedRace(id) {
     this.router.navigateByUrl('viewer/(resultlist:old)?raceid=' + id);
+    this.activeRace = "another";
     console.log(id);
   }
 
+  changeCurrentRace(id: string) {
+    console.log("i am called");
+    this.activeRace = id;
+    console.log(this.activeRace);
+  }
 }
