@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import {Race} from '../../entities/race';
 import { LiveTimerService } from '../../services/livetimer/livetimer.service';
 
+
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
@@ -34,13 +35,13 @@ export class ViewerComponent implements OnInit, OnDestroy {
     });
 
     // Check for the end of a race
-    this.endSubscription = this.viewer.measuredStop.subscribe(() => {
+    this.endSubscription = this.viewer.end.subscribe(() => {
       this.liveTimer.stop();
     });
 
     // Fetch all races
     this.racesSubscription = this.viewer.races.subscribe(races => {
-      this.races = races.sort();
+      this.races = races.sort((r1,r2) => r2.Date - r1.Date);
     });
   }
 
@@ -49,7 +50,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.startSubscription.unsubscribe();
     this.endSubscription.unsubscribe();
     this.racesSubscription.unsubscribe();
-
+    this.liveTimer.stop();
     this.viewer.disconnect();
   }
 
