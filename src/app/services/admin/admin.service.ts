@@ -58,10 +58,10 @@ export class AdminService {
     this.ws.send(msg);
   }
 
-  assignTime(runner: Assignment) {
+  assignTime(assignment: Assignment) {
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.AssignTime;
-    msg.Data = runner;
+    msg.Data = assignment;
     this.ws.send(msg);
   }
 
