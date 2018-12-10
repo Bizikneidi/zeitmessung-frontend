@@ -41,7 +41,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
     // Fetch all races
     this.racesSubscription = this.viewer.races.subscribe(races => {
-      this.races = races.sort((r1,r2) => r2.Date - r1.Date);
+      this.races = races.sort((r1, r2) => r2.Date - r1.Date);
     });
   }
 
@@ -57,12 +57,9 @@ export class ViewerComponent implements OnInit, OnDestroy {
   selectedRace(id) {
     this.router.navigateByUrl('viewer/(resultlist:old)?raceid=' + id);
     this.activeRace = 'another';
-    console.log(id);
   }
 
   changeCurrentRace(id: string) {
-    console.log('i am called');
     this.activeRace = id;
-    console.log(this.activeRace);
   }
 }

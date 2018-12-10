@@ -38,6 +38,5 @@ export class ResultlistComponent implements OnInit, OnDestroy {
   getRunners() {
     const raceid = Number.parseInt(this.route.snapshot.queryParams.raceid);
     this.viewers.getRunners(raceid);
-    console.log(raceid);
   }
 }

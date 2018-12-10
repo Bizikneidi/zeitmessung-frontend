@@ -53,9 +53,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
     // get runnerlist and start time
     this.startSubscription = this.admin.start.subscribe((runDto: RunStartDTO) => {
-      this.finishedRunnerList = runDto.Runners;
       this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
-      this.hiddenAssignedRunners.fill(false, 0, this.finishedRunnerList.length);
       this.startRun = true;
     });
     // get time of finished runner
