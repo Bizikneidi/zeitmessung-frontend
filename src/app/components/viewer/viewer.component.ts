@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { ViewerService } from '../../services/viewer/viewer.service';
 import { Router } from '@angular/router';
-import {Race} from '../../entities/race';
+import { Race } from '../../entities/race';
 import { LiveTimerService } from '../../services/livetimer/livetimer.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
   races = new Array<Race>();
-  activeRace = "live";
+  activeRace = 'live';
 
   // For cleaning up in onDestroy
   startSubscription: Subscription;
@@ -55,12 +55,12 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   selectedRace(id) {
     this.router.navigateByUrl('viewer/(resultlist:old)?raceid=' + id);
-    this.activeRace = "another";
+    this.activeRace = 'another';
     console.log(id);
   }
 
   changeCurrentRace(id: string) {
-    console.log("i am called");
+    console.log('i am called');
     this.activeRace = id;
     console.log(this.activeRace);
   }

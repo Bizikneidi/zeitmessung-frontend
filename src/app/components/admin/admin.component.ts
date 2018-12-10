@@ -35,10 +35,9 @@ export class AdminComponent implements OnInit, OnDestroy {
   faArrow = faLongArrowAltLeft; // arrow icon
   readyState = TimeMeterState.Ready;
   startRun = false; // check if start has been pressed
-  message = 'Lade...'; // display status message
-  runnerList: Runner[]; // list of all participating runners
   hiddenAssignedRunners: boolean[] = []; // array to hide assigned runners
   finishedRunnerList: Runner[] = []; // list of all finshed runners
+
   // For cleaning up in onDestroy()
   startSubscription: Subscription;
   endSubscription: Subscription;
@@ -52,30 +51,12 @@ export class AdminComponent implements OnInit, OnDestroy {
 
     this.admin.connect(); // Connect as Admin on page visit
 
-    // Display correct text
-    switch (this.admin.state) {
-      case TimeMeterState.Ready:
-        this.message = 'Eine Station ist bereit, drücken Sie START, um zu starten!';
-        break;
-      case TimeMeterState.Disabled:
-        this.message = 'Sie können starten, sobald eine Station verbunden ist.';
-        break;
-      case TimeMeterState.Measuring:
-        this.message = 'Eine Messung ist derzeitig im gange.';
-        this.startRun = true;
-        break;
-      case TimeMeterState.MeasurementRequested:
-        this.message = 'Gestartet! Warte auf Server';
-        break;
-    }
-
-
-
     // get runnerlist and start time
     this.startSubscription = this.admin.start.subscribe((runDto: RunStartDTO) => {
-      this.runnerList = runDto.Runners;
+      this.finishedRunnerList = runDto.Runners;
       this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
-      this.hiddenAssignedRunners.fill(false, 0, this.runnerList.length);
+      this.hiddenAssignedRunners.fill(false, 0, this.finishedRunnerList.length);
+      this.startRun = true;
     });
     // get time of finished runner
     this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
@@ -88,15 +69,13 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.endSubscription = this.admin.end.subscribe(end => this.resetRun());
 
   }
-
+   // Start a race
   onStartRunClicked() {
-    this.admin.startRun(); // Start a race
-    this.startRun = true;
+    this.admin.startRun();
   }
-
+  // assing start number to runner
   onAssignTimeToRunnerClicked(index: number) {
     const finishedRunner = this.finishedRunnerList[index];
-    alert(JSON.stringify(finishedRunner));
     this.hiddenAssignedRunners[index] = true;
     this.admin.assignTime(new Assignment(finishedRunner.Starter, finishedRunner.Time));
   }
@@ -104,17 +83,17 @@ export class AdminComponent implements OnInit, OnDestroy {
   resetRun() {
     this.liveTimer.stop();
     this.startRun = false;
-    this.runnerList = [];
+   // this.runnerList = [];
     this.hiddenAssignedRunners = [];
     this.finishedRunnerList = [];
-
   }
+  // unsubscribe and disconnect from admin
   ngOnDestroy() {
-    // unsubscribe to ensure no memory leaks
     this.startSubscription.unsubscribe();
     this.endSubscription.unsubscribe();
     this.measuredStopSubscription.unsubscribe();
 
+    this.liveTimer.stop();
 
     this.admin.disconnect();
   }
