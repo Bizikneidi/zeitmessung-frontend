@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-2 child" (click)="changeCurrentRace('second')">
                         <a *ngIf="races[1]" [routerLink]="[{ outlets: {resultlist: ['old'] } }]" [queryParams]="{raceid: races[1].Id}"
-                            ngClass]="{ active: activeRace === 'second' }">
+                            [ngClass]="{ active: activeRace === 'second' }">
                             <div class="item shadow-lg">{{ races[1] | raceToString }}</div>
                         </a>
                     </div>
@@ -47,7 +47,7 @@
                             </a>
                         </div>
                         <div class="col-sm">
-                            <h2>Live now</h2>
+                            <h2>Jetzt live:</h2>
                             <p>{{viewer.state | stateToText}}</p>
                         </div>
                         <div class="col-sm">

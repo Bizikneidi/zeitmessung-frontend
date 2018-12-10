@@ -7,27 +7,7 @@ import { Race } from '../../entities/race';
 @Injectable()
 export class LiveresultService {
 
-  /*participantList: Array<Runner> = [{Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: new Time, Race: new Race()},
-                                    {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: new Time, Race: new Race()}];*/
-
-  participantList: Array<Runner> = [
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 0, Race: new Race()},
-                                      {Starter: 12, Participant: new Participant('Peter', 'Hauer'), Time: 33333333, Race: new Race()},
-                                      {Starter: 9, Participant: new Participant('Richard', 'Hoang'), Time: 3332333, Race: new Race()},
-                                      {Starter: 10, Participant: new Participant('Severin', 'Berger'), Time: 3333133, Race: new Race()}
-                                      ];
+  participantList: Array<Runner> = [];
 
   constructor(private viewer: ViewerService) {
     // Check for the start of a race
@@ -46,6 +26,10 @@ export class LiveresultService {
       });
       this.moveZerosToEnd(this.participantList);
     });
+
+    this.viewer.end.subscribe(() => {
+      this.participantList = [];
+    })
 
     // for the test list
     this.participantList = this.participantList.sort((a, b) => {
