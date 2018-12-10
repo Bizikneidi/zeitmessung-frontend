@@ -25,7 +25,7 @@ import { query, keyframes, trigger, transition, animate, style, stagger } from '
   ]
 })
 export class LiveresultlistComponent implements OnInit, OnDestroy {
-  constructor(private liveresult: LiveresultService) {
+  constructor(public liveresult: LiveresultService) {
   }
 
   ngOnInit() { }

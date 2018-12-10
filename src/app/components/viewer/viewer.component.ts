@@ -24,7 +24,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   endSubscription: Subscription;
   racesSubscription: Subscription;
 
-  constructor(private viewer: ViewerService, private router: Router, private liveTimer: LiveTimerService) { }
+  constructor(public viewer: ViewerService, private router: Router, public liveTimer: LiveTimerService) { }
 
   ngOnInit() {
     this.viewer.connect(); // Connect on website visit

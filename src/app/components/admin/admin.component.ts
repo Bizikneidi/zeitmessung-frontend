@@ -43,7 +43,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   endSubscription: Subscription;
   measuredStopSubscription: Subscription;
 
-  constructor(public admin: AdminService, private liveTimer: LiveTimerService) {
+  constructor(public admin: AdminService, public liveTimer: LiveTimerService) {
 
   }
 
