@@ -22,14 +22,14 @@ export class LiveresultService {
 
       // Sort list by time
       this.participantList = this.participantList.sort((a, b) => {
-        return (a.Time) - (b.Time);
+        return (b.Time) - (a.Time);
       });
       this.moveZerosToEnd(this.participantList);
     });
 
     this.viewer.end.subscribe(() => {
       this.participantList = [];
-    })
+    });
 
     // for the test list
     this.participantList = this.participantList.sort((a, b) => {
