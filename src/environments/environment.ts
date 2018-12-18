@@ -15,7 +15,7 @@ import { ParticipantracechooserComponent } from '../app/components/participantra
 export const environment = {
   production: false,
   appRoutes: [
-    { path: 'participant', component: RegisterparticipantComponent },
+    { path: 'participant/:id', component: RegisterparticipantComponent },
     {
       path: 'viewer',
       component: ViewerComponent,
