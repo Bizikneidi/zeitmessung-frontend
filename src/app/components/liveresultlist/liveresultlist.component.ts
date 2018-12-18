@@ -45,5 +45,4 @@ export class LiveresultlistComponent implements OnInit, OnDestroy {
     }
     return rank;
   }
-
 }
