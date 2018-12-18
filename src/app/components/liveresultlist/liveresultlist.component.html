@@ -1,21 +1,33 @@
-<div class="card mt-3 shadow" [@slideAnimation]="liveresult.participantList.length" *ngFor="let i of liveresult.participantList">
-  <div class="row">
-    <div *ngIf="i.Time > 0">
-      <div class="col-2 mx-3">
-        <p class="rank no-wrap">{{getRank(i)}}</p>
+<div [@slideAnimation]="liveresult.participantList.length">
+  <div class="card mt-3 shadow" *ngFor="let i of liveresult.participantList">
+    <div class="row card-body ">
+      <div class="col-1" *ngIf="i.Time > 0">
+        <p class="rank no-wrap">{{ getRank(i) }}</p>
       </div>
-    </div>
-    <div *ngIf="i.Time <= 0">
-      <div class="col-2 mx-3">
+      <div class="col-1" *ngIf="i.Time <= 0">
         <p class="rank-grey no-wrap">?</p>
       </div>
+
+      <div class="col-5 align-self-center">
+        <p class="card-text">
+          {{ i.Starter }} - {{ i.Participant.Firstname }}
+          {{ i.Participant.Lastname }}
+        </p>
+      </div>
+
+      <div class="col-2" *ngIf="i.Time > 0">
+        <p class="rank no-wrap">{{ i.Participant.Sex | sexenglishtogermanpipe }}{{ getRankBySex(i) }}</p>
+      </div>
+      <div class="col-2" *ngIf="i.Time <= 0">
+        <p class="rank-grey no-wrap">{{ i.Participant.Sex | sexenglishtogermanpipe }}?</p>
+      </div>
+
+      <div class="col-4 no-wrap">
+        <p class="rank">{{ i.Time | milliSecondsToTime }}</p>
+        <p class="little-rank">
+          {{ i.Time | milliSecondsToTime: true }}
+        </p>
+      </div>
     </div>
-    <div class="col-5 mt-3">
-			<p class="participant">{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
-		</div>
-		<div class="col-4 mx-3">
-			<p class="rank no-wrap">{{i.Time | milliSecondsToTime}}</p>
-      		<p class="little-rank no-wrap">{{i.Time | milliSecondsToTime:true}}</p>
-		</div>
   </div>
 </div>
