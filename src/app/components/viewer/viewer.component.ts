@@ -62,4 +62,8 @@ export class ViewerComponent implements OnInit, OnDestroy {
   changeCurrentRace(id: string) {
     this.activeRace = id;
   }
+
+  onPdfClick() {
+    this.viewer.onPdfClick();
+  }
 }

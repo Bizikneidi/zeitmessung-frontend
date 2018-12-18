@@ -33,6 +33,10 @@ export class ViewerService {
   public runners: Observable<Array<Runner>>;
   private runnersSubject: Subject<Array<Runner>>;
 
+  // Observe the pdf button click
+  public pdfClick: Observable<null>;
+  private pdfClickSubject: Subject<null>;
+
   constructor(private ws: WebsocketService) {
     this.startSubject = new Subject<RunStartDTO>();
     this.start = this.startSubject.asObservable();
@@ -48,6 +52,9 @@ export class ViewerService {
 
     this.runnersSubject = new Subject<Array<Runner>>();
     this.runners = this.runnersSubject.asObservable();
+
+    this.pdfClickSubject = new Subject<null>();
+    this.pdfClick = this.pdfClickSubject.asObservable();
 
     this.ws.received.subscribe(msg => {
       // Cast to Viewer command and pass to correct observable
@@ -76,10 +83,18 @@ export class ViewerService {
     this.ws.disconnect();
   }
 
+  onPdfClick() {
+    this.pdfClickSubject.next();
+  }
+
   getRunners(raceid: number) {
     const msg = new Message<ViewerCommands>();
     msg.Command = ViewerCommands.GetRunners;
     msg.Data = raceid;
     this.ws.send(msg);
+  }
+
+  generatePdf(raceid: number) {
+
   }
 }

@@ -34,7 +34,7 @@
                             </select>
                         </div>
                     </div>
-                    <button [disabled]="(activeRace == 'live')" type="button" class="btn pdf-btn shadow-lg col-1 mb-auto">
+                    <button [disabled]="(activeRace == 'live')" type="button" class="btn pdf-btn shadow-lg col-1 mb-auto" (click)="onPdfClick()">
                         <img src="../../assets/images/pdf.png" alt="Card image cap" width="40%">
                     </button>
                 </div>
