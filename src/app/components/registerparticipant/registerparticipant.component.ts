@@ -19,7 +19,7 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // create empty participant
-    this.participant = new Participant();
+    this.participant = new Participant('', '');
     this.participant.Sex = null;
     this.ps.connect();
   }
@@ -35,8 +35,7 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
   sexAndCountryAreSet(): Boolean {
     // Required attribute does not work due to default values
-    return this.participant.Sex !== null
-      ;
+    return this.participant.Sex !== null;
   }
 
   register() {

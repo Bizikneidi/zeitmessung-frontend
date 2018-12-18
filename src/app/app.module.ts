@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Pipe, PipeTransform } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -18,6 +19,11 @@ import { AdminComponent } from './components/admin/admin.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ViewerComponent } from './components/viewer/viewer.component';
 import { PoliciesComponent } from './components/policies/policies.component';
+import { LiveresultlistComponent } from './components/liveresultlist/liveresultlist.component';
+import { ResultlistComponent } from './components/resultlist/resultlist.component';
+import { StateToTextPipe } from './pipes/statetotextpipe';
+import { RaceToStringPipe } from './pipes/racetostringpipe';
+import { LiveresultService } from './services/liveresult/liveresult.service';
 
 @NgModule({
   declarations: [
@@ -28,11 +34,16 @@ import { PoliciesComponent } from './components/policies/policies.component';
     AdminComponent,
     FooterComponent,
     MilliSecondsToTimePipe,
+    StateToTextPipe,
+    RaceToStringPipe,
     ViewerComponent,
-    PoliciesComponent
+    PoliciesComponent,
+    LiveresultlistComponent,
+    ResultlistComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     FontAwesomeModule,
     RouterModule.forRoot(environment.appRoutes as Routes)
@@ -41,7 +52,8 @@ import { PoliciesComponent } from './components/policies/policies.component';
     WebsocketService,
     AdminService,
     ParticipantService,
-    ViewerService
+    ViewerService,
+    LiveresultService
   ],
   bootstrap: [ContentComponent]
 })
