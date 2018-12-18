@@ -5,6 +5,7 @@ import { PoliciesComponent } from '../app/components/policies/policies.component
 import { NavigationcardsComponent } from '../app/components/navigationcards/navigationcards.component';
 import { LiveresultlistComponent } from '../app/components/liveresultlist/liveresultlist.component';
 import { ResultlistComponent } from '../app/components/resultlist/resultlist.component';
+import { ParticipantracechooserComponent } from '../app/components/participantracechooser/participantracechooser.component';
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
@@ -33,6 +34,7 @@ export const environment = {
     },
     { path: 'admin', component: AdminComponent },
     { path: 'policies', component: PoliciesComponent },
+    { path: 'chooserace', component: ParticipantracechooserComponent },
     { path: '**', component: NavigationcardsComponent }
   ]
 };
