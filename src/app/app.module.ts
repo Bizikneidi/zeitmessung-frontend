@@ -24,6 +24,7 @@ import { ResultlistComponent } from './components/resultlist/resultlist.componen
 import { StateToTextPipe } from './pipes/statetotextpipe';
 import { RaceToStringPipe } from './pipes/racetostringpipe';
 import { LiveresultService } from './services/liveresult/liveresult.service';
+import { SexenglishtogermanpipePipe } from './pipes/sexenglishtogermanpipe.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { LiveresultService } from './services/liveresult/liveresult.service';
     ViewerComponent,
     PoliciesComponent,
     LiveresultlistComponent,
-    ResultlistComponent
+    ResultlistComponent,
+    SexenglishtogermanpipePipe
   ],
   imports: [
     BrowserModule,
