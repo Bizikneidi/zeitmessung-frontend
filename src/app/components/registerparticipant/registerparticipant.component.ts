@@ -33,7 +33,6 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
     this.route.params.subscribe(params => {
       this.raceid = +params['id'];
-      console.log(this.raceid);
    });
   }
 
