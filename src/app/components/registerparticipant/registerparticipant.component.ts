@@ -3,6 +3,9 @@ import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Participant } from '../../entities/participant';
 import { CountryList } from '../../entities/countryList';
 import { ParticipantService } from '../../services/participant/participant.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+
 @Component({
   selector: 'app-registerparticipant',
   templateUrl: './registerparticipant.component.html',
@@ -14,14 +17,24 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
   participant: Participant;
   countryList = CountryList.ListOfCountries;
   agreed = false;
+  raceid = 0;
 
-  constructor(private ps: ParticipantService) { }
+  constructor(
+    private ps: ParticipantService,
+    private route: ActivatedRoute,
+    private router: Router) {
+    }
 
   ngOnInit() {
     // create empty participant
     this.participant = new Participant('', '');
     this.participant.Sex = null;
     this.ps.connect();
+
+    this.route.params.subscribe(params => {
+      this.raceid = +params['id'];
+      console.log(this.raceid);
+   });
   }
 
   ngOnDestroy() {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-participantracechooser',
@@ -65,7 +66,9 @@ export class ParticipantracechooserComponent implements OnInit {
     return this.sampleData;
   }
 
-  constructor() { }
+  constructor(private router: Router) {
+    //router.
+  }
 
   ngOnInit() {
   }
