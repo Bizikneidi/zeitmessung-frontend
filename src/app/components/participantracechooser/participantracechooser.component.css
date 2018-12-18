@@ -32,4 +32,23 @@ a {
 	padding-left: 30px;
 	padding-right: 30px;
 	color:#2a2a2a;
-  }
+	}
+	
+	.race > .row > div {
+		font-weight: bold;
+	}
+
+	.race > .row > div > a {
+		display: inline-block;
+		font-size: 17px;
+	}
+
+	.race {
+		margin-bottom: 1vh;
+		color: lightgray;
+	}
+
+	.race:hover {
+		color: darkgrey;
+		cursor: pointer;
+	}
