@@ -115,8 +115,8 @@ a {
   margin-top: -7px;
   width: calc(100% - 20px);
   height: 31px;
-  border: none;
-  outline: none;
+  border:none;
+  outline:none;
   background: white;
   color: #8e8e8e;
 }
@@ -129,3 +129,13 @@ a {
 .active {
     color: white;
 }
+
+.pdf-btn {
+    border-radius: 50px;
+    background-color: #FFFFFF;
+    border: none;
+}
+
+.pdf-btn:active:enabled {
+    background-color: #E8E8E8;
+  }
