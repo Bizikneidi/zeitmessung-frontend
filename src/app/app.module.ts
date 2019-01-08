@@ -15,7 +15,7 @@ import { MilliSecondsToTimePipe } from './pipes/millisecondstotimepipe';
 import { RegisterparticipantComponent } from './components/registerparticipant/registerparticipant.component';
 import { NavigationcardsComponent } from './components/navigationcards/navigationcards.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent } from './components/admin/adminpanel/admin.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ViewerComponent } from './components/viewer/viewer.component';
 import { PoliciesComponent } from './components/policies/policies.component';
@@ -24,6 +24,8 @@ import { ResultlistComponent } from './components/resultlist/resultlist.componen
 import { StateToTextPipe } from './pipes/statetotextpipe';
 import { RaceToStringPipe } from './pipes/racetostringpipe';
 import { LiveresultService } from './services/liveresult/liveresult.service';
+import { CompetitionComponent } from './components/admin/competition/competition.component';
+import { RaceComponent } from './components/admin/race/race.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { LiveresultService } from './services/liveresult/liveresult.service';
     NavigationcardsComponent,
     HeaderComponent,
     AdminComponent,
+    CompetitionComponent,
+    RaceComponent,
     FooterComponent,
     MilliSecondsToTimePipe,
     StateToTextPipe,
@@ -39,7 +43,9 @@ import { LiveresultService } from './services/liveresult/liveresult.service';
     ViewerComponent,
     PoliciesComponent,
     LiveresultlistComponent,
-    ResultlistComponent
+    ResultlistComponent,
+    CompetitionComponent,
+    RaceComponent
   ],
   imports: [
     BrowserModule,

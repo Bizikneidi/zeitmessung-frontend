@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-11 col-md-9 col-lg-7 col-xl-7">
-      <div class=" card shadow-lg">
+      <div class=" card border-0 shadow-lg">
         <div class="card-title">
           <div class="row">
             <div class="col-1">
@@ -13,7 +13,7 @@
               <h2>Admin</h2>
               <p>{{admin.state | stateToText}}</p>
             </div>
-            <div class="col-auto align-self-center time">
+            <div class="col-auto align-self-center time" hidden>
               <div class="no-wrap">
                 <p [ngClass]="startRun && liveTimer.currentTime != 0 ? 'time': 'time-grey'">{{liveTimer.currentTime | milliSecondsToTime}}</p>
                 <p [ngClass]="startRun && liveTimer.currentTime != 0 ? 'decis': 'decis-grey'">{{liveTimer.currentTime | milliSecondsToTime:true}}</p>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="col-12">
-            <div class="card-body text-center" [hidden]="startRun" >
+            <div class="card-body text-center" [hidden]="true" >
               <button class="btn" [disabled]="admin.state !== readyState" (click)="onStartRunClicked()">
                 Start
               </button>
@@ -30,7 +30,34 @@
           </div>
       </div>
      
+     
+        <div class="row mt-5">
+          <div class="col-6">
+            <div class="card zoom shadow border-0">
+              <div class="card-body">
+                <h3>Wettkampf <br/> eintragen</h3>
+                <p>Drücken sie hier, <br/> um ein Rennen anzulegen</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card zoom shadow border-0">
+              <div class="card-body py-3">
+                <h3>Rennen <br/> starten</h3>
+                <select class="form-control">
+                  <option selected disabled>Rennen</option>
+                </select>
+                <a class="card-link w-50" href="javascript:void(0)" >
+                  <h5 class="arrow" >Starten ➜</h5>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      
       <!--[hidden]="hiddenElements[i]"-->
+      <!--
       <div class="container mt-3"  [@slideAnimation]="finishedRunnerList.length" *ngIf="startRun" style="height:50vh; overflow:auto; ">
         <div class="card shadow rank-item mt-2" [hidden]="hiddenAssignedRunners[i]" *ngFor="let runner of finishedRunnerList; let i= index">
           <div class="card-block ">
@@ -61,8 +88,11 @@
             </div>
 
           </div>
+          
         </div>
+       
       </div>
+       -->
     </div>
 
 

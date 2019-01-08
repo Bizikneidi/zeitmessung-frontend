@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs/Subscription';
-import { AdminService } from '../../services/admin/admin.service';
-import { TimeMeterState } from '../../entities/timemeterstate';
+import { AdminService } from '../../../services/admin/admin.service';
+import { TimeMeterState } from '../../../entities/timemeterstate';
 import { query, keyframes, trigger, transition, animate, style, stagger } from '@angular/animations';
-import { Runner } from '../../entities/runner';
-import { RunStartDTO } from '../../entities/runstart';
-import { Assignment } from '../../entities/assignment';
-import { LiveTimerService } from '../../services/livetimer/livetimer.service';
+import { Runner } from '../../../entities/runner';
+import { RunStartDTO } from '../../../entities/runstart';
+import { Assignment } from '../../../entities/assignment';
+import { LiveTimerService } from '../../../services/livetimer/livetimer.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',

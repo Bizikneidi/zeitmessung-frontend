@@ -1,6 +1,6 @@
 import { RegisterparticipantComponent } from '../app/components/registerparticipant/registerparticipant.component';
 import { ViewerComponent } from '../app/components/viewer/viewer.component';
-import { AdminComponent } from '../app/components/admin/admin.component';
+import { AdminComponent } from '../app/components/admin/adminpanel/admin.component';
 import { PoliciesComponent } from '../app/components/policies/policies.component';
 import { NavigationcardsComponent } from '../app/components/navigationcards/navigationcards.component';
 import { LiveresultlistComponent } from '../app/components/liveresultlist/liveresultlist.component';
