@@ -1,14 +1,31 @@
-<div class="card mt-3 shadow" *ngFor="let i of participants; let idx = index">
-	<div class="row">
-		<div class="col-1 mx-3">
-			<p class="rank no-wrap">#{{ idx + 1 }}</p>
+<div class="card mt-3 shadow" *ngFor="let i of participants">
+	<div class="row card-body ">
+		<div class="col-1" *ngIf="i.Time > 0">
+			<p class="rank no-wrap">#{{i | participantToRank:participants}}</p>
 		</div>
-		<div class="col-6 mt-3">
-			<p class="participant">{{i.Starter}} - {{i.Participant.Firstname}} {{i.Participant.Lastname}}</p>
+		<div class="col-1" *ngIf="i.Time <= 0">
+			<p class="rank-grey no-wrap">?</p>
 		</div>
-		<div class="col mx-3">
-			<p class="rank no-wrap">{{i.Time | milliSecondsToTime}}</p>
-      		<p class="little-rank no-wrap">{{i.Time | milliSecondsToTime:true}}</p>
+
+		<div class="col-5 align-self-center">
+			<p class="card-text">
+				{{ i.Starter }} - {{ i.Participant.Firstname }}
+				{{ i.Participant.Lastname }}
+			</p>
+		</div>
+
+		<div class="col-2" *ngIf="i.Time > 0">
+			<p class="rank no-wrap">{{ i.Participant.Sex | sexenglishtogermanpipe }}{{ i | participantToSexRank:participants }}</p>
+		</div>
+		<div class="col-2" *ngIf="i.Time <= 0">
+			<p class="rank-grey no-wrap">{{ i.Participant.Sex | sexenglishtogermanpipe }}?</p>
+		</div>
+
+		<div class="col-4 no-wrap">
+			<p class="rank">{{ i.Time | milliSecondsToTime }}</p>
+			<p class="little-rank">
+				{{ i.Time | milliSecondsToTime: true }}
+			</p>
 		</div>
 	</div>
 </div>

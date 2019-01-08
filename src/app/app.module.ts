@@ -26,6 +26,7 @@ import { RaceToStringPipe } from './pipes/racetostringpipe';
 import { LiveresultService } from './services/liveresult/liveresult.service';
 import { ParticipantracechooserComponent } from './components/participantracechooser/participantracechooser.component';
 import { SexenglishtogermanpipePipe } from './pipes/sexenglishtogermanpipe.pipe';
+import { ParticipantToRankPipe, ParticipantToSexRankPipe } from './pipes/participanttorankpipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,8 @@ import { SexenglishtogermanpipePipe } from './pipes/sexenglishtogermanpipe.pipe'
     MilliSecondsToTimePipe,
     StateToTextPipe,
     RaceToStringPipe,
+    ParticipantToRankPipe,
+    ParticipantToSexRankPipe,
     ViewerComponent,
     PoliciesComponent,
     LiveresultlistComponent,
@@ -57,7 +60,9 @@ import { SexenglishtogermanpipePipe } from './pipes/sexenglishtogermanpipe.pipe'
     AdminService,
     ParticipantService,
     ViewerService,
-    LiveresultService
+    LiveresultService,
+    ParticipantToRankPipe,
+    ParticipantToSexRankPipe
   ],
   bootstrap: [ContentComponent]
 })

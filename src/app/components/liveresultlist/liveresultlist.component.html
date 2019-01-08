@@ -2,7 +2,7 @@
   <div class="card mt-3 shadow" *ngFor="let i of liveresult.participantList">
     <div class="row card-body ">
       <div class="col-1" *ngIf="i.Time > 0">
-        <p class="rank no-wrap">#{{getRank(i)}}</p>
+        <p class="rank no-wrap">#{{i | participantToRank:liveresult.participantList}}</p>
       </div>
       <div class="col-1" *ngIf="i.Time <= 0">
         <p class="rank-grey no-wrap">?</p>
@@ -16,7 +16,7 @@
       </div>
 
       <div class="col-2" *ngIf="i.Time > 0">
-        <p class="rank no-wrap">{{ i.Participant.Sex | sexenglishtogermanpipe }}{{ getRankBySex(i) }}</p>
+        <p class="rank no-wrap">{{ i.Participant.Sex | sexenglishtogermanpipe }}{{ i | participantToSexRank:liveresult.participantList }}</p>
       </div>
       <div class="col-2" *ngIf="i.Time <= 0">
         <p class="rank-grey no-wrap">{{ i.Participant.Sex | sexenglishtogermanpipe }}?</p>

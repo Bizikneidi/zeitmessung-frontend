@@ -9,12 +9,14 @@ import {TimeMeterState} from '../../entities/timemeterstate';
 import {Participant} from '../../entities/participant';
 import {Race} from '../../entities/race';
 import { RunStartDTO } from '../../entities/runstart';
+import { ParticipantToRankPipe, ParticipantToSexRankPipe } from '../../pipes/participanttorankpipe';
 
 @Injectable()
 export class ViewerService {
 
   public state: TimeMeterState;
   private raceArray: Array<Race>;
+  private participantArray: Array<Participant>;
 
   // Observe start of run
   public start: Observable<RunStartDTO>;
@@ -40,7 +42,7 @@ export class ViewerService {
   public pdfClick: Observable<null>;
   private pdfClickSubject: Subject<null>;
 
-  constructor(private ws: WebsocketService) {
+  constructor(private ws: WebsocketService, private rankPipe: ParticipantToRankPipe, private sexRankPipe: ParticipantToSexRankPipe) {
     this.startSubject = new Subject<RunStartDTO>();
     this.start = this.startSubject.asObservable();
 
@@ -56,6 +58,7 @@ export class ViewerService {
 
     this.participantsSubject = new Subject<Array<Participant>>();
     this.participants = this.participantsSubject.asObservable();
+    this.participants.subscribe(p => this.participantArray = p);
 
     this.pdfClickSubject = new Subject<null>();
     this.pdfClick = this.pdfClickSubject.asObservable();
@@ -101,23 +104,47 @@ export class ViewerService {
   generatePdf(raceid: number) {
     const doc = new jsPDF();
     const race = this.raceArray.find(r => r.Id === raceid);
+    const participants = this.participantArray.filter(p => p.Race.Id === raceid);
 
     doc.setFontSize(18);
-    doc.text('Title', 14, 22);
+    doc.text(race.Title, 14, 22);
     doc.setFontSize(11);
     doc.setTextColor(100);
     const pageSize = doc.internal.pageSize;
     const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-    const text = doc.splitTextToSize('Title', pageWidth - 35, {});
+    const text = doc.splitTextToSize(new Date().toDateString, pageWidth - 35, {});
     doc.text(text, 14, 30);
 
+    const head = [
+        {header: 'Rang', dataKey: 'rank'},
+        {header: 'Stnr', dataKey: 'stnr'},
+        {header: 'Name', dataKey: 'name'},
+        {header: 'Jg.', dataKey: 'year'},
+        {header: 'Nat.', dataKey: 'nationality'},
+        {header: 'Verein/Ort', dataKey: 'team'},
+        {header: 'Klasse', dataKey: 'gender'},
+        {header: 'KRg.', dataKey: 'classrank'},
+        {header: 'Zeit', dataKey: 'time'},
+      ];
+
+    const tableParticipants = [];
+    participants.forEach(p => {
+      tableParticipants.push({
+        'rank': this.rankPipe.transform(p, participants),
+        'stnr': p.Starter,
+        'name': p.Firstname + ' ' + p.Lastname,
+        'year': p.YearGroup,
+        'nationality': p.Nationality,
+        'team': p.Team,
+        'gender': p.Sex,
+        'classrank': this.sexRankPipe.transform(p, participants),
+        'time': p.Time
+      });
+    });
 
     doc.autoTable({
-      head: [['Name', 'Email', 'Country']],
-      body: [
-          ['David', 'david@example.com', 'Sweden'],
-          ['Castille', 'castille@example.com', 'Norway']
-      ]
+      head: head,
+      body: tableParticipants
   });
   doc.save('table.pdf');
   }
