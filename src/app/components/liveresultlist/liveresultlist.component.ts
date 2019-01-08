@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LiveresultService } from '../../services/liveresult/liveresult.service';
-import { Runner } from './../../entities/runner';
+import { Participant } from './../../entities/participant';
 import {
   query,
   keyframes,
@@ -48,31 +48,31 @@ export class LiveresultlistComponent implements OnInit, OnDestroy {
   ngOnInit() {}
   ngOnDestroy() {}
 
-  getRank(runner: Runner) {
+  getRank(participant: Participant) {
     if (
       !this.liveresult.participantList.some(function(r) {
-        return r === runner;
+        return r === participant;
       }) ||
-      runner.Time <= 0
+      participant.Time <= 0
     ) {
       return 0;
     }
     let rank = 1;
     for (const r of this.liveresult.participantList) {
-      if (r.Time > 0 && r.Time < runner.Time) {
+      if (r.Time > 0 && r.Time < participant.Time) {
         rank++;
       }
     }
     return rank;
   }
 
-  getRankBySex(runner: Runner): number {
-    if (!this.liveresult.participantList.some(r => r === runner) || runner.Time <= 0) {
+  getRankBySex(participant: Participant): number {
+    if (!this.liveresult.participantList.some(r => r === participant) || participant.Time <= 0) {
       return 0;
     }
     let rank = 1;
-    for (const r of this.liveresult.participantList.filter(ru => ru.Participant.Sex === runner.Participant.Sex)) {
-      if (r.Time > 0 && r.Time < runner.Time) {
+    for (const r of this.liveresult.participantList.filter(ru => ru.Participant.Sex === participant.Participant.Sex)) {
+      if (r.Time > 0 && r.Time < participant.Time) {
         rank++;
       }
     }

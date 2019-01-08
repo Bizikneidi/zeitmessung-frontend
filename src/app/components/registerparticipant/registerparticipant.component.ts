@@ -27,7 +27,7 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // create empty participant
-    this.participant = new Participant('', '');
+    this.participant = new Participant();
     this.participant.Sex = null;
     this.ps.connect();
 

@@ -31,16 +31,16 @@
       </div>
      
       <!--[hidden]="hiddenElements[i]"-->
-      <div class="container mt-3"  [@slideAnimation]="finishedRunnerList.length" *ngIf="startRun" style="height:50vh; overflow:auto; ">
-        <div class="card shadow rank-item mt-2" [hidden]="hiddenAssignedRunners[i]" *ngFor="let runner of finishedRunnerList; let i= index">
+      <div class="container mt-3"  [@slideAnimation]="finishedParticipantList.length" *ngIf="startRun" style="height:50vh; overflow:auto; ">
+        <div class="card shadow rank-item mt-2" [hidden]="hiddenAssignedParticipants[i]" *ngFor="let participant of finishedParticipantList; let i= index">
           <div class="card-block ">
             <div class="row m-2  align-items-center">
               <div class="col-9">
                 <div class="row align-items-center">
                   <h4 class="rank col-auto">#{{i+1}}</h4>
-                  <input type="number" class="form-control col-3 mb-3" placeholder="runner number" [(ngModel)]="runner.Starter">
+                  <input type="number" class="form-control col-3 mb-3" placeholder="participant number" [(ngModel)]="participant.Starter">
 
-                  <a class="card-link col-auto" href="javascript:void(0)" (click)="onAssignTimeToRunnerClicked(i)">
+                  <a class="card-link col-auto" href="javascript:void(0)" (click)="onAssignTimeToParticipantClicked(i)">
                     <h5 class="arrow">➜</h5>
                   </a>
 
@@ -50,8 +50,8 @@
 
               <div class="col-3">
                 <div class="no-wrap">
-                  <p class="time-sm">{{runner.Time | milliSecondsToTime}}</p>
-                  <p class="decis-sm">{{runner.Time | milliSecondsToTime:true}}</p>
+                  <p class="time-sm">{{participant.Time | milliSecondsToTime}}</p>
+                  <p class="decis-sm">{{participant.Time | milliSecondsToTime:true}}</p>
                 </div>
 
               </div>

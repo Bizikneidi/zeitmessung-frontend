@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Runner } from '../../entities/runner';
+import { Participant } from '../../entities/participant';
 import { ActivatedRoute } from '@angular/router';
 import { ViewerService } from '../../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -11,9 +11,9 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ResultlistComponent implements OnInit, OnDestroy {
 
-  runners: Array<Runner> = [];
+  participants: Array<Participant> = [];
 
-  runnersSub: Subscription;
+  participantsSub: Subscription;
   routerSub: Subscription;
   pdfSub: Subscription;
 
@@ -25,24 +25,24 @@ export class ResultlistComponent implements OnInit, OnDestroy {
       this.viewers.generatePdf(Number.parseInt(this.route.snapshot.queryParams.raceid));
     });
 
-    this.runnersSub = this.viewers.runners.subscribe(runners => {
-      this.runners = runners.sort((r1, r2) => r1.Time - r2.Time);
+    this.participantsSub = this.viewers.participants.subscribe(participants => {
+      this.participants = participants.sort((r1, r2) => r1.Time - r2.Time);
     });
 
     this.routerSub = this.route.queryParams.subscribe(evt => {
-      this.getRunners();
+      this.getParticipants();
     });
-    this.getRunners();
+    this.getParticipants();
   }
 
   ngOnDestroy() {
-    this.runnersSub.unsubscribe();
+    this.participantsSub.unsubscribe();
     this.routerSub.unsubscribe();
     this.pdfSub.unsubscribe();
   }
 
-  getRunners() {
+  getParticipants() {
     const raceid = Number.parseInt(this.route.snapshot.queryParams.raceid);
-    this.viewers.getRunners(raceid);
+    this.viewers.getParticipants(raceid);
   }
 }
