@@ -42,7 +42,7 @@ import { SexenglishtogermanpipePipe } from './pipes/sexenglishtogermanpipe.pipe'
     PoliciesComponent,
     LiveresultlistComponent,
     ResultlistComponent,
-    SexenglishtogermanpipePipe
+    SexenglishtogermanpipePipe,
     ParticipantracechooserComponent
   ],
   imports: [
