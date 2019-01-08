@@ -26,7 +26,7 @@
                             <div class="item shadow-lg">{{ races[2] | raceToString }}</div>
                         </a>
                     </div>
-                    <div class="col-4 child">
+                    <div class="col-3 child">
                         <div class="item shadow-lg">
                             <select name="races" id="races" #t (change)="selectedRace(t.value)" [ngClass]="{ active: activeRace === 'another' }">
                                 <option value="" selected disabled hidden>Datum des Rennens</option>
@@ -34,34 +34,38 @@
                             </select>
                         </div>
                     </div>
+                    <button [disabled]="(activeRace == 'live')" type="button" class="btn pdf-btn shadow-lg col-1 mb-auto" (click)="onPdfClick()">
+                        <img src="../../assets/images/pdf.png" alt="Card image cap" width="40%">
+                    </button>
                 </div>
             </div>
-
-            <div class="card shadow-lg">
-                <div class="card-title">
-
-                    <div class="row">
-                        <div class="col-1">
-                            <a [routerLink]="['/']">
-                                <fa-icon [icon]="faArrow"></fa-icon>
-                            </a>
-                        </div>
-                        <div class="col-sm">
-                            <h2>Jetzt live:</h2>
-                            <p>{{viewer.state | stateToText}}</p>
-                        </div>
-                        <div class="col-sm">
-                            <div class="no-wrap">
-                                <p class="time" [ngClass]="liveTimer.currentTime != 0 ? 'time' : 'time-grey'">{{liveTimer.currentTime
-                                    |
-                                    milliSecondsToTime}}</p>
-                                <p class="decis" [ngClass]="liveTimer.currentTime != 0 ? 'decis' : 'decis-grey'">{{liveTimer.currentTime
-                                    |
-                                    milliSecondsToTime:true}}</p>
+            <div class="row">
+                <div class="card shadow-lg">
+                    <div class="card-title">
+                        <div class="row">
+                            <div class="col-1">
+                                <a [routerLink]="['/']">
+                                    <fa-icon [icon]="faArrow"></fa-icon>
+                                </a>
+                            </div>
+                            <div class="col-sm">
+                                <h2>Jetzt live:</h2>
+                                <p>{{viewer.state | stateToText}}</p>
+                            </div>
+                            <div class="col-sm">
+                                <div class="no-wrap">
+                                    <p class="time" [ngClass]="liveTimer.currentTime != 0 ? 'time' : 'time-grey'">{{liveTimer.currentTime
+                                        |
+                                        milliSecondsToTime}}</p>
+                                    <p class="decis" [ngClass]="liveTimer.currentTime != 0 ? 'decis' : 'decis-grey'">{{liveTimer.currentTime
+                                        |
+                                        milliSecondsToTime:true}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
             <div class="mt-3" style="height: 40vh; overflow-y:auto; overflow-x: hidden;">
                 <router-outlet name="resultlist"></router-outlet>

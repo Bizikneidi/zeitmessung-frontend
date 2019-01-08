@@ -15,11 +15,16 @@ export class ResultlistComponent implements OnInit, OnDestroy {
 
   runnersSub: Subscription;
   routerSub: Subscription;
+  pdfSub: Subscription;
 
   constructor(private route: ActivatedRoute, private viewers: ViewerService) {
   }
 
   ngOnInit() {
+    this.pdfSub = this.viewers.pdfClick.subscribe(() => {
+      this.viewers.generatePdf(Number.parseInt(this.route.snapshot.queryParams.raceid));
+    });
+
     this.runnersSub = this.viewers.runners.subscribe(runners => {
       this.runners = runners.sort((r1, r2) => r1.Time - r2.Time);
     });
@@ -33,6 +38,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.runnersSub.unsubscribe();
     this.routerSub.unsubscribe();
+    this.pdfSub.unsubscribe();
   }
 
   getRunners() {
