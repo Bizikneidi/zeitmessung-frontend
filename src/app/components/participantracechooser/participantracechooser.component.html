@@ -19,7 +19,7 @@
           <div class="offset-1 col-11">
             <div class="card-body">
               <div class="row">
-                <div class="col-12 col-md-6 race" *ngFor="let item of sampleData">
+                <div class="col-12 col-md-6 race" *ngFor="let item of races">
                   <a [routerLink]="['/participant', item.Id]">
                     <div class="row">
                       <div class="col-12 col-lg-8">{{ item.Title }} {{ item.Date }}</div>
