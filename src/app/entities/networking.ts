@@ -34,11 +34,11 @@ export enum ViewerCommands {
 }
 
 export enum ParticipantCommands {
-    // SERVER -> PARTICIPANT
-    // nothing here yet...
+    //SERVER -> PARTICIPANT
+    Races = 0, //A list of all races of the future, the participant can register for (data is list of races)
 
-    // PARTICIPANT -> SERVER
-    Register = 0 // Message contains data to register as a participant
+    //PARTICIPANT -> SERVER
+    Register = 1 //A person wants to register. Message contains data to register as a participant
 }
 
 export class Message<Commands> { // Used to send Commands and Data between websockets

@@ -16,6 +16,8 @@ export class ParticipantService {
     this.ws.send(msg);
   }
 
+  // Receive 
+
   connect() {
     this.ws.connect('participant'); // Connect as potential participant
   }
