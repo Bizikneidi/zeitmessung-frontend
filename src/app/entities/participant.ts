@@ -1,3 +1,5 @@
+import { Race } from './race';
+
 // Entity to represent a potential participant (duh...)
 // Most values are strings due to regex in html
 export class Participant {
@@ -14,8 +16,11 @@ export class Participant {
     public Team: string;
     public YearGroup: number;
 
-    constructor(fname: string, lname: string) {
-        this.Firstname = fname;
-        this.Lastname = lname;
+    public Starter: number;
+    public Time: number;
+    public Participant: Participant;
+    public Race: Race;
+
+    constructor() {
     }
 }
