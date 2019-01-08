@@ -11,13 +11,17 @@ import { Race } from '../../entities/race';
 })
 export class ParticipantracechooserComponent implements OnInit {
 
+  // Arrows for the frontend
   faArrow = faLongArrowAltLeft;
   faArrowRight = faLongArrowAltRight;
+
+  // races to show
   races: Array<Race> = [];
 
-  constructor(private router: Router, private service: ParticipantService) {
+  constructor(private service: ParticipantService) {
     service.connect();
     service.races.subscribe(data => {
+      // assign fetched data to the races to display
       this.races = data;
     })
   }
