@@ -5,6 +5,7 @@ import { CountryList } from '../../entities/countryList';
 import { ParticipantService } from '../../services/participant/participant.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Race } from '../../entities/race';
 
 @Component({
   selector: 'app-registerparticipant',
@@ -33,6 +34,8 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
     this.route.params.subscribe(params => {
       this.raceid = +params['id'];
+      this.participant.Race = new Race();
+      this.participant.Race.Id = +params['id'];
    });
   }
 
