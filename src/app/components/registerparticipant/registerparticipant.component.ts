@@ -18,7 +18,6 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
   participant: Participant;
   countryList = CountryList.ListOfCountries;
   agreed = false;
-  raceid = 0;
 
   constructor(
     private ps: ParticipantService,
@@ -33,7 +32,6 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
     this.ps.connect();
 
     this.route.params.subscribe(params => {
-      this.raceid = +params['id'];
       this.participant.Race = new Race();
       this.participant.Race.Id = +params['id'];
    });
