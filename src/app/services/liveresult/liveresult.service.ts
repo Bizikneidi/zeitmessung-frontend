@@ -48,20 +48,30 @@ export class LiveresultService {
       }
   }
 
+  // is the participant in the current list or has an invalid time 
+  isValidParticipant(participant: Participant) {
+    return this.participantList.some(competitor => competitor == participant) || participant.Time > 0;
+  }
+
   // filters the participantlist
   filterBySex(sex: string) {
+    if(sex == null) {
+      return this.participantList;
+    }
     return this.participantList.filter(ru => ru.Participant.Sex === sex);
   }
 
-  getRankBySex(participant: Participant): number {
-    // if the participant ins't contained in the list or has an invalid time
-    if (!this.participantList.some(r => r === participant) || participant.Time <= 0) {
+  // gets the rank of the participant, if wanted filtered by sex
+  getRank(participant: Participant, filterBySex: Boolean = false) {
+    // is the participant valid
+    if (!this.isValidParticipant(participant)) {
       return 0;
     }
-    
+
     let rank = 1;
-    
-    for (const competitor of this.filterBySex(participant.Participant.Sex)) {
+
+    // do you want to filter via sex
+    for (const competitor of this.filterBySex(filterBySex ? participant.Participant.Sex : null)) {
       // is there some one faster than the participant
       if (competitor.Time > 0 && competitor.Time < participant.Time) {
         rank++;
