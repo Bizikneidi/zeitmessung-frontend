@@ -10,12 +10,12 @@ import { WebsocketService } from './services/websocket/websocket.service';
 import { AdminService } from './services/admin/admin.service';
 import { ParticipantService } from './services/participant/participant.service';
 import { ViewerService } from './services/viewer/viewer.service';
-import { environment } from '../environments/environment';
+import { environment} from '../environments/environment';
 import { MilliSecondsToTimePipe } from './pipes/millisecondstotimepipe';
 import { RegisterparticipantComponent } from './components/registerparticipant/registerparticipant.component';
 import { NavigationcardsComponent } from './components/navigationcards/navigationcards.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent } from './components/admin/adminpanel/admin.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ViewerComponent } from './components/viewer/viewer.component';
 import { PoliciesComponent } from './components/policies/policies.component';
@@ -24,6 +24,9 @@ import { ResultlistComponent } from './components/resultlist/resultlist.componen
 import { StateToTextPipe } from './pipes/statetotextpipe';
 import { RaceToStringPipe } from './pipes/racetostringpipe';
 import { LiveresultService } from './services/liveresult/liveresult.service';
+import { CompetitionComponent } from './components/admin/competition/competition.component';
+import { RaceComponent } from './components/admin/race/race.component';
+import { LiveTimerService } from './services/livetimer/livetimer.service';
 import { ParticipantracechooserComponent } from './components/participantracechooser/participantracechooser.component';
 import { SexEnglishToGermanPipe } from './pipes/sexenglishtogermanpipe.pipe';
 
@@ -34,6 +37,8 @@ import { SexEnglishToGermanPipe } from './pipes/sexenglishtogermanpipe.pipe';
     NavigationcardsComponent,
     HeaderComponent,
     AdminComponent,
+    CompetitionComponent,
+    RaceComponent,
     FooterComponent,
     MilliSecondsToTimePipe,
     StateToTextPipe,
@@ -41,6 +46,9 @@ import { SexEnglishToGermanPipe } from './pipes/sexenglishtogermanpipe.pipe';
     ViewerComponent,
     PoliciesComponent,
     LiveresultlistComponent,
+    ResultlistComponent,
+    CompetitionComponent,
+    RaceComponent,
     ResultlistComponent,
     SexEnglishToGermanPipe,
     ParticipantracechooserComponent
@@ -57,7 +65,8 @@ import { SexEnglishToGermanPipe } from './pipes/sexenglishtogermanpipe.pipe';
     AdminService,
     ParticipantService,
     ViewerService,
-    LiveresultService
+    LiveresultService,
+    LiveTimerService
   ],
   bootstrap: [ContentComponent]
 })
