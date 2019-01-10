@@ -26,7 +26,6 @@ import { RaceToStringPipe } from './pipes/racetostringpipe';
 import { LiveresultService } from './services/liveresult/liveresult.service';
 import { CompetitionComponent } from './components/admin/competition/competition.component';
 import { RaceComponent } from './components/admin/race/race.component';
-import { LiveTimerService } from './services/livetimer/livetimer.service';
 import { ParticipantracechooserComponent } from './components/participantracechooser/participantracechooser.component';
 import { SexEnglishToGermanPipe } from './pipes/sexenglishtogermanpipe.pipe';
 import { ParticipantToRankPipe, ParticipantToSexRankPipe } from './pipes/participanttorankpipe';
@@ -68,7 +67,12 @@ import { ParticipantToRankPipe, ParticipantToSexRankPipe } from './pipes/partici
     AdminService,
     ParticipantService,
     ViewerService,
-    LiveresultService
+    LiveresultService,
+    ParticipantToRankPipe,
+    ParticipantToSexRankPipe,
+    MilliSecondsToTimePipe,
+    RaceToStringPipe,
+    SexEnglishToGermanPipe
   ],
   bootstrap: [ContentComponent]
 })

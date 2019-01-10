@@ -2,24 +2,25 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs/Subscription';
 import { AdminService } from '../../../services/admin/admin.service';
-import { TimeMeterState } from '../../../entities/timemeterstate';
+import { RaceManagerState } from '../../../entities/racemanagerstate';
 import { query, keyframes, trigger, transition, animate, style, stagger } from '@angular/animations';
-import { Runner } from '../../../entities/runner';
-import { RunStartDTO } from '../../../entities/runstart';
+import { Participant } from '../../../entities/participant';
+import { RunStart } from '../../../entities/runstart';
 import { Assignment } from '../../../entities/assignment';
 import { LiveTimerService } from '../../../services/livetimer/livetimer.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
+  providers: [LiveTimerService]
 })
 export class AdminComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft; // arrow icon
-  readyState = TimeMeterState.Ready;
+  readyState = RaceManagerState.Ready;
   startRun = false; // check if start has been pressed
-  hiddenAssignedRunners: boolean[] = []; // array to hide assigned runners
-  finishedRunnerList: Runner[] = []; // list of all finshed runners
+  hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
+  finishedParticipantList: Participant[] = []; // list of all finshed participants
 
   // For cleaning up in onDestroy()
   startSubscription: Subscription;
@@ -34,17 +35,17 @@ export class AdminComponent implements OnInit, OnDestroy {
 
     this.admin.connect(); // Connect as Admin on page visit
 
-    // get runnerlist and start time
-    this.startSubscription = this.admin.start.subscribe((runDto: RunStartDTO) => {
+    // get participantlist and start time
+    this.startSubscription = this.admin.start.subscribe((runDto: RunStart) => {
       this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
       this.startRun = true;
     });
-    // get time of finished runner
+    // get time of finished participant
     this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
-      const runner = new Runner();
-      runner.Time = time;
-      this.finishedRunnerList.push(runner);
-      this.hiddenAssignedRunners.push(false);
+      const participant = new Participant();
+      participant.Time = time;
+      this.finishedParticipantList.push(participant);
+      this.hiddenAssignedParticipants.push(false);
     });
     // check if event is finished
     this.endSubscription = this.admin.end.subscribe(end => this.resetRun());
@@ -54,19 +55,19 @@ export class AdminComponent implements OnInit, OnDestroy {
   onStartRunClicked() {
     this.admin.startRun();
   }
-  // assing start number to runner
-  onAssignTimeToRunnerClicked(index: number) {
-    const finishedRunner = this.finishedRunnerList[index];
-    this.hiddenAssignedRunners[index] = true;
-    this.admin.assignTime(new Assignment(finishedRunner.Starter, finishedRunner.Time));
+  // assing start number to participant
+  onAssignTimeToParticipantClicked(index: number) {
+    const finishedParticipant = this.finishedParticipantList[index];
+    this.hiddenAssignedParticipants[index] = true;
+    this.admin.assignTime(new Assignment(finishedParticipant.Starter, finishedParticipant.Time));
   }
   // revert to inital status
   resetRun() {
     this.liveTimer.stop();
     this.startRun = false;
-   // this.runnerList = [];
-    this.hiddenAssignedRunners = [];
-    this.finishedRunnerList = [];
+   // this.participantList = [];
+    this.hiddenAssignedParticipants = [];
+    this.finishedParticipantList = [];
   }
   // unsubscribe and disconnect from admin
   ngOnDestroy() {

@@ -3,14 +3,14 @@ import { WebsocketService } from '../websocket/websocket.service';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { Message, ViewerCommands } from '../../entities/networking';
-import { TimeMeterState } from '../../entities/timemeterstate';
+import { RaceManagerState } from '../../entities/racemanagerstate';
 import { Participant } from '../../entities/participant';
 import { Race } from '../../entities/race';
-import { RunStartDTO } from '../../entities/runstart';
+import { RunStart } from '../../entities/runstart';
 import { ParticipantToRankPipe, ParticipantToSexRankPipe } from '../../pipes/participanttorankpipe';
 import { MilliSecondsToTimePipe } from '../../pipes/millisecondstotimepipe';
 import { RaceToStringPipe } from '../../pipes/racetostringpipe';
-import { SexenglishtogermanpipePipe } from '../../pipes/sexenglishtogermanpipe.pipe';
+import { SexEnglishToGermanPipe } from '../../pipes/sexenglishtogermanpipe.pipe';
 
 declare var jsPDF: any;
 
@@ -47,9 +47,9 @@ export class ViewerService {
 
   constructor(private ws: WebsocketService, private rankPipe: ParticipantToRankPipe, private sexRankPipe: ParticipantToSexRankPipe,
     private millisecondsPipe: MilliSecondsToTimePipe, private raceToStringPipe: RaceToStringPipe,
-    private sexEnglishGermanPipe: SexenglishtogermanpipePipe) {
+    private sexEnglishGermanPipe: SexEnglishToGermanPipe) {
 
-    this.startSubject = new Subject<RunStartDTO>();
+    this.startSubject = new Subject<RunStart>();
     this.start = this.startSubject.asObservable();
 
     this.measuredStopSubject = new Subject<Participant>();

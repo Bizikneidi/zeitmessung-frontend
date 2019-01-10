@@ -4,9 +4,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { AdminService } from '../../../services/admin/admin.service';
 import { LiveTimerService } from '../../../services/livetimer/livetimer.service';
 import { Assignment } from '../../../entities/assignment';
-import { TimeMeterState } from '../../../entities/timemeterstate';
-import { RunStartDTO } from '../../../entities/runstart';
-import { Runner } from '../../../entities/runner';
+import { RaceManagerState } from '../../../entities/racemanagerstate';
+import { RunStart } from '../../../entities/runstart';
+import { Participant } from '../../../entities/participant';
 
 @Component({
   selector: 'app-race',
@@ -16,10 +16,10 @@ import { Runner } from '../../../entities/runner';
 export class RaceComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft; // arrow icon
-  readyState = TimeMeterState.Ready;
-  runningState = TimeMeterState.Measuring;
-  hiddenAssignedRunners: boolean[] = []; // array to hide assigned runners
-  finishedRunnerList: Runner[] = []; // list of all finshed runners
+  readyState = RaceManagerState.Ready;
+  runningState = RaceManagerState.Measuring;
+  hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
+  finishedParticipantList: Participant[] = []; // list of all finshed participants
 
   // For cleaning up in onDestroy()
   startSubscription: Subscription;
@@ -34,16 +34,16 @@ export class RaceComponent implements OnInit, OnDestroy {
 
     this.admin.connect(); // Connect as Admin on page visit
 
-    // get runnerlist and start time
-    this.startSubscription = this.admin.start.subscribe((runDto: RunStartDTO) => {
+    // get participantlist and start time
+    this.startSubscription = this.admin.start.subscribe((runDto: RunStart) => {
       this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
     });
-    // get time of finished runner
+    // get time of finished participant
     this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
-      const runner = new Runner();
-      runner.Time = time;
-      this.finishedRunnerList.push(runner);
-      this.hiddenAssignedRunners.push(false);
+      const participant = new Participant();
+      participant.Time = time;
+      this.finishedParticipantList.push(participant);
+      this.hiddenAssignedParticipants.push(false);
     });
     // check if event is finished
     this.endSubscription = this.admin.end.subscribe(end => this.resetRun());
@@ -53,17 +53,17 @@ export class RaceComponent implements OnInit, OnDestroy {
   onStartRunClicked() {
     this.admin.startRun();
   }
-  // assing start number to runner
-  onAssignTimeToRunnerClicked(index: number) {
-    const finishedRunner = this.finishedRunnerList[index];
-    this.hiddenAssignedRunners[index] = true;
-    this.admin.assignTime(new Assignment(finishedRunner.Starter, finishedRunner.Time));
+  // assing start number to participant
+  onAssignTimeToParticipantClicked(index: number) {
+    const finishedParticipant = this.finishedParticipantList[index];
+    this.hiddenAssignedParticipants[index] = true;
+    this.admin.assignTime(new Assignment(finishedParticipant.Starter, finishedParticipant.Time));
   }
   // revert to inital status
   resetRun() {
     this.liveTimer.stop();
-    this.hiddenAssignedRunners = [];
-    this.finishedRunnerList = [];
+    this.hiddenAssignedParticipants = [];
+    this.finishedParticipantList = [];
   }
   // unsubscribe and disconnect from admin
   ngOnDestroy() {

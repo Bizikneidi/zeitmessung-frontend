@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { RaceManagerState } from '../entities/timemeterstate';
+import { RaceManagerState } from '../entities/racemanagerstate';
 
 @Pipe({
     name: 'stateToText'

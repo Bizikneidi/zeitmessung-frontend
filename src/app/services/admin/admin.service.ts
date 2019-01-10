@@ -3,7 +3,7 @@ import { WebsocketService } from '../websocket/websocket.service';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { AdminCommands, Message } from '../../entities/networking';
-import { RaceManagerState } from '../../entities/timemeterstate';
+import { RaceManagerState } from '../../entities/racemanagerstate';
 import { RunStart } from '../../entities/runstart';
 import { Assignment } from '../../entities/assignment';
 
