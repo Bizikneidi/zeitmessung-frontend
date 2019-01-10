@@ -1,20 +1,25 @@
-import {Injectable} from '@angular/core';
-import {WebsocketService} from '../websocket/websocket.service';
-import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
-import {Message, ViewerCommands} from '../../entities/networking';
-import {RaceManagerState} from '../../entities/timemeterstate';
-import {Participant} from '../../entities/participant';
-import {Race} from '../../entities/race';
-import { RunStart } from '../../entities/runstart';
+import { Injectable } from '@angular/core';
+import { WebsocketService } from '../websocket/websocket.service';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { Message, ViewerCommands } from '../../entities/networking';
+import { TimeMeterState } from '../../entities/timemeterstate';
+import { Participant } from '../../entities/participant';
+import { Race } from '../../entities/race';
+import { RunStartDTO } from '../../entities/runstart';
+import { ParticipantToRankPipe, ParticipantToSexRankPipe } from '../../pipes/participanttorankpipe';
+import { MilliSecondsToTimePipe } from '../../pipes/millisecondstotimepipe';
+import { RaceToStringPipe } from '../../pipes/racetostringpipe';
+import { SexenglishtogermanpipePipe } from '../../pipes/sexenglishtogermanpipe.pipe';
+
+declare var jsPDF: any;
 
 @Injectable()
 export class ViewerService {
 
   public state: RaceManagerState;
   private raceArray: Array<Race>;
+  private participantArray: Array<Participant>;
 
   // Observe start of run
   public start: Observable<RunStart>;
@@ -40,8 +45,11 @@ export class ViewerService {
   public pdfClick: Observable<null>;
   private pdfClickSubject: Subject<null>;
 
-  constructor(private ws: WebsocketService) {
-    this.startSubject = new Subject<RunStart>();
+  constructor(private ws: WebsocketService, private rankPipe: ParticipantToRankPipe, private sexRankPipe: ParticipantToSexRankPipe,
+    private millisecondsPipe: MilliSecondsToTimePipe, private raceToStringPipe: RaceToStringPipe,
+    private sexEnglishGermanPipe: SexenglishtogermanpipePipe) {
+
+    this.startSubject = new Subject<RunStartDTO>();
     this.start = this.startSubject.asObservable();
 
     this.measuredStopSubject = new Subject<Participant>();
@@ -56,6 +64,7 @@ export class ViewerService {
 
     this.participantsSubject = new Subject<Array<Participant>>();
     this.participants = this.participantsSubject.asObservable();
+    this.participants.subscribe(p => this.participantArray = p);
 
     this.pdfClickSubject = new Subject<null>();
     this.pdfClick = this.pdfClickSubject.asObservable();
@@ -99,26 +108,87 @@ export class ViewerService {
   }
 
   generatePdf(raceid: number) {
-    const doc = new jsPDF();
-    const race = this.raceArray.find(r => r.Id === raceid);
+    if (this.participantArray) {
+      const doc = new jsPDF('l');
+      const totalPagesExp = '{total_pages_count_string}';
 
-    doc.setFontSize(18);
-    doc.text('Title', 14, 22);
-    doc.setFontSize(11);
-    doc.setTextColor(100);
-    const pageSize = doc.internal.pageSize;
-    const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-    const text = doc.splitTextToSize('Title', pageWidth - 35, {});
-    doc.text(text, 14, 30);
+      const race = this.raceArray.find(r => r.Id === raceid);
+      const participants = this.participantArray.filter(p => p.Race.Id === raceid);
 
+      doc.setFontSize(18);
+      doc.text(race.Title, 14, 22);
+      doc.setFontSize(11);
+      doc.setTextColor(100);
 
-    doc.autoTable({
-      head: [['Name', 'Email', 'Country']],
-      body: [
-          ['David', 'david@example.com', 'Sweden'],
-          ['Castille', 'castille@example.com', 'Norway']
-      ]
-  });
-  doc.save('table.pdf');
+      const pageSize = doc.internal.pageSize;
+      const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+      const text = doc.splitTextToSize('Ergebnisse ' + this.raceToStringPipe.transform(race), pageWidth - 35, {});
+      doc.text(text, 14, 30);
+
+      const head = [
+        { title: 'Rang', dataKey: 'rank' },
+        { title: 'Stnr', dataKey: 'stnr' },
+        { title: 'Name', dataKey: 'name' },
+        { title: 'Jg.', dataKey: 'year' },
+        { title: 'Nat.', dataKey: 'nationality' },
+        { title: 'Verein/Ort', dataKey: 'team' },
+        { title: 'Klasse', dataKey: 'gender' },
+        { title: 'KRg.', dataKey: 'classrank' },
+        { title: 'Zeit', dataKey: 'time' },
+      ];
+
+      const tableParticipants = [];
+      participants.forEach(p => {
+        if (p) {
+          tableParticipants.push({
+            rank: this.rankPipe.transform(p, participants),
+            stnr: p.Starter,
+            name: p.Firstname + ' ' + p.Lastname,
+            year: p.YearGroup,
+            nationality: p.Nationality,
+            team: p.Team,
+            gender: this.sexEnglishGermanPipe.transform(p.Sex),
+            classrank: this.sexRankPipe.transform(p, participants),
+            time: this.millisecondsPipe.transform(p.Time) + ':' + this.millisecondsPipe.transform(p.Time, true)
+          });
+        }
+      });
+
+      tableParticipants.sort(function (a, b) {
+        a = parseInt(a['rank'], 32);
+        b = parseInt(b['rank'], 32);
+        if (a <= 0) {
+          return 1;
+        }
+        return a - b;
+      });
+
+      doc.autoTable(head, tableParticipants, {
+        startY: 50,
+        showHead: 'firstPage',
+        headStyles: {
+          fillColor: [38, 210, 179]
+        },
+        didDrawPage: function (data) {
+
+          let str = 'Seite ' + doc.internal.getNumberOfPages();
+          if (typeof doc.putTotalPages === 'function') {
+            str = str + '/' + totalPagesExp;
+          }
+          doc.setFontSize(10);
+
+          const pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
+          doc.text(str, data.settings.margin.left, pageHeight - 10);
+        },
+        margin: { top: 30 }
+      });
+
+      if (typeof doc.putTotalPages === 'function') {
+        doc.putTotalPages(totalPagesExp);
+      }
+
+      doc.save('table.pdf');
+    }
+
   }
 }
