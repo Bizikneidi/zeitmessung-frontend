@@ -25,7 +25,7 @@ import { StateToTextPipe } from './pipes/statetotextpipe';
 import { RaceToStringPipe } from './pipes/racetostringpipe';
 import { LiveresultService } from './services/liveresult/liveresult.service';
 import { ParticipantracechooserComponent } from './components/participantracechooser/participantracechooser.component';
-import { SexenglishtogermanpipePipe } from './pipes/sexenglishtogermanpipe.pipe';
+import { SexEnglishToGermanPipe } from './pipes/sexenglishtogermanpipe.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { SexenglishtogermanpipePipe } from './pipes/sexenglishtogermanpipe.pipe'
     PoliciesComponent,
     LiveresultlistComponent,
     ResultlistComponent,
-    SexenglishtogermanpipePipe,
+    SexEnglishToGermanPipe,
     ParticipantracechooserComponent
   ],
   imports: [
