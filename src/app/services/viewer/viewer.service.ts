@@ -1,15 +1,18 @@
-import {Injectable} from '@angular/core';
-import {WebsocketService} from '../websocket/websocket.service';
-import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
-import {Message, ViewerCommands} from '../../entities/networking';
-import {TimeMeterState} from '../../entities/timemeterstate';
-import {Participant} from '../../entities/participant';
-import {Race} from '../../entities/race';
+import { Injectable } from '@angular/core';
+import { WebsocketService } from '../websocket/websocket.service';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { Message, ViewerCommands } from '../../entities/networking';
+import { TimeMeterState } from '../../entities/timemeterstate';
+import { Participant } from '../../entities/participant';
+import { Race } from '../../entities/race';
 import { RunStartDTO } from '../../entities/runstart';
 import { ParticipantToRankPipe, ParticipantToSexRankPipe } from '../../pipes/participanttorankpipe';
+import { MilliSecondsToTimePipe } from '../../pipes/millisecondstotimepipe';
+import { RaceToStringPipe } from '../../pipes/racetostringpipe';
+import { SexenglishtogermanpipePipe } from '../../pipes/sexenglishtogermanpipe.pipe';
+
+declare var jsPDF: any;
 
 @Injectable()
 export class ViewerService {
@@ -42,7 +45,10 @@ export class ViewerService {
   public pdfClick: Observable<null>;
   private pdfClickSubject: Subject<null>;
 
-  constructor(private ws: WebsocketService, private rankPipe: ParticipantToRankPipe, private sexRankPipe: ParticipantToSexRankPipe) {
+  constructor(private ws: WebsocketService, private rankPipe: ParticipantToRankPipe, private sexRankPipe: ParticipantToSexRankPipe,
+    private millisecondsPipe: MilliSecondsToTimePipe, private raceToStringPipe: RaceToStringPipe,
+    private sexEnglishGermanPipe: SexenglishtogermanpipePipe) {
+
     this.startSubject = new Subject<RunStartDTO>();
     this.start = this.startSubject.asObservable();
 
@@ -102,50 +108,87 @@ export class ViewerService {
   }
 
   generatePdf(raceid: number) {
-    const doc = new jsPDF();
-    const race = this.raceArray.find(r => r.Id === raceid);
-    const participants = this.participantArray.filter(p => p.Race.Id === raceid);
+    if (this.participantArray) {
+      const doc = new jsPDF('l');
+      const totalPagesExp = '{total_pages_count_string}';
 
-    doc.setFontSize(18);
-    doc.text(race.Title, 14, 22);
-    doc.setFontSize(11);
-    doc.setTextColor(100);
-    const pageSize = doc.internal.pageSize;
-    const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-    const text = doc.splitTextToSize(new Date().toDateString, pageWidth - 35, {});
-    doc.text(text, 14, 30);
+      const race = this.raceArray.find(r => r.Id === raceid);
+      const participants = this.participantArray.filter(p => p.Race.Id === raceid);
 
-    const head = [
-        {header: 'Rang', dataKey: 'rank'},
-        {header: 'Stnr', dataKey: 'stnr'},
-        {header: 'Name', dataKey: 'name'},
-        {header: 'Jg.', dataKey: 'year'},
-        {header: 'Nat.', dataKey: 'nationality'},
-        {header: 'Verein/Ort', dataKey: 'team'},
-        {header: 'Klasse', dataKey: 'gender'},
-        {header: 'KRg.', dataKey: 'classrank'},
-        {header: 'Zeit', dataKey: 'time'},
+      doc.setFontSize(18);
+      doc.text(race.Title, 14, 22);
+      doc.setFontSize(11);
+      doc.setTextColor(100);
+
+      const pageSize = doc.internal.pageSize;
+      const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+      const text = doc.splitTextToSize('Ergebnisse ' + this.raceToStringPipe.transform(race), pageWidth - 35, {});
+      doc.text(text, 14, 30);
+
+      const head = [
+        { title: 'Rang', dataKey: 'rank' },
+        { title: 'Stnr', dataKey: 'stnr' },
+        { title: 'Name', dataKey: 'name' },
+        { title: 'Jg.', dataKey: 'year' },
+        { title: 'Nat.', dataKey: 'nationality' },
+        { title: 'Verein/Ort', dataKey: 'team' },
+        { title: 'Klasse', dataKey: 'gender' },
+        { title: 'KRg.', dataKey: 'classrank' },
+        { title: 'Zeit', dataKey: 'time' },
       ];
 
-    const tableParticipants = [];
-    participants.forEach(p => {
-      tableParticipants.push({
-        'rank': this.rankPipe.transform(p, participants),
-        'stnr': p.Starter,
-        'name': p.Firstname + ' ' + p.Lastname,
-        'year': p.YearGroup,
-        'nationality': p.Nationality,
-        'team': p.Team,
-        'gender': p.Sex,
-        'classrank': this.sexRankPipe.transform(p, participants),
-        'time': p.Time
+      const tableParticipants = [];
+      participants.forEach(p => {
+        if (p) {
+          tableParticipants.push({
+            rank: this.rankPipe.transform(p, participants),
+            stnr: p.Starter,
+            name: p.Firstname + ' ' + p.Lastname,
+            year: p.YearGroup,
+            nationality: p.Nationality,
+            team: p.Team,
+            gender: this.sexEnglishGermanPipe.transform(p.Sex),
+            classrank: this.sexRankPipe.transform(p, participants),
+            time: this.millisecondsPipe.transform(p.Time) + ':' + this.millisecondsPipe.transform(p.Time, true)
+          });
+        }
       });
-    });
 
-    doc.autoTable({
-      head: head,
-      body: tableParticipants
-  });
-  doc.save('table.pdf');
+      tableParticipants.sort(function (a, b) {
+        a = parseInt(a['rank'], 32);
+        b = parseInt(b['rank'], 32);
+        if (a <= 0) {
+          return 1;
+        }
+        return a - b;
+      });
+
+      doc.autoTable(head, tableParticipants, {
+        startY: 50,
+        showHead: 'firstPage',
+        headStyles: {
+          fillColor: [38, 210, 179]
+        },
+        didDrawPage: function (data) {
+
+          let str = 'Seite ' + doc.internal.getNumberOfPages();
+          if (typeof doc.putTotalPages === 'function') {
+            str = str + '/' + totalPagesExp;
+          }
+          doc.setFontSize(10);
+
+          const pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
+          doc.text(str, data.settings.margin.left, pageHeight - 10);
+        },
+        margin: { top: 30 }
+      });
+
+      if (typeof doc.putTotalPages === 'function') {
+        doc.putTotalPages(totalPagesExp);
+      }
+
+      doc.save('table.pdf');
+    }
+
   }
 }

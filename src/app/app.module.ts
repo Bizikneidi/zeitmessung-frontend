@@ -62,7 +62,10 @@ import { ParticipantToRankPipe, ParticipantToSexRankPipe } from './pipes/partici
     ViewerService,
     LiveresultService,
     ParticipantToRankPipe,
-    ParticipantToSexRankPipe
+    ParticipantToSexRankPipe,
+    MilliSecondsToTimePipe,
+    RaceToStringPipe,
+    SexenglishtogermanpipePipe
   ],
   bootstrap: [ContentComponent]
 })

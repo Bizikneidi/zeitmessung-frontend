@@ -33,7 +33,7 @@ export class ParticipantToSexRankPipe implements PipeTransform {
             return 0;
           }
           let rank = 1;
-          for (const r of participantList.filter(ru => ru.Participant.Sex === value.Participant.Sex)) {
+          for (const r of participantList.filter(p => p.Sex === value.Sex)) {
             if (r.Time > 0 && r.Time < value.Time) {
               rank++;
             }

@@ -26,7 +26,12 @@ export class ResultlistComponent implements OnInit, OnDestroy {
     });
 
     this.participantsSub = this.viewers.participants.subscribe(participants => {
-      this.participants = participants.sort((r1, r2) => r1.Time - r2.Time);
+      this.participants = participants.sort((p1, p2) => {
+        if (p1.Time <= 0) {
+          return 1;
+        }
+        return p1.Time - p2.Time;
+      });
     });
 
     this.routerSub = this.route.queryParams.subscribe(evt => {

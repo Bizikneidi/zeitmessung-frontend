@@ -19,9 +19,8 @@ export class ParticipantService {
 
     this.ws.received.subscribe(msg => {
       const received = msg as Message<ParticipantCommands>;
-      if(received.Command == ParticipantCommands.Races){
+      if(received.Command === ParticipantCommands.Races){
         this.racesSubject.next(received.Data as Array<Race>);
-        console.log("printing races")
         console.log(received.Data);
       }
     });
