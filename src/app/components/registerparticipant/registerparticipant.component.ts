@@ -19,11 +19,7 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
   countryList = CountryList.ListOfCountries;
   agreed = false;
 
-  constructor(
-    private ps: ParticipantService,
-    private route: ActivatedRoute,
-    private router: Router) {
-    }
+  constructor(private ps: ParticipantService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // create empty participant

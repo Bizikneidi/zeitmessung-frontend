@@ -15,15 +15,8 @@ export class ParticipantracechooserComponent implements OnInit {
   faArrow = faLongArrowAltLeft;
   faArrowRight = faLongArrowAltRight;
 
-  // races to show
-  races: Array<Race> = [];
-
-  constructor(private service: ParticipantService) {
+  constructor(public service: ParticipantService) {
     service.connect();
-    service.races.subscribe(data => {
-      // assign fetched data to the races to display
-      this.races = data;
-    })
   }
 
   ngOnInit() {

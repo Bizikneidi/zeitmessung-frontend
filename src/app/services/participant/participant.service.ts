@@ -9,20 +9,13 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class ParticipantService {
 
-  // Observe available races
-  public races: Observable<Array<Race>>
-  private racesSubject: Subject<Array<Race>>
+  public races: Array<Race> = [];
 
   constructor(private ws: WebsocketService) {
-    this.racesSubject = new Subject<Array<Race>>();
-    this.races = this.racesSubject.asObservable();
-
     this.ws.received.subscribe(msg => {
       const received = msg as Message<ParticipantCommands>;
-      if(received.Command == ParticipantCommands.Races){
-        this.racesSubject.next(received.Data as Array<Race>);
-        console.log("printing races")
-        console.log(received.Data);
+      if (received.Command === ParticipantCommands.Races) {
+        this.races = received.Data as Array<Race>;
       }
     });
   }

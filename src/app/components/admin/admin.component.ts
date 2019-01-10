@@ -2,10 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs/Subscription';
 import { AdminService } from '../../services/admin/admin.service';
-import { TimeMeterState } from '../../entities/timemeterstate';
+import { RaceManagerState } from '../../entities/timemeterstate';
 import { query, keyframes, trigger, transition, animate, style, stagger } from '@angular/animations';
 import { Participant } from '../../entities/participant';
-import { RunStartDTO } from '../../entities/runstart';
+import { RunStart } from '../../entities/runstart';
 import { Assignment } from '../../entities/assignment';
 import { LiveTimerService } from '../../services/livetimer/livetimer.service';
 @Component({
@@ -33,7 +33,7 @@ import { LiveTimerService } from '../../services/livetimer/livetimer.service';
 export class AdminComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft; // arrow icon
-  readyState = TimeMeterState.Ready;
+  readyState = RaceManagerState.Ready;
   startRun = false; // check if start has been pressed
   hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
   finishedParticipantList: Participant[] = []; // list of all finshed participants
@@ -52,7 +52,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.admin.connect(); // Connect as Admin on page visit
 
     // get participantlist and start time
-    this.startSubscription = this.admin.start.subscribe((runDto: RunStartDTO) => {
+    this.startSubscription = this.admin.start.subscribe((runDto: RunStart) => {
       this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
       this.startRun = true;
     });

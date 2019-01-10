@@ -3,9 +3,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'sexenglishtogermanpipe'
 })
-export class SexenglishtogermanpipePipe implements PipeTransform {
+export class SexEnglishToGermanPipe implements PipeTransform {
 
-  transform(value: string, args?: any): string {
+  transform(value: string): string {
     if (value === 'f') {
       return 'w';
     }

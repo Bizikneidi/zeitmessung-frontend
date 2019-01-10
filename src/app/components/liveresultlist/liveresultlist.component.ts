@@ -49,33 +49,10 @@ export class LiveresultlistComponent implements OnInit, OnDestroy {
   ngOnDestroy() {}
 
   getRank(participant: Participant) {
-    if (
-      !this.liveresult.participantList.some(function(r) {
-        return r === participant;
-      }) ||
-      participant.Time <= 0
-    ) {
-      return 0;
-    }
-    let rank = 1;
-    for (const r of this.liveresult.participantList) {
-      if (r.Time > 0 && r.Time < participant.Time) {
-        rank++;
-      }
-    }
-    return rank;
+    return this.liveresult.getRank(participant);
   }
 
   getRankBySex(participant: Participant): number {
-    if (!this.liveresult.participantList.some(r => r === participant) || participant.Time <= 0) {
-      return 0;
-    }
-    let rank = 1;
-    for (const r of this.liveresult.participantList.filter(ru => ru.Participant.Sex === participant.Participant.Sex)) {
-      if (r.Time > 0 && r.Time < participant.Time) {
-        rank++;
-      }
-    }
-    return rank;
+    return this.liveresult.getRank(participant, true);
   }
 }

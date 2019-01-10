@@ -18,7 +18,6 @@ export class Participant {
 
     public Starter: number;
     public Time: number;
-    public Participant: Participant;
     public Race: Race;
 
     constructor() {
