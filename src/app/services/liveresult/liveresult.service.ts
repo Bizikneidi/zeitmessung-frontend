@@ -47,4 +47,26 @@ export class LiveresultService {
         }
       }
   }
+
+  // filters the participantlist
+  filterBySex(sex: string) {
+    return this.participantList.filter(ru => ru.Participant.Sex === sex);
+  }
+
+  getRankBySex(participant: Participant): number {
+    // if the participant ins't contained in the list or has an invalid time
+    if (!this.participantList.some(r => r === participant) || participant.Time <= 0) {
+      return 0;
+    }
+    
+    let rank = 1;
+    
+    for (const competitor of this.filterBySex(participant.Participant.Sex)) {
+      // is there some one faster than the participant
+      if (competitor.Time > 0 && competitor.Time < participant.Time) {
+        rank++;
+      }
+    }
+    return rank;
+  }
 }
