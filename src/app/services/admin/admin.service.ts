@@ -3,14 +3,14 @@ import { WebsocketService } from '../websocket/websocket.service';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { AdminCommands, Message } from '../../entities/networking';
-import { TimeMeterState } from '../../entities/timemeterstate';
+import { RaceManagerState } from '../../entities/timemeterstate';
 import { RunStartDTO } from '../../entities/runstart';
 import { Assignment } from '../../entities/assignment';
 
 @Injectable()
 export class AdminService {
 
-  public state: TimeMeterState;
+  public state: RaceManagerState;
 
   public start: Observable<RunStartDTO>;
   private startSubject: Subject<RunStartDTO>;
@@ -35,7 +35,7 @@ export class AdminService {
       const received = msg as Message<AdminCommands>; // Cast to Admin Message
       switch (received.Command) {
         case AdminCommands.Status:
-          this.state = received.Data as TimeMeterState; // Pass status to observers
+          this.state = received.Data as RaceManagerState; // Pass status to observers
           break;
         case AdminCommands.RunStart:
           this.startSubject.next(received.Data as RunStartDTO); // Pass status to observers

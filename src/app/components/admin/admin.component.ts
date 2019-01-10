@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs/Subscription';
 import { AdminService } from '../../services/admin/admin.service';
-import { TimeMeterState } from '../../entities/timemeterstate';
+import { RaceManagerState } from '../../entities/timemeterstate';
 import { query, keyframes, trigger, transition, animate, style, stagger } from '@angular/animations';
 import { Participant } from '../../entities/participant';
 import { RunStartDTO } from '../../entities/runstart';
@@ -33,7 +33,7 @@ import { LiveTimerService } from '../../services/livetimer/livetimer.service';
 export class AdminComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft; // arrow icon
-  readyState = TimeMeterState.Ready;
+  readyState = RaceManagerState.Ready;
   startRun = false; // check if start has been pressed
   hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
   finishedParticipantList: Participant[] = []; // list of all finshed participants
