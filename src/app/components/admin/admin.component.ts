@@ -5,7 +5,7 @@ import { AdminService } from '../../services/admin/admin.service';
 import { RaceManagerState } from '../../entities/timemeterstate';
 import { query, keyframes, trigger, transition, animate, style, stagger } from '@angular/animations';
 import { Participant } from '../../entities/participant';
-import { RunStartDTO } from '../../entities/runstart';
+import { RunStart } from '../../entities/runstart';
 import { Assignment } from '../../entities/assignment';
 import { LiveTimerService } from '../../services/livetimer/livetimer.service';
 @Component({
@@ -52,7 +52,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.admin.connect(); // Connect as Admin on page visit
 
     // get participantlist and start time
-    this.startSubscription = this.admin.start.subscribe((runDto: RunStartDTO) => {
+    this.startSubscription = this.admin.start.subscribe((runDto: RunStart) => {
       this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
       this.startRun = true;
     });

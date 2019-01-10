@@ -8,7 +8,7 @@ import {Message, ViewerCommands} from '../../entities/networking';
 import {RaceManagerState} from '../../entities/timemeterstate';
 import {Participant} from '../../entities/participant';
 import {Race} from '../../entities/race';
-import { RunStartDTO } from '../../entities/runstart';
+import { RunStart } from '../../entities/runstart';
 
 @Injectable()
 export class ViewerService {
@@ -17,8 +17,8 @@ export class ViewerService {
   private raceArray: Array<Race>;
 
   // Observe start of run
-  public start: Observable<RunStartDTO>;
-  private startSubject: Subject<RunStartDTO>;
+  public start: Observable<RunStart>;
+  private startSubject: Subject<RunStart>;
 
   // Observe participant finish run
   public measuredStop: Observable<Participant>;
@@ -41,7 +41,7 @@ export class ViewerService {
   private pdfClickSubject: Subject<null>;
 
   constructor(private ws: WebsocketService) {
-    this.startSubject = new Subject<RunStartDTO>();
+    this.startSubject = new Subject<RunStart>();
     this.start = this.startSubject.asObservable();
 
     this.measuredStopSubject = new Subject<Participant>();
@@ -66,7 +66,7 @@ export class ViewerService {
       if (received.Command === ViewerCommands.Status) {
         this.state = received.Data as RaceManagerState;
       } else if (received.Command === ViewerCommands.RunStart) {
-        this.startSubject.next(received.Data as RunStartDTO);
+        this.startSubject.next(received.Data as RunStart);
       } else if (received.Command === ViewerCommands.RunEnd) {
         this.endSubject.next();
       } else if (received.Command === ViewerCommands.ParticipantFinished) {

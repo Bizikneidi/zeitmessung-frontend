@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { AdminCommands, Message } from '../../entities/networking';
 import { RaceManagerState } from '../../entities/timemeterstate';
-import { RunStartDTO } from '../../entities/runstart';
+import { RunStart } from '../../entities/runstart';
 import { Assignment } from '../../entities/assignment';
 
 @Injectable()
@@ -12,8 +12,8 @@ export class AdminService {
 
   public state: RaceManagerState;
 
-  public start: Observable<RunStartDTO>;
-  private startSubject: Subject<RunStartDTO>;
+  public start: Observable<RunStart>;
+  private startSubject: Subject<RunStart>;
 
   public measuredStop: Observable<number>;
   private measuredStopSubject: Subject<number>;
@@ -22,7 +22,7 @@ export class AdminService {
   private endSubject: Subject<null>;
 
   constructor(private ws: WebsocketService) {
-    this.startSubject = new Subject<RunStartDTO>();
+    this.startSubject = new Subject<RunStart>();
     this.start = this.startSubject.asObservable();
 
     this.measuredStopSubject = new Subject<number>();
@@ -38,7 +38,7 @@ export class AdminService {
           this.state = received.Data as RaceManagerState; // Pass status to observers
           break;
         case AdminCommands.RunStart:
-          this.startSubject.next(received.Data as RunStartDTO); // Pass status to observers
+          this.startSubject.next(received.Data as RunStart); // Pass status to observers
           break;
         case AdminCommands.RunEnd:
           this.endSubject.next(); // Pass status to observers
