@@ -9,7 +9,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class ParticipantService {
 
-  public races: Array<Race>;
+  public races: Array<Race> = [];
 
   constructor(private ws: WebsocketService) {
     this.ws.received.subscribe(msg => {
