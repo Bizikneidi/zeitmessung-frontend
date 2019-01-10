@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ViewerService } from '../viewer/viewer.service';
 import { Participant } from '../../entities/participant';
-import { Race } from '../../entities/race';
 
 @Injectable()
 export class LiveresultService {
@@ -14,7 +13,7 @@ export class LiveresultService {
       this.participantList = ms.Participants;
     });
 
-    // Check for the end of a race
+    // Checks for when a participant finishes
     this.viewer.measuredStop.subscribe((participant: Participant) => {
       // Set end of time for participant
       this.participantList.find(item => item.Starter === participant.Starter).Time = participant.Time;
@@ -48,17 +47,17 @@ export class LiveresultService {
       }
   }
 
-  // is the participant in the current list or has an invalid time 
+  // is the participant in the current list or has an invalid time
   isValidParticipant(participant: Participant) {
-    return this.participantList.some(competitor => competitor == participant) || participant.Time > 0;
+    return this.participantList.some(competitor => competitor === participant) || participant.Time > 0;
   }
 
   // filters the participantlist
   filterBySex(sex: string) {
-    if(sex == null) {
+    if (sex == null) {
       return this.participantList;
     }
-    return this.participantList.filter(ru => ru.Participant.Sex === sex);
+    return this.participantList.filter(competitor => competitor.Sex === sex);
   }
 
   // gets the rank of the participant, if wanted filtered by sex
@@ -71,7 +70,7 @@ export class LiveresultService {
     let rank = 1;
 
     // do you want to filter via sex
-    for (const competitor of this.filterBySex(filterBySex ? participant.Participant.Sex : null)) {
+    for (const competitor of this.filterBySex(filterBySex ? participant.Sex : null)) {
       // is there some one faster than the participant
       if (competitor.Time > 0 && competitor.Time < participant.Time) {
         rank++;
