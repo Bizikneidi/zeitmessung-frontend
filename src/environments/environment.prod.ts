@@ -5,6 +5,8 @@ import { PoliciesComponent } from '../app/components/policies/policies.component
 import { NavigationcardsComponent } from '../app/components/navigationcards/navigationcards.component';
 import { LiveresultlistComponent } from '../app/components/liveresultlist/liveresultlist.component';
 import { ResultlistComponent } from '../app/components/resultlist/resultlist.component';
+import { CompetitionComponent } from '../app/components/admin/competition/competition.component';
+import { RaceComponent } from '../app/components/admin/race/race.component';
 
 export const environment = {
   production: true,
@@ -25,7 +27,11 @@ export const environment = {
         }
       ]
     },
-    { path: 'admin', component: AdminComponent },
+    {
+      path: 'admin', component: AdminComponent
+    },
+    {path: 'admin/competition', pathMatch: 'full', component: CompetitionComponent},
+    {path: 'admin/race', pathMatch: 'full', component: RaceComponent},
     { path: 'policies', component: PoliciesComponent },
     { path: '**', component: NavigationcardsComponent }
   ]

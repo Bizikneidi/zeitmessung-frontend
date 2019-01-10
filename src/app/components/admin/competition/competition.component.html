@@ -1,3 +1,48 @@
-<p>
-  competition works!
-</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-11 col-md-9 col-lg-7 col-xl-7">
+      <div class=" card border-0 shadow-lg">
+        <div class="card-title">
+          <div class="row">
+            <div class="col-1">
+              <a [routerLink]="['/admin']">
+                <fa-icon [icon]="faArrow"></fa-icon>
+              </a>
+            </div>
+            <div class="col-10">
+              <h2>Admin</h2>
+              <p>Füllen Sie die Felder aus, um ein Rennen <br> anzulegen.</p>
+              <div class="form-row">
+                <div class="col-5">
+                  <input type="text" autofocus class="form-control"  placeholder="Bezeichnung">
+                </div>
+                <div class="col-5">
+                  <input type="date" class="form-control" placeholder="Termin">
+                </div>
+                <div class="col-5 mt-3">
+                  <input type="time" class="form-control" placeholder="Starzeit">
+                </div>
+                <div class="col-5 mt-3">
+                  <input type="text" class="form-control" placeholder="Ausschreibungslink">
+                </div>
+                <div class="col-4 mt-3">
+                  <a class="card-link" href="javascript:void(0)">
+                    <h5 class="arrow">Anlegen ➜</h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+    </div>

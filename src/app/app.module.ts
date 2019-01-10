@@ -10,7 +10,7 @@ import { WebsocketService } from './services/websocket/websocket.service';
 import { AdminService } from './services/admin/admin.service';
 import { ParticipantService } from './services/participant/participant.service';
 import { ViewerService } from './services/viewer/viewer.service';
-import { environment } from '../environments/environment';
+import { environment} from '../environments/environment';
 import { MilliSecondsToTimePipe } from './pipes/millisecondstotimepipe';
 import { RegisterparticipantComponent } from './components/registerparticipant/registerparticipant.component';
 import { NavigationcardsComponent } from './components/navigationcards/navigationcards.component';
@@ -26,6 +26,7 @@ import { RaceToStringPipe } from './pipes/racetostringpipe';
 import { LiveresultService } from './services/liveresult/liveresult.service';
 import { CompetitionComponent } from './components/admin/competition/competition.component';
 import { RaceComponent } from './components/admin/race/race.component';
+import { LiveTimerService } from './services/livetimer/livetimer.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { RaceComponent } from './components/admin/race/race.component';
     AdminService,
     ParticipantService,
     ViewerService,
-    LiveresultService
+    LiveresultService,
+    LiveTimerService
   ],
   bootstrap: [ContentComponent]
 })

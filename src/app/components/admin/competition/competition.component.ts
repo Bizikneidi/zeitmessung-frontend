@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-competition',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./competition.component.css']
 })
 export class CompetitionComponent implements OnInit {
-
+  faArrow = faLongArrowAltLeft;
   constructor() { }
 
   ngOnInit() {

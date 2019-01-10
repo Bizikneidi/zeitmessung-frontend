@@ -5,6 +5,9 @@ import { PoliciesComponent } from '../app/components/policies/policies.component
 import { NavigationcardsComponent } from '../app/components/navigationcards/navigationcards.component';
 import { LiveresultlistComponent } from '../app/components/liveresultlist/liveresultlist.component';
 import { ResultlistComponent } from '../app/components/resultlist/resultlist.component';
+import { CompetitionComponent } from '../app/components/admin/competition/competition.component';
+import { RaceComponent } from '../app/components/admin/race/race.component';
+import { Routes } from '@angular/router';
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
@@ -15,6 +18,11 @@ export const environment = {
   production: false,
   appRoutes: [
     { path: 'participant', component: RegisterparticipantComponent },
+    {
+      path: 'admin', component: AdminComponent
+    },
+    {path: 'admin/competition', pathMatch: 'full', component: CompetitionComponent},
+    {path: 'admin/race', pathMatch: 'full', component: RaceComponent},
     {
       path: 'viewer',
       component: ViewerComponent,
@@ -31,7 +39,7 @@ export const environment = {
         }
       ]
     },
-    { path: 'admin', component: AdminComponent },
+
     { path: 'policies', component: PoliciesComponent },
     { path: '**', component: NavigationcardsComponent }
   ]
