@@ -77,7 +77,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
     this.liveTimer.stop();
 
-    this.admin.disconnect();
+    //this.admin.disconnect();
   }
 
 }
