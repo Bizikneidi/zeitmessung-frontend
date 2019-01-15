@@ -6,6 +6,7 @@ import { AdminCommands, Message } from '../../entities/networking';
 import { RaceManagerState } from '../../entities/racemanagerstate';
 import { RunStart } from '../../entities/runstart';
 import { Assignment } from '../../entities/assignment';
+import { Race } from '../../entities/race';
 
 @Injectable()
 export class AdminService {
@@ -34,13 +35,13 @@ export class AdminService {
     this.ws.received.subscribe(msg => {
       const received = msg as Message<AdminCommands>; // Cast to Admin Message
       switch (received.Command) {
-        case AdminCommands.Status:
+        case AdminCommands.State:
           this.state = received.Data as RaceManagerState; // Pass status to observers
           break;
-        case AdminCommands.RunStart:
+        case AdminCommands.RaceStart:
           this.startSubject.next(received.Data as RunStart); // Pass status to observers
           break;
-        case AdminCommands.RunEnd:
+        case AdminCommands.RaceEnd:
           this.endSubject.next(); // Pass status to observers
           break;
         case AdminCommands.MeasuredStop:
@@ -64,7 +65,12 @@ export class AdminService {
     msg.Data = assignment;
     this.ws.send(msg);
   }
-
+  createRace(race: Race) {
+    const msg = new Message<AdminCommands>();
+    msg.Command = AdminCommands.CreateRace;
+    msg.Data = race;
+    this.ws.send(msg);
+  }
   connect() {
     this.ws.connect('admin'); // Connect as admin
   }
