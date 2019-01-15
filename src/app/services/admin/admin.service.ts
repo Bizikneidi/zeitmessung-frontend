@@ -22,6 +22,9 @@ export class AdminService {
   public end: Observable<null>;
   private endSubject: Subject<null>;
 
+  public availableRace: Observable<Array<Race>>;
+  private availableRaceSubject: Subject<Array<Race>>;
+
   constructor(private ws: WebsocketService) {
     this.startSubject = new Subject<RunStart>();
     this.start = this.startSubject.asObservable();
@@ -31,6 +34,9 @@ export class AdminService {
 
     this.endSubject = new Subject<null>();
     this.end = this.endSubject.asObservable();
+
+    this.availableRaceSubject = new Subject<Array<Race>>();
+    this.availableRace = this.availableRaceSubject.asObservable();
 
     this.ws.received.subscribe(msg => {
       const received = msg as Message<AdminCommands>; // Cast to Admin Message
@@ -47,15 +53,18 @@ export class AdminService {
         case AdminCommands.MeasuredStop:
           this.measuredStopSubject.next(received.Data as number); // Pass status to observers
           break;
+        case AdminCommands.AvailableRaces:
+          this.availableRaceSubject.next(received.Data as Array<Race>); // Pass status to observers
+          break;
       }
     });
   }
 
   // send the start command to the server
-  startRun() {
+  startRun(id) {
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.Start;
-    msg.Data = null; // No data
+    msg.Data = id; // No data
     this.ws.send(msg);
   }
 
