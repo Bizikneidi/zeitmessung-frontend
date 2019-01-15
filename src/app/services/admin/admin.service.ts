@@ -61,10 +61,10 @@ export class AdminService {
   }
 
   // send the start command to the server
-  startRun() {
+  startRun(id) {
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.Start;
-    msg.Data = null; // No data
+    msg.Data = id; // No data
     this.ws.send(msg);
   }
 

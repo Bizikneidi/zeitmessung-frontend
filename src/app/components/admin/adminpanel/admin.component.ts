@@ -54,9 +54,10 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.admin.availableRace.subscribe(data => this.availableRaces = data);
 
   }
+
    // Start a race
   onStartRunClicked() {
-    this.admin.startRun();
+    this.admin.startRun(12);
   }
   // assing start number to participant
   onAssignTimeToParticipantClicked(index: number) {
