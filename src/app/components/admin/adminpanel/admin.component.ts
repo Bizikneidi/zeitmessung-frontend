@@ -7,6 +7,7 @@ import { query, keyframes, trigger, transition, animate, style, stagger } from '
 import { Participant } from '../../../entities/participant';
 import { RunStart } from '../../../entities/runstart';
 import { Assignment } from '../../../entities/assignment';
+import { Race } from '../../../entities/race';
 import { LiveTimerService } from '../../../services/livetimer/livetimer.service';
 @Component({
   selector: 'app-admin',
@@ -21,6 +22,8 @@ export class AdminComponent implements OnInit, OnDestroy {
   startRun = false; // check if start has been pressed
   hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
   finishedParticipantList: Participant[] = []; // list of all finshed participants
+  availableRaces: Race[] = []; // list of all available races
+  raceToStart = -1; // id of the race that should be started
 
   // For cleaning up in onDestroy()
   startSubscription: Subscription;
@@ -28,7 +31,6 @@ export class AdminComponent implements OnInit, OnDestroy {
   measuredStopSubscription: Subscription;
 
   constructor(public admin: AdminService, public liveTimer: LiveTimerService) {
-
   }
 
   ngOnInit() {
@@ -49,11 +51,21 @@ export class AdminComponent implements OnInit, OnDestroy {
     });
     // check if event is finished
     this.endSubscription = this.admin.end.subscribe(end => this.resetRun());
+    // get all available races
+    this.admin.availableRace.subscribe(data => this.availableRaces = data);
 
   }
+
+  // on race selected
+  onSelected(value) {
+    this.raceToStart = value;
+  }
+
    // Start a race
   onStartRunClicked() {
-    this.admin.startRun();
+    if (this.raceToStart === -1) {
+      this.admin.startRun(12);
+    }
   }
   // assing start number to participant
   onAssignTimeToParticipantClicked(index: number) {
