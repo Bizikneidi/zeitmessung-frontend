@@ -1,5 +1,7 @@
 .card {
     border-radius: 20px;
+    width: 100%;
+    border: none;
 }
 
 .card-title {
@@ -97,9 +99,8 @@ a {
   cursor: pointer;
 }
 
-.child:last-child > .item {
-  width: 100% !important;
-  margin-right: 0 !important;
+.info > .row {
+    margin: 0;
 }
 
 .header > .row {
