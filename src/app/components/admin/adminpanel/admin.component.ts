@@ -22,7 +22,8 @@ export class AdminComponent implements OnInit, OnDestroy {
   startRun = false; // check if start has been pressed
   hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
   finishedParticipantList: Participant[] = []; // list of all finshed participants
-  availableRaces: Race[] = [];
+  availableRaces: Race[] = []; // list of all available races
+  raceToStart = -1; // id of the race that should be started
 
   // For cleaning up in onDestroy()
   startSubscription: Subscription;
@@ -55,9 +56,16 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   }
 
+  // on race selected
+  onSelected(value) {
+    this.raceToStart = value;
+  }
+
    // Start a race
   onStartRunClicked() {
-    this.admin.startRun(12);
+    if (this.raceToStart === -1) {
+      this.admin.startRun(12);
+    }
   }
   // assing start number to participant
   onAssignTimeToParticipantClicked(index: number) {

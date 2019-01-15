@@ -33,7 +33,7 @@
             <div class="card zoom shadow border-0 h-100" >
               <div class="card-body py-3">
                 <h3>Rennen <br/> starten</h3>
-                <select class="form-control">
+                <select class="form-control" #t (change)="onSelected(t.value)">
                   <option selected disabled>Rennen</option>
                   <option *ngFor="let r of availableRaces" value="{{ r.Id }}">{{ r.Title }}</option>
                 </select>

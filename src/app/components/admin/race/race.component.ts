@@ -11,7 +11,8 @@ import { Participant } from '../../../entities/participant';
 @Component({
   selector: 'app-race',
   templateUrl: './race.component.html',
-  styleUrls: ['./race.component.css']
+  styleUrls: ['./race.component.css'],
+  providers: [LiveTimerService]
 })
 export class RaceComponent implements OnInit, OnDestroy {
 
@@ -51,7 +52,7 @@ export class RaceComponent implements OnInit, OnDestroy {
   }
    // Start a race
   onStartRunClicked() {
-    this.admin.startRun();
+    // this.admin.startRun();
   }
   // assing start number to participant
   onAssignTimeToParticipantClicked(index: number) {
