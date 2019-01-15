@@ -11,7 +11,7 @@
             </div>
             <div class="col-6">
               <h2>Admin</h2>
-              <p>Create a new race like yellow, black, white or transgender</p>
+              <p>Erstelle oder starte einen Wettkampf</p>
             </div>
            
           </div>
@@ -32,9 +32,9 @@
           <div class="col-6">
             <div class="card zoom shadow border-0 h-100" >
               <div class="card-body py-3">
-                <h3>Rennen <br/> starten</h3>
+                <h3>Wettkampf <br/> starten</h3>
                 <select class="form-control" #t (change)="onSelected(t.value)">
-                  <option selected disabled>Rennen</option>
+                  <option selected disabled>Wettkampf</option>
                   <option *ngFor="let r of availableRaces" value="{{ r.Id }}">{{ r.Title }}</option>
                 </select>
                 <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="['./race']">
