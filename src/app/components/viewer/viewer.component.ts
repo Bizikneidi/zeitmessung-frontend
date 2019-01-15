@@ -47,9 +47,16 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
-    this.startSubscription.unsubscribe();
-    this.endSubscription.unsubscribe();
-    this.racesSubscription.unsubscribe();
+    if (this.startSubscription && !this.startSubscription.closed) {
+      this.startSubscription.unsubscribe();
+    }
+    if (this.endSubscription && !this.endSubscription.closed) {
+      this.endSubscription.unsubscribe();
+    }
+    if (this.racesSubscription && !this.racesSubscription.closed) {
+      this.racesSubscription.unsubscribe();
+    }
+
     this.liveTimer.stop();
     this.viewer.disconnect();
   }

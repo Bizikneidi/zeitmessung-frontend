@@ -34,16 +34,22 @@ export class ResultlistComponent implements OnInit, OnDestroy {
       });
     });
 
-    this.routerSub = this.route.queryParams.subscribe(evt => {
+    this.routerSub = this.route.queryParams.subscribe(() => {
       this.getParticipants();
     });
     this.getParticipants();
   }
 
   ngOnDestroy() {
-    this.participantsSub.unsubscribe();
-    this.routerSub.unsubscribe();
-    this.pdfSub.unsubscribe();
+    if (this.participantsSub && !this.participantsSub.closed) {
+      this.participantsSub.unsubscribe();
+    }
+    if (this.routerSub && !this.routerSub.closed) {
+      this.routerSub.unsubscribe();
+    }
+    if (this.pdfSub && !this.pdfSub.closed) {
+      this.pdfSub.unsubscribe();
+    }
   }
 
   getParticipants() {

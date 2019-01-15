@@ -34,6 +34,14 @@ export class WebsocketService {
 
   // Send a message of any command to another socket (as JSON string)
   public send(message: Message<any>) {
+    setTimeout(function () {
+      if (!this.ws) {
+      } else if (this.ws.readyState !== this.ws.OPEN) {
+        setInterval(this.send(message), 5);
+        return;
+      }
+    }, 5);
+
     this.ws.send(JSON.stringify(message));
   }
 }
