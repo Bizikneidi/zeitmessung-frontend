@@ -18,17 +18,13 @@ import { LiveTimerService } from '../../../services/livetimer/livetimer.service'
 export class AdminComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft; // arrow icon
-  readyState = RaceManagerState.Ready;
+ 
   startRun = false; // check if start has been pressed
-  hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
-  finishedParticipantList: Participant[] = []; // list of all finshed participants
+
   availableRaces: Race[] = []; // list of all available races
   raceToStart = -1; // id of the race that should be started
 
-  // For cleaning up in onDestroy()
-  startSubscription: Subscription;
-  endSubscription: Subscription;
-  measuredStopSubscription: Subscription;
+  availableRaceSubscribtion: Subscription;
 
   constructor(public admin: AdminService, public liveTimer: LiveTimerService) {
   }
@@ -36,23 +32,8 @@ export class AdminComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.admin.connect(); // Connect as Admin on page visit
-
-    // get participantlist and start time
-    this.startSubscription = this.admin.start.subscribe((runDto: RunStart) => {
-      this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
-      this.startRun = true;
-    });
-    // get time of finished participant
-    this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
-      const participant = new Participant();
-      participant.Time = time;
-      this.finishedParticipantList.push(participant);
-      this.hiddenAssignedParticipants.push(false);
-    });
-    // check if event is finished
-    this.endSubscription = this.admin.end.subscribe(end => this.resetRun());
     // get all available races
-    this.admin.availableRace.subscribe(data => this.availableRaces = data);
+    this.availableRaceSubscribtion = this.admin.availableRace.subscribe(data => this.availableRaces = data);
 
   }
 
@@ -67,34 +48,12 @@ export class AdminComponent implements OnInit, OnDestroy {
       this.admin.startRun(12);
     }
   }
-  // assing start number to participant
-  onAssignTimeToParticipantClicked(index: number) {
-    const finishedParticipant = this.finishedParticipantList[index];
-    this.hiddenAssignedParticipants[index] = true;
-    this.admin.assignTime(new Assignment(finishedParticipant.Starter, finishedParticipant.Time));
-  }
-  // revert to inital status
-  resetRun() {
-    this.liveTimer.stop();
-    this.startRun = false;
-   // this.participantList = [];
-    this.hiddenAssignedParticipants = [];
-    this.finishedParticipantList = [];
-  }
+
   // unsubscribe and disconnect from admin
   ngOnDestroy() {
-    if (this.startSubscription && !this.startSubscription.closed) {
-      this.startSubscription.unsubscribe();
+    if (this.availableRaceSubscribtion && !this.availableRaceSubscribtion.closed) {
+      this.availableRaceSubscribtion.unsubscribe();
     }
-    if (this.endSubscription && !this.endSubscription.closed) {
-      this.endSubscription.unsubscribe();
-    }
-    if (this.measuredStopSubscription && !this.measuredStopSubscription.closed) {
-      this.measuredStopSubscription.unsubscribe();
-    }
-    this.liveTimer.stop();
-
-    //this.admin.disconnect();
   }
 
 }

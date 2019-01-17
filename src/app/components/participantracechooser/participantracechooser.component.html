@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row justify-content-center">
-      <div class="col-11 col-md-10">
-      <div class="card shadow-lg pb-3">
+    <div class="col-11 col-md-10">
+      <div class="card shadow-lg pb-3 border-0">
         <div class="card-title">
           <div class="row">
             <div class="col-1">
-              <a [routerLink]="['/']">
+              <a [routerLink]="['/']" class="arrow-link">
                 <fa-icon [icon]="faArrow"></fa-icon>
               </a>
             </div>
@@ -15,24 +15,15 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="offset-1 col-11">
-            <div class="card-body">
-              <div class="row">
-                <p *ngIf="service.races.length == 0">Es sind keine Rennen für die Registrierung vorhanden.</p>
-                <div class="col-12 col-md-6 race" *ngFor="let item of service.races">
-                  <a [routerLink]="['/participant', item.Id]">
-                    <div class="row">
-                      <div class="col-12 col-lg-8">{{ item.Title }} {{ item | raceToString}}</div>
-                      <div class="col-12 col-lg-1">
-                        <a>
-                          <fa-icon [icon]="faArrowRight"></fa-icon>
-                        </a>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
+
+        <div class="card-body">
+          <div class="row">
+            <p *ngIf="service.races.length == 0" class="col-12 align-self-center">Es sind keine Rennen für
+              die Registrierung vorhanden.</p>
+            <div class="col-12 col-md-6 race" *ngFor="let item of service.races">
+              <a [routerLink]="['/participant', item.Id]">           
+                  <div class="race-item text-center">{{ item.Title }} {{ item | raceToString}} <fa-icon [icon]="faArrowRight"></fa-icon></div>
+              </a>
             </div>
           </div>
         </div>

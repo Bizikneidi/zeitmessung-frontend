@@ -74,3 +74,13 @@ select:focus, option:focus {
   transition: transform ease 0.2s;
 
 }
+
+.form-invalid {
+  pointer-events: none;
+  cursor: default;
+}
+
+.form-invalid > h5{
+  color: #e8e8e8;
+  border-bottom:3px solid #e8e8e8;
+}
