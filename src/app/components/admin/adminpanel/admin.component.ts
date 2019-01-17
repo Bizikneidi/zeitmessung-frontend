@@ -86,9 +86,6 @@ export class AdminComponent implements OnInit, OnDestroy {
       this.measuredStopSubscription.unsubscribe();
     }
     this.liveTimer.stop();
-    if (this.admin) {
-      this.admin.disconnect();
-    }
   }
 
 }
