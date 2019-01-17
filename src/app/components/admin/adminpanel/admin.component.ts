@@ -22,7 +22,6 @@ export class AdminComponent implements OnInit, OnDestroy {
   startRun = false; // check if start has been pressed
 
   availableRaces: Race[] = []; // list of all available races
-  raceToStart = -1; // id of the race that should be started
 
   availableRaceSubscribtion: Subscription;
 
@@ -38,8 +37,8 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   // on race selected
-  onSelected(value) {
-    this.raceToStart = value;
+  onSelected(id: number) {
+    this.admin.selectRace(+id);
   }
 
    // Start a race
@@ -48,7 +47,20 @@ export class AdminComponent implements OnInit, OnDestroy {
       this.admin.startRun(12);
     }
   }
-
+  // assing start number to participant
+  onAssignTimeToParticipantClicked(index: number) {
+    const finishedParticipant = this.finishedParticipantList[index];
+    this.hiddenAssignedParticipants[index] = true;
+    this.admin.assignTime(new Assignment(finishedParticipant.Starter, finishedParticipant.Time));
+  }
+  // revert to inital status
+  resetRun() {
+    this.liveTimer.stop();
+    this.startRun = false;
+   // this.participantList = [];
+    this.hiddenAssignedParticipants = [];
+    this.finishedParticipantList = [];
+  }
   // unsubscribe and disconnect from admin
   ngOnDestroy() {
     if (this.availableRaceSubscribtion && !this.availableRaceSubscribtion.closed) {
