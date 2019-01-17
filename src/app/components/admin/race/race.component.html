@@ -35,7 +35,7 @@
 
 
       <div class="container mt-3" [@slideAnimation]="finishedParticipantList.length" *ngIf="admin.state == runningState"
-        style="height:50vh; overflow:auto; ">
+        style="height:50vh; overflow-y:auto; ">
         <div class="card shadow rank-item mt-2" [hidden]="hiddenAssignedParticipants[i]" *ngFor="let participant of finishedParticipantList; let i= index">
           <div class="card-block ">
             <div class="row m-2  align-items-center">

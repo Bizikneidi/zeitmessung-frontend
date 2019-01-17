@@ -20,8 +20,8 @@
       </div>
      
      
-        <div class="row mt-5">
-          <div class="col-6">
+        <div class="row mt-5 no-gutters">
+          <div class="col-5 ">
             <div class="card zoom shadow border-0 h-100" [routerLink]="['./competition']">
               <div class="card-body">
                 <h3>Wettkampf <br/> eintragen</h3>
@@ -29,15 +29,16 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <div class="card zoom shadow border-0 h-100" >
+          <div class="col"></div>
+          <div class="col-5">
+            <div class="card zoom shadow border-0 h-100 " >
               <div class="card-body py-3">
                 <h3>Wettkampf <br/> starten</h3>
                 <select class="form-control" #t (change)="onSelected(t.value)">
                   <option selected disabled>Wettkampf</option>
                   <option *ngFor="let r of availableRaces" value="{{ r.Id }}">{{ r.Title }}</option>
                 </select>
-                <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="['./race']">
+                <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="['./race']" [ngClass]="raceToStart<0 ? 'form-invalid':''">
                   <h5 class="arrow" >Starten ➜</h5>
                 </a>
 

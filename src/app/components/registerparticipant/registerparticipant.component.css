@@ -157,6 +157,8 @@ select:-moz-focusring {
 .form-invalid {
   pointer-events: none;
   cursor: default;
+  color: #e8e8e8;
+  border-bottom-color: #e8e8e8;
 }
 
 .container {
