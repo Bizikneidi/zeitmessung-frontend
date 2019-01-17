@@ -68,9 +68,15 @@ export class RaceComponent implements OnInit, OnDestroy {
   }
   // unsubscribe and disconnect from admin
   ngOnDestroy() {
-    this.startSubscription.unsubscribe();
-    this.endSubscription.unsubscribe();
-    this.measuredStopSubscription.unsubscribe();
+    if (this.startSubscription && !this.startSubscription.closed) {
+      this.startSubscription.unsubscribe();
+    }
+    if (this.endSubscription && !this.endSubscription.closed) {
+      this.endSubscription.unsubscribe();
+    }
+    if (this.measuredStopSubscription && !this.measuredStopSubscription.closed) {
+      this.measuredStopSubscription.unsubscribe();
+    }
 
     this.liveTimer.stop();
     this.admin.disconnect();
