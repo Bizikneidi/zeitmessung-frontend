@@ -38,7 +38,7 @@
                   <option selected disabled>Wettkampf</option>
                   <option *ngFor="let r of availableRaces" value="{{ r.Id }}">{{ r.Title }}</option>
                 </select>
-                <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="['./race']" [ngClass]="raceToStart<0 ? 'form-invalid':''">
+                <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="['./race']" [ngClass]="startable ? '':'form-invalid'">
                   <h5 class="arrow" >Starten ➜</h5>
                 </a>
 

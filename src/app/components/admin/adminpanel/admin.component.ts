@@ -18,12 +18,14 @@ import { LiveTimerService } from '../../../services/livetimer/livetimer.service'
 export class AdminComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft; // arrow icon
- 
+
   startRun = false; // check if start has been pressed
 
   availableRaces: Race[] = []; // list of all available races
 
   availableRaceSubscribtion: Subscription;
+
+  startable = false;
 
   constructor(public admin: AdminService, public liveTimer: LiveTimerService) {
   }
@@ -38,29 +40,10 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   // on race selected
   onSelected(id: number) {
+    this.startable = true;
     this.admin.selectRace(+id);
   }
 
-   // Start a race
-  onStartRunClicked() {
-    if (this.raceToStart === -1) {
-      this.admin.startRun(12);
-    }
-  }
-  // assing start number to participant
-  onAssignTimeToParticipantClicked(index: number) {
-    const finishedParticipant = this.finishedParticipantList[index];
-    this.hiddenAssignedParticipants[index] = true;
-    this.admin.assignTime(new Assignment(finishedParticipant.Starter, finishedParticipant.Time));
-  }
-  // revert to inital status
-  resetRun() {
-    this.liveTimer.stop();
-    this.startRun = false;
-   // this.participantList = [];
-    this.hiddenAssignedParticipants = [];
-    this.finishedParticipantList = [];
-  }
   // unsubscribe and disconnect from admin
   ngOnDestroy() {
     if (this.availableRaceSubscribtion && !this.availableRaceSubscribtion.closed) {
