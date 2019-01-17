@@ -5,6 +5,7 @@ import { ViewerService } from '../../services/viewer/viewer.service';
 import { Router } from '@angular/router';
 import { Race } from '../../entities/race';
 import { LiveTimerService } from '../../services/livetimer/livetimer.service';
+import { query } from '@angular/core/src/animation/dsl';
 
 
 @Component({
@@ -43,6 +44,8 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.racesSubscription = this.viewer.races.subscribe(races => {
       this.races = races.sort((r1, r2) => r2.Date - r1.Date);
     });
+
+    this.activeRace = this.router.url.includes('resultlist:old') ? 'another' : 'live';
   }
 
   ngOnDestroy() {
