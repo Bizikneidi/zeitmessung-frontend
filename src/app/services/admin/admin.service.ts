@@ -25,6 +25,8 @@ export class AdminService {
   public availableRace: Observable<Array<Race>>;
   private availableRaceSubject: Subject<Array<Race>>;
 
+  private raceToStart: number;
+
   constructor(private ws: WebsocketService) {
     this.startSubject = new Subject<RunStart>();
     this.start = this.startSubject.asObservable();
@@ -61,10 +63,12 @@ export class AdminService {
   }
 
   // send the start command to the server
-  startRun(id) {
+  startRun() {
+    alert(this.raceToStart);
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.Start;
-    msg.Data = id; // No data
+    msg.Data = this.raceToStart;
+    console.log(msg);
     this.ws.send(msg);
   }
 
@@ -87,4 +91,10 @@ export class AdminService {
   disconnect() {
     this.ws.disconnect();
   }
+
+
+  selectRace(id: number) {
+    this.raceToStart = id;
+  }
+
 }

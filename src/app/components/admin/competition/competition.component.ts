@@ -26,7 +26,6 @@ export class CompetitionComponent implements OnInit {
     this.race.Date = milliseconds;
     this.admin.createRace(this.race);
     this.routing.navigate(['admin']);
-    alert('f');
   }
 
 }

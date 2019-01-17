@@ -52,7 +52,7 @@ export class RaceComponent implements OnInit, OnDestroy {
   }
    // Start a race
   onStartRunClicked() {
-    // this.admin.startRun();
+    this.admin.startRun();
   }
   // assing start number to participant
   onAssignTimeToParticipantClicked(index: number) {

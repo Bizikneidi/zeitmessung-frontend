@@ -23,7 +23,6 @@ export class AdminComponent implements OnInit, OnDestroy {
   hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
   finishedParticipantList: Participant[] = []; // list of all finshed participants
   availableRaces: Race[] = []; // list of all available races
-  raceToStart = -1; // id of the race that should be started
 
   // For cleaning up in onDestroy()
   startSubscription: Subscription;
@@ -57,16 +56,10 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   // on race selected
-  onSelected(value) {
-    this.raceToStart = value;
+  onSelected(id: number) {
+    this.admin.selectRace(+id);
   }
 
-   // Start a race
-  onStartRunClicked() {
-    if (this.raceToStart === -1) {
-      this.admin.startRun(12);
-    }
-  }
   // assing start number to participant
   onAssignTimeToParticipantClicked(index: number) {
     const finishedParticipant = this.finishedParticipantList[index];
@@ -93,8 +86,9 @@ export class AdminComponent implements OnInit, OnDestroy {
       this.measuredStopSubscription.unsubscribe();
     }
     this.liveTimer.stop();
-
-    //this.admin.disconnect();
+    if (this.admin) {
+      this.admin.disconnect();
+    }
   }
 
 }
