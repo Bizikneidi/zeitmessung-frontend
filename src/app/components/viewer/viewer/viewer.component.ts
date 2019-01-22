@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { ViewerService } from '../../../services/viewer/viewer.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Race } from '../../../entities/race';
 import { LiveTimerService } from '../../../services/livetimer/livetimer.service';
 import { query } from '@angular/core/src/animation/dsl';
@@ -24,8 +24,9 @@ export class ViewerComponent implements OnInit, OnDestroy {
   startSubscription: Subscription;
   endSubscription: Subscription;
   racesSubscription: Subscription;
+  queryParamMapSubscription: Subscription;
 
-  constructor(public viewer: ViewerService, private router: Router, public liveTimer: LiveTimerService) { }
+  constructor(public viewer: ViewerService, private router: Router, private route: ActivatedRoute, public liveTimer: LiveTimerService) { }
 
   ngOnInit() {
     this.viewer.connect(); // Connect on website visit
@@ -45,7 +46,10 @@ export class ViewerComponent implements OnInit, OnDestroy {
       this.races = races.sort((r1, r2) => r2.Date - r1.Date);
     });
 
-    this.activeRace = this.router.url.includes('resultlist:old') ? 'another' : 'live';
+    // Get the current queryParamMap
+    this.queryParamMapSubscription = this.route.queryParamMap.subscribe(params => {
+      this.activeRace = this.router.url.includes('resultlist:old') ? params.get('raceid') : 'live';
+    });
   }
 
   ngOnDestroy() {
@@ -59,6 +63,9 @@ export class ViewerComponent implements OnInit, OnDestroy {
     if (this.racesSubscription && !this.racesSubscription.closed) {
       this.racesSubscription.unsubscribe();
     }
+    if (this.queryParamMapSubscription && !this.queryParamMapSubscription.closed) {
+      this.queryParamMapSubscription.unsubscribe();
+    }
 
     this.liveTimer.stop();
     this.viewer.disconnect();
@@ -66,14 +73,18 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   selectedRace(id) {
     this.router.navigateByUrl('viewer/(resultlist:old)?raceid=' + id);
-    this.activeRace = 'another';
+    this.activeRace = id;
   }
 
-  changeCurrentRace(id: string) {
+  changeCurrentRace(id) {
     this.activeRace = id;
   }
 
   onPdfClick() {
     this.viewer.onPdfClick();
+  }
+
+  optionIsSelected(option) {
+    return option === this.activeRace;
   }
 }

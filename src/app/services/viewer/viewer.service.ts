@@ -122,7 +122,7 @@ export class ViewerService {
 
       const pageSize = doc.internal.pageSize;
       const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
-      const text = doc.splitTextToSize('Ergebnisse ' + this.raceToStringPipe.transform(race), pageWidth - 35, {});
+      const text = doc.splitTextToSize('Ergebnisse ' + this.raceToStringPipe.transform(race, true), pageWidth - 35, {});
       doc.text(text, 14, 30);
 
       const head = [
