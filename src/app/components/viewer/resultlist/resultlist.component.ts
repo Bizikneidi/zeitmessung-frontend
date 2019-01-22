@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Participant } from '../../entities/participant';
+import { Participant } from '../../../entities/participant';
 import { ActivatedRoute } from '@angular/router';
-import { ViewerService } from '../../services/viewer/viewer.service';
+import { ViewerService } from '../../../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({

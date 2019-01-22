@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
-import { ViewerService } from '../../services/viewer/viewer.service';
+import { ViewerService } from '../../../services/viewer/viewer.service';
 import { Router } from '@angular/router';
-import { Race } from '../../entities/race';
-import { LiveTimerService } from '../../services/livetimer/livetimer.service';
+import { Race } from '../../../entities/race';
+import { LiveTimerService } from '../../../services/livetimer/livetimer.service';
 import { query } from '@angular/core/src/animation/dsl';
 
 

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { LiveresultService } from '../../services/liveresult/liveresult.service';
-import { Participant } from './../../entities/participant';
+import { LiveresultService } from '../../../services/liveresult/liveresult.service';
+import { Participant } from '../../../entities/participant';
 import {
   query,
   keyframes,

@@ -7,7 +7,7 @@
     top: 0;
     background-size:cover; 
     background-repeat: no-repeat;
-    background-image: url('../../../assets/images/bgCurve.png');
+    background-image: url('../../../../assets/images/bgCurve.png');
     height: 100%;
     width: 100%;
 }
