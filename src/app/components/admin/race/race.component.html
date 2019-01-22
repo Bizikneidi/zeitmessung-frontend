@@ -34,8 +34,7 @@
 
 
 
-      <div class="container mt-3" [@slideAnimation]="finishedParticipantList.length" *ngIf="admin.state == runningState"
-        style="height:50vh; overflow-y:auto; ">
+      <div class="container mt-3" [@slideAnimation]="finishedParticipantList.length" *ngIf="admin.state == runningState">
         <div class="card shadow rank-item mt-2" [hidden]="hiddenAssignedParticipants[i]" *ngFor="let participant of finishedParticipantList; let i= index">
           <div class="card-block ">
             <div class="row m-2  align-items-center">
@@ -45,7 +44,7 @@
                   <input type="number" class="form-control col-3 mb-3" [autofocus]="i === 0" placeholder="participant number"
                     [(ngModel)]="participant.Starter">
 
-                  <a class="card-link col-auto" href="javascript:void(0)" (click)="onAssignTimeToParticipantClicked(i)">
+                  <a class="card-link col-auto"  (click)="onAssignTimeToParticipantClicked(i)">
                     <h5 class="arrow">➜</h5>
                   </a>
 

@@ -64,7 +64,6 @@ export class AdminService {
 
   // send the start command to the server
   startRun() {
-    alert(this.raceToStart);
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.Start;
     msg.Data = this.raceToStart;
