@@ -37,16 +37,15 @@
 	.race-item {
 		font-weight: bold;
 		font-size: 17px;
-		color: lightgray;
+		color: #26D2B3;
 	}
 
 	.race {
 		margin-bottom: 1vh;
-		color: lightgray;
+		color: #26D2B3;
 	}
 
 	.race:hover > a > .row > div {
-		color: darkgrey !important;
 		cursor: pointer;
 	}
 
@@ -54,4 +53,8 @@
 		border: none !important;
 		outline: none !important;
 		text-decoration: none !important;
+	}
+
+	.race:hover > a > div {
+		transform: scale(1.1)
 	}
