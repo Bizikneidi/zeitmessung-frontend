@@ -8,7 +8,7 @@ import { RaceManagerState } from '../../../entities/racemanagerstate';
 import { RunStart } from '../../../entities/runstart';
 import { Participant } from '../../../entities/participant';
 import { slideAnimation } from '../../../animations/animations';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-race',
@@ -30,7 +30,7 @@ export class RaceComponent implements OnInit, OnDestroy {
   endSubscription: Subscription;
   measuredStopSubscription: Subscription;
 
-  constructor(public admin: AdminService, public liveTimer: LiveTimerService, public router: Router) {
+  constructor(public admin: AdminService, public liveTimer: LiveTimerService, public router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -57,7 +57,7 @@ export class RaceComponent implements OnInit, OnDestroy {
   }
    // Start a race
   onStartRunClicked() {
-    this.admin.startRun();
+    this.admin.startRun(Number.parseInt(this.route.snapshot.queryParams.raceid));
   }
   // assing start number to participant
   onAssignTimeToParticipantClicked(index: number) {
