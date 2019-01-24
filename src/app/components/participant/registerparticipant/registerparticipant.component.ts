@@ -12,7 +12,7 @@ import { Race } from '../../../entities/race';
   templateUrl: './registerparticipant.component.html',
   styleUrls: ['./registerparticipant.component.css']
 })
-export class RegisterparticipantComponent implements OnInit, OnDestroy {
+export class RegisterparticipantComponent implements OnInit {
 
   faArrow = faLongArrowAltLeft;
   participant: Participant;
@@ -33,10 +33,6 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
    });
   }
 
-  ngOnDestroy() {
-    this.ps.disconnect();
-  }
-
   changeSex(c) {
     // Must be changed via ts because custom checkboxes don't support binding
     this.participant.Sex = c;
@@ -49,6 +45,7 @@ export class RegisterparticipantComponent implements OnInit, OnDestroy {
 
   register() {
     this.ps.register(this.participant);
+    this.ps.disconnect();
   }
 
   onAgreementClicked() {

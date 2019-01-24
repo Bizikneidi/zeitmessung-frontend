@@ -52,6 +52,10 @@ export class ViewerComponent implements OnInit, OnDestroy {
     });
   }
 
+  onBack() {
+    this.viewer.disconnect();
+  }
+
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     if (this.startSubscription && !this.startSubscription.closed) {
@@ -68,7 +72,6 @@ export class ViewerComponent implements OnInit, OnDestroy {
     }
 
     this.liveTimer.stop();
-    this.viewer.disconnect();
   }
 
   selectedRace(id) {

@@ -7,6 +7,7 @@ import { Assignment } from '../../../entities/assignment';
 import { RaceManagerState } from '../../../entities/racemanagerstate';
 import { RunStart } from '../../../entities/runstart';
 import { Participant } from '../../../entities/participant';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-race',
@@ -27,12 +28,10 @@ export class RaceComponent implements OnInit, OnDestroy {
   endSubscription: Subscription;
   measuredStopSubscription: Subscription;
 
-  constructor(public admin: AdminService, public liveTimer: LiveTimerService) {
-
+  constructor(public admin: AdminService, public liveTimer: LiveTimerService, public router: Router) {
   }
 
   ngOnInit() {
-
     this.admin.connect(); // Connect as Admin on page visit
 
     // get participantlist and start time
@@ -47,7 +46,7 @@ export class RaceComponent implements OnInit, OnDestroy {
       this.hiddenAssignedParticipants.push(false);
     });
     // check if event is finished
-    this.endSubscription = this.admin.end.subscribe(end => this.resetRun());
+    this.endSubscription = this.admin.end.subscribe(() => this.resetRun());
 
   }
    // Start a race
@@ -65,6 +64,8 @@ export class RaceComponent implements OnInit, OnDestroy {
     this.liveTimer.stop();
     this.hiddenAssignedParticipants = [];
     this.finishedParticipantList = [];
+    this.admin.disconnect();
+    this.router.navigate(['/']);
   }
   // unsubscribe and disconnect from admin
   ngOnDestroy() {
@@ -77,9 +78,7 @@ export class RaceComponent implements OnInit, OnDestroy {
     if (this.measuredStopSubscription && !this.measuredStopSubscription.closed) {
       this.measuredStopSubscription.unsubscribe();
     }
-
     this.liveTimer.stop();
-    this.admin.disconnect();
   }
 
 }
