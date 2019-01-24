@@ -7,12 +7,14 @@ import { Assignment } from '../../../entities/assignment';
 import { RaceManagerState } from '../../../entities/racemanagerstate';
 import { RunStart } from '../../../entities/runstart';
 import { Participant } from '../../../entities/participant';
+import { slideAnimation } from '../../../animations/animations';
 
 @Component({
   selector: 'app-race',
   templateUrl: './race.component.html',
   styleUrls: ['./race.component.css'],
-  providers: [LiveTimerService]
+  providers: [LiveTimerService],
+  animations: [slideAnimation]
 })
 export class RaceComponent implements OnInit, OnDestroy {
 

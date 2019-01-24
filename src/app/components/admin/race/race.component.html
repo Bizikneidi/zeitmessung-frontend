@@ -41,7 +41,7 @@
               <div class="col-9">
                 <div class="row align-items-center">
                   <h4 class="rank col-auto">#{{i+1}}</h4>
-                  <input type="number" class="form-control col-3 mb-3" [autofocus]="i === 0" placeholder="participant number"
+                  <input type="number" class="form-control col-3 mb-3" placeholder="participant number"
                     [(ngModel)]="participant.Starter">
 
                   <a class="card-link col-auto"  (click)="onAssignTimeToParticipantClicked(i)">
