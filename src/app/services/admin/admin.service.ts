@@ -22,8 +22,7 @@ export class AdminService {
   public end: Observable<null>;
   private endSubject: Subject<null>;
 
-  public availableRace: Observable<Array<Race>>;
-  private availableRaceSubject: Subject<Array<Race>>;
+  public availableRaces: Array<Race>;
 
   private raceToStart: number;
 
@@ -37,8 +36,7 @@ export class AdminService {
     this.endSubject = new Subject<null>();
     this.end = this.endSubject.asObservable();
 
-    this.availableRaceSubject = new Subject<Array<Race>>();
-    this.availableRace = this.availableRaceSubject.asObservable();
+    this.availableRaces = new Array<Race>();
 
     this.ws.received.subscribe(msg => {
       const received = msg as Message<AdminCommands>; // Cast to Admin Message
@@ -56,7 +54,7 @@ export class AdminService {
           this.measuredStopSubject.next(received.Data as number); // Pass status to observers
           break;
         case AdminCommands.AvailableRaces:
-          this.availableRaceSubject.next(received.Data as Array<Race>); // Pass status to observers
+          this.availableRaces = received.Data;
           break;
       }
     });

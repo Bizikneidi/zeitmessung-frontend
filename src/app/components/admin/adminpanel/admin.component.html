@@ -5,7 +5,7 @@
         <div class="card-title">
           <div class="row">
             <div class="col-1">
-              <a [routerLink]="['/']">
+              <a [routerLink]="['/']" (click)="onBack()">
                 <fa-icon [icon]="faArrow"></fa-icon>
               </a>
             </div>
@@ -36,7 +36,7 @@
                 <h3>Wettkampf <br/> starten</h3>
                 <select class="form-control" #t (change)="onSelected(t.value)">
                   <option selected disabled>Wettkampf</option>
-                  <option *ngFor="let r of availableRaces" value="{{ r.Id }}">{{ r.Title }}</option>
+                  <option *ngFor="let r of admin.availableRaces" value="{{ r.Id }}">{{ r.Title }}</option>
                 </select>
                 <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="['./race']" [ngClass]="startable ? '':'form-invalid'">
                   <h5 class="arrow" >Starten ➜</h5>

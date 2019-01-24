@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Race } from '../../../entities/race';
-import { Router } from '@angular/router';
 import { AdminService } from '../../../services/admin/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-competition',
@@ -15,9 +15,10 @@ export class CompetitionComponent implements OnInit {
   date = '';
   time = '';
 
-  constructor(private routing: Router, private admin: AdminService) { }
+  constructor(private admin: AdminService, private router: Router) { }
 
   ngOnInit() {
+    this.admin.connect();
   }
 
   onAddNewRaceClicked() {
@@ -25,7 +26,7 @@ export class CompetitionComponent implements OnInit {
     const milliseconds = date.getTime();
     this.race.Date = milliseconds;
     this.admin.createRace(this.race);
-    this.routing.navigate(['admin']);
+    this.admin.disconnect();
+    this.router.navigate(['/']);
   }
-
 }
