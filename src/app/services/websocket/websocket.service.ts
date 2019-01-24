@@ -28,8 +28,8 @@ export class WebsocketService {
     }
     this.path = path;
     this.messages = [];
-    // this.ws = new WebSocket('wss://172.18.2.16:5001/' + path); // Connect to path
-    this.ws = new WebSocket('ws://localhost:5000/' + path); // Connect to path
+    this.ws = new WebSocket('wss://172.18.2.16:5001/' + path); // Connect to path
+    // this.ws = new WebSocket('ws://localhost:5000/' + path); // Connect to path
     // Pass results to subject
     this.ws.onmessage = ev => this.receivedSubject.next(JSON.parse(ev.data));
     this.ws.onerror = ev => this.receivedSubject.error(ev);
