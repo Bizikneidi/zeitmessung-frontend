@@ -7,13 +7,15 @@ import { Assignment } from '../../../entities/assignment';
 import { RaceManagerState } from '../../../entities/racemanagerstate';
 import { RunStart } from '../../../entities/runstart';
 import { Participant } from '../../../entities/participant';
+import { slideAnimation } from '../../../animations/animations';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-race',
   templateUrl: './race.component.html',
   styleUrls: ['./race.component.css'],
-  providers: [LiveTimerService]
+  providers: [LiveTimerService],
+  animations: [slideAnimation]
 })
 export class RaceComponent implements OnInit, OnDestroy {
 
@@ -42,8 +44,12 @@ export class RaceComponent implements OnInit, OnDestroy {
     this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
       const participant = new Participant();
       participant.Time = time;
-      this.finishedParticipantList.push(participant);
-      this.hiddenAssignedParticipants.push(false);
+      if (this.finishedParticipantList.filter(p => p.Time === time).length <= 0) {
+        this.finishedParticipantList.push(participant);
+        this.hiddenAssignedParticipants.push(false);
+      } else {
+        this.hiddenAssignedParticipants[this.finishedParticipantList.findIndex(p => p.Time === time)] = false;
+      }
     });
     // check if event is finished
     this.endSubscription = this.admin.end.subscribe(() => this.resetRun());

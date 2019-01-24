@@ -50,7 +50,11 @@
     margin-top: 20vh;
     margin-bottom: 80px;
   }
-  
+.container-runner{
+   height: 50vh;
+   overflow-y: auto;
+   overflow-x: hidden;
+}  
   input {
     max-width: 130px;
   }
