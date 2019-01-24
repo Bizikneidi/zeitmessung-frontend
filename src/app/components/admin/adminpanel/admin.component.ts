@@ -9,6 +9,7 @@ import { AdminService } from '../../../services/admin/admin.service';
 export class AdminComponent implements OnInit {
   faArrow = faLongArrowAltLeft; // arrow icon
   startable = false;
+  raceId = -1;
 
   constructor(public admin: AdminService) {
   }
@@ -19,8 +20,8 @@ export class AdminComponent implements OnInit {
 
   // on race selected
   onSelected(id: number) {
+    this.raceId = id;
     this.startable = true;
-    this.admin.selectRace(+id);
   }
 
   onBack() {
