@@ -50,6 +50,8 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.queryParamMapSubscription = this.route.queryParamMap.subscribe(params => {
       this.activeRace = this.router.url.includes('resultlist:old') ? params.get('raceid') : 'live';
     });
+
+    this.activeRace = this.router.url.includes('resultlist:old') ? this.route.snapshot.queryParamMap.get('raceid') : 'live';
   }
 
   onBack() {
@@ -81,6 +83,13 @@ export class ViewerComponent implements OnInit, OnDestroy {
 
   changeCurrentRace(id) {
     this.activeRace = id;
+  }
+
+  getCurrentRace() {
+    const temp = this.races.find(r => r.Id === +this.activeRace);
+    if (temp) {
+      return temp.Title;
+    }
   }
 
   onPdfClick() {
