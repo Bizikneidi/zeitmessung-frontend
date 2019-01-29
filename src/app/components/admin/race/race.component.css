@@ -97,6 +97,7 @@
   .arrow {
     border-bottom: 3px solid #26D2B3;
     color: #26D2B3;
+    cursor: pointer;
   }
   
   .time-sm {
