@@ -30,6 +30,7 @@
                         <div class="item shadow-lg">
                             <select name="races" id="races" #t (change)="selectedRace(t.value)" placeholder='Rennen'>
                                 <option value="" [selected]="optionIsSelected('live')" disabled hidden>Rennen</option>
+                                <option value="" [selected]="!optionIsSelected('live')" disabled hidden>{{ getCurrentRace() }}</option>
                                 <option *ngFor="let race of races" [selected]="optionIsSelected(race.Id)" value="{{ race.Id }}">{{ race | raceToString }}</option>
                             </select>
                         </div>
