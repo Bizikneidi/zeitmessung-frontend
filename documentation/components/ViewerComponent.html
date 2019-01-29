@@ -1,0 +1,1397 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>zeitmessung documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">zeitmessung documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ViewerComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/viewer/viewer/viewer.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/LiveTimerService.html" target="_self" >LiveTimerService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-viewer</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./viewer.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./viewer.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeRace">activeRace</a>
+                            </li>
+                            <li>
+                                <a href="#endSubscription">endSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#faArrow">faArrow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#liveTimer">liveTimer</a>
+                            </li>
+                            <li>
+                                <a href="#queryParamMapSubscription">queryParamMapSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#races">races</a>
+                            </li>
+                            <li>
+                                <a href="#racesSubscription">racesSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#startSubscription">startSubscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#viewer">viewer</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeCurrentRace">changeCurrentRace</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onBack">onBack</a>
+                            </li>
+                            <li>
+                                <a href="#onPdfClick">onPdfClick</a>
+                            </li>
+                            <li>
+                                <a href="#optionIsSelected">optionIsSelected</a>
+                            </li>
+                            <li>
+                                <a href="#selectedRace">selectedRace</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(viewer: <a href="../injectables/ViewerService.html">ViewerService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, liveTimer: <a href="../injectables/LiveTimerService.html">LiveTimerService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>viewer</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ViewerService.html" target="_self" >ViewerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>liveTimer</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/LiveTimerService.html" target="_self" >LiveTimerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="changeCurrentRace"></a>
+                        <span class="name">
+                            <b>
+                            changeCurrentRace
+                            </b>
+                            <a href="#changeCurrentRace"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>changeCurrentRace(id)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:82</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>id</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:59</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onBack"></a>
+                        <span class="name">
+                            <b>
+                            onBack
+                            </b>
+                            <a href="#onBack"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onBack()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onPdfClick"></a>
+                        <span class="name">
+                            <b>
+                            onPdfClick
+                            </b>
+                            <a href="#onPdfClick"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onPdfClick()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:86</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="optionIsSelected"></a>
+                        <span class="name">
+                            <b>
+                            optionIsSelected
+                            </b>
+                            <a href="#optionIsSelected"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>optionIsSelected(option)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:90</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>option</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedRace"></a>
+                        <span class="name">
+                            <b>
+                            selectedRace
+                            </b>
+                            <a href="#selectedRace"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>selectedRace(id)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:77</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>id</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="activeRace"></a>
+                        <span class="name">
+                            <b>
+                            activeRace
+                            </b>
+                            <a href="#activeRace"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>activeRace:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;live&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="endSubscription"></a>
+                        <span class="name">
+                            <b>
+                            endSubscription
+                            </b>
+                            <a href="#endSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>endSubscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="faArrow"></a>
+                        <span class="name">
+                            <b>
+                            faArrow
+                            </b>
+                            <a href="#faArrow"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>faArrow:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>faLongArrowAltLeft</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="liveTimer"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            liveTimer
+                            </b>
+                            <a href="#liveTimer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>liveTimer:     <code><a href="../injectables/LiveTimerService.html" target="_self" >LiveTimerService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/LiveTimerService.html" target="_self" >LiveTimerService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="queryParamMapSubscription"></a>
+                        <span class="name">
+                            <b>
+                            queryParamMapSubscription
+                            </b>
+                            <a href="#queryParamMapSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>queryParamMapSubscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="races"></a>
+                        <span class="name">
+                            <b>
+                            races
+                            </b>
+                            <a href="#races"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>races:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Array&lt;Race&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="racesSubscription"></a>
+                        <span class="name">
+                            <b>
+                            racesSubscription
+                            </b>
+                            <a href="#racesSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>racesSubscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="startSubscription"></a>
+                        <span class="name">
+                            <b>
+                            startSubscription
+                            </b>
+                            <a href="#startSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>startSubscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewer"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            viewer
+                            </b>
+                            <a href="#viewer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>viewer:     <code><a href="../injectables/ViewerService.html" target="_self" >ViewerService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/ViewerService.html" target="_self" >ViewerService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/viewer/viewer/viewer.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+import { Subscription } from &#x27;rxjs/Subscription&#x27;;
+import { faLongArrowAltLeft } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+import { ViewerService } from &#x27;../../../services/viewer/viewer.service&#x27;;
+import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { Race } from &#x27;../../../entities/race&#x27;;
+import { LiveTimerService } from &#x27;../../../services/livetimer/livetimer.service&#x27;;
+import { query } from &#x27;@angular/core/src/animation/dsl&#x27;;
+
+
+@Component({
+  selector: &#x27;app-viewer&#x27;,
+  templateUrl: &#x27;./viewer.component.html&#x27;,
+  styleUrls: [&#x27;./viewer.component.css&#x27;],
+  providers: [LiveTimerService]
+})
+export class ViewerComponent implements OnInit, OnDestroy {
+
+  faArrow &#x3D; faLongArrowAltLeft;
+  races &#x3D; new Array&lt;Race&gt;();
+  activeRace &#x3D; &#x27;live&#x27;;
+
+  // For cleaning up in onDestroy
+  startSubscription: Subscription;
+  endSubscription: Subscription;
+  racesSubscription: Subscription;
+  queryParamMapSubscription: Subscription;
+
+  constructor(public viewer: ViewerService, private router: Router, private route: ActivatedRoute, public liveTimer: LiveTimerService) { }
+
+  ngOnInit() {
+    this.viewer.connect(); // Connect on website visit
+
+    // Check for the start of a race
+    this.startSubscription &#x3D; this.viewer.start.subscribe(ms &#x3D;&gt; {
+      this.liveTimer.start(ms.CurrentTime, ms.StartTime);
+    });
+
+    // Check for the end of a race
+    this.endSubscription &#x3D; this.viewer.end.subscribe(() &#x3D;&gt; {
+      this.liveTimer.stop();
+    });
+
+    // Fetch all races
+    this.racesSubscription &#x3D; this.viewer.races.subscribe(races &#x3D;&gt; {
+      this.races &#x3D; races.sort((r1, r2) &#x3D;&gt; r2.Date - r1.Date);
+    });
+
+    // Get the current queryParamMap
+    this.queryParamMapSubscription &#x3D; this.route.queryParamMap.subscribe(params &#x3D;&gt; {
+      this.activeRace &#x3D; this.router.url.includes(&#x27;resultlist:old&#x27;) ? params.get(&#x27;raceid&#x27;) : &#x27;live&#x27;;
+    });
+  }
+
+  onBack() {
+    this.viewer.disconnect();
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    if (this.startSubscription &amp;&amp; !this.startSubscription.closed) {
+      this.startSubscription.unsubscribe();
+    }
+    if (this.endSubscription &amp;&amp; !this.endSubscription.closed) {
+      this.endSubscription.unsubscribe();
+    }
+    if (this.racesSubscription &amp;&amp; !this.racesSubscription.closed) {
+      this.racesSubscription.unsubscribe();
+    }
+    if (this.queryParamMapSubscription &amp;&amp; !this.queryParamMapSubscription.closed) {
+      this.queryParamMapSubscription.unsubscribe();
+    }
+
+    this.liveTimer.stop();
+  }
+
+  selectedRace(id) {
+    this.router.navigateByUrl(&#x27;viewer/(resultlist:old)?raceid&#x3D;&#x27; + id);
+    this.activeRace &#x3D; id;
+  }
+
+  changeCurrentRace(id) {
+    this.activeRace &#x3D; id;
+  }
+
+  onPdfClick() {
+    this.viewer.onPdfClick();
+  }
+
+  optionIsSelected(option) {
+    return option &#x3D;&#x3D;&#x3D; this.activeRace;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;row justify-content-center&quot;&gt;
+        &lt;div class&#x3D;&quot;col-11 col-md-10&quot;&gt;
+            &lt;div class&#x3D;&quot;header&quot;&gt;
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                    &lt;div class&#x3D;&quot;col-2&quot; (click)&#x3D;&quot;changeCurrentRace(&#x27;live&#x27;)&quot;&gt;
+                        &lt;a [routerLink]&#x3D;&quot;[{ outlets: {resultlist: [&#x27;live&#x27;] } }]&quot; [ngClass]&#x3D;&quot;{ active: activeRace &#x3D;&#x3D; &#x27;live&#x27; }&quot;&gt;
+                            &lt;div class&#x3D;&quot;item shadow-lg&quot;&gt;Jetzt&lt;/div&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-2&quot; (click)&#x3D;&quot;changeCurrentRace(races[0].Id)&quot;&gt;
+                        &lt;a *ngIf&#x3D;&quot;races[0]&quot; [routerLink]&#x3D;&quot;[{ outlets: {resultlist: [&#x27;old&#x27;] } }]&quot; [queryParams]&#x3D;&quot;{raceid: races[0].Id}&quot;
+                            [ngClass]&#x3D;&quot;{ active: activeRace &#x3D;&#x3D; races[0].Id }&quot;&gt;
+                            &lt;div class&#x3D;&quot;item shadow-lg&quot;&gt;{{ races[0] | raceToString }}&lt;/div&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-2&quot; (click)&#x3D;&quot;changeCurrentRace(races[1].Id)&quot;&gt;
+                        &lt;a *ngIf&#x3D;&quot;races[1]&quot; [routerLink]&#x3D;&quot;[{ outlets: {resultlist: [&#x27;old&#x27;] } }]&quot; [queryParams]&#x3D;&quot;{raceid: races[1].Id}&quot;
+                            [ngClass]&#x3D;&quot;{ active: activeRace &#x3D;&#x3D; races[1].Id }&quot;&gt;
+                            &lt;div class&#x3D;&quot;item shadow-lg&quot;&gt;{{ races[1] | raceToString }}&lt;/div&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-2&quot; (click)&#x3D;&quot;changeCurrentRace(races[2].Id)&quot;&gt;
+                        &lt;a *ngIf&#x3D;&quot;races[2]&quot; [routerLink]&#x3D;&quot;[{ outlets: {resultlist: [&#x27;old&#x27;] } }]&quot; [queryParams]&#x3D;&quot;{raceid: races[2].Id}&quot;
+                            [ngClass]&#x3D;&quot;{ active: activeRace &#x3D;&#x3D; races[2].Id }&quot;&gt;
+                            &lt;div class&#x3D;&quot;item shadow-lg&quot;&gt;{{ races[2] | raceToString }}&lt;/div&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-3&quot;&gt;
+                        &lt;div class&#x3D;&quot;item shadow-lg&quot;&gt;
+                            &lt;select name&#x3D;&quot;races&quot; id&#x3D;&quot;races&quot; #t (change)&#x3D;&quot;selectedRace(t.value)&quot; placeholder&#x3D;&#x27;Rennen&#x27;&gt;
+                                &lt;option value&#x3D;&quot;&quot; [selected]&#x3D;&quot;optionIsSelected(&#x27;live&#x27;)&quot; disabled hidden&gt;Rennen&lt;/option&gt;
+                                &lt;option *ngFor&#x3D;&quot;let race of races&quot; [selected]&#x3D;&quot;optionIsSelected(race.Id)&quot; value&#x3D;&quot;{{ race.Id }}&quot;&gt;{{ race | raceToString }}&lt;/option&gt;
+                            &lt;/select&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-1 child&quot;&gt;
+                        &lt;button [disabled]&#x3D;&quot;(activeRace &#x3D;&#x3D; &#x27;live&#x27;)&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn pdf-btn shadow-lg mb-auto&quot;
+                            (click)&#x3D;&quot;onPdfClick()&quot;&gt;
+                            &lt;img src&#x3D;&quot;../../assets/images/pdf.png&quot; alt&#x3D;&quot;Card image cap&quot; width&#x3D;&quot;40%&quot;&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;info&quot;&gt;
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                    &lt;div class&#x3D;&quot;card shadow-lg&quot;&gt;
+                        &lt;div class&#x3D;&quot;card-title&quot;&gt;
+                            &lt;div class&#x3D;&quot;row&quot;&gt;
+                                &lt;div class&#x3D;&quot;col-1&quot;&gt;
+                                    &lt;a [routerLink]&#x3D;&quot;[&#x27;/&#x27;]&quot; (click)&#x3D;&quot;onBack()&quot;&gt;
+                                        &lt;fa-icon [icon]&#x3D;&quot;faArrow&quot;&gt;&lt;/fa-icon&gt;
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;col-sm&quot;&gt;
+                                    &lt;h2&gt;Jetzt live:&lt;/h2&gt;
+                                    &lt;p&gt;{{viewer.state | stateToText}}&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;col-sm&quot;&gt;
+                                    &lt;div class&#x3D;&quot;no-wrap&quot;&gt;
+                                        &lt;p class&#x3D;&quot;time&quot; [ngClass]&#x3D;&quot;liveTimer.currentTime !&#x3D; 0 ? &#x27;time&#x27; : &#x27;time-grey&#x27;&quot;&gt;{{liveTimer.currentTime
+                                            |
+                                            milliSecondsToTime}}&lt;/p&gt;
+                                        &lt;p class&#x3D;&quot;decis&quot; [ngClass]&#x3D;&quot;liveTimer.currentTime !&#x3D; 0 ? &#x27;decis&#x27; : &#x27;decis-grey&#x27;&quot;&gt;{{liveTimer.currentTime
+                                            |
+                                            milliSecondsToTime:true}}&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;mt-3&quot; style&#x3D;&quot;height: 40vh; overflow-y:auto; overflow-x: hidden;&quot;&gt;
+                &lt;router-outlet name&#x3D;&quot;resultlist&quot;&gt;&lt;/router-outlet&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./viewer.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.card {
+    border-radius: 20px;
+    width: 100%;
+    border: none;
+}
+
+.card-title {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color:#2a2a2a;
+}
+
+a {
+    font-size: 2em;
+    display: block;
+    color:#2a2a2a;
+}
+
+.card-title &gt; p {
+    font-size: 14px
+}
+
+.card-body {
+    padding-bottom: 150px;
+}
+
+.placeholder {
+    height: 50px;
+}
+
+.time{
+    font-size: 64px;   
+    color: #26D2B3;
+    font-weight: bold;
+    display: inline;
+}
+
+.time-grey{
+    font-size: 64px;   
+    font-weight: bold;
+    color: #E8E8E8;
+    display: inline;
+}
+
+.time-small{
+    font-size: 18px;   
+    font-weight: bold;
+    color: #E8E8E8;
+    display: inline;
+}
+
+.decis{
+    font-size: 36px;   
+    color: #26D2B3;
+    font-weight: bold;
+    display: inline;
+}
+
+.decis-grey{
+    font-size: 36px;   
+    font-weight: bold;
+    color: #E8E8E8;
+    display: inline;
+}
+
+
+
+.decis-small{
+    font-size: 12px;   
+    font-weight: bold;
+    color: #E8E8E8;
+    display: inline;
+}
+
+.container {
+    margin-top: 20vh;
+    margin-bottom: 80px;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.item {
+  background-color: white;
+  width: calc(100% - 10px);
+  height: 35px;
+  font-size: 11px;
+  border-radius: 50px;
+  color: #8e8e8e;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.info &gt; .row {
+    margin: 0;
+}
+
+.header &gt; .row {
+  margin: 0;
+}
+
+.header &gt; .row &gt; * {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#races {
+  margin-top: -7px;
+  width: calc(100% - 20px);
+  height: 31px;
+  border:none;
+  outline:none;
+  background: white;
+  color: #8e8e8e;
+}
+
+.active &gt; div {
+    background: #26D2B3 !important;
+    color: white !important;
+}
+
+.active {
+    color: white;
+}
+
+.pdf-btn {
+    border-radius: 50px;
+    background-color: #FFFFFF;
+    border: none;
+}
+
+.pdf-btn:active:enabled {
+    background-color: #E8E8E8;
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="row justify-content-center">        <div class="col-11 col-md-10">            <div class="header">                <div class="row">                    <div class="col-2" (click)="changeCurrentRace(\'live\')">                        <a [routerLink]="[{ outlets: {resultlist: [\'live\'] } }]" [ngClass]="{ active: activeRace == \'live\' }">                            <div class="item shadow-lg">Jetzt</div>                        </a>                    </div>                    <div class="col-2" (click)="changeCurrentRace(races[0].Id)">                        <a *ngIf="races[0]" [routerLink]="[{ outlets: {resultlist: [\'old\'] } }]" [queryParams]="{raceid: races[0].Id}"                            [ngClass]="{ active: activeRace == races[0].Id }">                            <div class="item shadow-lg">{{ races[0] | raceToString }}</div>                        </a>                    </div>                    <div class="col-2" (click)="changeCurrentRace(races[1].Id)">                        <a *ngIf="races[1]" [routerLink]="[{ outlets: {resultlist: [\'old\'] } }]" [queryParams]="{raceid: races[1].Id}"                            [ngClass]="{ active: activeRace == races[1].Id }">                            <div class="item shadow-lg">{{ races[1] | raceToString }}</div>                        </a>                    </div>                    <div class="col-2" (click)="changeCurrentRace(races[2].Id)">                        <a *ngIf="races[2]" [routerLink]="[{ outlets: {resultlist: [\'old\'] } }]" [queryParams]="{raceid: races[2].Id}"                            [ngClass]="{ active: activeRace == races[2].Id }">                            <div class="item shadow-lg">{{ races[2] | raceToString }}</div>                        </a>                    </div>                    <div class="col-3">                        <div class="item shadow-lg">                            <select name="races" id="races" #t (change)="selectedRace(t.value)" placeholder=\'Rennen\'>                                <option value="" [selected]="optionIsSelected(\'live\')" disabled hidden>Rennen</option>                                <option *ngFor="let race of races" [selected]="optionIsSelected(race.Id)" value="{{ race.Id }}">{{ race | raceToString }}</option>                            </select>                        </div>                    </div>                    <div class="col-1 child">                        <button [disabled]="(activeRace == \'live\')" type="button" class="btn pdf-btn shadow-lg mb-auto"                            (click)="onPdfClick()">                            <img src="../../assets/images/pdf.png" alt="Card image cap" width="40%">                        </button>                    </div>                </div>            </div>            <div class="info">                <div class="row">                    <div class="card shadow-lg">                        <div class="card-title">                            <div class="row">                                <div class="col-1">                                    <a [routerLink]="[\'/\']" (click)="onBack()">                                        <fa-icon [icon]="faArrow"></fa-icon>                                    </a>                                </div>                                <div class="col-sm">                                    <h2>Jetzt live:</h2>                                    <p>{{viewer.state | stateToText}}</p>                                </div>                                <div class="col-sm">                                    <div class="no-wrap">                                        <p class="time" [ngClass]="liveTimer.currentTime != 0 ? \'time\' : \'time-grey\'">{{liveTimer.currentTime                                            |                                            milliSecondsToTime}}</p>                                        <p class="decis" [ngClass]="liveTimer.currentTime != 0 ? \'decis\' : \'decis-grey\'">{{liveTimer.currentTime                                            |                                            milliSecondsToTime:true}}</p>                                    </div>                                </div>                            </div>                        </div>                    </div>                </div>            </div>            <div class="mt-3" style="height: 40vh; overflow-y:auto; overflow-x: hidden;">                <router-outlet name="resultlist"></router-outlet>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'CompetitionComponent', 'selector': 'app-competition'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RaceComponent', 'selector': 'app-race'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ViewerComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ViewerComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
