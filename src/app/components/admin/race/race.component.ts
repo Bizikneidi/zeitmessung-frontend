@@ -24,7 +24,7 @@ export class RaceComponent implements OnInit, OnDestroy {
   runningState = RaceManagerState.Measuring;
   hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
   finishedParticipantList: Participant[] = []; // list of all finshed participants
-
+  invalidParticpantList: boolean[] = [];
   // For cleaning up in onDestroy()
   startSubscription: Subscription;
   endSubscription: Subscription;
@@ -47,8 +47,11 @@ export class RaceComponent implements OnInit, OnDestroy {
       if (this.finishedParticipantList.filter(p => p.Time === time).length <= 0) {
         this.finishedParticipantList.push(participant);
         this.hiddenAssignedParticipants.push(false);
+        this.invalidParticpantList.push(false);
       } else {
-        this.hiddenAssignedParticipants[this.finishedParticipantList.findIndex(p => p.Time === time)] = false;
+        const index = this.finishedParticipantList.findIndex(p => p.Time === time);
+        this.hiddenAssignedParticipants[index] = false;
+        this.invalidParticpantList[index] = true;
       }
     });
     // check if event is finished
