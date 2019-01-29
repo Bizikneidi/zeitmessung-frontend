@@ -24,7 +24,7 @@ export class RaceComponent implements OnInit, OnDestroy {
   runningState = RaceManagerState.Measuring;
   hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
   finishedParticipantList: Participant[] = []; // list of all finshed participants
-
+  currentListIndex: number ;
   // For cleaning up in onDestroy()
   startSubscription: Subscription;
   endSubscription: Subscription;
@@ -35,7 +35,7 @@ export class RaceComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.admin.connect(); // Connect as Admin on page visit
-
+    this.currentListIndex = 0;
     // get participantlist and start time
     this.startSubscription = this.admin.start.subscribe((runDto: RunStart) => {
       this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
@@ -48,12 +48,19 @@ export class RaceComponent implements OnInit, OnDestroy {
         this.finishedParticipantList.push(participant);
         this.hiddenAssignedParticipants.push(false);
       } else {
-        this.hiddenAssignedParticipants[this.finishedParticipantList.findIndex(p => p.Time === time)] = false;
+        const index = this.finishedParticipantList.findIndex(p => p.Time === time);
+        this.hiddenAssignedParticipants[index] = false;
+        if (index === this.currentListIndex - 1) {
+          this.currentListIndex--;
+        }
       }
     });
     // check if event is finished
     this.endSubscription = this.admin.end.subscribe(() => this.resetRun());
 
+  }
+  getIndex(){
+    console.log(this.currentListIndex);
   }
    // Start a race
   onStartRunClicked() {
@@ -63,6 +70,7 @@ export class RaceComponent implements OnInit, OnDestroy {
   onAssignTimeToParticipantClicked(index: number) {
     const finishedParticipant = this.finishedParticipantList[index];
     this.hiddenAssignedParticipants[index] = true;
+    this.currentListIndex ++;
     this.admin.assignTime(new Assignment(finishedParticipant.Starter, finishedParticipant.Time));
   }
   // revert to inital status

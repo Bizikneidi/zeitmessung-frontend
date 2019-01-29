@@ -3,11 +3,13 @@ import { Participant } from '../../../entities/participant';
 import { ActivatedRoute } from '@angular/router';
 import { ViewerService } from '../../../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
+import { slideAnimation } from '../../../animations/animations';
 
 @Component({
   selector: 'app-resultlist',
   templateUrl: './resultlist.component.html',
-  styleUrls: ['./resultlist.component.css']
+  styleUrls: ['./resultlist.component.css'],
+  animations: [slideAnimation]
 })
 export class ResultlistComponent implements OnInit, OnDestroy {
 
