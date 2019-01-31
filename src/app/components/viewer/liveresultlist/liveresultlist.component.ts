@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+  import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LiveresultService } from '../../../services/liveresult/liveresult.service';
 import { Participant } from '../../../entities/participant';
 import {
@@ -45,7 +45,9 @@ import {
 export class LiveresultlistComponent implements OnInit, OnDestroy {
   constructor(public liveresult: LiveresultService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.liveresult.sortList();
+  }
   ngOnDestroy() {}
 
   getRank(participant: Participant) {

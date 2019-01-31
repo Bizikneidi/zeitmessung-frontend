@@ -18,20 +18,19 @@ export class LiveresultService {
       // Set end of time for participant
       this.participantList.find(item => item.Starter === participant.Starter).Time = participant.Time;
 
-      // Sort list by time
-      this.participantList = this.participantList.sort((a, b) => {
-        return (b.Time) - (a.Time);
-      });
-      this.moveZerosToEnd(this.participantList);
+      this.sortList();
     });
 
     this.viewer.end.subscribe(() => {
       this.participantList = [];
     });
+  }
 
-    // for the test list
+
+  sortList() {
+    // Sort list by time
     this.participantList = this.participantList.sort((a, b) => {
-      return (a.Time) - (b.Time);
+      return (b.Time) - (a.Time);
     });
     this.moveZerosToEnd(this.participantList);
   }
