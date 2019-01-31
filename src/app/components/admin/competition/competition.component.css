@@ -73,7 +73,7 @@ select:focus {
 
 
 .arrow {
-  border-bottom: 3px solid #26D2B3;
+  text-decoration: underline;
   color: #26D2B3;
 }
 
@@ -98,5 +98,7 @@ select:focus {
 
 .form-invalid > h5{
   color: #e8e8e8;
-  border-bottom:3px solid #e8e8e8;
+  text-decoration: 3px underline;
+  text-decoration-line: 3px;
+
 }

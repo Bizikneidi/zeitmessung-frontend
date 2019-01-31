@@ -30,18 +30,21 @@
                     <input type="text" class="form-control" name="link" #Link="ngModel" [(ngModel)]="race.Link" placeholder="Ausschreibungslink" [ngClass]="Link.errors && (Link.touched || Link.dirty) ? 'has-error' : ''"
                       [pattern]="'(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)'">
                   </div>
-                  <div class="col-4 mt-3">
-                    <a class="card-link action-link" (click)="onAddNewRaceClicked()" [class.form-invalid]="f.invalid">
-                      <h5 class="arrow">Anlegen ➜</h5>
-                    </a>
+                  <div class="col-5 mt-3"> 
+                      <a class="action-link card-link" (click)="onAddNewRaceClicked()" [class.form-invalid]="f.invalid">
+                        <h5 class="arrow">Anlegen ➜</h5>
+                      </a>
                   </div>
+
                 </div>
+
+
+
               </form>
+
             </div>
 
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
