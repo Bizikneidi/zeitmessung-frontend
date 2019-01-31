@@ -59,9 +59,7 @@
     max-width: 130px;
   }
   
-  input[type=text],
   input[type=number],
-  input[type=email],
   
   select {
     background-color: white;
@@ -78,7 +76,7 @@
     outline: none !important;
   }
   
-  input[type=text], input[type=number], input[type=email], select {
+  input[type=number], select {
     border-radius: 0;
     border: none;
     border-bottom: 2px solid #e8e8e8;
