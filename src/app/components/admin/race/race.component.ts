@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs/Subscription';
 import { AdminService } from '../../../services/admin/admin.service';
@@ -17,28 +17,40 @@ import { Router, ActivatedRoute } from '@angular/router';
   providers: [LiveTimerService],
   animations: [slideAnimation]
 })
-export class RaceComponent implements OnInit, OnDestroy {
+export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
 
   faArrow = faLongArrowAltLeft; // arrow icon
   readyState = RaceManagerState.Ready;
   runningState = RaceManagerState.Measuring;
   hiddenAssignedParticipants: boolean[] = []; // array to hide assigned participants
   finishedParticipantList: Participant[] = []; // list of all finshed participants
+  currentListIndex: number ;
   invalidParticpantList: boolean[] = [];
   // For cleaning up in onDestroy()
   startSubscription: Subscription;
   endSubscription: Subscription;
   measuredStopSubscription: Subscription;
 
-  constructor(public admin: AdminService, public liveTimer: LiveTimerService, public router: Router, private route: ActivatedRoute) {
+  constructor(public admin: AdminService, public liveTimer: LiveTimerService, public router: Router, private route: ActivatedRoute,
+    private cdref: ChangeDetectorRef) {
   }
 
   ngOnInit() {
     this.admin.connect(); // Connect as Admin on page visit
-
+    this.currentListIndex = 0;
     // get participantlist and start time
     this.startSubscription = this.admin.start.subscribe((runDto: RunStart) => {
       this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
+      this.currentListIndex = 0;
+      runDto.Participants.forEach(p => {
+        if (p.Time > 0) {
+          this.finishedParticipantList.push(p);
+          this.hiddenAssignedParticipants.push(true);
+          this.currentListIndex++;
+        } else {
+          this.hiddenAssignedParticipants.push(false);
+        }
+      });
     });
     // get time of finished participant
     this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
@@ -51,13 +63,19 @@ export class RaceComponent implements OnInit, OnDestroy {
       } else {
         const index = this.finishedParticipantList.findIndex(p => p.Time === time);
         this.hiddenAssignedParticipants[index] = false;
-        this.invalidParticpantList[index] = true;
+
+        if (index === this.currentListIndex - 1) {
+          setTimeout(() => {
+            this.currentListIndex--;
+        }, 1);
+        }
       }
     });
     // check if event is finished
     this.endSubscription = this.admin.end.subscribe(() => this.resetRun());
 
   }
+
    // Start a race
   onStartRunClicked() {
     this.admin.startRun(Number.parseInt(this.route.snapshot.queryParams.raceid));
@@ -66,6 +84,7 @@ export class RaceComponent implements OnInit, OnDestroy {
   onAssignTimeToParticipantClicked(index: number) {
     const finishedParticipant = this.finishedParticipantList[index];
     this.hiddenAssignedParticipants[index] = true;
+    this.currentListIndex++;
     this.admin.assignTime(new Assignment(finishedParticipant.Starter, finishedParticipant.Time));
   }
   // revert to inital status
@@ -73,6 +92,7 @@ export class RaceComponent implements OnInit, OnDestroy {
     this.liveTimer.stop();
     this.hiddenAssignedParticipants = [];
     this.finishedParticipantList = [];
+    this.currentListIndex = 0;
     this.admin.disconnect();
     this.router.navigate(['/']);
   }
@@ -88,6 +108,10 @@ export class RaceComponent implements OnInit, OnDestroy {
       this.measuredStopSubscription.unsubscribe();
     }
     this.liveTimer.stop();
+  }
+
+  ngAfterContentChecked() {
+    this.cdref.detectChanges();
   }
 
 }

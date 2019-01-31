@@ -29,6 +29,7 @@ import { RaceComponent } from './components/admin/race/race.component';
 import { ParticipantracechooserComponent } from './components/participant/participantracechooser/participantracechooser.component';
 import { SexEnglishToGermanPipe } from './pipes/sexenglishtogermanpipe.pipe';
 import { ParticipantToRankPipe, ParticipantToSexRankPipe } from './pipes/participanttorankpipe';
+import { AutofocusDirective } from './directives/autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ParticipantToRankPipe, ParticipantToSexRankPipe } from './pipes/partici
     RaceComponent,
     ResultlistComponent,
     SexEnglishToGermanPipe,
-    ParticipantracechooserComponent
+    ParticipantracechooserComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,

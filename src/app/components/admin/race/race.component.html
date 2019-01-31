@@ -41,8 +41,8 @@
               <div class="col-9">
                 <div class="row align-items-center">
                   <h4 class="rank col-auto">#{{i+1}}</h4>
-                  <input type="number" class="form-control col-3 mb-3" placeholder="participant number"
-                    [(ngModel)]="participant.Starter" (keyup.enter)="onAssignTimeToParticipantClicked(i)" [ngClass]="invalidParticipantList[i] ? 'invalid-userinput': ''">
+                  <input type="number" class="form-control col-3 mb-3" placeholder="Startnummer"
+                    [(ngModel)]="participant.Starter" [appAutofocus]="currentListIndex==i" (keyup.enter)="onAssignTimeToParticipantClicked(i)">
 
                   <a class="card-link col-auto" href="javascript:void(0)" (click)="onAssignTimeToParticipantClicked(i)">
                     <h5 class="arrow">➜</h5>
