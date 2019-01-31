@@ -42,7 +42,7 @@
                 <div class="row align-items-center">
                   <h4 class="rank col-auto">#{{i+1}} {{i}}== {{currentListIndex}}</h4>
                   <input type="number" class="form-control col-3 mb-3" placeholder="participant number"
-                    [(ngModel)]="participant.Starter" #input{{i}} (keyup.enter)="onAssignTimeToParticipantClicked(i)">
+                    [(ngModel)]="participant.Starter" [appAutofocus]="currentListIndex==i" (keyup.enter)="onAssignTimeToParticipantClicked(i)">
 
                   <a class="card-link col-auto"  (click)="onAssignTimeToParticipantClicked(i)">
                     <h5 class="arrow">➜</h5>

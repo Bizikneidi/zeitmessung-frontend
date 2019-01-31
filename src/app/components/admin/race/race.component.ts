@@ -9,6 +9,7 @@ import { RunStart } from '../../../entities/runstart';
 import { Participant } from '../../../entities/participant';
 import { slideAnimation } from '../../../animations/animations';
 import { Router, ActivatedRoute } from '@angular/router';
+import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-race',
@@ -50,8 +51,15 @@ export class RaceComponent implements OnInit, OnDestroy {
       } else {
         const index = this.finishedParticipantList.findIndex(p => p.Time === time);
         this.hiddenAssignedParticipants[index] = false;
+
         if (index === this.currentListIndex - 1) {
-          this.currentListIndex--;
+          setTimeout(() => {
+
+            this.currentListIndex--;
+
+        }, 1);
+
+ 
         }
       }
     });
@@ -59,9 +67,7 @@ export class RaceComponent implements OnInit, OnDestroy {
     this.endSubscription = this.admin.end.subscribe(() => this.resetRun());
 
   }
-  getIndex(){
-    console.log(this.currentListIndex);
-  }
+ 
    // Start a race
   onStartRunClicked() {
     this.admin.startRun(Number.parseInt(this.route.snapshot.queryParams.raceid));
