@@ -156,33 +156,3 @@
     transition: transform ease 0.2s;
   
   }
-
-  
-  .invalid-userinput {
-  
-    animation-name: wiggle;
-    animation-duration: 400ms;
-    border-bottom: 2px solid red !important;
-  }
-
-  @keyframes wiggle {
-    0% {
-      transform: translateX(-5%)
-    }
-  
-    25% {
-      transform: translateX(5%)
-    }
-  
-    50% {
-      transform: translateX(-5%)
-    }
-  
-    75% {
-      transform: translateX(5%)
-    }
-  
-    100% {
-      transform: translateX(0)
-    }
-  }
