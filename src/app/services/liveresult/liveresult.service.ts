@@ -1,51 +1,101 @@
 import { Injectable } from '@angular/core';
 import { ViewerService } from '../viewer/viewer.service';
-import { Runner } from '../../entities/runner';
 import { Participant } from '../../entities/participant';
-import { Race } from '../../entities/race';
+import { SortParticipantListPipe } from '../../pipes/sortparticipantlist.pipe';
 
 @Injectable()
 export class LiveresultService {
 
-  participantList: Array<Runner> = [];
+  /**
+   *list of participants for the live startrace
+   *
+   * @type {Array<Participant>}
+   * @memberof LiveresultService
+   */
+  participantList: Array<Participant> = [];
 
-  constructor(private viewer: ViewerService) {
+  /**
+   *Creates an instance of LiveresultService.
+   * @param {ViewerService} viewer
+   * @param {SortParticipantListPipe} sortParticipantListPipe
+   * @memberof LiveresultService
+   */
+  constructor(private viewer: ViewerService, private sortParticipantListPipe: SortParticipantListPipe) {
     // Check for the start of a race
     this.viewer.start.subscribe(ms => {
-      this.participantList = ms.Runners;
+      this.participantList = ms.Participants;
     });
 
-    // Check for the end of a race
-    this.viewer.measuredStop.subscribe((runner: Runner) => {
-      // Set end of time for runner
-      this.participantList.find(item => item.Starter === runner.Starter).Time = runner.Time;
+    // Checks for when a participant finishes
+    this.viewer.measuredStop.subscribe((participant: Participant) => {
+      // Set end of time for participant
+      this.participantList.find(item => item.Starter === participant.Starter).Time = participant.Time;
 
-      // Sort list by time
-      this.participantList = this.participantList.sort((a, b) => {
-        return (b.Time) - (a.Time);
-      });
-      this.moveZerosToEnd(this.participantList);
+      this.participantList = this.sortParticipantListPipe.transform(this.participantList);
     });
 
     this.viewer.end.subscribe(() => {
       this.participantList = [];
     });
-
-    // for the test list
-    this.participantList = this.participantList.sort((a, b) => {
-      return (a.Time) - (b.Time);
-    });
-    this.moveZerosToEnd(this.participantList);
   }
 
-  moveZerosToEnd(runners: Array<Runner>) {
-    let i, temp;
+  /**
+   *sorts participantlist
+   *
+   * @memberof LiveresultService
+   */
+  sortList() {
+    this.sortParticipantListPipe.transform(this.participantList);
+  }
 
-    for (i = runners.length - 1; i >= 0; i--) {
-        if (runners[i].Time === 0) {
-            temp = runners.splice(i, 1);
-            runners.push(temp[0]);
-        }
+  /**
+   *is the participant in the current list or has an invalid time
+   *
+   * @param {Participant} participant
+   * @returns
+   * @memberof LiveresultService
+   */
+  isValidParticipant(participant: Participant) {
+    return this.participantList.some(competitor => competitor === participant) || participant.Time > 0;
+  }
+
+  /**
+   *filters the participantlist by sex
+   *
+   * @param {string} sex
+   * @returns
+   * @memberof LiveresultService
+   */
+  filterBySex(sex: string) {
+    if (sex == null) {
+      return this.participantList;
+    }
+    return this.participantList.filter(competitor => competitor.Sex === sex);
+  }
+
+  /**
+   *gets the rank of the participant, if wanted filtered by sex
+   *
+   * @param {Participant} participant
+   * @param {Boolean} [filterBySex=false]
+   * @returns
+   * @memberof LiveresultService
+   */
+  getRank(participant: Participant, filterBySex: Boolean = false) {
+    // is the participant valid
+    if (!this.isValidParticipant(participant)) {
+      return 0;
+    }
+
+    let rank = 1;
+
+    // do you want to filter via sex
+    for (const competitor of this.filterBySex(filterBySex ? participant.Sex : null)) {
+      // is there some one faster than the participant
+      if (competitor.Time > 0 && competitor.Time < participant.Time) {
+        rank++;
       }
+    }
+    return rank;
   }
 }

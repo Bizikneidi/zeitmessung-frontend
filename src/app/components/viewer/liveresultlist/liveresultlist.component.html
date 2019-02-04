@@ -1,0 +1,37 @@
+<div class="row m-2">
+    <div class="card mt-3 shadow" *ngFor="let i of liveresult.participantList">
+      <div class="card-body row justify-content-between">
+        <div class="col-12 col-md-6 no-wrap">
+          <div class="row justify-content-md-start">
+            <div class="col-auto" *ngIf="i.Time > 0">
+              <p class="rank">#{{i | participantToRank:liveresult.participantList}}</p>
+            </div>
+            <div class="col-auto" *ngIf="i.Time <= 0">
+              <p class="rank-grey">#?</p>
+            </div>
+            <p class="col-auto card-text">
+              {{ i.Starter }} - {{ i.Firstname }} {{ i.Lastname }}
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 no-wrap">
+          <div class="row justify-content-start justify-content-md-end">
+            <div class="col-auto">
+              <div class="inline" *ngIf="i.Time > 0">
+                <p class="rank">{{ i.Sex | sexenglishtogermanpipe }}{{ i | participantToSexRank:liveresult.participantList }}</p>
+              </div>
+              <div class="inline" *ngIf="i.Time <= 0">
+                <p class="rank-grey">{{ i.Sex | sexenglishtogermanpipe }}?</p>
+              </div>
+            </div>
+            <div class="col-auto">
+              <p class="inline rank">{{ i.Time | milliSecondsToTime }}</p>
+              <p class="inline little-rank">
+                {{ i.Time | milliSecondsToTime: true }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

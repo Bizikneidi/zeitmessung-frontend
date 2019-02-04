@@ -1,10 +1,14 @@
-import { RegisterparticipantComponent } from '../app/components/registerparticipant/registerparticipant.component';
-import { ViewerComponent } from '../app/components/viewer/viewer.component';
-import { AdminComponent } from '../app/components/admin/admin.component';
-import { PoliciesComponent } from '../app/components/policies/policies.component';
-import { NavigationcardsComponent } from '../app/components/navigationcards/navigationcards.component';
-import { LiveresultlistComponent } from '../app/components/liveresultlist/liveresultlist.component';
-import { ResultlistComponent } from '../app/components/resultlist/resultlist.component';
+import { RegisterparticipantComponent } from '../app/components/participant/registerparticipant/registerparticipant.component';
+import { ViewerComponent } from '../app/components/viewer/viewer/viewer.component';
+import { AdminComponent } from '../app/components/admin/adminpanel/admin.component';
+import { PoliciesComponent } from '../app/components/general/policies/policies.component';
+import { NavigationcardsComponent } from '../app/components/general/navigationcards/navigationcards.component';
+import { LiveresultlistComponent } from '../app/components/viewer/liveresultlist/liveresultlist.component';
+import { ResultlistComponent } from '../app/components/viewer/resultlist/resultlist.component';
+import { CreateRaceComponent } from '../app/components/admin/createrace/createrace.component';
+import { StartRaceComponent } from '../app/components/admin/startrace/startrace.component';
+import { Routes } from '@angular/router';
+import { ParticipantracechooserComponent } from '../app/components/participant/participantracechooser/participantracechooser.component';
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
@@ -14,7 +18,12 @@ import { ResultlistComponent } from '../app/components/resultlist/resultlist.com
 export const environment = {
   production: false,
   appRoutes: [
-    { path: 'participant', component: RegisterparticipantComponent },
+    { path: 'participant/:id', component: RegisterparticipantComponent },
+    {
+      path: 'admin', component: AdminComponent
+    },
+    {path: 'admin/createrace', pathMatch: 'full', component: CreateRaceComponent},
+    {path: 'admin/startrace', pathMatch: 'full', component: StartRaceComponent},
     {
       path: 'viewer',
       component: ViewerComponent,
@@ -31,8 +40,9 @@ export const environment = {
         }
       ]
     },
-    { path: 'admin', component: AdminComponent },
+
     { path: 'policies', component: PoliciesComponent },
+    { path: 'chooserace', component: ParticipantracechooserComponent },
     { path: '**', component: NavigationcardsComponent }
   ]
 };

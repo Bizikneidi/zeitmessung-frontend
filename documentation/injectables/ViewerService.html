@@ -1,0 +1,1485 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>zeitmessung documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">zeitmessung documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>ViewerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/viewer/viewer.service.ts</code>
+        </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#end">end</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#endSubject">endSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#measuredStop">measuredStop</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#measuredStopSubject">measuredStopSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#participantArray">participantArray</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#participants">participants</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#participantsSubject">participantsSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#pdfClick">pdfClick</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#pdfClickSubject">pdfClickSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#raceArray">raceArray</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#races">races</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#racesSubject">racesSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#start">start</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#startSubject">startSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#state">state</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#connect">connect</a>
+                            </li>
+                            <li>
+                                <a href="#disconnect">disconnect</a>
+                            </li>
+                            <li>
+                                <a href="#generatePdf">generatePdf</a>
+                            </li>
+                            <li>
+                                <a href="#getParticipants">getParticipants</a>
+                            </li>
+                            <li>
+                                <a href="#onPdfClick">onPdfClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ws: <a href="../injectables/WebsocketService.html">WebsocketService</a>, rankPipe: <a href="../classes/Participant.html">ParticipantToRankPipe</a>, sexRankPipe: <a href="../classes/Participant.html">ParticipantToSexRankPipe</a>, millisecondsPipe: MilliSecondsToTimePipe, raceToStringPipe: <a href="../classes/Race.html">RaceToStringPipe</a>, sexEnglishGermanPipe: SexEnglishToGermanPipe)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/services/viewer/viewer.service.ts:91</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of ViewerService.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ws</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/WebsocketService.html" target="_self" >WebsocketService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rankPipe</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/Participant.html" target="_self" >ParticipantToRankPipe</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sexRankPipe</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/Participant.html" target="_self" >ParticipantToSexRankPipe</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>millisecondsPipe</td>
+                                                  
+                                                        <td>
+                                                                    <code>MilliSecondsToTimePipe</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>raceToStringPipe</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/Race.html" target="_self" >RaceToStringPipe</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sexEnglishGermanPipe</td>
+                                                  
+                                                        <td>
+                                                                    <code>SexEnglishToGermanPipe</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="connect"></a>
+                        <span class="name">
+                            <b>
+                            connect
+                            </b>
+                            <a href="#connect"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>connect()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/app/services/viewer/viewer.service.ts:151</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>connect to ws as viewer</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="disconnect"></a>
+                        <span class="name">
+                            <b>
+                            disconnect
+                            </b>
+                            <a href="#disconnect"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>disconnect()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/app/services/viewer/viewer.service.ts:160</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>disconnect from ws</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="generatePdf"></a>
+                        <span class="name">
+                            <b>
+                            generatePdf
+                            </b>
+                            <a href="#generatePdf"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>generatePdf(raceid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="193" class="link-to-prism">src/app/services/viewer/viewer.service.ts:193</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>generate pdf of specific startrace
+using jsPdf and jsPdfAutoTable</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>raceid</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getParticipants"></a>
+                        <span class="name">
+                            <b>
+                            getParticipants
+                            </b>
+                            <a href="#getParticipants"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getParticipants(raceid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">src/app/services/viewer/viewer.service.ts:179</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>get all participants for specific startrace from the ws</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>raceid</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onPdfClick"></a>
+                        <span class="name">
+                            <b>
+                            onPdfClick
+                            </b>
+                            <a href="#onPdfClick"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onPdfClick()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/app/services/viewer/viewer.service.ts:169</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>call generation of pdf</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="end"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            end
+                            </b>
+                            <a href="#end"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>end:     <code>Observable&lt;null&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;null&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/services/viewer/viewer.service.ts:62</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observe end of run</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="endSubject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            endSubject
+                            </b>
+                            <a href="#endSubject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>endSubject:     <code>Subject&lt;null&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;null&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/services/viewer/viewer.service.ts:63</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="measuredStop"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            measuredStop
+                            </b>
+                            <a href="#measuredStop"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>measuredStop:     <code><a href="../classes/Participant.html" target="_self" >Observable&lt;Participant&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Participant.html" target="_self" >Observable&lt;Participant&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/services/viewer/viewer.service.ts:53</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observe participant finish run</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="measuredStopSubject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            measuredStopSubject
+                            </b>
+                            <a href="#measuredStopSubject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>measuredStopSubject:     <code><a href="../classes/Participant.html" target="_self" >Subject&lt;Participant&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Participant.html" target="_self" >Subject&lt;Participant&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/services/viewer/viewer.service.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="participantArray"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            participantArray
+                            </b>
+                            <a href="#participantArray"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>participantArray:     <code><a href="../classes/Participant.html" target="_self" >Array&lt;Participant&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Participant.html" target="_self" >Array&lt;Participant&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/services/viewer/viewer.service.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>list of all participants</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="participants"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            participants
+                            </b>
+                            <a href="#participants"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>participants:     <code><a href="../classes/Participant.html" target="_self" >Observable&lt;Array&lt;Participant&gt;&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Participant.html" target="_self" >Observable&lt;Array&lt;Participant&gt;&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/services/viewer/viewer.service.ts:81</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observe all participants per startrace</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="participantsSubject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            participantsSubject
+                            </b>
+                            <a href="#participantsSubject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>participantsSubject:     <code><a href="../classes/Participant.html" target="_self" >Subject&lt;Array&lt;Participant&gt;&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Participant.html" target="_self" >Subject&lt;Array&lt;Participant&gt;&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/services/viewer/viewer.service.ts:82</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pdfClick"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            pdfClick
+                            </b>
+                            <a href="#pdfClick"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>pdfClick:     <code>Observable&lt;null&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;null&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/services/viewer/viewer.service.ts:90</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observe the pdf button click</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pdfClickSubject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            pdfClickSubject
+                            </b>
+                            <a href="#pdfClickSubject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>pdfClickSubject:     <code>Subject&lt;null&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;null&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/services/viewer/viewer.service.ts:91</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="raceArray"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            raceArray
+                            </b>
+                            <a href="#raceArray"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>raceArray:     <code><a href="../classes/Race.html" target="_self" >Array&lt;Race&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Race.html" target="_self" >Array&lt;Race&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/services/viewer/viewer.service.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>list of all races</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="races"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            races
+                            </b>
+                            <a href="#races"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>races:     <code><a href="../classes/Race.html" target="_self" >Observable&lt;Array&lt;Race&gt;&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Race.html" target="_self" >Observable&lt;Array&lt;Race&gt;&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/services/viewer/viewer.service.ts:72</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observe all races</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="racesSubject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            racesSubject
+                            </b>
+                            <a href="#racesSubject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>racesSubject:     <code><a href="../classes/Race.html" target="_self" >Subject&lt;Array&lt;Race&gt;&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Race.html" target="_self" >Subject&lt;Array&lt;Race&gt;&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/services/viewer/viewer.service.ts:73</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="start"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            start
+                            </b>
+                            <a href="#start"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>start:     <code><a href="../classes/RunStart.html" target="_self" >Observable&lt;RunStart&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/RunStart.html" target="_self" >Observable&lt;RunStart&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/services/viewer/viewer.service.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observe start of run</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="startSubject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            startSubject
+                            </b>
+                            <a href="#startSubject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>startSubject:     <code><a href="../classes/RunStart.html" target="_self" >Subject&lt;RunStart&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/RunStart.html" target="_self" >Subject&lt;RunStart&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/services/viewer/viewer.service.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="state"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            state
+                            </b>
+                            <a href="#state"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>state:     <code><a href="../classes/Race.html" target="_self" >RaceManagerState</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Race.html" target="_self" >RaceManagerState</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/viewer/viewer.service.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { WebsocketService } from &#x27;../websocket/websocket.service&#x27;;
+import { Observable } from &#x27;rxjs/Observable&#x27;;
+import { Subject } from &#x27;rxjs/Subject&#x27;;
+import { Message, ViewerCommands } from &#x27;../../entities/networking&#x27;;
+import { RaceManagerState } from &#x27;../../entities/racemanagerstate&#x27;;
+import { Participant } from &#x27;../../entities/participant&#x27;;
+import { Race } from &#x27;../../entities/race&#x27;;
+import { RunStart } from &#x27;../../entities/runstart&#x27;;
+import { ParticipantToRankPipe, ParticipantToSexRankPipe } from &#x27;../../pipes/participanttorankpipe&#x27;;
+import { MilliSecondsToTimePipe } from &#x27;../../pipes/millisecondstotimepipe&#x27;;
+import { RaceToStringPipe } from &#x27;../../pipes/racetostringpipe&#x27;;
+import { SexEnglishToGermanPipe } from &#x27;../../pipes/sexenglishtogermanpipe.pipe&#x27;;
+
+declare var jsPDF: any;
+
+@Injectable()
+export class ViewerService {
+
+  public state: RaceManagerState;
+  /**
+   *list of all races
+   *
+   * @private
+   * @type {Array&lt;Race&gt;}
+   * @memberof ViewerService
+   */
+  private raceArray: Array&lt;Race&gt;;
+  /**
+   *list of all participants
+   *
+   * @private
+   * @type {Array&lt;Participant&gt;}
+   * @memberof ViewerService
+   */
+  private participantArray: Array&lt;Participant&gt;;
+
+  /**
+   *Observe start of run
+   *
+   * @type {Observable&lt;RunStart&gt;}
+   * @memberof ViewerService
+   */
+  public start: Observable&lt;RunStart&gt;;
+  private startSubject: Subject&lt;RunStart&gt;;
+
+  /**
+   *Observe participant finish run
+   *
+   * @type {Observable&lt;Participant&gt;}
+   * @memberof ViewerService
+   */
+  public measuredStop: Observable&lt;Participant&gt;;
+  private measuredStopSubject: Subject&lt;Participant&gt;;
+
+  /**
+   *Observe end of run
+   *
+   * @type {Observable&lt;null&gt;}
+   * @memberof ViewerService
+   */
+  public end: Observable&lt;null&gt;;
+  private endSubject: Subject&lt;null&gt;;
+
+
+  /**
+   *Observe all races
+   *
+   * @type {Observable&lt;Array&lt;Race&gt;&gt;}
+   * @memberof ViewerService
+   */
+  public races: Observable&lt;Array&lt;Race&gt;&gt;;
+  private racesSubject: Subject&lt;Array&lt;Race&gt;&gt;;
+
+  /**
+   *Observe all participants per startrace
+   *
+   * @type {Observable&lt;Array&lt;Participant&gt;&gt;}
+   * @memberof ViewerService
+   */
+  public participants: Observable&lt;Array&lt;Participant&gt;&gt;;
+  private participantsSubject: Subject&lt;Array&lt;Participant&gt;&gt;;
+
+  /**
+   *Observe the pdf button click
+   *
+   * @type {Observable&lt;null&gt;}
+   * @memberof ViewerService
+   */
+  public pdfClick: Observable&lt;null&gt;;
+  private pdfClickSubject: Subject&lt;null&gt;;
+
+  /**
+   *Creates an instance of ViewerService.
+   * @param {WebsocketService} ws
+   * @param {ParticipantToRankPipe} rankPipe
+   * @param {ParticipantToSexRankPipe} sexRankPipe
+   * @param {MilliSecondsToTimePipe} millisecondsPipe
+   * @param {RaceToStringPipe} raceToStringPipe
+   * @param {SexEnglishToGermanPipe} sexEnglishGermanPipe
+   * @memberof ViewerService
+   */
+  constructor(private ws: WebsocketService, private rankPipe: ParticipantToRankPipe, private sexRankPipe: ParticipantToSexRankPipe,
+    private millisecondsPipe: MilliSecondsToTimePipe, private raceToStringPipe: RaceToStringPipe,
+    private sexEnglishGermanPipe: SexEnglishToGermanPipe) {
+
+    this.startSubject &#x3D; new Subject&lt;RunStart&gt;();
+    this.start &#x3D; this.startSubject.asObservable();
+
+    this.measuredStopSubject &#x3D; new Subject&lt;Participant&gt;();
+    this.measuredStop &#x3D; this.measuredStopSubject.asObservable();
+
+    this.endSubject &#x3D; new Subject&lt;null&gt;();
+    this.end &#x3D; this.endSubject.asObservable();
+
+    this.racesSubject &#x3D; new Subject&lt;Array&lt;Race&gt;&gt;();
+    this.races &#x3D; this.racesSubject.asObservable();
+    this.races.subscribe(r &#x3D;&gt; this.raceArray &#x3D; r);
+
+    this.participantsSubject &#x3D; new Subject&lt;Array&lt;Participant&gt;&gt;();
+    this.participants &#x3D; this.participantsSubject.asObservable();
+    this.participants.subscribe(p &#x3D;&gt; this.participantArray &#x3D; p);
+
+    this.pdfClickSubject &#x3D; new Subject&lt;null&gt;();
+    this.pdfClick &#x3D; this.pdfClickSubject.asObservable();
+
+    this.ws.received.subscribe(msg &#x3D;&gt; {
+      // Cast to Viewer command and pass to correct observable
+      const received &#x3D; msg as Message&lt;ViewerCommands&gt;;
+      if (received.Command &#x3D;&#x3D;&#x3D; ViewerCommands.Status) {
+        this.state &#x3D; received.Data as RaceManagerState;
+      } else if (received.Command &#x3D;&#x3D;&#x3D; ViewerCommands.RunStart) {
+        this.startSubject.next(received.Data as RunStart);
+      } else if (received.Command &#x3D;&#x3D;&#x3D; ViewerCommands.RunEnd) {
+        this.endSubject.next();
+      } else if (received.Command &#x3D;&#x3D;&#x3D; ViewerCommands.ParticipantFinished) {
+        this.measuredStopSubject.next(received.Data as Participant);
+      } else if (received.Command &#x3D;&#x3D;&#x3D; ViewerCommands.Races) {
+        this.racesSubject.next(received.Data as Array&lt;Race&gt;);
+      } else if (received.Command &#x3D;&#x3D;&#x3D; ViewerCommands.Participants) {
+        this.participantsSubject.next(received.Data as Array&lt;Participant&gt;);
+      }
+    });
+  }
+
+  /**
+   *connect to ws as viewer
+   *
+   * @memberof ViewerService
+   */
+  connect() {
+    this.ws.connect(&#x27;viewer&#x27;);
+  }
+
+  /**
+   *disconnect from ws
+   *
+   * @memberof ViewerService
+   */
+  disconnect() {
+    this.ws.disconnect();
+  }
+
+  /**
+   *call generation of pdf
+   *
+   * @memberof ViewerService
+   */
+  onPdfClick() {
+    this.pdfClickSubject.next();
+  }
+
+  /**
+   *get all participants for specific startrace from the ws
+   *
+   * @param {number} raceid
+   * @memberof ViewerService
+   */
+  getParticipants(raceid: number) {
+    const msg &#x3D; new Message&lt;ViewerCommands&gt;();
+    msg.Command &#x3D; ViewerCommands.GetParticipants;
+    msg.Data &#x3D; raceid;
+    this.ws.send(msg);
+  }
+
+  /**
+   *generate pdf of specific startrace
+   *using jsPdf and jsPdfAutoTable
+   *
+   * @param {number} raceid
+   * @memberof ViewerService
+   */
+  generatePdf(raceid: number) {
+    if (this.participantArray) {
+      const doc &#x3D; new jsPDF(&#x27;l&#x27;);
+      const totalPagesExp &#x3D; &#x27;{total_pages_count_string}&#x27;;
+
+      const race &#x3D; this.raceArray.find(r &#x3D;&gt; r.Id &#x3D;&#x3D;&#x3D; raceid);
+      const participants &#x3D; this.participantArray.filter(p &#x3D;&gt; p.Race.Id &#x3D;&#x3D;&#x3D; raceid);
+
+      doc.setFontSize(18);
+      doc.text(race.Title, 14, 22);
+      doc.setFontSize(11);
+      doc.setTextColor(100);
+
+      const pageSize &#x3D; doc.internal.pageSize;
+      const pageWidth &#x3D; pageSize.width ? pageSize.width : pageSize.getWidth();
+      const text &#x3D; doc.splitTextToSize(&#x27;Ergebnisse &#x27; + this.raceToStringPipe.transform(race, true), pageWidth - 35, {});
+      doc.text(text, 14, 30); // set header text
+
+      // header of the table
+      const head &#x3D; [
+        { title: &#x27;Rang&#x27;, dataKey: &#x27;rank&#x27; },
+        { title: &#x27;Stnr&#x27;, dataKey: &#x27;stnr&#x27; },
+        { title: &#x27;Name&#x27;, dataKey: &#x27;name&#x27; },
+        { title: &#x27;Jg.&#x27;, dataKey: &#x27;year&#x27; },
+        { title: &#x27;Nat.&#x27;, dataKey: &#x27;nationality&#x27; },
+        { title: &#x27;Verein/Ort&#x27;, dataKey: &#x27;team&#x27; },
+        { title: &#x27;Klasse&#x27;, dataKey: &#x27;gender&#x27; },
+        { title: &#x27;KRg.&#x27;, dataKey: &#x27;classrank&#x27; },
+        { title: &#x27;Zeit&#x27;, dataKey: &#x27;time&#x27; },
+      ];
+
+      // generate and parse the data
+      const tableParticipants &#x3D; [];
+      participants.forEach(p &#x3D;&gt; {
+        if (p) {
+          tableParticipants.push({
+            rank: this.rankPipe.transform(p, participants),
+            stnr: p.Starter,
+            name: p.Firstname + &#x27; &#x27; + p.Lastname,
+            year: p.YearGroup,
+            nationality: p.Nationality,
+            team: p.Team,
+            gender: this.sexEnglishGermanPipe.transform(p.Sex),
+            classrank: this.sexRankPipe.transform(p, participants),
+            time: this.millisecondsPipe.transform(p.Time) + &#x27;:&#x27; + this.millisecondsPipe.transform(p.Time, true)
+          });
+        }
+      });
+
+      // sorts the data
+      tableParticipants.sort((a, b) &#x3D;&gt;  {
+        a &#x3D; parseInt(a[&#x27;rank&#x27;], 32);
+        b &#x3D; parseInt(b[&#x27;rank&#x27;], 32);
+        if (a &lt;&#x3D; 0) {
+          return 1;
+        }
+        return a - b;
+      });
+
+      doc.autoTable(head, tableParticipants, {
+        startY: 50,
+        showHead: &#x27;firstPage&#x27;,
+        headStyles: {
+          fillColor: [38, 210, 179]
+        },
+        // generates the pagenumber
+        didDrawPage: data &#x3D;&gt; {
+
+          let str &#x3D; &#x27;Seite &#x27; + doc.internal.getNumberOfPages();
+          if (typeof doc.putTotalPages &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
+            str &#x3D; str + &#x27;/&#x27; + totalPagesExp;
+          }
+          doc.setFontSize(10);
+
+          const pageHeight &#x3D; pageSize.height ? pageSize.height : pageSize.getHeight();
+          doc.text(str, data.settings.margin.left, pageHeight - 10);
+        },
+        margin: { top: 30 }
+      }); // assign data to the table
+
+      // checks if putTotalPages exists
+      if (typeof doc.putTotalPages &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
+        doc.putTotalPages(totalPagesExp);
+      }
+
+      doc.save(race.Title.replace(/\s/g, &#x27;_&#x27;) + &#x27;.pdf&#x27;);
+    }
+
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ViewerService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

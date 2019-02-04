@@ -1,0 +1,1144 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>zeitmessung documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">zeitmessung documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>RegisterparticipantComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/participant/registerparticipant/registerparticipant.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-registerparticipant</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./registerparticipant.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./registerparticipant.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#agreed">agreed</a>
+                            </li>
+                            <li>
+                                <a href="#countryList">countryList</a>
+                            </li>
+                            <li>
+                                <a href="#faArrow">faArrow</a>
+                            </li>
+                            <li>
+                                <a href="#participant">participant</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeSex">changeSex</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onAgreementClicked">onAgreementClicked</a>
+                            </li>
+                            <li>
+                                <a href="#register">register</a>
+                            </li>
+                            <li>
+                                <a href="#sexAndCountryAreSet">sexAndCountryAreSet</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ps: <a href="../injectables/ParticipantService.html">ParticipantService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of RegisterparticipantComponent.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ps</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ParticipantService.html" target="_self" >ParticipantService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="changeSex"></a>
+                        <span class="name">
+                            <b>
+                            changeSex
+                            </b>
+                            <a href="#changeSex"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>changeSex(c)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:69</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Must be changed via ts because custom checkboxes don&#39;t support binding</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>c</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onAgreementClicked"></a>
+                        <span class="name">
+                            <b>
+                            onAgreementClicked
+                            </b>
+                            <a href="#onAgreementClicked"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onAgreementClicked()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:98</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>sets agreement to new value</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="register"></a>
+                        <span class="name">
+                            <b>
+                            register
+                            </b>
+                            <a href="#register"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>register()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:88</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>registers participant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sexAndCountryAreSet"></a>
+                        <span class="name">
+                            <b>
+                            sexAndCountryAreSet
+                            </b>
+                            <a href="#sexAndCountryAreSet"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>sexAndCountryAreSet()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:79</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Required attribute does not work due to default values</p>
+</div>
+
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="agreed"></a>
+                        <span class="name">
+                            <b>
+                            agreed
+                            </b>
+                            <a href="#agreed"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>agreed:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>boolean if agreement is checked</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="countryList"></a>
+                        <span class="name">
+                            <b>
+                            countryList
+                            </b>
+                            <a href="#countryList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>countryList:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>CountryList.ListOfCountries</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>list of all country codes</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="faArrow"></a>
+                        <span class="name">
+                            <b>
+                            faArrow
+                            </b>
+                            <a href="#faArrow"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>faArrow:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>faLongArrowAltLeft</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>left arrow icon</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="participant"></a>
+                        <span class="name">
+                            <b>
+                            participant
+                            </b>
+                            <a href="#participant"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>participant:     <code><a href="../classes/Participant.html" target="_self" >Participant</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Participant.html" target="_self" >Participant</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/participant/registerparticipant/registerparticipant.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>participant to be registered</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+import { faLongArrowAltLeft } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+import { Participant } from &#x27;../../../entities/participant&#x27;;
+import { CountryList } from &#x27;../../../entities/countryList&#x27;;
+import { ParticipantService } from &#x27;../../../services/participant/participant.service&#x27;;
+import { Router, ActivatedRoute, ParamMap } from &#x27;@angular/router&#x27;;
+import { switchMap } from &#x27;rxjs/operators&#x27;;
+import { Race } from &#x27;../../../entities/race&#x27;;
+
+@Component({
+  selector: &#x27;app-registerparticipant&#x27;,
+  templateUrl: &#x27;./registerparticipant.component.html&#x27;,
+  styleUrls: [&#x27;./registerparticipant.component.css&#x27;]
+})
+export class RegisterparticipantComponent implements OnInit {
+
+  /**
+   *left arrow icon
+   *
+   * @memberof RegisterparticipantComponent
+   */
+  faArrow &#x3D; faLongArrowAltLeft;
+  /**
+   *participant to be registered
+   *
+   * @type {Participant}
+   * @memberof RegisterparticipantComponent
+   */
+  participant: Participant;
+  /**
+   *list of all country codes
+   *
+   * @memberof RegisterparticipantComponent
+   */
+  countryList &#x3D; CountryList.ListOfCountries;
+  /**
+   *boolean if agreement is checked
+   *
+   * @memberof RegisterparticipantComponent
+   */
+  agreed &#x3D; false;
+
+  /**
+   *Creates an instance of RegisterparticipantComponent.
+   * @param {ParticipantService} ps
+   * @param {ActivatedRoute} route
+   * @memberof RegisterparticipantComponent
+   */
+  constructor(private ps: ParticipantService, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    // create empty participant
+    this.participant &#x3D; new Participant();
+    this.participant.Sex &#x3D; null;
+    this.ps.connect();
+
+    this.route.params.subscribe(params &#x3D;&gt; {
+      this.participant.Race &#x3D; new Race();
+      this.participant.Race.Id &#x3D; +params[&#x27;id&#x27;];
+   });
+  }
+
+  /**
+   *Must be changed via ts because custom checkboxes don&#x27;t support binding
+   *
+   * @param {*} c
+   * @memberof RegisterparticipantComponent
+   */
+  changeSex(c) {
+    this.participant.Sex &#x3D; c;
+  }
+
+  /**
+   *Required attribute does not work due to default values
+   *
+   * @returns {Boolean}
+   * @memberof RegisterparticipantComponent
+   */
+  sexAndCountryAreSet(): Boolean {
+    return this.participant.Sex !&#x3D;&#x3D; null;
+  }
+
+  /**
+   *registers participant
+   *
+   * @memberof RegisterparticipantComponent
+   */
+  register() {
+    this.ps.register(this.participant);
+    this.ps.disconnect();
+  }
+
+  /**
+   *sets agreement to new value
+   *
+   * @memberof RegisterparticipantComponent
+   */
+  onAgreementClicked() {
+    this.agreed &#x3D; !this.agreed;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;div class&#x3D;&quot;row justify-content-center&quot;&gt;
+    &lt;div class&#x3D;&quot;col-11 col-md-10&quot;&gt;
+      &lt;div class&#x3D;&quot;card shadow-lg pb-3 border-0&quot;&gt;
+        &lt;div class&#x3D;&quot;card-title&quot;&gt;
+          &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-1&quot;&gt;
+              &lt;a [routerLink]&#x3D;&quot;[&#x27;/chooserace&#x27;]&quot;&gt;
+                &lt;fa-icon [icon]&#x3D;&quot;faArrow&quot;&gt;&lt;/fa-icon&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-11&quot;&gt;
+              &lt;h2&gt;Anmeldung&lt;/h2&gt;
+              &lt;p&gt;Füllen Sie das Formular aus, um teilzunehmen.&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;div class&#x3D;&quot;offset-1 col-11&quot;&gt;
+            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+              &lt;form #registerform&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;register()&quot;&gt;
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;firstName.errors &amp;&amp; (firstName.touched || firstName.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      name&#x3D;&quot;firstName&quot; placeholder&#x3D;&quot;Vorname&quot; [(ngModel)]&#x3D;&quot;participant.Firstname&quot; #firstName&#x3D;&quot;ngModel&quot;
+                      required [pattern]&#x3D;&quot;&#x27;^([A-ZÄÜÖ][a-zäüö\u00df]+)([ ][A-ZÄÜÖ][a-zäüö]+)*$&#x27;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;lastName.errors &amp;&amp; (lastName.touched || lastName.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      name&#x3D;&quot;lastName&quot; placeholder&#x3D;&quot;Nachname&quot; [(ngModel)]&#x3D;&quot;participant.Lastname&quot; #lastName&#x3D;&quot;ngModel&quot;
+                      required [pattern]&#x3D;&quot;&#x27;^[A-ZÄÜÖ][a-zäüö\u00df]+(-[A-ZÄÜÖ][a-zäüö\u00df]+)*$&#x27;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;p&gt;Geschlecht&lt;/p&gt;
+                    &lt;div class&#x3D;&quot;sex&quot;&gt;
+                      &lt;label class&#x3D;&quot;radio&quot;&gt;m
+                        &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; [checked]&#x3D;&quot;participant.Sex &#x3D;&#x3D;&#x3D; &#x27;m&#x27;&quot; (change)&#x3D;&quot;changeSex(&#x27;m&#x27;)&quot;&gt;
+                        &lt;span class&#x3D;&quot;checkmark&quot;&gt;&lt;/span&gt;
+                      &lt;/label&gt;
+                      &lt;label class&#x3D;&quot;radio&quot;&gt;w
+                        &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; [checked]&#x3D;&quot;participant.Sex &#x3D;&#x3D;&#x3D; &#x27;f&#x27;&quot; (change)&#x3D;&quot;changeSex(&#x27;f&#x27;)&quot;&gt;
+                        &lt;span class&#x3D;&quot;checkmark&quot;&gt;&lt;/span&gt;
+                      &lt;/label&gt;
+                      &lt;label class&#x3D;&quot;radio&quot;&gt;s
+                        &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; [checked]&#x3D;&quot;participant.Sex &#x3D;&#x3D;&#x3D; &#x27;o&#x27;&quot; (change)&#x3D;&quot;changeSex(&#x27;o&#x27;)&quot;&gt;
+                        &lt;span class&#x3D;&quot;checkmark&quot;&gt;&lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;number&quot; min&#x3D;&quot;1920&quot; max&#x3D;&quot;3000&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;dob&quot; placeholder&#x3D;&quot;Geburtsjahr&quot; [ngClass]&#x3D;&quot;dob.errors &amp;&amp; (dob.touched || dob.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      [(ngModel)]&#x3D;&quot;participant.YearGroup&quot; #dob&#x3D;&quot;ngModel&quot; [pattern]&#x3D;&quot;&#x27;^(19[2-8][0-9]|199[0-9]|2[0-9]{3}|3000)$&#x27;&quot; required&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;select name&#x3D;&quot;nationality&quot; class&#x3D;&quot;minimal&quot; [(ngModel)]&#x3D;&quot;participant.Nationality&quot;&gt;
+                      &lt;option selected&#x3D;&quot;selected&quot; id&#x3D;&quot;selectstandard&quot; value&#x3D;&quot;Nationalitaet&quot; disabled&gt;Nationalität&lt;/option&gt;
+                      &lt;option *ngFor&#x3D;&quot;let country of countryList&quot; [ngValue]&#x3D;&quot;country.ISO&quot;&gt;{{country.Name}}&lt;/option&gt;
+                    &lt;/select&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;city.errors &amp;&amp; (city.touched || city.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      name&#x3D;&quot;city&quot; placeholder&#x3D;&quot;Stadt&quot; [(ngModel)]&#x3D;&quot;participant.City&quot; #city&#x3D;&quot;ngModel&quot; required [pattern]&#x3D;&quot;&#x27;^[A-ZÄÜÖ][a-zäüö\u00df]+([ ]?([-\.\/][ ]?)?[A-ZÄÜÖ][a-zäüö\u00df]+)*$&#x27;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;street.errors &amp;&amp; (street.touched || street.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      name&#x3D;&quot;street&quot; placeholder&#x3D;&quot;Strasse&quot; [(ngModel)]&#x3D;&quot;participant.Street&quot; #street&#x3D;&quot;ngModel&quot; required
+                      [pattern]&#x3D;&quot;&#x27;^[A-ZÄÜÖ][a-zäüö\u00df]+([ ]?([-\.\/][ ]?)?[A-ZÄÜÖ][a-zäüö\u00df]+)*$&#x27;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;postalCode.errors &amp;&amp; (postalCode.touched || postalCode.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      name&#x3D;&quot;postalCode&quot; placeholder&#x3D;&quot;PLZ&quot; [(ngModel)]&#x3D;&quot;participant.PostalCode&quot; #postalCode&#x3D;&quot;ngModel&quot;
+                      required [pattern]&#x3D;&quot;&#x27;^([A-ZÄÜÖa-zäüö0-9-:\/]+)$&#x27;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;housenumber.errors &amp;&amp; (housenumber.touched || housenumber.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      name&#x3D;&quot;housenumber&quot; placeholder&#x3D;&quot;Hausnummer&quot; [(ngModel)]&#x3D;&quot;participant.HouseNumber&quot; #housenumber&#x3D;&quot;ngModel&quot;
+                      required [pattern]&#x3D;&quot;&#x27;^([A-ZÄÜÖa-zäüö0-9\/])+$&#x27;&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;team.errors &amp;&amp; (team.touched || team.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      name&#x3D;&quot;team&quot; placeholder&#x3D;&quot;Verein / Team&quot; [(ngModel)]&#x3D;&quot;participant.Team&quot; #team&#x3D;&quot;ngModel&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; [ngClass]&#x3D;&quot;mail.errors &amp;&amp; (mail.touched || mail.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      name&#x3D;&quot;email&quot; placeholder&#x3D;&quot;Email&quot; [(ngModel)]&#x3D;&quot;participant.Email&quot; #mail&#x3D;&quot;ngModel&quot; required email&#x3D;&quot;true&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-12 col-md-6&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;phone&quot; [ngClass]&#x3D;&quot;phone.errors &amp;&amp; (phone.touched || phone.dirty) ? &#x27;has-error&#x27; : &#x27;x&#x27;&quot;
+                      placeholder&#x3D;&quot;Telefon&quot; [(ngModel)]&#x3D;&quot;participant.PhoneNumber&quot; #phone&#x3D;&quot;ngModel&quot; [pattern]&#x3D;&quot;&#x27;^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[- \./0-9]*$&#x27;&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;mt-3&quot;&gt;
+                  &lt;label class&#x3D;&quot;radio&quot;&gt;Ich stimme den &lt;a [routerLink]&#x3D;&quot;[&#x27;/policies&#x27;]&quot; target&#x3D;&quot;_blank&quot; class&#x3D;&quot;data-agreement&quot;&gt;Datenschutzrichtlinien&lt;/a&gt; zu.
+                    &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;agreement&quot; [checked]&#x3D;&quot;agreed&quot; (click)&#x3D;&quot;onAgreementClicked()&quot;&gt;
+                    &lt;span class&#x3D;&quot;checkmark&quot;&gt;&lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;card-link&quot; (click)&#x3D;&quot;register()&quot; [ngClass]&#x3D;&quot;registerform.valid &amp;&amp; sexAndCountryAreSet() &amp;&amp; agreed ? &#x27;&#x27; : &#x27;form-invalid&#x27;&quot;&gt;
+                  REGISTRIEREN ➜
+                &lt;/a&gt;
+              &lt;/form&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./registerparticipant.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.card {
+  border-radius: 20px;
+}
+
+.card-title {
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color:#2a2a2a;
+}
+
+a {
+  font-size: 2em;
+  display: block;
+  color:#2a2a2a;
+}
+
+.data-agreement {
+  color: #2a2a2a;
+  font-size: 14px;
+  display: inline;
+}
+
+.card-title &gt; p {
+  font-size: 14px
+}
+
+.card-link {
+  border-bottom: 3px solid #26D2B3;
+  padding-bottom: 5px;
+  color: #26D2B3;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 1rem !important;
+  width: fit-content;
+}
+
+.card {
+  background-color: white;
+  border-radius: 20px;
+}
+
+form p {
+  font-size: 14px; 
+}
+
+select {
+  background-color: white;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 6px 12px;
+  color: #495057;
+  box-shadow: none;
+  outline: none !important;
+}
+
+select:focus, option:focus {
+  box-shadow: none;
+  outline: none !important;
+}
+
+input {
+  max-width: 200px;
+}
+
+input[type&#x3D;text], input[type&#x3D;number], input[type&#x3D;email], select {
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid #e8e8e8;
+  font-size: 14px;
+}
+
+input[type&#x3D;text]:focus, input[type&#x3D;number]:focus, input[type&#x3D;email]:focus, select:focus {
+  border-color: #26D2B3;
+  box-shadow: none;
+}
+
+.sex {
+  padding-left: 15px;
+}
+
+/* The radio */
+form p {
+  color: #8e8e8e;
+  margin-bottom: 8px;
+  padding-left: 10px;
+}
+
+.radio {
+  display: inline;
+  position: relative;
+  padding-left: 20px;
+  padding-top: 2px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser&#x27;s default radio button */
+.radio &gt; input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+label.radio {
+  color: #8e8e8e;
+  font-size: 14px;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  background-color: #e8e8e8;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio:hover input ~ .checkmark {
+  background-color: #e8e8e8;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio input:checked ~ .checkmark {
+  background-color: #26D2B3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: &quot;&quot;;
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .checkmark:after {
+  display: inline;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.has-error {
+  border-color: red !important;
+}
+
+.form-invalid {
+  pointer-events: none;
+  cursor: default;
+  color: #e8e8e8;
+  border-bottom-color: #e8e8e8;
+}
+
+.container {
+  margin-top: 20vh;
+  margin-bottom: 80px;
+}
+
+form .col-12, .col-md-6 {
+  padding-right: 30px;
+  padding-bottom: 10px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row justify-content-center">    <div class="col-11 col-md-10">      <div class="card shadow-lg pb-3 border-0">        <div class="card-title">          <div class="row">            <div class="col-1">              <a [routerLink]="[\'/chooserace\']">                <fa-icon [icon]="faArrow"></fa-icon>              </a>            </div>            <div class="col-11">              <h2>Anmeldung</h2>              <p>Füllen Sie das Formular aus, um teilzunehmen.</p>            </div>          </div>        </div>        <div class="row">          <div class="offset-1 col-11">            <div class="card-body">              <form #registerform="ngForm" (ngSubmit)="register()">                <div class="row">                  <div class="col-12 col-md-6">                    <input type="text" class="form-control" [ngClass]="firstName.errors && (firstName.touched || firstName.dirty) ? \'has-error\' : \'x\'"                      name="firstName" placeholder="Vorname" [(ngModel)]="participant.Firstname" #firstName="ngModel"                      required [pattern]="\'^([A-ZÄÜÖ][a-zäüö\u00df]+)([ ][A-ZÄÜÖ][a-zäüö]+)*$\'">                  </div>                  <div class="col-12 col-md-6">                    <input type="text" class="form-control" [ngClass]="lastName.errors && (lastName.touched || lastName.dirty) ? \'has-error\' : \'x\'"                      name="lastName" placeholder="Nachname" [(ngModel)]="participant.Lastname" #lastName="ngModel"                      required [pattern]="\'^[A-ZÄÜÖ][a-zäüö\u00df]+(-[A-ZÄÜÖ][a-zäüö\u00df]+)*$\'">                  </div>                  <div class="col-12 col-md-6">                    <p>Geschlecht</p>                    <div class="sex">                      <label class="radio">m                        <input type="radio" name="sex" [checked]="participant.Sex === \'m\'" (change)="changeSex(\'m\')">                        <span class="checkmark"></span>                      </label>                      <label class="radio">w                        <input type="radio" name="sex" [checked]="participant.Sex === \'f\'" (change)="changeSex(\'f\')">                        <span class="checkmark"></span>                      </label>                      <label class="radio">s                        <input type="radio" name="sex" [checked]="participant.Sex === \'o\'" (change)="changeSex(\'o\')">                        <span class="checkmark"></span>                      </label>                    </div>                  </div>                  <div class="col-12 col-md-6">                    <input type="number" min="1920" max="3000" class="form-control" name="dob" placeholder="Geburtsjahr" [ngClass]="dob.errors && (dob.touched || dob.dirty) ? \'has-error\' : \'x\'"                      [(ngModel)]="participant.YearGroup" #dob="ngModel" [pattern]="\'^(19[2-8][0-9]|199[0-9]|2[0-9]{3}|3000)$\'" required>                  </div>                  <div class="col-12 col-md-6">                    <select name="nationality" class="minimal" [(ngModel)]="participant.Nationality">                      <option selected="selected" id="selectstandard" value="Nationalitaet" disabled>Nationalität</option>                      <option *ngFor="let country of countryList" [ngValue]="country.ISO">{{country.Name}}</option>                    </select>                  </div>                  <div class="col-12 col-md-6">                    <input type="text" class="form-control" [ngClass]="city.errors && (city.touched || city.dirty) ? \'has-error\' : \'x\'"                      name="city" placeholder="Stadt" [(ngModel)]="participant.City" #city="ngModel" required [pattern]="\'^[A-ZÄÜÖ][a-zäüö\u00df]+([ ]?([-\.\/][ ]?)?[A-ZÄÜÖ][a-zäüö\u00df]+)*$\'">                  </div>                  <div class="col-12 col-md-6">                    <input type="text" class="form-control" [ngClass]="street.errors && (street.touched || street.dirty) ? \'has-error\' : \'x\'"                      name="street" placeholder="Strasse" [(ngModel)]="participant.Street" #street="ngModel" required                      [pattern]="\'^[A-ZÄÜÖ][a-zäüö\u00df]+([ ]?([-\.\/][ ]?)?[A-ZÄÜÖ][a-zäüö\u00df]+)*$\'">                  </div>                  <div class="col-12 col-md-6">                    <input type="text" class="form-control" [ngClass]="postalCode.errors && (postalCode.touched || postalCode.dirty) ? \'has-error\' : \'x\'"                      name="postalCode" placeholder="PLZ" [(ngModel)]="participant.PostalCode" #postalCode="ngModel"                      required [pattern]="\'^([A-ZÄÜÖa-zäüö0-9-:\/]+)$\'">                  </div>                  <div class="col-12 col-md-6">                    <input type="text" class="form-control" [ngClass]="housenumber.errors && (housenumber.touched || housenumber.dirty) ? \'has-error\' : \'x\'"                      name="housenumber" placeholder="Hausnummer" [(ngModel)]="participant.HouseNumber" #housenumber="ngModel"                      required [pattern]="\'^([A-ZÄÜÖa-zäüö0-9\/])+$\'">                  </div>                  <div class="col-12 col-md-6">                    <input type="text" class="form-control" [ngClass]="team.errors && (team.touched || team.dirty) ? \'has-error\' : \'x\'"                      name="team" placeholder="Verein / Team" [(ngModel)]="participant.Team" #team="ngModel">                  </div>                  <div class="col-12 col-md-6">                    <input type="email" class="form-control" [ngClass]="mail.errors && (mail.touched || mail.dirty) ? \'has-error\' : \'x\'"                      name="email" placeholder="Email" [(ngModel)]="participant.Email" #mail="ngModel" required email="true">                  </div>                  <div class="col-12 col-md-6">                    <input type="text" class="form-control" name="phone" [ngClass]="phone.errors && (phone.touched || phone.dirty) ? \'has-error\' : \'x\'"                      placeholder="Telefon" [(ngModel)]="participant.PhoneNumber" #phone="ngModel" [pattern]="\'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[- \./0-9]*$\'">                  </div>                </div>                <div class="mt-3">                  <label class="radio">Ich stimme den <a [routerLink]="[\'/policies\']" target="_blank" class="data-agreement">Datenschutzrichtlinien</a> zu.                    <input type="radio" name="agreement" [checked]="agreed" (click)="onAgreementClicked()">                    <span class="checkmark"></span>                  </label>                </div>                <a href="#" class="card-link" (click)="register()" [ngClass]="registerform.valid && sexAndCountryAreSet() && agreed ? \'\' : \'form-invalid\'">                  REGISTRIEREN ➜                </a>              </form>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'CreateRaceComponent', 'selector': 'app-competition'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'StartRaceComponent', 'selector': 'app-race'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
+    var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[appAutofocus]'}];
+    var ACTUAL_COMPONENT = {'name': 'RegisterparticipantComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RegisterparticipantComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

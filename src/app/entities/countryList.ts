@@ -1,8 +1,26 @@
 export class Country {
 
+  /**
+   *name of the country
+   *
+   * @type {string}
+   * @memberof Country
+   */
   public Name: string;
+  /**
+   *ISO code of the country
+   *
+   * @type {string}
+   * @memberof Country
+   */
   public ISO: string;
 
+  /**
+   *Creates an instance of Country.
+   * @param {string} name
+   * @param {string} iso
+   * @memberof Country
+   */
   public constructor(name: string, iso: string) {
     if (name.length > 20) { // Shorten for better display
       this.Name = name.substr(0, 20) + '...';
@@ -13,7 +31,12 @@ export class Country {
   }
 }
 
-// All known country names and their ISO values
+/**
+ *All known country names and their ISO values
+ *
+ * @export
+ * @class CountryList
+ */
 export class CountryList {
   static ListOfCountries: Array<Country> = [
     new Country('Afghanistan', 'AFG'),

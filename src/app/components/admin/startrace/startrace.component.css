@@ -1,0 +1,158 @@
+.card {
+    border-radius: 20px;
+  }
+  
+  .card-title {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #2a2a2a;
+  }
+  
+  a {
+    font-size: 2em;
+    display: block;
+    color: #2a2a2a;
+  }
+  
+  .card-title>p {
+    font-size: 14px
+  }
+  
+  button {
+    width: 180px;
+    height: 180px;
+    border-radius: 90px;
+    border: 14px solid #26D2B3;
+    color: #26D2B3;
+    font-size: 25px;
+    background-color: white;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    transition: all 0.3s;
+  }
+  
+  button:enabled {
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    color: #E8E8E8;
+    border-color: #E8E8E8;
+  }
+  
+  button:hover:enabled {
+    border-width: 18px;
+    font-size: 30px;
+  }
+  
+  .container {
+    margin-top: 20vh;
+    margin-bottom: 80px;
+  }
+.container-runner{
+   height: 50vh;
+   overflow-y: auto;
+   overflow-x: hidden;
+}  
+  input {
+    max-width: 130px;
+  }
+  
+  input[type=number],
+  
+  select {
+    background-color: white;
+    border-radius: 0;
+    font-size: 1rem;
+    padding: 6px 12px;
+    color: #495057;
+    box-shadow: none;
+    outline: none !important;
+  }
+  
+  select:focus, option:focus {
+    box-shadow: none;
+    outline: none !important;
+  }
+  
+  input[type=number], select {
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid #e8e8e8;
+    font-size: 14px;
+  }
+  
+  input[type=text]:focus, input[type=number]:focus, input[type=email]:focus, select:focus {
+    border-color: #26D2B3;
+    box-shadow: none;
+  }
+  .rank {
+    color: #e8e8e8;
+    font-weight: bolder;
+  }
+  
+  .arrow {
+    border-bottom: 3px solid #26D2B3;
+    color: #26D2B3;
+    cursor: pointer;
+  }
+  
+  .time-sm {
+    color: #26D2B3;
+    font-size: 18px;
+    display: inline;
+  }
+  
+  .decis-sm{
+    font-size: 12px;   
+    color: #26D2B3;
+    display: inline;
+  }
+  .time{
+    font-size: 64px;   
+    color: #26D2B3;
+    font-weight: bold;
+    display: inline;
+  }
+  
+  .time-grey{
+    font-size: 64px;   
+    font-weight: bold;
+    color: #E8E8E8;
+    display: inline;
+  }
+  .decis{
+    font-size: 36px;   
+    color: #26D2B3;
+    font-weight: bold;
+    display: inline;
+  }
+  
+  .decis-grey{
+    font-size: 36px;   
+    font-weight: bold;
+    color: #E8E8E8;
+   display: inline;
+  }
+  .rank-item {
+    border-radius: 20px;
+    border: none;
+  }
+  
+  .rank-item:hover {
+    transform: scale(1.05);
+    transition: transform ease 0.2s;
+  }
+  
+  .no-wrap {
+    white-space: nowrap;
+  }
+  .zoom{
+    cursor: pointer;
+  }
+  .zoom:hover{
+    transform: scale(1.1);
+    transition: transform ease 0.2s;
+  
+  }

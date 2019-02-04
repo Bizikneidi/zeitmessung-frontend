@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-11 col-md-10">
+      <div class=" card border-0 shadow-lg">
+        <div class="card-title">
+          <div class="row">
+            <div class="col-1">
+              <a [routerLink]="['/admin']">
+                <fa-icon [icon]="faArrow"></fa-icon>
+              </a>
+            </div>
+            <div class="col-10">
+              <h2>Admin</h2>
+              <p>Füllen Sie die Felder aus, um ein Rennen <br> anzulegen.</p>
+              <form #f="ngForm">
+                <div class="form-row">
+                  <div class="col-5">
+                    <input type="text" autofocus class="form-control" name="title" #title="ngModel" [(ngModel)]="race.Title" [pattern]="'^[A-ZÄÜÖ][\\s\\S]+$'" 
+                      placeholder="Bezeichnung" required [ngClass]="title.errors && (title.touched || title.dirty) ? 'has-error' : ''">
+                  </div>
+                  <div class="col-5">
+                    <input type="date" class="form-control" name="date" #Date="ngModel" [(ngModel)]="date" placeholder="Termin"
+                      required [ngClass]="Date.errors && (Date.touched || Date.dirty) ? 'has-error' : ''">
+                  </div>
+                  <div class="col-5 mt-3">
+                    <input type="time" class="form-control" name="time" #Time="ngModel" [(ngModel)]="time" placeholder="Starzeit"
+                      required [ngClass]="Time.errors && (Time.touched || Time.dirty) ? 'has-error' : ''">
+                  </div>
+                  <div class="col-5 mt-3">
+                    <input type="text" class="form-control" name="link" #Link="ngModel" [(ngModel)]="race.Link" placeholder="Ausschreibungslink" [ngClass]="Link.errors && (Link.touched || Link.dirty) ? 'has-error' : ''"
+                      [pattern]="'(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)'">
+                  </div>
+                  <div class="col-5 mt-3"> 
+                      <a class="action-link card-link" (click)="onAddNewRaceClicked()" [class.form-invalid]="f.invalid">
+                        <h5 class="arrow">Anlegen ➜</h5>
+                      </a>
+                  </div>
+
+                </div>
+
+
+
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>

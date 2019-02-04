@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-11 col-md-10">
+      <div class=" card border-0 shadow-lg">
+        <div class="card-title">
+          <div class="row">
+            <div class="col-1">
+              <a [routerLink]="['/']" (click)="onBack()">
+                <fa-icon [icon]="faArrow"></fa-icon>
+              </a>
+            </div>
+            <div class="col-6">
+              <h2>Admin</h2>
+              <p>Erstelle oder starte einen Wettkampf</p>
+            </div>
+           
+          </div>
+        </div>
+    
+      </div>
+     
+     
+        <div class="row mt-5 no-gutters">
+          <div class="col-5 ">
+            <div class="card zoom shadow border-0 h-100" [routerLink]="['./createrace']">
+              <div class="card-body">
+                <h3>Wettkampf <br/> eintragen</h3>
+                <p>Drücken sie hier, <br/> um ein Rennen anzulegen</p>
+              </div>
+            </div>
+          </div>
+          <div class="col"></div>
+          <div class="col-5">
+            <div class="card zoom shadow border-0 h-100 " >
+              <div class="card-body py-3">
+                <h3>Wettkampf <br/> starten</h3>
+                <select class="form-control" #t (change)="onSelected(t.value)">
+                  <option selected disabled>Wettkampf</option>
+                  <option *ngFor="let r of admin.availableRaces" value="{{ r.Id }}">{{ r.Title }}</option>
+                </select>
+                <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="['./startrace']" [queryParams]="{raceid: raceId}" [ngClass]="startable ? '':'form-invalid'">
+                  <h5 class="arrow" >Starten ➜</h5>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      
+    </div>
+
+
+
+  </div>
+
+
+
+</div>

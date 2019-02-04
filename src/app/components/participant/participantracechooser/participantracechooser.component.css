@@ -1,0 +1,60 @@
+.container {
+	margin-top: 20vh;
+	margin-bottom: 80px;
+}
+.arrow-link {
+	font-size: 2em;
+	display: block;
+	color:#2a2a2a;
+}
+
+.card-title > p {
+	font-size: 14px
+  }
+  
+  .card-link {
+	border-bottom: 3px solid #26D2B3;
+	padding-bottom: 5px;
+	color: #26D2B3;
+	font-size: 14px;
+	font-weight: bold;
+	padding-top: 1rem !important;
+	width: fit-content;
+  }
+  
+  .card {
+	background-color: white;
+	border-radius: 20px;
+  }
+  
+  .card-title {
+	padding-top: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
+	color:#2a2a2a;
+	}
+	
+	.race-item {
+		font-weight: bold;
+		font-size: 17px;
+		color: #26D2B3;
+	}
+
+	.race {
+		margin-bottom: 1vh;
+		color: #26D2B3;
+	}
+
+	.race:hover > a > .row > div {
+		cursor: pointer;
+	}
+
+	.race:hover > a {
+		border: none !important;
+		outline: none !important;
+		text-decoration: none !important;
+	}
+
+	.race:hover > a > div {
+		transform: scale(1.1)
+	}

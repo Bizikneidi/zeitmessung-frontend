@@ -1,0 +1,86 @@
+.card {
+  border-radius: 20px;
+}
+
+.card-title {
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #2a2a2a;
+}
+
+a {
+  font-size: 2em;
+  display: block;
+  color: #2a2a2a;
+}
+
+.card-title>p {
+  font-size: 14px
+}
+
+
+
+.container {
+  margin-top: 20vh;
+  margin-bottom: 80px;
+}
+
+
+
+select {
+  background-color: white;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 6px 12px;
+  color: #495057;
+  box-shadow: none;
+  outline: none !important;
+}
+
+select:focus, option:focus {
+  box-shadow: none;
+  outline: none !important;
+}
+
+ select {
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid #e8e8e8;
+  font-size: 14px;
+}
+
+ select:focus {
+  border-color: #26D2B3;
+  box-shadow: none;
+}
+
+
+.arrow {
+  border-bottom: 3px solid #26D2B3;
+  color: #26D2B3;
+}
+
+
+
+.no-wrap {
+  white-space: nowrap;
+}
+.zoom{
+  cursor: pointer;
+}
+.zoom:hover{
+  transform: scale(1.1);
+  transition: transform ease 0.2s;
+
+}
+
+.form-invalid {
+  pointer-events: none;
+  cursor: default;
+}
+
+.form-invalid > h5{
+  color: #e8e8e8;
+  border-bottom:3px solid #e8e8e8;
+}

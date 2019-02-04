@@ -1,20 +1,27 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TimeMeterState } from '../entities/timemeterstate';
+import { RaceManagerState } from '../entities/racemanagerstate';
 
 @Pipe({
-    name: 'stateToText'
+  name: 'stateToText'
 })
 export class StateToTextPipe implements PipeTransform {
-    transform(value: TimeMeterState): string {
-        switch (value) {
-            case TimeMeterState.Ready:
-              return 'Eine Station ist bereit.';
-            case TimeMeterState.Disabled:
-              return 'Warte auf Station.';
-            case TimeMeterState.Measuring:
-              return 'Eine Messung ist derzeitig im Gange.';
-            case TimeMeterState.MeasurementRequested:
-              return 'Gestartet! Warte auf Server';
-          }
+  /**
+   *returns message based on RaceManagerState
+   *
+   * @param {RaceManagerState} value
+   * @returns {string}
+   * @memberof StateToTextPipe
+   */
+  transform(value: RaceManagerState): string {
+    switch (value) {
+      case RaceManagerState.Ready:
+        return 'Eine Station ist bereit.';
+      case RaceManagerState.Disabled:
+        return 'Warte auf Station.';
+      case RaceManagerState.Measuring:
+        return 'Eine Messung ist derzeitig im Gange.';
+      case RaceManagerState.MeasurementRequested:
+        return 'Gestartet! Warte auf Server';
     }
+  }
 }
