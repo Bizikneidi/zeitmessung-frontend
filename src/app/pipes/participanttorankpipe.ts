@@ -5,6 +5,14 @@ import { Participant } from '../entities/participant';
     name: 'participantToRank'
 })
 export class ParticipantToRankPipe implements PipeTransform {
+    /**
+     *returns rank of given participant in given list of participants
+     *
+     * @param {Participant} value
+     * @param {Array<Participant>} participantList
+     * @returns {number}
+     * @memberof ParticipantToRankPipe
+     */
     transform(value: Participant, participantList: Array<Participant>): number {
         if (
             !participantList.some(function(r) {
@@ -28,6 +36,14 @@ export class ParticipantToRankPipe implements PipeTransform {
     name: 'participantToSexRank'
 })
 export class ParticipantToSexRankPipe implements PipeTransform {
+    /**
+     *returns sex class rank of given participant in given list of participants
+     *
+     * @param {Participant} value
+     * @param {Array<Participant>} participantList
+     * @returns {number}
+     * @memberof ParticipantToSexRankPipe
+     */
     transform(value: Participant, participantList: Array<Participant>): number {
         if (!participantList.some(r => r === value) || value.Time <= 0) {
             return 0;

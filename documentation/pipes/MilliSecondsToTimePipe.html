@@ -104,13 +104,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pipes/millisecondstotimepipe.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pipes/millisecondstotimepipe.ts:33</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>add 0 to format correctly</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -169,13 +171,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/pipes/millisecondstotimepipe.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pipes/millisecondstotimepipe.ts:15</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>returns time in hh:mm:ss or dsds based on deciMil</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -247,6 +251,14 @@
     name: &#x27;milliSecondsToTime&#x27;
 })
 export class MilliSecondsToTimePipe implements PipeTransform {
+    /**
+     *returns time in hh:mm:ss or dsds based on deciMil
+     *
+     * @param {number} value
+     * @param {boolean} [deciMil&#x3D;false]
+     * @returns {string}
+     * @memberof MilliSecondsToTimePipe
+     */
     transform(value: number, deciMil: boolean &#x3D; false): string {
         const deciSeconds &#x3D; Math.floor((value / 100) % 10),
             seconds &#x3D; Math.floor((value / 1000) % 60),
@@ -258,6 +270,13 @@ export class MilliSecondsToTimePipe implements PipeTransform {
         return this.padTime(hours) + &#x27;:&#x27; + this.padTime(minutes) + &#x27;:&#x27; + this.padTime(seconds);
     }
 
+    /**
+     *add 0 to format correctly
+     *
+     * @param {*} t
+     * @returns
+     * @memberof MilliSecondsToTimePipe
+     */
     padTime(t) {
         return t &lt; 10 ? &#x27;0&#x27; + t : t;
     }

@@ -182,12 +182,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:37</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of CompetitionComponent.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -263,7 +265,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -301,13 +303,16 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:57</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>on click of create race button
+creates the race and navigates back</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -356,10 +361,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:31</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>date field for validation</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -389,10 +400,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>left arrow icon</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -428,10 +445,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:25</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>race to be created</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -467,10 +490,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:37</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>time field for validation</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -492,17 +521,50 @@ import { Router } from &#x27;@angular/router&#x27;;
   styleUrls: [&#x27;./competition.component.css&#x27;]
 })
 export class CompetitionComponent implements OnInit {
+  /**
+   *left arrow icon
+   *
+   * @memberof CompetitionComponent
+   */
   faArrow &#x3D; faLongArrowAltLeft;
+  /**
+   *race to be created
+   *
+   * @type {Race}
+   * @memberof CompetitionComponent
+   */
   race: Race &#x3D; new Race();
+  /**
+   *date field for validation
+   *
+   * @memberof CompetitionComponent
+   */
   date &#x3D; &#x27;&#x27;;
+  /**
+   *time field for validation
+   *
+   * @memberof CompetitionComponent
+   */
   time &#x3D; &#x27;&#x27;;
 
+  /**
+   *Creates an instance of CompetitionComponent.
+   * @param {AdminService} admin
+   * @param {Router} router
+   * @memberof CompetitionComponent
+   */
   constructor(private admin: AdminService, private router: Router) { }
 
   ngOnInit() {
     this.admin.connect();
   }
 
+  /**
+   *on click of create race button
+   *creates the race and navigates back
+   *
+   * @memberof CompetitionComponent
+   */
   onAddNewRaceClicked() {
     const date &#x3D; new Date(&#x60;${this.date} ${this.time}&#x60;);
     const milliseconds &#x3D; date.getTime();
@@ -518,7 +580,7 @@ export class CompetitionComponent implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
   &lt;div class&#x3D;&quot;row justify-content-center&quot;&gt;
-      &lt;div class&#x3D;&quot;col-11 col-md-10&quot;&gt;
+    &lt;div class&#x3D;&quot;col-11 col-md-10&quot;&gt;
       &lt;div class&#x3D;&quot; card border-0 shadow-lg&quot;&gt;
         &lt;div class&#x3D;&quot;card-title&quot;&gt;
           &lt;div class&#x3D;&quot;row&quot;&gt;
@@ -533,38 +595,38 @@ export class CompetitionComponent implements OnInit {
               &lt;form #f&#x3D;&quot;ngForm&quot;&gt;
                 &lt;div class&#x3D;&quot;form-row&quot;&gt;
                   &lt;div class&#x3D;&quot;col-5&quot;&gt;
-                    &lt;input type&#x3D;&quot;text&quot; autofocus class&#x3D;&quot;form-control&quot; name&#x3D;&quot;title&quot; #title&#x3D;&quot;ngModel&quot; [(ngModel)]&#x3D;&quot;race.Title&quot; placeholder&#x3D;&quot;Bezeichnung&quot; required [ngClass]&#x3D;&quot;title.errors &amp;&amp; (title.touched || title.dirty) ? &#x27;has-error&#x27; : &#x27;&#x27;&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; autofocus class&#x3D;&quot;form-control&quot; name&#x3D;&quot;title&quot; #title&#x3D;&quot;ngModel&quot; [(ngModel)]&#x3D;&quot;race.Title&quot; [pattern]&#x3D;&quot;&#x27;^[A-ZÄÜÖ][\\s\\S]+$&#x27;&quot; 
+                      placeholder&#x3D;&quot;Bezeichnung&quot; required [ngClass]&#x3D;&quot;title.errors &amp;&amp; (title.touched || title.dirty) ? &#x27;has-error&#x27; : &#x27;&#x27;&quot;&gt;
                   &lt;/div&gt;
                   &lt;div class&#x3D;&quot;col-5&quot;&gt;
-                    &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;date&quot; #Date&#x3D;&quot;ngModel&quot; [(ngModel)]&#x3D;&quot;date&quot; placeholder&#x3D;&quot;Termin&quot; required [ngClass]&#x3D;&quot;Date.errors &amp;&amp; (Date.touched || Date.dirty) ? &#x27;has-error&#x27; : &#x27;&#x27;&quot;&gt;
+                    &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;date&quot; #Date&#x3D;&quot;ngModel&quot; [(ngModel)]&#x3D;&quot;date&quot; placeholder&#x3D;&quot;Termin&quot;
+                      required [ngClass]&#x3D;&quot;Date.errors &amp;&amp; (Date.touched || Date.dirty) ? &#x27;has-error&#x27; : &#x27;&#x27;&quot;&gt;
                   &lt;/div&gt;
                   &lt;div class&#x3D;&quot;col-5 mt-3&quot;&gt;
-                    &lt;input type&#x3D;&quot;time&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;time&quot; #Time&#x3D;&quot;ngModel&quot; [(ngModel)]&#x3D;&quot;time&quot; placeholder&#x3D;&quot;Starzeit&quot; required [ngClass]&#x3D;&quot;Time.errors &amp;&amp; (Time.touched || Time.dirty) ? &#x27;has-error&#x27; : &#x27;&#x27;&quot;&gt;
+                    &lt;input type&#x3D;&quot;time&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;time&quot; #Time&#x3D;&quot;ngModel&quot; [(ngModel)]&#x3D;&quot;time&quot; placeholder&#x3D;&quot;Starzeit&quot;
+                      required [ngClass]&#x3D;&quot;Time.errors &amp;&amp; (Time.touched || Time.dirty) ? &#x27;has-error&#x27; : &#x27;&#x27;&quot;&gt;
                   &lt;/div&gt;
                   &lt;div class&#x3D;&quot;col-5 mt-3&quot;&gt;
-                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;link&quot; [(ngModel)]&#x3D;&quot;race.Link&quot; placeholder&#x3D;&quot;Ausschreibungslink&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; name&#x3D;&quot;link&quot; #Link&#x3D;&quot;ngModel&quot; [(ngModel)]&#x3D;&quot;race.Link&quot; placeholder&#x3D;&quot;Ausschreibungslink&quot; [ngClass]&#x3D;&quot;Link.errors &amp;&amp; (Link.touched || Link.dirty) ? &#x27;has-error&#x27; : &#x27;&#x27;&quot;
+                      [pattern]&#x3D;&quot;&#x27;(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#&#x3D;]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&amp;//&#x3D;]*)&#x27;&quot;&gt;
                   &lt;/div&gt;
-                  &lt;div class&#x3D;&quot;col-4 mt-3&quot; &gt;
-                    &lt;a class&#x3D;&quot;card-link action-link&quot; (click)&#x3D;&quot;onAddNewRaceClicked()&quot; [class.form-invalid]&#x3D;&quot;f.invalid&quot; &gt;
-                      &lt;h5 class&#x3D;&quot;arrow&quot;&gt;Anlegen ➜&lt;/h5&gt;
-                    &lt;/a&gt;
+                  &lt;div class&#x3D;&quot;col-5 mt-3&quot;&gt; 
+                      &lt;a class&#x3D;&quot;action-link card-link&quot; (click)&#x3D;&quot;onAddNewRaceClicked()&quot; [class.form-invalid]&#x3D;&quot;f.invalid&quot;&gt;
+                        &lt;h5 class&#x3D;&quot;arrow&quot;&gt;Anlegen ➜&lt;/h5&gt;
+                      &lt;/a&gt;
                   &lt;/div&gt;
+
                 &lt;/div&gt;
+
+
+
               &lt;/form&gt;
+
             &lt;/div&gt;
 
           &lt;/div&gt;
         &lt;/div&gt;
-
-
-
-
-
-
       &lt;/div&gt;
-
-
-
     &lt;/div&gt;
 </code></pre>
     </div>
@@ -648,7 +710,7 @@ select:focus {
 
 
 .arrow {
-  border-bottom: 3px solid #26D2B3;
+  text-decoration: underline;
   color: #26D2B3;
 }
 
@@ -673,7 +735,9 @@ select:focus {
 
 .form-invalid &gt; h5{
   color: #e8e8e8;
-  border-bottom:3px solid #e8e8e8;
+  text-decoration: 3px underline;
+  text-decoration-line: 3px;
+
 }</code></pre>
     </div>
 
@@ -702,9 +766,9 @@ select:focus {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row justify-content-center">      <div class="col-11 col-md-10">      <div class=" card border-0 shadow-lg">        <div class="card-title">          <div class="row">            <div class="col-1">              <a [routerLink]="[\'/admin\']">                <fa-icon [icon]="faArrow"></fa-icon>              </a>            </div>            <div class="col-10">              <h2>Admin</h2>              <p>Füllen Sie die Felder aus, um ein Rennen <br> anzulegen.</p>              <form #f="ngForm">                <div class="form-row">                  <div class="col-5">                    <input type="text" autofocus class="form-control" name="title" #title="ngModel" [(ngModel)]="race.Title" placeholder="Bezeichnung" required [ngClass]="title.errors && (title.touched || title.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5">                    <input type="date" class="form-control" name="date" #Date="ngModel" [(ngModel)]="date" placeholder="Termin" required [ngClass]="Date.errors && (Date.touched || Date.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5 mt-3">                    <input type="time" class="form-control" name="time" #Time="ngModel" [(ngModel)]="time" placeholder="Starzeit" required [ngClass]="Time.errors && (Time.touched || Time.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5 mt-3">                    <input type="text" class="form-control" name="link" [(ngModel)]="race.Link" placeholder="Ausschreibungslink">                  </div>                  <div class="col-4 mt-3" >                    <a class="card-link action-link" (click)="onAddNewRaceClicked()" [class.form-invalid]="f.invalid" >                      <h5 class="arrow">Anlegen ➜</h5>                    </a>                  </div>                </div>              </form>            </div>          </div>        </div>      </div>    </div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row justify-content-center">    <div class="col-11 col-md-10">      <div class=" card border-0 shadow-lg">        <div class="card-title">          <div class="row">            <div class="col-1">              <a [routerLink]="[\'/admin\']">                <fa-icon [icon]="faArrow"></fa-icon>              </a>            </div>            <div class="col-10">              <h2>Admin</h2>              <p>Füllen Sie die Felder aus, um ein Rennen <br> anzulegen.</p>              <form #f="ngForm">                <div class="form-row">                  <div class="col-5">                    <input type="text" autofocus class="form-control" name="title" #title="ngModel" [(ngModel)]="race.Title" [pattern]="\'^[A-ZÄÜÖ][\\s\\S]+$\'"                       placeholder="Bezeichnung" required [ngClass]="title.errors && (title.touched || title.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5">                    <input type="date" class="form-control" name="date" #Date="ngModel" [(ngModel)]="date" placeholder="Termin"                      required [ngClass]="Date.errors && (Date.touched || Date.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5 mt-3">                    <input type="time" class="form-control" name="time" #Time="ngModel" [(ngModel)]="time" placeholder="Starzeit"                      required [ngClass]="Time.errors && (Time.touched || Time.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5 mt-3">                    <input type="text" class="form-control" name="link" #Link="ngModel" [(ngModel)]="race.Link" placeholder="Ausschreibungslink" [ngClass]="Link.errors && (Link.touched || Link.dirty) ? \'has-error\' : \'\'"                      [pattern]="\'(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)\'">                  </div>                  <div class="col-5 mt-3">                       <a class="action-link card-link" (click)="onAddNewRaceClicked()" [class.form-invalid]="f.invalid">                        <h5 class="arrow">Anlegen ➜</h5>                      </a>                  </div>                </div>              </form>            </div>          </div>        </div>      </div>    </div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'CompetitionComponent', 'selector': 'app-competition'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RaceComponent', 'selector': 'app-race'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
-    var DIRECTIVES = [];
+    var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[appAutofocus]'}];
     var ACTUAL_COMPONENT = {'name': 'CompetitionComponent'};
 </script>
 <script src="../js/tree.js"></script>

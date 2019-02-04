@@ -187,6 +187,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of LiveresultlistComponent.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -250,13 +252,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:65</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>get rank of specific participant</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -319,13 +323,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:76</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>get rank of specific participant by sex</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -388,7 +394,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:56</a></div>
                             </td>
                         </tr>
 
@@ -426,7 +432,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:53</a></div>
                             </td>
                         </tr>
 
@@ -477,7 +483,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/viewer/liveresultlist/liveresultlist.component.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -535,15 +541,36 @@ import {
   ]
 })
 export class LiveresultlistComponent implements OnInit, OnDestroy {
+  /**
+   *Creates an instance of LiveresultlistComponent.
+   * @param {LiveresultService} liveresult
+   * @memberof LiveresultlistComponent
+   */
   constructor(public liveresult: LiveresultService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.liveresult.sortList();
+  }
   ngOnDestroy() {}
 
+  /**
+   *get rank of specific participant
+   *
+   * @param {Participant} participant
+   * @returns
+   * @memberof LiveresultlistComponent
+   */
   getRank(participant: Participant) {
     return this.liveresult.getRank(participant);
   }
 
+  /**
+   *get rank of specific participant by sex
+   *
+   * @param {Participant} participant
+   * @returns {number}
+   * @memberof LiveresultlistComponent
+   */
   getRankBySex(participant: Participant): number {
     return this.liveresult.getRank(participant, true);
   }
@@ -672,7 +699,7 @@ export class LiveresultlistComponent implements OnInit, OnDestroy {
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="row m-2">    <div class="card mt-3 shadow" *ngFor="let i of liveresult.participantList">      <div class="card-body row justify-content-between">        <div class="col-12 col-md-6 no-wrap">          <div class="row justify-content-md-start">            <div class="col-auto" *ngIf="i.Time > 0">              <p class="rank">#{{i | participantToRank:liveresult.participantList}}</p>            </div>            <div class="col-auto" *ngIf="i.Time <= 0">              <p class="rank-grey">#?</p>            </div>            <p class="col-auto card-text">              {{ i.Starter }} - {{ i.Firstname }} {{ i.Lastname }}            </p>          </div>        </div>        <div class="col-12 col-md-6 no-wrap">          <div class="row justify-content-start justify-content-md-end">            <div class="col-auto">              <div class="inline" *ngIf="i.Time > 0">                <p class="rank">{{ i.Sex | sexenglishtogermanpipe }}{{ i | participantToSexRank:liveresult.participantList }}</p>              </div>              <div class="inline" *ngIf="i.Time <= 0">                <p class="rank-grey">{{ i.Sex | sexenglishtogermanpipe }}?</p>              </div>            </div>            <div class="col-auto">              <p class="inline rank">{{ i.Time | milliSecondsToTime }}</p>              <p class="inline little-rank">                {{ i.Time | milliSecondsToTime: true }}              </p>            </div>          </div>        </div>      </div>    </div>  </div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'CompetitionComponent', 'selector': 'app-competition'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RaceComponent', 'selector': 'app-race'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
-    var DIRECTIVES = [];
+    var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[appAutofocus]'}];
     var ACTUAL_COMPONENT = {'name': 'LiveresultlistComponent'};
 </script>
 <script src="../js/tree.js"></script>

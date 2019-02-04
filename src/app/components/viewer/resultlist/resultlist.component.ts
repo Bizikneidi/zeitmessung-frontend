@@ -13,12 +13,24 @@ import { slideAnimation } from '../../../animations/animations';
 })
 export class ResultlistComponent implements OnInit, OnDestroy {
 
+  /**
+   *list of all current participants
+   *
+   * @type {Array<Participant>}
+   * @memberof ResultlistComponent
+   */
   participants: Array<Participant> = [];
 
   participantsSub: Subscription;
   routerSub: Subscription;
   pdfSub: Subscription;
 
+  /**
+   *Creates an instance of ResultlistComponent.
+   * @param {ActivatedRoute} route
+   * @param {ViewerService} viewers
+   * @memberof ResultlistComponent
+   */
   constructor(private route: ActivatedRoute, private viewers: ViewerService) {
   }
 
@@ -54,6 +66,11 @@ export class ResultlistComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   *get all participant for current race
+   *
+   * @memberof ResultlistComponent
+   */
   getParticipants() {
     const raceid = Number.parseInt(this.route.snapshot.queryParams.raceid);
     this.viewers.getParticipants(raceid);

@@ -7,10 +7,30 @@ import { AdminService } from '../../../services/admin/admin.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  faArrow = faLongArrowAltLeft; // arrow icon
+  /**
+   *left arrow icon
+   *
+   * @memberof AdminComponent
+   */
+  faArrow = faLongArrowAltLeft;
+  /**
+   *boolean if the start button is enabled
+   *
+   * @memberof AdminComponent
+   */
   startable = false;
+  /**
+   *id of the selected race
+   *
+   * @memberof AdminComponent
+   */
   raceId = -1;
 
+  /**
+   *Creates an instance of AdminComponent.
+   * @param {AdminService} admin
+   * @memberof AdminComponent
+   */
   constructor(public admin: AdminService) {
   }
 
@@ -18,7 +38,12 @@ export class AdminComponent implements OnInit {
     this.admin.connect(); // Connect as Admin on page visit
   }
 
-  // on race selected
+  /**
+   *on race selected
+   *
+   * @param {number} id
+   * @memberof AdminComponent
+   */
   onSelected(id: number) {
     this.raceId = id;
     this.startable = true;

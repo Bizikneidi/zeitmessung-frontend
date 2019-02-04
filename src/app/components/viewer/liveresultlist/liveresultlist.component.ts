@@ -43,6 +43,11 @@ import {
   ]
 })
 export class LiveresultlistComponent implements OnInit, OnDestroy {
+  /**
+   *Creates an instance of LiveresultlistComponent.
+   * @param {LiveresultService} liveresult
+   * @memberof LiveresultlistComponent
+   */
   constructor(public liveresult: LiveresultService) {}
 
   ngOnInit() {
@@ -50,10 +55,24 @@ export class LiveresultlistComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {}
 
+  /**
+   *get rank of specific participant
+   *
+   * @param {Participant} participant
+   * @returns
+   * @memberof LiveresultlistComponent
+   */
   getRank(participant: Participant) {
     return this.liveresult.getRank(participant);
   }
 
+  /**
+   *get rank of specific participant by sex
+   *
+   * @param {Participant} participant
+   * @returns {number}
+   * @memberof LiveresultlistComponent
+   */
   getRankBySex(participant: Participant): number {
     return this.liveresult.getRank(participant, true);
   }

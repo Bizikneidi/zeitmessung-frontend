@@ -5,6 +5,13 @@ import { RaceManagerState } from '../entities/racemanagerstate';
     name: 'stateToText'
 })
 export class StateToTextPipe implements PipeTransform {
+    /**
+     *returns message based on RaceManagerState
+     *
+     * @param {RaceManagerState} value
+     * @returns {string}
+     * @memberof StateToTextPipe
+     */
     transform(value: RaceManagerState): string {
         switch (value) {
             case RaceManagerState.Ready:
