@@ -22,7 +22,7 @@
      
         <div class="row mt-5 no-gutters">
           <div class="col-5 ">
-            <div class="card zoom shadow border-0 h-100" [routerLink]="['./competition']">
+            <div class="card zoom shadow border-0 h-100" [routerLink]="['./createrace']">
               <div class="card-body">
                 <h3>Wettkampf <br/> eintragen</h3>
                 <p>Drücken sie hier, <br/> um ein Rennen anzulegen</p>
@@ -38,7 +38,7 @@
                   <option selected disabled>Wettkampf</option>
                   <option *ngFor="let r of admin.availableRaces" value="{{ r.Id }}">{{ r.Title }}</option>
                 </select>
-                <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="['./race']" [queryParams]="{raceid: raceId}" [ngClass]="startable ? '':'form-invalid'">
+                <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="['./startrace']" [queryParams]="{raceid: raceId}" [ngClass]="startable ? '':'form-invalid'">
                   <h5 class="arrow" >Starten ➜</h5>
                 </a>
 

@@ -73,7 +73,7 @@ export class ViewerService {
   private racesSubject: Subject<Array<Race>>;
 
   /**
-   *Observe all participants per race
+   *Observe all participants per startrace
    *
    * @type {Observable<Array<Participant>>}
    * @memberof ViewerService
@@ -171,7 +171,7 @@ export class ViewerService {
   }
 
   /**
-   *get all participants for specific race from the ws
+   *get all participants for specific startrace from the ws
    *
    * @param {number} raceid
    * @memberof ViewerService
@@ -184,7 +184,7 @@ export class ViewerService {
   }
 
   /**
-   *generate pdf of specific race
+   *generate pdf of specific startrace
    *using jsPdf and jsPdfAutoTable
    *
    * @param {number} raceid

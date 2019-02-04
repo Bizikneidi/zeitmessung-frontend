@@ -14,14 +14,14 @@ export class Race {
      */
     public Id: number;
     /**
-     *The date and time the race takes place, in ms since unix epoch
+     *The date and time the startrace takes place, in ms since unix epoch
      *
      * @type {number}
      * @memberof Race
      */
     public Date: number;
     /**
-     *Link to the announcement of the race
+     *Link to the announcement of the startrace
      *Has to be a valid URL  (RFC1738)
      *
      * @type {string}
@@ -29,7 +29,7 @@ export class Race {
      */
     public Link: string;
     /**
-     *The Title of the race,
+     *The Title of the startrace,
      *required
      *
      * @type {string}
@@ -37,7 +37,7 @@ export class Race {
      */
     public Title: string;
     /**
-     *Wether this race has been started / completed in the past
+     *Wether this startrace has been started / completed in the past
      *
      * @type {boolean}
      * @memberof Race

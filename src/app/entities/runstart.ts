@@ -1,7 +1,7 @@
 import { Participant } from './participant';
 
 /**
- *Used to transfer basic data about the current race
+ *Used to transfer basic data about the current startrace
  *
  * @export
  * @class RunStart
@@ -15,14 +15,14 @@ export class RunStart {
      */
     public CurrentTime: number; // The current time of the station
     /**
-     *All the participants in the current race
+     *All the participants in the current startrace
      *
      * @type {Array<Participant>}
      * @memberof RunStart
      */
     public Participants: Array<Participant>; // All participants participating in this event
     /**
-     *All the participants in the current race
+     *All the participants in the current startrace
      *
      * @type {number}
      * @memberof RunStart

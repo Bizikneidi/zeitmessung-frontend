@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>CompetitionComponent</li>
+  <li>CreateraceComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/components/admin/competition/competition.component.ts</code>
+    <code>src/app/components/admin/competition/createrace.component.ts</code>
 </p>
 
 
@@ -182,13 +182,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/admin/competition/createrace.component.ts:37</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Creates an instance of CompetitionComponent.</p>
+                            <div class="io-description"><p>Creates an instance of CreateraceComponent.</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -265,7 +265,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/admin/competition/createrace.component.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -303,7 +303,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/admin/competition/createrace.component.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -361,7 +361,7 @@ creates the race and navigates back</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/admin/competition/createrace.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -400,7 +400,7 @@ creates the race and navigates back</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/admin/competition/createrace.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -445,7 +445,7 @@ creates the race and navigates back</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/admin/competition/createrace.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -490,7 +490,7 @@ creates the race and navigates back</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/admin/competition/competition.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/admin/competition/createrace.component.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -520,38 +520,38 @@ import { Router } from &#x27;@angular/router&#x27;;
   templateUrl: &#x27;./competition.component.html&#x27;,
   styleUrls: [&#x27;./competition.component.css&#x27;]
 })
-export class CompetitionComponent implements OnInit {
+export class CreateraceComponent implements OnInit {
   /**
    *left arrow icon
    *
-   * @memberof CompetitionComponent
+   * @memberof CreateraceComponent
    */
   faArrow &#x3D; faLongArrowAltLeft;
   /**
    *race to be created
    *
    * @type {Race}
-   * @memberof CompetitionComponent
+   * @memberof CreateraceComponent
    */
   race: Race &#x3D; new Race();
   /**
    *date field for validation
    *
-   * @memberof CompetitionComponent
+   * @memberof CreateraceComponent
    */
   date &#x3D; &#x27;&#x27;;
   /**
    *time field for validation
    *
-   * @memberof CompetitionComponent
+   * @memberof CreateraceComponent
    */
   time &#x3D; &#x27;&#x27;;
 
   /**
-   *Creates an instance of CompetitionComponent.
+   *Creates an instance of CreateraceComponent.
    * @param {AdminService} admin
    * @param {Router} router
-   * @memberof CompetitionComponent
+   * @memberof CreateraceComponent
    */
   constructor(private admin: AdminService, private router: Router) { }
 
@@ -563,7 +563,7 @@ export class CompetitionComponent implements OnInit {
    *on click of create race button
    *creates the race and navigates back
    *
-   * @memberof CompetitionComponent
+   * @memberof CreateraceComponent
    */
   onAddNewRaceClicked() {
     const date &#x3D; new Date(&#x60;${this.date} ${this.time}&#x60;);
@@ -766,10 +766,10 @@ select:focus {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row justify-content-center">    <div class="col-11 col-md-10">      <div class=" card border-0 shadow-lg">        <div class="card-title">          <div class="row">            <div class="col-1">              <a [routerLink]="[\'/admin\']">                <fa-icon [icon]="faArrow"></fa-icon>              </a>            </div>            <div class="col-10">              <h2>Admin</h2>              <p>Füllen Sie die Felder aus, um ein Rennen <br> anzulegen.</p>              <form #f="ngForm">                <div class="form-row">                  <div class="col-5">                    <input type="text" autofocus class="form-control" name="title" #title="ngModel" [(ngModel)]="race.Title" [pattern]="\'^[A-ZÄÜÖ][\\s\\S]+$\'"                       placeholder="Bezeichnung" required [ngClass]="title.errors && (title.touched || title.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5">                    <input type="date" class="form-control" name="date" #Date="ngModel" [(ngModel)]="date" placeholder="Termin"                      required [ngClass]="Date.errors && (Date.touched || Date.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5 mt-3">                    <input type="time" class="form-control" name="time" #Time="ngModel" [(ngModel)]="time" placeholder="Starzeit"                      required [ngClass]="Time.errors && (Time.touched || Time.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5 mt-3">                    <input type="text" class="form-control" name="link" #Link="ngModel" [(ngModel)]="race.Link" placeholder="Ausschreibungslink" [ngClass]="Link.errors && (Link.touched || Link.dirty) ? \'has-error\' : \'\'"                      [pattern]="\'(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)\'">                  </div>                  <div class="col-5 mt-3">                       <a class="action-link card-link" (click)="onAddNewRaceClicked()" [class.form-invalid]="f.invalid">                        <h5 class="arrow">Anlegen ➜</h5>                      </a>                  </div>                </div>              </form>            </div>          </div>        </div>      </div>    </div></div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'CompetitionComponent', 'selector': 'app-competition'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RaceComponent', 'selector': 'app-race'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row justify-content-center">    <div class="col-11 col-md-10">      <div class=" card border-0 shadow-lg">        <div class="card-title">          <div class="row">            <div class="col-1">              <a [routerLink]="[\'/admin\']">                <fa-icon [icon]="faArrow"></fa-icon>              </a>            </div>            <div class="col-10">              <h2>Admin</h2>              <p>Füllen Sie die Felder aus, um ein Rennen <br> anzulegen.</p>              <form #f="ngForm">                <div class="form-row">                  <div class="col-5">                    <input type="text" autofocus class="form-control" name="title" #title="ngModel" [(ngModel)]="startrace.Title" [pattern]="\'^[A-ZÄÜÖ][\\s\\S]+$\'"                       placeholder="Bezeichnung" required [ngClass]="title.errors && (title.touched || title.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5">                    <input type="date" class="form-control" name="date" #Date="ngModel" [(ngModel)]="date" placeholder="Termin"                      required [ngClass]="Date.errors && (Date.touched || Date.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5 mt-3">                    <input type="time" class="form-control" name="time" #Time="ngModel" [(ngModel)]="time" placeholder="Starzeit"                      required [ngClass]="Time.errors && (Time.touched || Time.dirty) ? \'has-error\' : \'\'">                  </div>                  <div class="col-5 mt-3">                    <input type="text" class="form-control" name="link" #Link="ngModel" [(ngModel)]="startrace.Link" placeholder="Ausschreibungslink" [ngClass]="Link.errors && (Link.touched || Link.dirty) ? \'has-error\' : \'\'"                      [pattern]="\'(http(s)?:\\/\\/.)?(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)\'">                  </div>                  <div class="col-5 mt-3">                       <a class="action-link card-link" (click)="onAddNewRaceClicked()" [class.form-invalid]="f.invalid">                        <h5 class="arrow">Anlegen ➜</h5>                      </a>                  </div>                </div>              </form>            </div>          </div>        </div>      </div>    </div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'CreateRaceComponent', 'selector': 'app-createrace'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RaceComponent', 'selector': 'app-startrace'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
     var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[appAutofocus]'}];
-    var ACTUAL_COMPONENT = {'name': 'CompetitionComponent'};
+    var ACTUAL_COMPONENT = {'name': 'CreateRaceComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -803,7 +803,7 @@ select:focus {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'CompetitionComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateRaceComponent.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

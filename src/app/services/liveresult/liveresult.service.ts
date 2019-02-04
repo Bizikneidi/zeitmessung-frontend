@@ -7,7 +7,7 @@ import { SortParticipantListPipe } from '../../pipes/sortparticipantlist.pipe';
 export class LiveresultService {
 
   /**
-   *list of participants for the live race
+   *list of participants for the live startrace
    *
    * @type {Array<Participant>}
    * @memberof LiveresultService

@@ -20,7 +20,7 @@ export class AdminComponent implements OnInit {
    */
   startable = false;
   /**
-   *id of the selected race
+   *id of the selected startrace
    *
    * @memberof AdminComponent
    */
@@ -39,7 +39,7 @@ export class AdminComponent implements OnInit {
   }
 
   /**
-   *on race selected
+   *on startrace selected
    *
    * @param {number} id
    * @memberof AdminComponent

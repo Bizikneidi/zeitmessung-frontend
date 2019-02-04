@@ -20,7 +20,7 @@ export class LiveTimerService {
      */
     private startStationTime: number;
     /**
-     *timer keeps track of current race time
+     *timer keeps track of current startrace time
      *
      * @private
      * @type {*}

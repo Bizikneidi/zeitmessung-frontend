@@ -24,7 +24,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
    */
   races = new Array<Race>();
   /**
-   *id of selected race or
+   *id of selected startrace or
    *'live' if live resultlist
    * @memberof ViewerComponent
    */
@@ -48,12 +48,12 @@ export class ViewerComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.viewer.connect(); // Connect on website visit
 
-    // Check for the start of a race
+    // Check for the start of a startrace
     this.startSubscription = this.viewer.start.subscribe(ms => {
       this.liveTimer.start(ms.CurrentTime, ms.StartTime);
     });
 
-    // Check for the end of a race
+    // Check for the end of a startrace
     this.endSubscription = this.viewer.end.subscribe(() => {
       this.liveTimer.stop();
     });
@@ -99,7 +99,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   }
 
   /**
-   *navigate to new race and set activeRace
+   *navigate to new startrace and set activeRace
    *
    * @param {*} id
    * @memberof ViewerComponent
@@ -142,7 +142,7 @@ export class ViewerComponent implements OnInit, OnDestroy {
   }
 
   /**
-   *check which race is selected
+   *check which startrace is selected
    *
    * @param {*} option
    * @returns

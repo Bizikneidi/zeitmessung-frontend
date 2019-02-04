@@ -12,7 +12,7 @@ import { Race } from '../../entities/race';
 export class AdminService {
 
   /**
-   *the current stat of a race
+   *the current stat of a startrace
    *
    * @type {RaceManagerState}
    * @memberof AdminService
@@ -20,7 +20,7 @@ export class AdminService {
   public state: RaceManagerState;
 
   /**
-   *Observe for the start of a race
+   *Observe for the start of a startrace
    *
    * @type {Observable<RunStart>}
    * @memberof AdminService
@@ -38,7 +38,7 @@ export class AdminService {
   private measuredStopSubject: Subject<number>;
 
   /**
-   *Observe the end of a race
+   *Observe the end of a startrace
    *
    * @type {Observable<null>}
    * @memberof AdminService
@@ -119,7 +119,7 @@ export class AdminService {
     this.ws.send(msg);
   }
   /**
-   *send the create race command to the server
+   *send the create startrace command to the server
    *
    * @param {Race} race
    * @memberof AdminService

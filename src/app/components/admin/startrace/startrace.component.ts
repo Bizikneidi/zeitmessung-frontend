@@ -12,17 +12,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-race',
-  templateUrl: './race.component.html',
-  styleUrls: ['./race.component.css'],
+  templateUrl: './startrace.component.html',
+  styleUrls: ['./startrace.component.css'],
   providers: [LiveTimerService],
   animations: [slideAnimation]
 })
-export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
+export class StartRaceComponent implements OnInit, OnDestroy, AfterContentChecked {
 
   /**
    *left arrow icon
    *
-   * @memberof RaceComponent
+   * @memberof StartRaceComponent
    */
   faArrow = faLongArrowAltLeft;
 
@@ -33,21 +33,21 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
    *array to hide assigned participants
    *
    * @type {boolean[]}
-   * @memberof RaceComponent
+   * @memberof StartRaceComponent
    */
   hiddenAssignedParticipants: boolean[] = [];
   /**
    *list of all finshed participants
    *
    * @type {Participant[]}
-   * @memberof RaceComponent
+   * @memberof StartRaceComponent
    */
   finishedParticipantList: Participant[] = [];
   /**
    *index for autoselect
    *
    * @type {number}
-   * @memberof RaceComponent
+   * @memberof StartRaceComponent
    */
   currentListIndex: number;
   startSubscription: Subscription;
@@ -55,13 +55,13 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
   measuredStopSubscription: Subscription;
 
   /**
-   *Creates an instance of RaceComponent.
+   *Creates an instance of StartRaceComponent.
    * @param {AdminService} admin
    * @param {LiveTimerService} liveTimer
    * @param {Router} router
    * @param {ActivatedRoute} route
    * @param {ChangeDetectorRef} cdref
-   * @memberof RaceComponent
+   * @memberof StartRaceComponent
    */
   constructor(public admin: AdminService, public liveTimer: LiveTimerService, public router: Router, private route: ActivatedRoute,
     private cdref: ChangeDetectorRef) {
@@ -115,9 +115,9 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
   }
 
   /**
-   *starts a race
+   *starts a startrace
    *
-   * @memberof RaceComponent
+   * @memberof StartRaceComponent
    */
   onStartRunClicked() {
     this.admin.startRun(Number.parseInt(this.route.snapshot.queryParams.raceid));
@@ -127,7 +127,7 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
    *assing start number to participant, hide the participant and jump to the next participant (autofocus) with currentListIndex++
    *
    * @param {number} index
-   * @memberof RaceComponent
+   * @memberof StartRaceComponent
    */
   onAssignTimeToParticipantClicked(index: number) {
     const finishedParticipant = this.finishedParticipantList[index];
@@ -139,7 +139,7 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
   /**
    *revert to inital status
    *
-   * @memberof RaceComponent
+   * @memberof StartRaceComponent
    */
   resetRun() {
     this.liveTimer.stop();
@@ -153,7 +153,7 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
   /**
    *unsubscribe and disconnect from admin
    *
-   * @memberof RaceComponent
+   * @memberof StartRaceComponent
    */
   ngOnDestroy() {
     if (this.startSubscription && !this.startSubscription.closed) {

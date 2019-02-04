@@ -6,41 +6,41 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-competition',
-  templateUrl: './competition.component.html',
-  styleUrls: ['./competition.component.css']
+  templateUrl: './createrace.component.html',
+  styleUrls: ['./createrace.component.css']
 })
-export class CompetitionComponent implements OnInit {
+export class CreateRaceComponent implements OnInit {
   /**
    *left arrow icon
    *
-   * @memberof CompetitionComponent
+   * @memberof CreateRaceComponent
    */
   faArrow = faLongArrowAltLeft;
   /**
-   *race to be created
+   *startrace to be created
    *
    * @type {Race}
-   * @memberof CompetitionComponent
+   * @memberof CreateRaceComponent
    */
   race: Race = new Race();
   /**
    *date field for validation
    *
-   * @memberof CompetitionComponent
+   * @memberof CreateRaceComponent
    */
   date = '';
   /**
    *time field for validation
    *
-   * @memberof CompetitionComponent
+   * @memberof CreateRaceComponent
    */
   time = '';
 
   /**
-   *Creates an instance of CompetitionComponent.
+   *Creates an instance of CreateRaceComponent.
    * @param {AdminService} admin
    * @param {Router} router
-   * @memberof CompetitionComponent
+   * @memberof CreateRaceComponent
    */
   constructor(private admin: AdminService, private router: Router) { }
 
@@ -49,10 +49,10 @@ export class CompetitionComponent implements OnInit {
   }
 
   /**
-   *on click of create race button
-   *creates the race and navigates back
+   *on click of create startrace button
+   *creates the startrace and navigates back
    *
-   * @memberof CompetitionComponent
+   * @memberof CreateRaceComponent
    */
   onAddNewRaceClicked() {
     const date = new Date(`${this.date} ${this.time}`);

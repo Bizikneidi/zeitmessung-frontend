@@ -24,8 +24,8 @@ import { ResultlistComponent } from './components/viewer/resultlist/resultlist.c
 import { StateToTextPipe } from './pipes/statetotextpipe';
 import { RaceToStringPipe } from './pipes/racetostringpipe';
 import { LiveresultService } from './services/liveresult/liveresult.service';
-import { CompetitionComponent } from './components/admin/competition/competition.component';
-import { RaceComponent } from './components/admin/race/race.component';
+import { CreateRaceComponent } from './components/admin/createrace/createrace.component';
+import { StartRaceComponent } from './components/admin/startrace/startrace.component';
 import { ParticipantracechooserComponent } from './components/participant/participantracechooser/participantracechooser.component';
 import { SexEnglishToGermanPipe } from './pipes/sexenglishtogermanpipe.pipe';
 import { ParticipantToRankPipe, ParticipantToSexRankPipe } from './pipes/participanttorankpipe';
@@ -39,8 +39,8 @@ import { SortParticipantListPipe } from './pipes/sortparticipantlist.pipe';
     NavigationcardsComponent,
     HeaderComponent,
     AdminComponent,
-    CompetitionComponent,
-    RaceComponent,
+    CreateRaceComponent,
+    StartRaceComponent,
     FooterComponent,
     MilliSecondsToTimePipe,
     StateToTextPipe,
@@ -51,8 +51,8 @@ import { SortParticipantListPipe } from './pipes/sortparticipantlist.pipe';
     PoliciesComponent,
     LiveresultlistComponent,
     ResultlistComponent,
-    CompetitionComponent,
-    RaceComponent,
+    CreateRaceComponent,
+    StartRaceComponent,
     ResultlistComponent,
     SexEnglishToGermanPipe,
     ParticipantracechooserComponent,

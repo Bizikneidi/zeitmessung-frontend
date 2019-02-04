@@ -6,7 +6,7 @@ import { Race } from '../entities/race';
 })
 export class RaceToStringPipe implements PipeTransform {
     /**
-     *returns race Title or Date based on date
+     *returns startrace Title or Date based on date
      *
      * @param {Race} value
      * @param {boolean} [date=false]

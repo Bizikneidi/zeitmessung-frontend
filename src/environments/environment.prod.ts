@@ -5,8 +5,8 @@ import { PoliciesComponent } from '../app/components/general/policies/policies.c
 import { NavigationcardsComponent } from '../app/components/general/navigationcards/navigationcards.component';
 import { LiveresultlistComponent } from '../app/components/viewer/liveresultlist/liveresultlist.component';
 import { ResultlistComponent } from '../app/components/viewer/resultlist/resultlist.component';
-import { CompetitionComponent } from '../app/components/admin/competition/competition.component';
-import { RaceComponent } from '../app/components/admin/race/race.component';
+import { CreateRaceComponent } from '../app/components/admin/createrace/createrace.component';
+import { StartRaceComponent } from '../app/components/admin/startrace/startrace.component';
 import { ParticipantracechooserComponent } from '../app/components/participant/participantracechooser/participantracechooser.component';
 
 export const environment = {
@@ -31,8 +31,8 @@ export const environment = {
     {
       path: 'admin', component: AdminComponent
     },
-    {path: 'admin/competition', pathMatch: 'full', component: CompetitionComponent},
-    {path: 'admin/race', pathMatch: 'full', component: RaceComponent},
+    {path: 'admin/createrace', pathMatch: 'full', component: CreateRaceComponent},
+    {path: 'admin/startrace', pathMatch: 'full', component: StartRaceComponent},
     { path: 'policies', component: PoliciesComponent },
     { path: 'chooserace', component: ParticipantracechooserComponent },
     { path: '**', component: NavigationcardsComponent }

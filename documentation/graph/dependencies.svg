@@ -66,23 +66,41 @@
 <path fill="none" stroke="#000000" d="M4031,-122.3228C4031,-145.6602 4031,-183 4031,-183 4031,-183 2094.9809,-183 2094.9809,-183"/>
 <polygon fill="#000000" stroke="#000000" points="2094.9809,-179.5001 2084.9809,-183 2094.9809,-186.5001 2094.9809,-179.5001"/>
 </g>
-<!-- CompetitionComponent -->
+<!-- CreateRaceComponent -->
 <g id="node3" class="node">
+<<<<<<< refs/remotes/origin/develop
 <title>CompetitionComponent</title>
 <polygon fill="#ffffb3" stroke="#000000" points="3949.837,-122 3798.163,-122 3798.163,-86 3949.837,-86 3949.837,-122"/>
 <text text-anchor="middle" x="3874" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CompetitionComponent</text>
+=======
+<title>CreateraceComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="3785.837,-122 3634.163,-122 3634.163,-86 3785.837,-86 3785.837,-122"/>
+<text text-anchor="middle" x="3710" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CreateraceComponent</text>
+>>>>>>> renamed admin components
 </g>
-<!-- CompetitionComponent&#45;&gt;AppModule -->
+<!-- CreateRaceComponent&#45;&gt;AppModule -->
 <g id="edge3" class="edge">
+<<<<<<< refs/remotes/origin/develop
 <title>CompetitionComponent&#45;&gt;AppModule</title>
 <path fill="none" stroke="#000000" d="M3899.2228,-122.0109C3899.2228,-144.4852 3899.2228,-180 3899.2228,-180 3899.2228,-180 2094.8138,-180 2094.8138,-180"/>
 <polygon fill="#000000" stroke="#000000" points="2094.8139,-176.5001 2084.8138,-180 2094.8138,-183.5001 2094.8139,-176.5001"/>
+=======
+<title>CreateraceComponent&#45;&gt;AppModule</title>
+<path fill="none" stroke="#000000" d="M3735.2228,-122.0109C3735.2228,-144.4852 3735.2228,-180 3735.2228,-180 3735.2228,-180 1998.0275,-180 1998.0275,-180"/>
+<polygon fill="#000000" stroke="#000000" points="1998.0275,-176.5001 1988.0275,-180 1998.0275,-183.5001 1998.0275,-176.5001"/>
+>>>>>>> renamed admin components
 </g>
-<!-- CompetitionComponent&#45;&gt;AppModule -->
+<!-- CreateRaceComponent&#45;&gt;AppModule -->
 <g id="edge4" class="edge">
+<<<<<<< refs/remotes/origin/develop
 <title>CompetitionComponent&#45;&gt;AppModule</title>
 <path fill="none" stroke="#000000" d="M3848.7772,-122.2921C3848.7772,-144.2057 3848.7772,-178 3848.7772,-178 3848.7772,-178 2094.9785,-178 2094.9785,-178"/>
 <polygon fill="#000000" stroke="#000000" points="2094.9785,-174.5001 2084.9785,-178 2094.9784,-181.5001 2094.9785,-174.5001"/>
+=======
+<title>CreateraceComponent&#45;&gt;AppModule</title>
+<path fill="none" stroke="#000000" d="M3684.7772,-122.0449C3684.7772,-143.6623 3684.7772,-177 3684.7772,-177 3684.7772,-177 1997.692,-177 1997.692,-177"/>
+<polygon fill="#000000" stroke="#000000" points="1997.692,-173.5001 1987.692,-177 1997.6919,-180.5001 1997.692,-173.5001"/>
+>>>>>>> renamed admin components
 </g>
 <!-- ContentComponent -->
 <g id="node4" class="node">
@@ -204,19 +222,19 @@
 <path fill="none" stroke="#000000" d="M2178,-122.0511C2178,-136.373 2178,-154 2178,-154 2178,-154 2094.9748,-154 2094.9748,-154"/>
 <polygon fill="#000000" stroke="#000000" points="2094.9749,-150.5001 2084.9748,-154 2094.9748,-157.5001 2094.9749,-150.5001"/>
 </g>
-<!-- RaceComponent -->
+<!-- StartRaceComponent -->
 <g id="node14" class="node">
 <title>RaceComponent</title>
 <polygon fill="#ffffb3" stroke="#000000" points="2097.8132,-122 1988.1868,-122 1988.1868,-86 2097.8132,-86 2097.8132,-122"/>
 <text text-anchor="middle" x="2043" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">RaceComponent</text>
 </g>
-<!-- RaceComponent&#45;&gt;AppModule -->
+<!-- StartRaceComponent&#45;&gt;AppModule -->
 <g id="edge15" class="edge">
 <title>RaceComponent&#45;&gt;AppModule</title>
 <path fill="none" stroke="#000000" d="M2056.9427,-122.1061C2056.9427,-122.1061 2056.9427,-140.991 2056.9427,-140.991"/>
 <polygon fill="#000000" stroke="#000000" points="2053.4428,-140.9909 2056.9427,-150.991 2060.4428,-140.991 2053.4428,-140.9909"/>
 </g>
-<!-- RaceComponent&#45;&gt;AppModule -->
+<!-- StartRaceComponent&#45;&gt;AppModule -->
 <g id="edge16" class="edge">
 <title>RaceComponent&#45;&gt;AppModule</title>
 <path fill="none" stroke="#000000" d="M2029.0573,-122.1061C2029.0573,-122.1061 2029.0573,-140.991 2029.0573,-140.991"/>

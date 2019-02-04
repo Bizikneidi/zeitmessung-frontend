@@ -1,7 +1,7 @@
 import { Race } from './race';
 
 /**
- *A person who is registered for a race.
+ *A person who is registered for a startrace.
  *Entity to represent a potential participant
  *Most values are strings due to regex in html
  *
@@ -128,7 +128,7 @@ export class Participant {
      */
     public Starter: number;
     /**
-     *The time it took the participant to complete the race (in ms)
+     *The time it took the participant to complete the startrace (in ms)
      *
      * @type {number}
      * @memberof Participant

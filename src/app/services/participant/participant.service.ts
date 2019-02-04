@@ -10,7 +10,7 @@ import { Subject } from 'rxjs/Subject';
 export class ParticipantService {
 
   /**
-   *list of all race open for registration
+   *list of all startrace open for registration
    *
    * @type {Array<Race>}
    * @memberof ParticipantService

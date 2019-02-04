@@ -38,6 +38,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.pdfSub = this.viewers.pdfClick.subscribe(() => {
+      // Calls the function that generates the pdf with current raceid
       this.viewers.generatePdf(Number.parseInt(this.route.snapshot.queryParams.raceid));
     });
 
@@ -46,6 +47,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
     });
 
     this.routerSub = this.route.queryParams.subscribe(() => {
+      // loads all participants
       this.getParticipants();
     });
     this.getParticipants();
@@ -64,7 +66,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
   }
 
   /**
-   *get all participant for current race
+   *get all participant for current startrace
    *
    * @memberof ResultlistComponent
    */
