@@ -104,13 +104,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/pipes/statetotextpipe.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pipes/statetotextpipe.ts:15</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>returns message based on RaceManagerState</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -165,6 +167,13 @@ import { RaceManagerState } from &#x27;../entities/racemanagerstate&#x27;;
     name: &#x27;stateToText&#x27;
 })
 export class StateToTextPipe implements PipeTransform {
+    /**
+     *returns message based on RaceManagerState
+     *
+     * @param {RaceManagerState} value
+     * @returns {string}
+     * @memberof StateToTextPipe
+     */
     transform(value: RaceManagerState): string {
         switch (value) {
             case RaceManagerState.Ready:

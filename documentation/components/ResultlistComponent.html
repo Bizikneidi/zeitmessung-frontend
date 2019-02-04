@@ -186,12 +186,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:26</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of ResultlistComponent.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -267,13 +269,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:74</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>get all participant for current race</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -305,7 +309,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -343,7 +347,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -398,10 +402,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:22</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>list of all current participants</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -432,7 +442,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -466,7 +476,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -500,7 +510,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -518,20 +528,34 @@ import { Participant } from &#x27;../../../entities/participant&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { ViewerService } from &#x27;../../../services/viewer/viewer.service&#x27;;
 import { Subscription } from &#x27;rxjs/Subscription&#x27;;
+import { slideAnimation } from &#x27;../../../animations/animations&#x27;;
 
 @Component({
   selector: &#x27;app-resultlist&#x27;,
   templateUrl: &#x27;./resultlist.component.html&#x27;,
-  styleUrls: [&#x27;./resultlist.component.css&#x27;]
+  styleUrls: [&#x27;./resultlist.component.css&#x27;],
+  animations: [slideAnimation]
 })
 export class ResultlistComponent implements OnInit, OnDestroy {
 
+  /**
+   *list of all current participants
+   *
+   * @type {Array&lt;Participant&gt;}
+   * @memberof ResultlistComponent
+   */
   participants: Array&lt;Participant&gt; &#x3D; [];
 
   participantsSub: Subscription;
   routerSub: Subscription;
   pdfSub: Subscription;
 
+  /**
+   *Creates an instance of ResultlistComponent.
+   * @param {ActivatedRoute} route
+   * @param {ViewerService} viewers
+   * @memberof ResultlistComponent
+   */
   constructor(private route: ActivatedRoute, private viewers: ViewerService) {
   }
 
@@ -567,6 +591,11 @@ export class ResultlistComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   *get all participant for current race
+   *
+   * @memberof ResultlistComponent
+   */
   getParticipants() {
     const raceid &#x3D; Number.parseInt(this.route.snapshot.queryParams.raceid);
     this.viewers.getParticipants(raceid);
@@ -576,7 +605,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row m-2&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row m-2&quot; [@slideAnimation]&#x3D;&quot;participants.length&quot;&gt;
 	&lt;div class&#x3D;&quot;card mt-3 shadow&quot; *ngFor&#x3D;&quot;let i of participants&quot;&gt;
 		&lt;div class&#x3D;&quot;card-body row justify-content-between&quot;&gt;
 			&lt;div class&#x3D;&quot;col-12 col-md-6 no-wrap&quot;&gt;
@@ -694,9 +723,9 @@ export class ResultlistComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row m-2">	<div class="card mt-3 shadow" *ngFor="let i of participants">		<div class="card-body row justify-content-between">			<div class="col-12 col-md-6 no-wrap">				<div class="row justify-content-md-start">					<div class="col-auto" *ngIf="i.Time > 0">						<p class="rank">#{{i | participantToRank:participants}}</p>					</div>					<div class="col-auto" *ngIf="i.Time <= 0">						<p class="rank-grey">#?</p>					</div>					<p class="col-auto align-self-center card-text">						{{ i.Starter }} - {{ i.Firstname }} {{ i.Lastname }}					</p>				</div>			</div>			<div class="col-12 col-md-6 no-wrap">				<div class="row justify-content-start justify-content-md-end">					<div class="col-auto">						<div class="inline" *ngIf="i.Time > 0">							<p class="rank">{{ i.Sex | sexenglishtogermanpipe }}{{ i | participantToSexRank:participants }}</p>						</div>						<div class="inline" *ngIf="i.Time <= 0">							<p class="rank-grey">{{ i.Sex | sexenglishtogermanpipe }}?</p>						</div>					</div>					<div class="col-auto">						<p class="inline rank">{{ i.Time | milliSecondsToTime }}</p>						<p class="inline little-rank">							{{ i.Time | milliSecondsToTime: true }}						</p>					</div>				</div>			</div>		</div>	</div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="row m-2" [@slideAnimation]="participants.length">	<div class="card mt-3 shadow" *ngFor="let i of participants">		<div class="card-body row justify-content-between">			<div class="col-12 col-md-6 no-wrap">				<div class="row justify-content-md-start">					<div class="col-auto" *ngIf="i.Time > 0">						<p class="rank">#{{i | participantToRank:participants}}</p>					</div>					<div class="col-auto" *ngIf="i.Time <= 0">						<p class="rank-grey">#?</p>					</div>					<p class="col-auto align-self-center card-text">						{{ i.Starter }} - {{ i.Firstname }} {{ i.Lastname }}					</p>				</div>			</div>			<div class="col-12 col-md-6 no-wrap">				<div class="row justify-content-start justify-content-md-end">					<div class="col-auto">						<div class="inline" *ngIf="i.Time > 0">							<p class="rank">{{ i.Sex | sexenglishtogermanpipe }}{{ i | participantToSexRank:participants }}</p>						</div>						<div class="inline" *ngIf="i.Time <= 0">							<p class="rank-grey">{{ i.Sex | sexenglishtogermanpipe }}?</p>						</div>					</div>					<div class="col-auto">						<p class="inline rank">{{ i.Time | milliSecondsToTime }}</p>						<p class="inline little-rank">							{{ i.Time | milliSecondsToTime: true }}						</p>					</div>				</div>			</div>		</div>	</div></div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'CompetitionComponent', 'selector': 'app-competition'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RaceComponent', 'selector': 'app-race'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
-    var DIRECTIVES = [];
+    var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[appAutofocus]'}];
     var ACTUAL_COMPONENT = {'name': 'ResultlistComponent'};
 </script>
 <script src="../js/tree.js"></script>

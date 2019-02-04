@@ -100,6 +100,9 @@
                             <li>
                                 <a href="#moveZerosToEnd">moveZerosToEnd</a>
                             </li>
+                            <li>
+                                <a href="#sortList">sortList</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -188,7 +191,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:55</a></div>
                             </td>
                         </tr>
 
@@ -257,7 +260,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:64</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:63</a></div>
                             </td>
                         </tr>
 
@@ -344,7 +347,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:50</a></div>
                             </td>
                         </tr>
 
@@ -413,7 +416,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -456,6 +459,44 @@
                                 <div class="io-description">
                                     
                                 </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sortList"></a>
+                        <span class="name">
+                            <b>
+                            sortList
+                            </b>
+                            <a href="#sortList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>sortList()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
                     </td>
                 </tr>
             </tbody>
@@ -532,20 +573,19 @@ export class LiveresultService {
       // Set end of time for participant
       this.participantList.find(item &#x3D;&gt; item.Starter &#x3D;&#x3D;&#x3D; participant.Starter).Time &#x3D; participant.Time;
 
-      // Sort list by time
-      this.participantList &#x3D; this.participantList.sort((a, b) &#x3D;&gt; {
-        return (b.Time) - (a.Time);
-      });
-      this.moveZerosToEnd(this.participantList);
+      this.sortList();
     });
 
     this.viewer.end.subscribe(() &#x3D;&gt; {
       this.participantList &#x3D; [];
     });
+  }
 
-    // for the test list
+
+  sortList() {
+    // Sort list by time
     this.participantList &#x3D; this.participantList.sort((a, b) &#x3D;&gt; {
-      return (a.Time) - (b.Time);
+      return (b.Time) - (a.Time);
     });
     this.moveZerosToEnd(this.participantList);
   }

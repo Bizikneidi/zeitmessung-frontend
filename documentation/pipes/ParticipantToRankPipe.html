@@ -104,13 +104,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/pipes/participanttorankpipe.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pipes/participanttorankpipe.ts:16</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>returns rank of given participant in given list of participants</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -177,6 +179,14 @@ import { Participant } from &#x27;../entities/participant&#x27;;
     name: &#x27;participantToRank&#x27;
 })
 export class ParticipantToRankPipe implements PipeTransform {
+    /**
+     *returns rank of given participant in given list of participants
+     *
+     * @param {Participant} value
+     * @param {Array&lt;Participant&gt;} participantList
+     * @returns {number}
+     * @memberof ParticipantToRankPipe
+     */
     transform(value: Participant, participantList: Array&lt;Participant&gt;): number {
         if (
             !participantList.some(function(r) {
@@ -200,6 +210,14 @@ export class ParticipantToRankPipe implements PipeTransform {
     name: &#x27;participantToSexRank&#x27;
 })
 export class ParticipantToSexRankPipe implements PipeTransform {
+    /**
+     *returns sex class rank of given participant in given list of participants
+     *
+     * @param {Participant} value
+     * @param {Array&lt;Participant&gt;} participantList
+     * @returns {number}
+     * @memberof ParticipantToSexRankPipe
+     */
     transform(value: Participant, participantList: Array&lt;Participant&gt;): number {
         if (!participantList.some(r &#x3D;&gt; r &#x3D;&#x3D;&#x3D; value) || value.Time &lt;&#x3D; 0) {
             return 0;

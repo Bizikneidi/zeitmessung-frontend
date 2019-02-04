@@ -558,7 +558,7 @@ export class WebsocketService {
     }
     this.path &#x3D; path;
     this.messages &#x3D; [];
-    this.ws &#x3D; new WebSocket(&#x27;wss://172.18.2.16:5001/&#x27; + path); // Connect to path
+     this.ws &#x3D; new WebSocket(&#x27;wss://172.18.2.16:5001/&#x27; + path); // Connect to path
     // this.ws &#x3D; new WebSocket(&#x27;ws://localhost:5000/&#x27; + path); // Connect to path
     // Pass results to subject
     this.ws.onmessage &#x3D; ev &#x3D;&gt; this.receivedSubject.next(JSON.parse(ev.data));

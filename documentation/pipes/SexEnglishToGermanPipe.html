@@ -104,13 +104,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/pipes/sexenglishtogermanpipe.pipe.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pipes/sexenglishtogermanpipe.pipe.ts:15</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>converts english sex attribute to german sex attribute</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -165,6 +167,13 @@
 })
 export class SexEnglishToGermanPipe implements PipeTransform {
 
+  /**
+   *converts english sex attribute to german sex attribute
+   *
+   * @param {string} value
+   * @returns {string}
+   * @memberof SexEnglishToGermanPipe
+   */
   transform(value: string): string {
     if (value &#x3D;&#x3D;&#x3D; &#x27;f&#x27;) {
       return &#x27;w&#x27;;

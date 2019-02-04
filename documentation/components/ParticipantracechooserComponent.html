@@ -180,12 +180,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:23</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of ParticipantracechooserComponent.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -249,7 +251,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -287,13 +289,16 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:43</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>on back clicked
+disconnects from service</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -336,10 +341,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:17</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>left arrow icon</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -369,10 +380,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:23</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>right arrow icon</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -404,7 +421,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/participant/participantracechooser/participantracechooser.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -428,10 +445,24 @@ import { ParticipantService } from &#x27;../../../services/participant/participa
 })
 export class ParticipantracechooserComponent implements OnInit {
 
-  // Arrows for the frontend
+  /**
+   *left arrow icon
+   *
+   * @memberof ParticipantracechooserComponent
+   */
   faArrow &#x3D; faLongArrowAltLeft;
+  /**
+   *right arrow icon
+   *
+   * @memberof ParticipantracechooserComponent
+   */
   faArrowRight &#x3D; faLongArrowAltRight;
 
+  /**
+   *Creates an instance of ParticipantracechooserComponent.
+   * @param {ParticipantService} service
+   * @memberof ParticipantracechooserComponent
+   */
   constructor(public service: ParticipantService) {
   }
 
@@ -439,6 +470,12 @@ export class ParticipantracechooserComponent implements OnInit {
     this.service.connect();
   }
 
+  /**
+   *on back clicked
+   *disconnects from service
+   *
+   * @memberof ParticipantracechooserComponent
+   */
   onBack() {
     this.service.disconnect();
   }
@@ -576,7 +613,7 @@ export class ParticipantracechooserComponent implements OnInit {
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row justify-content-center">    <div class="col-11 col-md-10">      <div class="card shadow-lg pb-3 border-0">        <div class="card-title">          <div class="row">            <div class="col-1">              <a [routerLink]="[\'/\']" (click)="onBack()" class="arrow-link">                <fa-icon [icon]="faArrow"></fa-icon>              </a>            </div>            <div class="col-11">              <h2>Teilnehmer</h2>              <p>Wählen Sie ein Rennen</p>            </div>          </div>        </div>        <div class="card-body">          <div class="row">            <p *ngIf="service.races.length == 0" class="col-12 align-self-center">Es sind keine Rennen für              die Registrierung vorhanden.</p>            <div class="col-12 col-md-6 race" *ngFor="let item of service.races">              <a [routerLink]="[\'/participant\', item.Id]">                             <div class="race-item text-center"> {{ item | raceToString}} <fa-icon [icon]="faArrowRight"></fa-icon></div>              </a>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'CompetitionComponent', 'selector': 'app-competition'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RaceComponent', 'selector': 'app-race'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
-    var DIRECTIVES = [];
+    var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[appAutofocus]'}];
     var ACTUAL_COMPONENT = {'name': 'ParticipantracechooserComponent'};
 </script>
 <script src="../js/tree.js"></script>
