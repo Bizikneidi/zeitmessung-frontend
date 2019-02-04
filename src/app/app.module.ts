@@ -30,6 +30,7 @@ import { ParticipantracechooserComponent } from './components/participant/partic
 import { SexEnglishToGermanPipe } from './pipes/sexenglishtogermanpipe.pipe';
 import { ParticipantToRankPipe, ParticipantToSexRankPipe } from './pipes/participanttorankpipe';
 import { AutofocusDirective } from './directives/autofocus.directive';
+import { SortParticipantListPipe } from './pipes/sortparticipantlist.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { AutofocusDirective } from './directives/autofocus.directive';
     ResultlistComponent,
     SexEnglishToGermanPipe,
     ParticipantracechooserComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    SortParticipantListPipe
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ import { AutofocusDirective } from './directives/autofocus.directive';
     ParticipantToSexRankPipe,
     MilliSecondsToTimePipe,
     RaceToStringPipe,
-    SexEnglishToGermanPipe
+    SexEnglishToGermanPipe,
+    SortParticipantListPipe
   ],
   bootstrap: [ContentComponent]
 })

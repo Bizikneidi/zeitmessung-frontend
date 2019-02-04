@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ViewerService } from '../viewer/viewer.service';
 import { Participant } from '../../entities/participant';
+import { SortParticipantListPipe } from '../../pipes/sortparticipantlist.pipe';
 
 @Injectable()
 export class LiveresultService {
@@ -16,9 +17,10 @@ export class LiveresultService {
   /**
    *Creates an instance of LiveresultService.
    * @param {ViewerService} viewer
+   * @param {SortParticipantListPipe} sortParticipantListPipe
    * @memberof LiveresultService
    */
-  constructor(private viewer: ViewerService) {
+  constructor(private viewer: ViewerService, private sortParticipantListPipe: SortParticipantListPipe) {
     // Check for the start of a race
     this.viewer.start.subscribe(ms => {
       this.participantList = ms.Participants;
@@ -29,7 +31,7 @@ export class LiveresultService {
       // Set end of time for participant
       this.participantList.find(item => item.Starter === participant.Starter).Time = participant.Time;
 
-      this.sortList();
+      this.participantList = this.sortParticipantListPipe.transform(this.participantList);
     });
 
     this.viewer.end.subscribe(() => {
@@ -37,34 +39,13 @@ export class LiveresultService {
     });
   }
 
-
   /**
-   *sort participantlist by time
+   *sorts participantlist
    *
    * @memberof LiveresultService
    */
   sortList() {
-    this.participantList = this.participantList.sort((a, b) => {
-      return (b.Time) - (a.Time);
-    });
-    this.moveZerosToEnd(this.participantList);
-  }
-
-  /**
-   *move participants with time of 0 to the end
-   *
-   * @param {Array<Participant>} participants
-   * @memberof LiveresultService
-   */
-  moveZerosToEnd(participants: Array<Participant>) {
-    let i, temp;
-
-    for (i = participants.length - 1; i >= 0; i--) {
-        if (participants[i].Time === 0) {
-            temp = participants.splice(i, 1);
-            participants.push(temp[0]);
-        }
-      }
+    this.sortParticipantListPipe.transform(this.participantList);
   }
 
   /**
