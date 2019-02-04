@@ -63,9 +63,21 @@
             <code>src/app/entities/countryList.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>All known country names and their ISO values</p>
+
+            </p>
 
 
 
+            <p class="comment">
+                <h3>Example</h3>
+            </p>
+            <div class="io-description">
+            </div>
 
             <section>
     <h3 id="index">Index</h3>
@@ -385,7 +397,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/entities/countryList.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/entities/countryList.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -406,9 +418,27 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Country {
 
+  /**
+   *name of the country
+   *
+   * @type {string}
+   * @memberof Country
+   */
   public Name: string;
+  /**
+   *ISO code of the country
+   *
+   * @type {string}
+   * @memberof Country
+   */
   public ISO: string;
 
+  /**
+   *Creates an instance of Country.
+   * @param {string} name
+   * @param {string} iso
+   * @memberof Country
+   */
   public constructor(name: string, iso: string) {
     if (name.length &gt; 20) { // Shorten for better display
       this.Name &#x3D; name.substr(0, 20) + &#x27;...&#x27;;
@@ -419,7 +449,12 @@
   }
 }
 
-// All known country names and their ISO values
+/**
+ *All known country names and their ISO values
+ *
+ * @export
+ * @class CountryList
+ */
 export class CountryList {
   static ListOfCountries: Array&lt;Country&gt; &#x3D; [
     new Country(&#x27;Afghanistan&#x27;, &#x27;AFG&#x27;),

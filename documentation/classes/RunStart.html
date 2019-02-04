@@ -63,9 +63,21 @@
             <code>src/app/entities/runstart.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Used to transfer basic data about the current race</p>
+
+            </p>
 
 
 
+            <p class="comment">
+                <h3>Example</h3>
+            </p>
+            <div class="io-description">
+            </div>
 
             <section>
     <h3 id="index">Index</h3>
@@ -138,10 +150,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/entities/runstart.ts:4</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/entities/runstart.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The current time of the station</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -173,10 +191,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/entities/runstart.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/entities/runstart.ts:23</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>All the participants in the current race</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -208,10 +232,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/entities/runstart.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/entities/runstart.ts:30</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>All the participants in the current race</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -229,9 +259,33 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Participant } from &#x27;./participant&#x27;;
 
+/**
+ *Used to transfer basic data about the current race
+ *
+ * @export
+ * @class RunStart
+ */
 export class RunStart {
+    /**
+     *The current time of the station
+     *
+     * @type {number}
+     * @memberof RunStart
+     */
     public CurrentTime: number; // The current time of the station
+    /**
+     *All the participants in the current race
+     *
+     * @type {Array&lt;Participant&gt;}
+     * @memberof RunStart
+     */
     public Participants: Array&lt;Participant&gt;; // All participants participating in this event
+    /**
+     *All the participants in the current race
+     *
+     * @type {number}
+     * @memberof RunStart
+     */
     public StartTime: number; // The start time of the station
 }
 </code></pre>

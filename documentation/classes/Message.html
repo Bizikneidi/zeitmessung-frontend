@@ -63,9 +63,21 @@
             <code>src/app/entities/networking.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Used to send Commands and Data between websockets</p>
+
+            </p>
 
 
 
+            <p class="comment">
+                <h3>Example</h3>
+            </p>
+            <div class="io-description">
+            </div>
 
             <section>
     <h3 id="index">Index</h3>
@@ -134,10 +146,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/entities/networking.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/entities/networking.ts:60</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Command used to identify the purpose of the Message</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -169,10 +187,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/entities/networking.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/entities/networking.ts:67</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The Data which comes with the command</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -233,9 +257,28 @@ export enum ParticipantCommands {
     Register &#x3D; 1 // A person wants to register. Message contains data to register as a participant
 }
 
-export class Message&lt;Commands&gt; { // Used to send Commands and Data between websockets
-    public Command: Commands; // Command used to identify purpose of Message
-    public Data: any; // The &quot;Arguments&quot; which come with the command
+/**
+ *Used to send Commands and Data between websockets
+ *
+ * @export
+ * @class Message
+ * @template Commands
+ */
+export class Message&lt;Commands&gt; {
+    /**
+     *Command used to identify the purpose of the Message
+     *
+     * @type {Commands}
+     * @memberof Message
+     */
+    public Command: Commands;
+    /**
+     *The Data which comes with the command
+     *
+     * @type {*}
+     * @memberof Message
+     */
+    public Data: any;
 }
 </code></pre>
     </div>
