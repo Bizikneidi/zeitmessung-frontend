@@ -42,7 +42,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
     });
 
     this.participantsSub = this.viewers.participants.subscribe(participants => {
-      this.participants = this.sortParticipantListPipe.transform(participants);
+      this.participants = this.sortParticipantListPipe.transform(participants, true);
     });
 
     this.routerSub = this.route.queryParams.subscribe(() => {

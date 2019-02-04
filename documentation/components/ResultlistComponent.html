@@ -181,12 +181,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, viewers: <a href="../injectables/ViewerService.html">ViewerService</a>)</code>
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, viewers: <a href="../injectables/ViewerService.html">ViewerService</a>, sortParticipantListPipe: <a href="../classes/Participant.html">SortParticipantListPipe</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -222,6 +222,18 @@
                                                   
                                                         <td>
                                                                     <code><a href="../injectables/ViewerService.html" target="_self" >ViewerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sortParticipantListPipe</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/Participant.html" target="_self" >SortParticipantListPipe</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -269,7 +281,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:71</a></div>
                             </td>
                         </tr>
 
@@ -309,7 +321,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -347,7 +359,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -402,7 +414,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -442,7 +454,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -476,7 +488,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -510,7 +522,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -529,6 +541,7 @@ import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { ViewerService } from &#x27;../../../services/viewer/viewer.service&#x27;;
 import { Subscription } from &#x27;rxjs/Subscription&#x27;;
 import { slideAnimation } from &#x27;../../../animations/animations&#x27;;
+import { SortParticipantListPipe } from &#x27;../../../pipes/sortparticipantlist.pipe&#x27;;
 
 @Component({
   selector: &#x27;app-resultlist&#x27;,
@@ -554,9 +567,10 @@ export class ResultlistComponent implements OnInit, OnDestroy {
    *Creates an instance of ResultlistComponent.
    * @param {ActivatedRoute} route
    * @param {ViewerService} viewers
+   * @param {SortParticipantListPipe} sortParticipantListPipe
    * @memberof ResultlistComponent
    */
-  constructor(private route: ActivatedRoute, private viewers: ViewerService) {
+  constructor(private route: ActivatedRoute, private viewers: ViewerService, private sortParticipantListPipe: SortParticipantListPipe) {
   }
 
   ngOnInit() {
@@ -565,12 +579,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
     });
 
     this.participantsSub &#x3D; this.viewers.participants.subscribe(participants &#x3D;&gt; {
-      this.participants &#x3D; participants.sort((p1, p2) &#x3D;&gt; {
-        if (p1.Time &lt;&#x3D; 0) {
-          return 1;
-        }
-        return p1.Time - p2.Time;
-      });
+      this.participants &#x3D; this.sortParticipantListPipe.transform(participants, true);
     });
 
     this.routerSub &#x3D; this.route.queryParams.subscribe(() &#x3D;&gt; {

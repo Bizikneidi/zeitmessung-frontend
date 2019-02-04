@@ -7,15 +7,18 @@ import { Participant } from '../entities/participant';
 export class SortParticipantListPipe implements PipeTransform {
 
   /**
-   *sort participantlist by time
+   *sorts list of Participants by time
    *
    * @param {Array<Participant>} value
-   * @param {*} [args]
-   * @returns {*}
+   * @param {boolean} [direction=false]
+   * @returns {Array<Participant>}
    * @memberof SortParticipantListPipe
    */
-  transform(value: Array<Participant>, args?: any): Array<Participant> {
+  transform(value: Array<Participant>, direction: boolean = false): Array<Participant> {
     value = value.sort((a, b) => {
+      if (direction) {
+        return (a.Time) - (b.Time);
+      }
       return (b.Time) - (a.Time);
     });
     return this.moveZerosToEnd(value);

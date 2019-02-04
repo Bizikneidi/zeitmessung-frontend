@@ -98,9 +98,6 @@
                                 <a href="#isValidParticipant">isValidParticipant</a>
                             </li>
                             <li>
-                                <a href="#moveZerosToEnd">moveZerosToEnd</a>
-                            </li>
-                            <li>
                                 <a href="#sortList">sortList</a>
                             </li>
                         </ul>
@@ -121,12 +118,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(viewer: <a href="../injectables/ViewerService.html">ViewerService</a>)</code>
+<code>constructor(viewer: <a href="../injectables/ViewerService.html">ViewerService</a>, sortParticipantListPipe: <a href="../classes/Participant.html">SortParticipantListPipe</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -150,6 +147,18 @@
                                                   
                                                         <td>
                                                                     <code><a href="../injectables/ViewerService.html" target="_self" >ViewerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sortParticipantListPipe</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/Participant.html" target="_self" >SortParticipantListPipe</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -193,7 +202,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:88</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:69</a></div>
                             </td>
                         </tr>
 
@@ -264,7 +273,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:103</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:84</a></div>
                             </td>
                         </tr>
 
@@ -353,7 +362,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:77</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:58</a></div>
                             </td>
                         </tr>
 
@@ -406,77 +415,6 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="moveZerosToEnd"></a>
-                        <span class="name">
-                            <b>
-                            moveZerosToEnd
-                            </b>
-                            <a href="#moveZerosToEnd"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>moveZerosToEnd(participants: <a href="../classes/Participant.html">Array<Participant></a>)</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:59</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>move participants with time of 0 to the end</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>participants</td>
-                                                        <td>
-                                                                    <code><a href="../classes/Participant.html" target="_self" >Array&lt;Participant&gt;</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="sortList"></a>
                         <span class="name">
                             <b>
@@ -495,14 +433,14 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:47</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>sort participantlist by time</p>
+                            <div class="io-description"><p>sorts participantlist</p>
 </div>
 
                             <div class="io-description">
@@ -552,7 +490,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -574,6 +512,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { ViewerService } from &#x27;../viewer/viewer.service&#x27;;
 import { Participant } from &#x27;../../entities/participant&#x27;;
+import { SortParticipantListPipe } from &#x27;../../pipes/sortparticipantlist.pipe&#x27;;
 
 @Injectable()
 export class LiveresultService {
@@ -589,9 +528,10 @@ export class LiveresultService {
   /**
    *Creates an instance of LiveresultService.
    * @param {ViewerService} viewer
+   * @param {SortParticipantListPipe} sortParticipantListPipe
    * @memberof LiveresultService
    */
-  constructor(private viewer: ViewerService) {
+  constructor(private viewer: ViewerService, private sortParticipantListPipe: SortParticipantListPipe) {
     // Check for the start of a race
     this.viewer.start.subscribe(ms &#x3D;&gt; {
       this.participantList &#x3D; ms.Participants;
@@ -602,7 +542,7 @@ export class LiveresultService {
       // Set end of time for participant
       this.participantList.find(item &#x3D;&gt; item.Starter &#x3D;&#x3D;&#x3D; participant.Starter).Time &#x3D; participant.Time;
 
-      this.sortList();
+      this.participantList &#x3D; this.sortParticipantListPipe.transform(this.participantList);
     });
 
     this.viewer.end.subscribe(() &#x3D;&gt; {
@@ -610,34 +550,13 @@ export class LiveresultService {
     });
   }
 
-
   /**
-   *sort participantlist by time
+   *sorts participantlist
    *
    * @memberof LiveresultService
    */
   sortList() {
-    this.participantList &#x3D; this.participantList.sort((a, b) &#x3D;&gt; {
-      return (b.Time) - (a.Time);
-    });
-    this.moveZerosToEnd(this.participantList);
-  }
-
-  /**
-   *move participants with time of 0 to the end
-   *
-   * @param {Array&lt;Participant&gt;} participants
-   * @memberof LiveresultService
-   */
-  moveZerosToEnd(participants: Array&lt;Participant&gt;) {
-    let i, temp;
-
-    for (i &#x3D; participants.length - 1; i &gt;&#x3D; 0; i--) {
-        if (participants[i].Time &#x3D;&#x3D;&#x3D; 0) {
-            temp &#x3D; participants.splice(i, 1);
-            participants.push(temp[0]);
-        }
-      }
+    this.sortParticipantListPipe.transform(this.participantList);
   }
 
   /**
