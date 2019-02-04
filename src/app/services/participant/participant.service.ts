@@ -9,6 +9,12 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class ParticipantService {
 
+  /**
+   *list of all race open for registration
+   *
+   * @type {Array<Race>}
+   * @memberof ParticipantService
+   */
   public races: Array<Race> = [];
 
   constructor(private ws: WebsocketService) {
@@ -20,7 +26,12 @@ export class ParticipantService {
     });
   }
 
-  // Send a participant entity to store into db
+  /**
+   *Send a participant entity to store into db
+   *
+   * @param {Participant} data
+   * @memberof ParticipantService
+   */
   register(data: Participant) {
     const msg = new Message<ParticipantCommands>();
     msg.Command = ParticipantCommands.Register;
@@ -28,10 +39,20 @@ export class ParticipantService {
     this.ws.send(msg);
   }
 
+  /**
+   *connect to the ws as a potential participant
+   *
+   * @memberof ParticipantService
+   */
   connect() {
-    this.ws.connect('participant'); // Connect as potential participant
+    this.ws.connect('participant');
   }
 
+  /**
+   *disconnect from ws
+   *
+   * @memberof ParticipantService
+   */
   disconnect() {
     this.ws.disconnect();
   }

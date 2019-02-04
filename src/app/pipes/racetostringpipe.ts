@@ -1,17 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Race } from '../entities/race';
 
-/**
- *returns race Title or Date based on date
- *
- * @export
- * @class RaceToStringPipe
- * @implements {PipeTransform}
- */
 @Pipe({
     name: 'raceToString'
 })
 export class RaceToStringPipe implements PipeTransform {
+    /**
+     *returns race Title or Date based on date
+     *
+     * @param {Race} value
+     * @param {boolean} [date=false]
+     * @returns {string}
+     * @memberof RaceToStringPipe
+     */
     transform(value: Race, date: boolean = false): string {
         if (date) {
             return new Date(value.Date).toLocaleDateString();
