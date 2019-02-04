@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ViewerService } from '../../../services/viewer/viewer.service';
 import { Subscription } from 'rxjs/Subscription';
 import { slideAnimation } from '../../../animations/animations';
+import { SortParticipantListPipe } from '../../../pipes/sortparticipantlist.pipe';
 
 @Component({
   selector: 'app-resultlist',
@@ -29,9 +30,10 @@ export class ResultlistComponent implements OnInit, OnDestroy {
    *Creates an instance of ResultlistComponent.
    * @param {ActivatedRoute} route
    * @param {ViewerService} viewers
+   * @param {SortParticipantListPipe} sortParticipantListPipe
    * @memberof ResultlistComponent
    */
-  constructor(private route: ActivatedRoute, private viewers: ViewerService) {
+  constructor(private route: ActivatedRoute, private viewers: ViewerService, private sortParticipantListPipe: SortParticipantListPipe) {
   }
 
   ngOnInit() {
@@ -40,12 +42,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
     });
 
     this.participantsSub = this.viewers.participants.subscribe(participants => {
-      this.participants = participants.sort((p1, p2) => {
-        if (p1.Time <= 0) {
-          return 1;
-        }
-        return p1.Time - p2.Time;
-      });
+      this.participants = this.sortParticipantListPipe.transform(participants, true);
     });
 
     this.routerSub = this.route.queryParams.subscribe(() => {
