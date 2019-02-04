@@ -126,12 +126,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:14</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of LiveresultService.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -191,13 +193,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:88</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>filters the participantlist by sex</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -260,13 +264,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:63</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:103</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>gets the rank of the participant, if wanted filtered by sex</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -347,13 +353,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:77</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>is the participant in the current list or has an invalid time</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -416,13 +424,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:59</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>move participants with time of 0 to the end</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -485,13 +495,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:46</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>sort participantlist by time</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -540,10 +552,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/liveresult/liveresult.service.ts:14</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>list of participants for the live race</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -560,8 +578,19 @@ import { Participant } from &#x27;../../entities/participant&#x27;;
 @Injectable()
 export class LiveresultService {
 
+  /**
+   *list of participants for the live race
+   *
+   * @type {Array&lt;Participant&gt;}
+   * @memberof LiveresultService
+   */
   participantList: Array&lt;Participant&gt; &#x3D; [];
 
+  /**
+   *Creates an instance of LiveresultService.
+   * @param {ViewerService} viewer
+   * @memberof LiveresultService
+   */
   constructor(private viewer: ViewerService) {
     // Check for the start of a race
     this.viewer.start.subscribe(ms &#x3D;&gt; {
@@ -582,14 +611,24 @@ export class LiveresultService {
   }
 
 
+  /**
+   *sort participantlist by time
+   *
+   * @memberof LiveresultService
+   */
   sortList() {
-    // Sort list by time
     this.participantList &#x3D; this.participantList.sort((a, b) &#x3D;&gt; {
       return (b.Time) - (a.Time);
     });
     this.moveZerosToEnd(this.participantList);
   }
 
+  /**
+   *move participants with time of 0 to the end
+   *
+   * @param {Array&lt;Participant&gt;} participants
+   * @memberof LiveresultService
+   */
   moveZerosToEnd(participants: Array&lt;Participant&gt;) {
     let i, temp;
 
@@ -601,12 +640,24 @@ export class LiveresultService {
       }
   }
 
-  // is the participant in the current list or has an invalid time
+  /**
+   *is the participant in the current list or has an invalid time
+   *
+   * @param {Participant} participant
+   * @returns
+   * @memberof LiveresultService
+   */
   isValidParticipant(participant: Participant) {
     return this.participantList.some(competitor &#x3D;&gt; competitor &#x3D;&#x3D;&#x3D; participant) || participant.Time &gt; 0;
   }
 
-  // filters the participantlist
+  /**
+   *filters the participantlist by sex
+   *
+   * @param {string} sex
+   * @returns
+   * @memberof LiveresultService
+   */
   filterBySex(sex: string) {
     if (sex &#x3D;&#x3D; null) {
       return this.participantList;
@@ -614,7 +665,14 @@ export class LiveresultService {
     return this.participantList.filter(competitor &#x3D;&gt; competitor.Sex &#x3D;&#x3D;&#x3D; sex);
   }
 
-  // gets the rank of the participant, if wanted filtered by sex
+  /**
+   *gets the rank of the participant, if wanted filtered by sex
+   *
+   * @param {Participant} participant
+   * @param {Boolean} [filterBySex&#x3D;false]
+   * @returns
+   * @memberof LiveresultService
+   */
   getRank(participant: Participant, filterBySex: Boolean &#x3D; false) {
     // is the participant valid
     if (!this.isValidParticipant(participant)) {

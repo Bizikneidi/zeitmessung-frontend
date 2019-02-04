@@ -63,19 +63,7 @@
             <code>src/app/pipes/racetostringpipe.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>returns race Title or Date based on date</p>
 
-            </p>
-
-            <p class="comment">
-                <h3>Example</h3>
-            </p>
-            <div class="io-description">
-            </div>
 
         <section>
             <h3>Metadata</h3>
@@ -116,13 +104,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pipes/racetostringpipe.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pipes/racetostringpipe.ts:16</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>returns race Title or Date based on date</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -191,17 +181,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 import { Race } from &#x27;../entities/race&#x27;;
 
-/**
- *returns race Title or Date based on date
- *
- * @export
- * @class RaceToStringPipe
- * @implements {PipeTransform}
- */
 @Pipe({
     name: &#x27;raceToString&#x27;
 })
 export class RaceToStringPipe implements PipeTransform {
+    /**
+     *returns race Title or Date based on date
+     *
+     * @param {Race} value
+     * @param {boolean} [date&#x3D;false]
+     * @returns {string}
+     * @memberof RaceToStringPipe
+     */
     transform(value: Race, date: boolean &#x3D; false): string {
         if (date) {
             return new Date(value.Date).toLocaleDateString();

@@ -121,7 +121,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/participant/participant.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/participant/participant.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -186,13 +186,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/services/participant/participant.service.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/services/participant/participant.service.ts:47</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>connect to the ws as a potential participant</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -224,13 +226,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/participant/participant.service.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/services/participant/participant.service.ts:56</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>disconnect from ws</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -262,13 +266,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/services/participant/participant.service.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/participant/participant.service.ts:35</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Send a participant entity to store into db</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -349,10 +355,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/participant/participant.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/participant/participant.service.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>list of all race open for registration</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -373,6 +385,12 @@ import { Subject } from &#x27;rxjs/Subject&#x27;;
 @Injectable()
 export class ParticipantService {
 
+  /**
+   *list of all race open for registration
+   *
+   * @type {Array&lt;Race&gt;}
+   * @memberof ParticipantService
+   */
   public races: Array&lt;Race&gt; &#x3D; [];
 
   constructor(private ws: WebsocketService) {
@@ -384,7 +402,12 @@ export class ParticipantService {
     });
   }
 
-  // Send a participant entity to store into db
+  /**
+   *Send a participant entity to store into db
+   *
+   * @param {Participant} data
+   * @memberof ParticipantService
+   */
   register(data: Participant) {
     const msg &#x3D; new Message&lt;ParticipantCommands&gt;();
     msg.Command &#x3D; ParticipantCommands.Register;
@@ -392,10 +415,20 @@ export class ParticipantService {
     this.ws.send(msg);
   }
 
+  /**
+   *connect to the ws as a potential participant
+   *
+   * @memberof ParticipantService
+   */
   connect() {
-    this.ws.connect(&#x27;participant&#x27;); // Connect as potential participant
+    this.ws.connect(&#x27;participant&#x27;);
   }
 
+  /**
+   *disconnect from ws
+   *
+   * @memberof ParticipantService
+   */
   disconnect() {
     this.ws.disconnect();
   }

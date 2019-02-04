@@ -132,7 +132,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -169,13 +169,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:42</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>start timer and set time diffenrence to station</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -252,13 +254,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:56</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>reset timer and set currentTime to 0</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -308,7 +312,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -343,10 +347,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:13</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>time differnence between server and station</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -378,10 +388,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:7</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:21</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the initial time sent by the station</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -413,10 +429,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/livetimer/livetimer.service.ts:29</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>timer keeps track of current race time</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -431,14 +453,42 @@
 @Injectable()
 export class LiveTimerService {
 
+    /**
+     *time differnence between server and station
+     *
+     * @private
+     * @type {number}
+     * @memberof LiveTimerService
+     */
     private recDiff: number;
+    /**
+     *the initial time sent by the station
+     *
+     * @private
+     * @type {number}
+     * @memberof LiveTimerService
+     */
     private startStationTime: number;
+    /**
+     *timer keeps track of current race time
+     *
+     * @private
+     * @type {*}
+     * @memberof LiveTimerService
+     */
     private timer: any;
 
     public currentTime &#x3D; 0;
 
     constructor() { }
 
+    /**
+     *start timer and set time diffenrence to station
+     *
+     * @param {number} recStationTime
+     * @param {number} startStationTime
+     * @memberof LiveTimerService
+     */
     public start(recStationTime: number, startStationTime: number) {
         this.recDiff &#x3D; Date.now() - recStationTime;
         this.startStationTime &#x3D; startStationTime;
@@ -448,9 +498,13 @@ export class LiveTimerService {
         }, 0);
     }
 
+    /**
+     *reset timer and set currentTime to 0
+     *
+     * @memberof LiveTimerService
+     */
     public stop() {
         clearInterval(this.timer);
-
         this.currentTime &#x3D; 0;
     }
 }
