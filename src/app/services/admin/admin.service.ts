@@ -11,19 +11,54 @@ import { Race } from '../../entities/race';
 @Injectable()
 export class AdminService {
 
+  /**
+   *the current stat of a race
+   *
+   * @type {RaceManagerState}
+   * @memberof AdminService
+   */
   public state: RaceManagerState;
 
+  /**
+   *Observe for the start of a race
+   *
+   * @type {Observable<RunStart>}
+   * @memberof AdminService
+   */
   public start: Observable<RunStart>;
   private startSubject: Subject<RunStart>;
 
+  /**
+   *Observe for a new measurement
+   *
+   * @type {Observable<number>}
+   * @memberof AdminService
+   */
   public measuredStop: Observable<number>;
   private measuredStopSubject: Subject<number>;
 
+  /**
+   *Observe the end of a race
+   *
+   * @type {Observable<null>}
+   * @memberof AdminService
+   */
   public end: Observable<null>;
   private endSubject: Subject<null>;
 
+  /**
+   *list of all races available for start
+   *
+   * @type {Array<Race>}
+   * @memberof AdminService
+   */
   public availableRaces: Array<Race>;
 
+  /**
+   *Creates an instance of AdminService.
+   * @param {WebsocketService} ws
+   * @memberof AdminService
+   */
   constructor(private ws: WebsocketService) {
     this.startSubject = new Subject<RunStart>();
     this.start = this.startSubject.asObservable();
@@ -58,7 +93,12 @@ export class AdminService {
     });
   }
 
-  // send the start command to the server
+  /**
+   *send the start command to the server
+   *
+   * @param {number} id
+   * @memberof AdminService
+   */
   startRun(id: number) {
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.Start;
@@ -66,22 +106,44 @@ export class AdminService {
     this.ws.send(msg);
   }
 
+  /**
+   *send the assign time command to the server
+   *
+   * @param {Assignment} assignment
+   * @memberof AdminService
+   */
   assignTime(assignment: Assignment) {
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.AssignTime;
     msg.Data = assignment;
     this.ws.send(msg);
   }
+  /**
+   *send the create race command to the server
+   *
+   * @param {Race} race
+   * @memberof AdminService
+   */
   createRace(race: Race) {
     const msg = new Message<AdminCommands>();
     msg.Command = AdminCommands.CreateRace;
     msg.Data = race;
     this.ws.send(msg);
   }
+  /**
+   *connect to ws as admin
+   *
+   * @memberof AdminService
+   */
   connect() {
     this.ws.connect('admin'); // Connect as admin
   }
 
+  /**
+   *disconnect from ws
+   *
+   * @memberof AdminService
+   */
   disconnect() {
     this.ws.disconnect();
   }

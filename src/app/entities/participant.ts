@@ -1,7 +1,12 @@
 import { Race } from './race';
 
-// Entity to represent a potential participant (duh...)
-// Most values are strings due to regex in html
+/**
+ *Entity to represent a potential participant
+ *Most values are strings due to regex in html
+ *
+ * @export
+ * @class Participant
+ */
 export class Participant {
     public City: string;
     public Email: string;

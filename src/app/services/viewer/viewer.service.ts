@@ -18,33 +18,88 @@ declare var jsPDF: any;
 export class ViewerService {
 
   public state: RaceManagerState;
+  /**
+   *list of all races
+   *
+   * @private
+   * @type {Array<Race>}
+   * @memberof ViewerService
+   */
   private raceArray: Array<Race>;
+  /**
+   *list of all participants
+   *
+   * @private
+   * @type {Array<Participant>}
+   * @memberof ViewerService
+   */
   private participantArray: Array<Participant>;
 
-  // Observe start of run
+  /**
+   *Observe start of run
+   *
+   * @type {Observable<RunStart>}
+   * @memberof ViewerService
+   */
   public start: Observable<RunStart>;
   private startSubject: Subject<RunStart>;
 
-  // Observe participant finish run
+  /**
+   *Observe participant finish run
+   *
+   * @type {Observable<Participant>}
+   * @memberof ViewerService
+   */
   public measuredStop: Observable<Participant>;
   private measuredStopSubject: Subject<Participant>;
 
-  // Observe end of run
+  /**
+   *Observe end of run
+   *
+   * @type {Observable<null>}
+   * @memberof ViewerService
+   */
   public end: Observable<null>;
   private endSubject: Subject<null>;
 
-  // Observe all races
+
+  /**
+   *Observe all races
+   *
+   * @type {Observable<Array<Race>>}
+   * @memberof ViewerService
+   */
   public races: Observable<Array<Race>>;
   private racesSubject: Subject<Array<Race>>;
 
-  // Observe all participants per race
+  /**
+   *Observe all participants per race
+   *
+   * @type {Observable<Array<Participant>>}
+   * @memberof ViewerService
+   */
   public participants: Observable<Array<Participant>>;
   private participantsSubject: Subject<Array<Participant>>;
 
-  // Observe the pdf button click
+  /**
+   *Observe the pdf button click
+   *
+   * @type {Observable<null>}
+   * @memberof ViewerService
+   */
   public pdfClick: Observable<null>;
   private pdfClickSubject: Subject<null>;
 
+  /**
+   *Creates an instance of ViewerService.
+   * @param {WebsocketService} ws
+   * @param {ParticipantToRankPipe} rankPipe
+   * @param {ParticipantToSexRankPipe} sexRankPipe
+   * @param {MilliSecondsToTimePipe} millisecondsPipe
+   * @param {RaceToStringPipe} raceToStringPipe
+   * @param {SexEnglishToGermanPipe} sexEnglishGermanPipe
+   * @memberof ViewerService
+   */
   constructor(private ws: WebsocketService, private rankPipe: ParticipantToRankPipe, private sexRankPipe: ParticipantToSexRankPipe,
     private millisecondsPipe: MilliSecondsToTimePipe, private raceToStringPipe: RaceToStringPipe,
     private sexEnglishGermanPipe: SexEnglishToGermanPipe) {
@@ -88,18 +143,39 @@ export class ViewerService {
     });
   }
 
+  /**
+   *connect to ws as viewer
+   *
+   * @memberof ViewerService
+   */
   connect() {
-    this.ws.connect('viewer'); // Connect as viewer
+    this.ws.connect('viewer');
   }
 
+  /**
+   *disconnect from ws
+   *
+   * @memberof ViewerService
+   */
   disconnect() {
     this.ws.disconnect();
   }
 
+  /**
+   *call generation of pdf
+   *
+   * @memberof ViewerService
+   */
   onPdfClick() {
     this.pdfClickSubject.next();
   }
 
+  /**
+   *get all participants for specific race from the ws
+   *
+   * @param {number} raceid
+   * @memberof ViewerService
+   */
   getParticipants(raceid: number) {
     const msg = new Message<ViewerCommands>();
     msg.Command = ViewerCommands.GetParticipants;
@@ -107,6 +183,13 @@ export class ViewerService {
     this.ws.send(msg);
   }
 
+  /**
+   *generate pdf of specific race
+   *using jsPdf and jsPdfAutoTable
+   *
+   * @param {number} raceid
+   * @memberof ViewerService
+   */
   generatePdf(raceid: number) {
     if (this.participantArray) {
       const doc = new jsPDF('l');
@@ -123,7 +206,7 @@ export class ViewerService {
       const pageSize = doc.internal.pageSize;
       const pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
       const text = doc.splitTextToSize('Ergebnisse ' + this.raceToStringPipe.transform(race, true), pageWidth - 35, {});
-      doc.text(text, 14, 30);
+      doc.text(text, 14, 30); // set header text
 
       const head = [
         { title: 'Rang', dataKey: 'rank' },
@@ -181,13 +264,13 @@ export class ViewerService {
           doc.text(str, data.settings.margin.left, pageHeight - 10);
         },
         margin: { top: 30 }
-      });
+      }); // set autoTable to correct data
 
       if (typeof doc.putTotalPages === 'function') {
         doc.putTotalPages(totalPagesExp);
       }
 
-      doc.save('table.pdf');
+      doc.save(race.Title.replace(/\s/g, '_') + '.pdf');
     }
 
   }

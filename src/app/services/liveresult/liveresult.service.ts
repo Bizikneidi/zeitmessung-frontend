@@ -5,8 +5,19 @@ import { Participant } from '../../entities/participant';
 @Injectable()
 export class LiveresultService {
 
+  /**
+   *list of participants for the live race
+   *
+   * @type {Array<Participant>}
+   * @memberof LiveresultService
+   */
   participantList: Array<Participant> = [];
 
+  /**
+   *Creates an instance of LiveresultService.
+   * @param {ViewerService} viewer
+   * @memberof LiveresultService
+   */
   constructor(private viewer: ViewerService) {
     // Check for the start of a race
     this.viewer.start.subscribe(ms => {
@@ -27,14 +38,24 @@ export class LiveresultService {
   }
 
 
+  /**
+   *sort participantlist by time
+   *
+   * @memberof LiveresultService
+   */
   sortList() {
-    // Sort list by time
     this.participantList = this.participantList.sort((a, b) => {
       return (b.Time) - (a.Time);
     });
     this.moveZerosToEnd(this.participantList);
   }
 
+  /**
+   *move participants with time of 0 to the end
+   *
+   * @param {Array<Participant>} participants
+   * @memberof LiveresultService
+   */
   moveZerosToEnd(participants: Array<Participant>) {
     let i, temp;
 
@@ -46,12 +67,24 @@ export class LiveresultService {
       }
   }
 
-  // is the participant in the current list or has an invalid time
+  /**
+   *is the participant in the current list or has an invalid time
+   *
+   * @param {Participant} participant
+   * @returns
+   * @memberof LiveresultService
+   */
   isValidParticipant(participant: Participant) {
     return this.participantList.some(competitor => competitor === participant) || participant.Time > 0;
   }
 
-  // filters the participantlist
+  /**
+   *filters the participantlist by sex
+   *
+   * @param {string} sex
+   * @returns
+   * @memberof LiveresultService
+   */
   filterBySex(sex: string) {
     if (sex == null) {
       return this.participantList;
@@ -59,7 +92,14 @@ export class LiveresultService {
     return this.participantList.filter(competitor => competitor.Sex === sex);
   }
 
-  // gets the rank of the participant, if wanted filtered by sex
+  /**
+   *gets the rank of the participant, if wanted filtered by sex
+   *
+   * @param {Participant} participant
+   * @param {Boolean} [filterBySex=false]
+   * @returns
+   * @memberof LiveresultService
+   */
   getRank(participant: Participant, filterBySex: Boolean = false) {
     // is the participant valid
     if (!this.isValidParticipant(participant)) {
