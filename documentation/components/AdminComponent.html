@@ -340,7 +340,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>on race selected</p>
+                            <div class="io-description"><p>on startrace selected</p>
 </div>
 
                             <div class="io-description">
@@ -495,7 +495,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>id of the selected race</p>
+                        <div class="io-description"><p>id of the selected startrace</p>
 </div>
                     </td>
                 </tr>
@@ -569,7 +569,7 @@ export class AdminComponent implements OnInit {
    */
   startable &#x3D; false;
   /**
-   *id of the selected race
+   *id of the selected startrace
    *
    * @memberof AdminComponent
    */
@@ -588,7 +588,7 @@ export class AdminComponent implements OnInit {
   }
 
   /**
-   *on race selected
+   *on startrace selected
    *
    * @param {number} id
    * @memberof AdminComponent
@@ -630,7 +630,7 @@ export class AdminComponent implements OnInit {
      
         &lt;div class&#x3D;&quot;row mt-5 no-gutters&quot;&gt;
           &lt;div class&#x3D;&quot;col-5 &quot;&gt;
-            &lt;div class&#x3D;&quot;card zoom shadow border-0 h-100&quot; [routerLink]&#x3D;&quot;[&#x27;./competition&#x27;]&quot;&gt;
+            &lt;div class&#x3D;&quot;card zoom shadow border-0 h-100&quot; [routerLink]&#x3D;&quot;[&#x27;./createrace&#x27;]&quot;&gt;
               &lt;div class&#x3D;&quot;card-body&quot;&gt;
                 &lt;h3&gt;Wettkampf &lt;br/&gt; eintragen&lt;/h3&gt;
                 &lt;p&gt;Drücken sie hier, &lt;br/&gt; um ein Rennen anzulegen&lt;/p&gt;
@@ -646,7 +646,7 @@ export class AdminComponent implements OnInit {
                   &lt;option selected disabled&gt;Wettkampf&lt;/option&gt;
                   &lt;option *ngFor&#x3D;&quot;let r of admin.availableRaces&quot; value&#x3D;&quot;{{ r.Id }}&quot;&gt;{{ r.Title }}&lt;/option&gt;
                 &lt;/select&gt;
-                &lt;a class&#x3D;&quot;card-link w-50 mt-3&quot; href&#x3D;&quot;javascript:void(0)&quot; [routerLink]&#x3D;&quot;[&#x27;./race&#x27;]&quot; [queryParams]&#x3D;&quot;{raceid: raceId}&quot; [ngClass]&#x3D;&quot;startable ? &#x27;&#x27;:&#x27;form-invalid&#x27;&quot;&gt;
+                &lt;a class&#x3D;&quot;card-link w-50 mt-3&quot; href&#x3D;&quot;javascript:void(0)&quot; [routerLink]&#x3D;&quot;[&#x27;./startrace&#x27;]&quot; [queryParams]&#x3D;&quot;{raceid: raceId}&quot; [ngClass]&#x3D;&quot;startable ? &#x27;&#x27;:&#x27;form-invalid&#x27;&quot;&gt;
                   &lt;h5 class&#x3D;&quot;arrow&quot; &gt;Starten ➜&lt;/h5&gt;
                 &lt;/a&gt;
 
@@ -786,7 +786,7 @@ select:focus, option:focus {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row justify-content-center">      <div class="col-11 col-md-10">      <div class=" card border-0 shadow-lg">        <div class="card-title">          <div class="row">            <div class="col-1">              <a [routerLink]="[\'/\']" (click)="onBack()">                <fa-icon [icon]="faArrow"></fa-icon>              </a>            </div>            <div class="col-6">              <h2>Admin</h2>              <p>Erstelle oder starte einen Wettkampf</p>            </div>                     </div>        </div>          </div>                  <div class="row mt-5 no-gutters">          <div class="col-5 ">            <div class="card zoom shadow border-0 h-100" [routerLink]="[\'./createrace\']">              <div class="card-body">                <h3>Wettkampf <br/> eintragen</h3>                <p>Drücken sie hier, <br/> um ein Rennen anzulegen</p>              </div>            </div>          </div>          <div class="col"></div>          <div class="col-5">            <div class="card zoom shadow border-0 h-100 " >              <div class="card-body py-3">                <h3>Wettkampf <br/> starten</h3>                <select class="form-control" #t (change)="onSelected(t.value)">                  <option selected disabled>Wettkampf</option>                  <option *ngFor="let r of admin.availableRaces" value="{{ r.Id }}">{{ r.Title }}</option>                </select>                <a class="card-link w-50 mt-3" href="javascript:void(0)" [routerLink]="[\'./startrace\']" [queryParams]="{raceid: raceId}" [ngClass]="startable ? \'\':\'form-invalid\'">                  <h5 class="arrow" >Starten ➜</h5>                </a>              </div>            </div>          </div>        </div>                </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'CompetitionComponent', 'selector': 'app-createrace'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RaceComponent', 'selector': 'app-startrace'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'CreateRaceComponent', 'selector': 'app-competition'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'StartRaceComponent', 'selector': 'app-race'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
     var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[appAutofocus]'}];
     var ACTUAL_COMPONENT = {'name': 'AdminComponent'};
 </script>

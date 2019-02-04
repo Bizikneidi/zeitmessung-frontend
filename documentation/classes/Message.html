@@ -224,29 +224,29 @@
 
 export enum AdminCommands {
     // SERVER -&gt; ADMIN
-    State &#x3D; 0, // The state of the current race, data is the state
+    State &#x3D; 0, // The state of the current startrace, data is the state
     AvailableRaces &#x3D; 1, // All available races the admin can start, data is a list of races
-    RaceStart &#x3D; 2, // A race has started, data is a RaceStartDTO
+    RaceStart &#x3D; 2, // A startrace has started, data is a RaceStartDTO
     MeasuredStop &#x3D; 3, // A participant has finished, data is the corresponding stop time
-    RaceEnd &#x3D; 4, // The race has ended, data is null
+    RaceEnd &#x3D; 4, // The startrace has ended, data is null
 
     // ADMIN -&gt; SERVER
-    Start &#x3D; 5, // Admin has pressed the start button and server should start a race. data is the id of a race
+    Start &#x3D; 5, // Admin has pressed the start button and server should start a startrace. data is the id of a startrace
     AssignTime &#x3D; 6, // Admin assigned a time to a participant, data is an AssignmentDTO
-    CreateRace &#x3D; 7 // Admin created a race, data is a race
+    CreateRace &#x3D; 7 // Admin created a startrace, data is a startrace
 }
 
 export enum ViewerCommands {
     // SERVER -&gt; VIEWER
     Status &#x3D; 0, // Message contains the current time measurement status
     RunStart &#x3D; 1, // Message contains the time and all participants
-    ParticipantFinished &#x3D; 2, // Message contains a participant who finished the race
+    ParticipantFinished &#x3D; 2, // Message contains a participant who finished the startrace
     RunEnd &#x3D; 4, // The run has ended (data is null),
     Races &#x3D; 5, // Message contains all races up to this point
-    Participants &#x3D; 6, // Message contains all racers for a race
+    Participants &#x3D; 6, // Message contains all racers for a startrace
 
     // VIEWER -&gt; SERVER
-    GetParticipants &#x3D; 7 // Viewer is requesting all racers to a race
+    GetParticipants &#x3D; 7 // Viewer is requesting all racers to a startrace
 }
 
 export enum ParticipantCommands {

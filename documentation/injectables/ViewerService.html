@@ -397,7 +397,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>generate pdf of specific race
+                            <div class="io-description"><p>generate pdf of specific startrace
 using jsPdf and jsPdfAutoTable</p>
 </div>
 
@@ -469,7 +469,7 @@ using jsPdf and jsPdfAutoTable</p>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>get all participants for specific race from the ws</p>
+                            <div class="io-description"><p>get all participants for specific startrace from the ws</p>
 </div>
 
                             <div class="io-description">
@@ -785,7 +785,7 @@ using jsPdf and jsPdfAutoTable</p>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Observe all participants per race</p>
+                        <div class="io-description"><p>Observe all participants per startrace</p>
 </div>
                     </td>
                 </tr>
@@ -1212,7 +1212,7 @@ export class ViewerService {
   private racesSubject: Subject&lt;Array&lt;Race&gt;&gt;;
 
   /**
-   *Observe all participants per race
+   *Observe all participants per startrace
    *
    * @type {Observable&lt;Array&lt;Participant&gt;&gt;}
    * @memberof ViewerService
@@ -1310,7 +1310,7 @@ export class ViewerService {
   }
 
   /**
-   *get all participants for specific race from the ws
+   *get all participants for specific startrace from the ws
    *
    * @param {number} raceid
    * @memberof ViewerService
@@ -1323,7 +1323,7 @@ export class ViewerService {
   }
 
   /**
-   *generate pdf of specific race
+   *generate pdf of specific startrace
    *using jsPdf and jsPdfAutoTable
    *
    * @param {number} raceid
@@ -1347,6 +1347,7 @@ export class ViewerService {
       const text &#x3D; doc.splitTextToSize(&#x27;Ergebnisse &#x27; + this.raceToStringPipe.transform(race, true), pageWidth - 35, {});
       doc.text(text, 14, 30); // set header text
 
+      // header of the table
       const head &#x3D; [
         { title: &#x27;Rang&#x27;, dataKey: &#x27;rank&#x27; },
         { title: &#x27;Stnr&#x27;, dataKey: &#x27;stnr&#x27; },
@@ -1359,6 +1360,7 @@ export class ViewerService {
         { title: &#x27;Zeit&#x27;, dataKey: &#x27;time&#x27; },
       ];
 
+      // generate and parse the data
       const tableParticipants &#x3D; [];
       participants.forEach(p &#x3D;&gt; {
         if (p) {
@@ -1376,7 +1378,8 @@ export class ViewerService {
         }
       });
 
-      tableParticipants.sort(function (a, b) {
+      // sorts the data
+      tableParticipants.sort((a, b) &#x3D;&gt;  {
         a &#x3D; parseInt(a[&#x27;rank&#x27;], 32);
         b &#x3D; parseInt(b[&#x27;rank&#x27;], 32);
         if (a &lt;&#x3D; 0) {
@@ -1391,7 +1394,8 @@ export class ViewerService {
         headStyles: {
           fillColor: [38, 210, 179]
         },
-        didDrawPage: function (data) {
+        // generates the pagenumber
+        didDrawPage: data &#x3D;&gt; {
 
           let str &#x3D; &#x27;Seite &#x27; + doc.internal.getNumberOfPages();
           if (typeof doc.putTotalPages &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
@@ -1403,8 +1407,9 @@ export class ViewerService {
           doc.text(str, data.settings.margin.left, pageHeight - 10);
         },
         margin: { top: 30 }
-      }); // set autoTable to correct data
+      }); // assign data to the table
 
+      // checks if putTotalPages exists
       if (typeof doc.putTotalPages &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
         doc.putTotalPages(totalPagesExp);
       }

@@ -281,14 +281,14 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:71</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:73</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>get all participant for current race</p>
+                            <div class="io-description"><p>send the request for all participant for current startrace</p>
 </div>
 
                             <div class="io-description">
@@ -321,7 +321,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:54</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/viewer/resultlist/resultlist.component.ts:56</a></div>
                             </td>
                         </tr>
 
@@ -575,6 +575,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.pdfSub &#x3D; this.viewers.pdfClick.subscribe(() &#x3D;&gt; {
+      // Calls the function that generates the pdf with current raceid
       this.viewers.generatePdf(Number.parseInt(this.route.snapshot.queryParams.raceid));
     });
 
@@ -583,6 +584,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
     });
 
     this.routerSub &#x3D; this.route.queryParams.subscribe(() &#x3D;&gt; {
+      // loads all participants
       this.getParticipants();
     });
     this.getParticipants();
@@ -601,7 +603,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
   }
 
   /**
-   *get all participant for current race
+   *send the request for all participant for current startrace
    *
    * @memberof ResultlistComponent
    */
@@ -733,7 +735,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="row m-2" [@slideAnimation]="participants.length">	<div class="card mt-3 shadow" *ngFor="let i of participants">		<div class="card-body row justify-content-between">			<div class="col-12 col-md-6 no-wrap">				<div class="row justify-content-md-start">					<div class="col-auto" *ngIf="i.Time > 0">						<p class="rank">#{{i | participantToRank:participants}}</p>					</div>					<div class="col-auto" *ngIf="i.Time <= 0">						<p class="rank-grey">#?</p>					</div>					<p class="col-auto align-self-center card-text">						{{ i.Starter }} - {{ i.Firstname }} {{ i.Lastname }}					</p>				</div>			</div>			<div class="col-12 col-md-6 no-wrap">				<div class="row justify-content-start justify-content-md-end">					<div class="col-auto">						<div class="inline" *ngIf="i.Time > 0">							<p class="rank">{{ i.Sex | sexenglishtogermanpipe }}{{ i | participantToSexRank:participants }}</p>						</div>						<div class="inline" *ngIf="i.Time <= 0">							<p class="rank-grey">{{ i.Sex | sexenglishtogermanpipe }}?</p>						</div>					</div>					<div class="col-auto">						<p class="inline rank">{{ i.Time | milliSecondsToTime }}</p>						<p class="inline little-rank">							{{ i.Time | milliSecondsToTime: true }}						</p>					</div>				</div>			</div>		</div>	</div></div></div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'CompetitionComponent', 'selector': 'app-createrace'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RaceComponent', 'selector': 'app-startrace'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'ContentComponent', 'selector': 'app-root'},{'name': 'CreateRaceComponent', 'selector': 'app-competition'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LiveresultlistComponent', 'selector': 'app-liveresultlist'},{'name': 'NavigationcardsComponent', 'selector': 'app-navigationcards'},{'name': 'ParticipantracechooserComponent', 'selector': 'app-participantracechooser'},{'name': 'PoliciesComponent', 'selector': 'app-policies'},{'name': 'RegisterparticipantComponent', 'selector': 'app-registerparticipant'},{'name': 'ResultlistComponent', 'selector': 'app-resultlist'},{'name': 'StartRaceComponent', 'selector': 'app-race'},{'name': 'ViewerComponent', 'selector': 'app-viewer'}];
     var DIRECTIVES = [{'name': 'AutofocusDirective', 'selector': '[appAutofocus]'}];
     var ACTUAL_COMPONENT = {'name': 'ResultlistComponent'};
 </script>

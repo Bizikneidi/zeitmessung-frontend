@@ -340,7 +340,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>send the create race command to the server</p>
+                            <div class="io-description"><p>send the create startrace command to the server</p>
 </div>
 
                             <div class="io-description">
@@ -575,7 +575,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Observe the end of a race</p>
+                        <div class="io-description"><p>Observe the end of a startrace</p>
 </div>
                     </td>
                 </tr>
@@ -727,7 +727,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Observe for the start of a race</p>
+                        <div class="io-description"><p>Observe for the start of a startrace</p>
 </div>
                     </td>
                 </tr>
@@ -803,7 +803,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>the current stat of a race</p>
+                        <div class="io-description"><p>the current stat of a startrace</p>
 </div>
                     </td>
                 </tr>
@@ -830,7 +830,7 @@ import { Race } from &#x27;../../entities/race&#x27;;
 export class AdminService {
 
   /**
-   *the current stat of a race
+   *the current stat of a startrace
    *
    * @type {RaceManagerState}
    * @memberof AdminService
@@ -838,7 +838,7 @@ export class AdminService {
   public state: RaceManagerState;
 
   /**
-   *Observe for the start of a race
+   *Observe for the start of a startrace
    *
    * @type {Observable&lt;RunStart&gt;}
    * @memberof AdminService
@@ -856,7 +856,7 @@ export class AdminService {
   private measuredStopSubject: Subject&lt;number&gt;;
 
   /**
-   *Observe the end of a race
+   *Observe the end of a startrace
    *
    * @type {Observable&lt;null&gt;}
    * @memberof AdminService
@@ -937,7 +937,7 @@ export class AdminService {
     this.ws.send(msg);
   }
   /**
-   *send the create race command to the server
+   *send the create startrace command to the server
    *
    * @param {Race} race
    * @memberof AdminService

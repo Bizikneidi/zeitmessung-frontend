@@ -164,28 +164,28 @@
 import { RaceManagerState } from &#x27;../entities/racemanagerstate&#x27;;
 
 @Pipe({
-    name: &#x27;stateToText&#x27;
+  name: &#x27;stateToText&#x27;
 })
 export class StateToTextPipe implements PipeTransform {
-    /**
-     *returns message based on RaceManagerState
-     *
-     * @param {RaceManagerState} value
-     * @returns {string}
-     * @memberof StateToTextPipe
-     */
-    transform(value: RaceManagerState): string {
-        switch (value) {
-            case RaceManagerState.Ready:
-              return &#x27;Eine Station ist bereit.&#x27;;
-            case RaceManagerState.Disabled:
-              return &#x27;Warte auf Station.&#x27;;
-            case RaceManagerState.Measuring:
-              return &#x27;Eine Messung ist derzeitig im Gange.&#x27;;
-            case RaceManagerState.MeasurementRequested:
-              return &#x27;Gestartet! Warte auf Server&#x27;;
-          }
+  /**
+   *returns message based on RaceManagerState
+   *
+   * @param {RaceManagerState} value
+   * @returns {string}
+   * @memberof StateToTextPipe
+   */
+  transform(value: RaceManagerState): string {
+    switch (value) {
+      case RaceManagerState.Ready:
+        return &#x27;Eine Station ist bereit.&#x27;;
+      case RaceManagerState.Disabled:
+        return &#x27;Warte auf Station.&#x27;;
+      case RaceManagerState.Measuring:
+        return &#x27;Eine Messung ist derzeitig im Gange.&#x27;;
+      case RaceManagerState.MeasurementRequested:
+        return &#x27;Gestartet! Warte auf Server&#x27;;
     }
+  }
 }
 </code></pre>
     </div>

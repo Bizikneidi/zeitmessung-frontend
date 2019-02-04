@@ -186,7 +186,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/services/participant/participant.service.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/services/participant/participant.service.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -226,7 +226,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/services/participant/participant.service.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/services/participant/participant.service.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -266,7 +266,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/participant/participant.service.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/services/participant/participant.service.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -361,7 +361,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>list of all race open for registration</p>
+                        <div class="io-description"><p>list of all startrace open for registration</p>
 </div>
                     </td>
                 </tr>
@@ -386,7 +386,7 @@ import { Subject } from &#x27;rxjs/Subject&#x27;;
 export class ParticipantService {
 
   /**
-   *list of all race open for registration
+   *list of all startrace open for registration
    *
    * @type {Array&lt;Race&gt;}
    * @memberof ParticipantService
@@ -395,6 +395,7 @@ export class ParticipantService {
 
   constructor(private ws: WebsocketService) {
     this.ws.received.subscribe(msg &#x3D;&gt; {
+      // receiving the races
       const received &#x3D; msg as Message&lt;ParticipantCommands&gt;;
       if (received.Command &#x3D;&#x3D;&#x3D; ParticipantCommands.Races) {
         this.races &#x3D; received.Data as Array&lt;Race&gt;;

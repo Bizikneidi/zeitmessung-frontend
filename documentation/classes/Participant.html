@@ -67,7 +67,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>A person who is registered for a race.
+                <p>A person who is registered for a startrace.
 Entity to represent a potential participant
 Most values are strings due to regex in html</p>
 
@@ -788,7 +788,7 @@ required</p>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>The time it took the participant to complete the race (in ms)</p>
+                        <div class="io-description"><p>The time it took the participant to complete the startrace (in ms)</p>
 </div>
                     </td>
                 </tr>
@@ -852,7 +852,7 @@ first year group: 1920</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Race } from &#x27;./race&#x27;;
 
 /**
- *A person who is registered for a race.
+ *A person who is registered for a startrace.
  *Entity to represent a potential participant
  *Most values are strings due to regex in html
  *
@@ -979,7 +979,7 @@ export class Participant {
      */
     public Starter: number;
     /**
-     *The time it took the participant to complete the race (in ms)
+     *The time it took the participant to complete the startrace (in ms)
      *
      * @type {number}
      * @memberof Participant
