@@ -89,7 +89,7 @@ export class StartRaceComponent implements OnInit, OnDestroy, AfterContentChecke
         }
       });
     });
-    // get time of a finished participant and add to finishedParticipantList if particpant is not in list yet
+    // get time of a finished participant and add to finishedParticipantList if participant is not in list yet
     // if participant is already in list then show the participant again and
     // reduce the currentListIndex by one => means that user assigned participant with wrong startnumber
     this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {

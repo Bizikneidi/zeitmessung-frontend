@@ -66,7 +66,7 @@ export class ResultlistComponent implements OnInit, OnDestroy {
   }
 
   /**
-   *get all participant for current startrace
+   *send the request for all participant for current startrace
    *
    * @memberof ResultlistComponent
    */

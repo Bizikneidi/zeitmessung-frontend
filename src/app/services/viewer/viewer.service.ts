@@ -208,6 +208,7 @@ export class ViewerService {
       const text = doc.splitTextToSize('Ergebnisse ' + this.raceToStringPipe.transform(race, true), pageWidth - 35, {});
       doc.text(text, 14, 30); // set header text
 
+      // header of the table
       const head = [
         { title: 'Rang', dataKey: 'rank' },
         { title: 'Stnr', dataKey: 'stnr' },
@@ -220,6 +221,7 @@ export class ViewerService {
         { title: 'Zeit', dataKey: 'time' },
       ];
 
+      // generate and parse the data
       const tableParticipants = [];
       participants.forEach(p => {
         if (p) {
@@ -237,7 +239,8 @@ export class ViewerService {
         }
       });
 
-      tableParticipants.sort(function (a, b) {
+      // sorts the data
+      tableParticipants.sort((a, b) =>  {
         a = parseInt(a['rank'], 32);
         b = parseInt(b['rank'], 32);
         if (a <= 0) {
@@ -252,7 +255,8 @@ export class ViewerService {
         headStyles: {
           fillColor: [38, 210, 179]
         },
-        didDrawPage: function (data) {
+        // generates the pagenumber
+        didDrawPage: data => {
 
           let str = 'Seite ' + doc.internal.getNumberOfPages();
           if (typeof doc.putTotalPages === 'function') {
@@ -264,8 +268,9 @@ export class ViewerService {
           doc.text(str, data.settings.margin.left, pageHeight - 10);
         },
         margin: { top: 30 }
-      }); // set autoTable to correct data
+      }); // assign data to the table
 
+      // checks if putTotalPages exists
       if (typeof doc.putTotalPages === 'function') {
         doc.putTotalPages(totalPagesExp);
       }

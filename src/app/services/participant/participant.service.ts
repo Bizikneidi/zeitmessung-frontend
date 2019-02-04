@@ -19,6 +19,7 @@ export class ParticipantService {
 
   constructor(private ws: WebsocketService) {
     this.ws.received.subscribe(msg => {
+      // receiving the races
       const received = msg as Message<ParticipantCommands>;
       if (received.Command === ParticipantCommands.Races) {
         this.races = received.Data as Array<Race>;
