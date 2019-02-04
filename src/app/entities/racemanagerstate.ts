@@ -1,6 +1,24 @@
+/**
+ *The possible states of the race
+ *
+ * @export
+ * @enum {number}
+ */
 export enum RaceManagerState {
-    Ready = 0, // The time meter is theoretically ready to start a measurement
-    MeasurementRequested = 1, // Something has requested the time meter to start a measurement
-    Measuring = 2, // The time meter is currently measuring a time
-    Disabled = 3// The time meter can not start a measurement and nobody can request one
+    /**
+     *The racemanager is theoretically ready to start a race (A station has connected)
+     */
+    Ready = 0,
+    /**
+     *The admin requested the start of a race (The admin has pressed start)
+     */
+    MeasurementRequested = 1,
+    /**
+     *A race is in progress
+     */
+    Measuring = 2,
+    /**
+     *The racemanager is not ready and nobody can request or start a race (no station is connected)
+     */
+    Disabled = 3
 }
