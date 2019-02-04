@@ -147,6 +147,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of AutofocusDirective.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -233,13 +235,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/directives/autofocus.directive.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/directives/autofocus.directive.ts:29</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>focuses a new element</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -271,7 +275,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/directives/autofocus.directive.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/directives/autofocus.directive.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -309,7 +313,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/directives/autofocus.directive.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/directives/autofocus.directive.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -340,6 +344,11 @@
 })
 export class AutofocusDirective implements AfterViewInit, OnChanges {
     @Input() appAutofocus: boolean;
+    /**
+     *Creates an instance of AutofocusDirective.
+     * @param {ElementRef} el
+     * @memberof AutofocusDirective
+     */
     constructor(private el: ElementRef) {
     }
 
@@ -351,6 +360,11 @@ export class AutofocusDirective implements AfterViewInit, OnChanges {
         this.checkAutofocus();
     }
 
+    /**
+     *focuses a new element
+     *
+     * @memberof AutofocusDirective
+     */
     checkAutofocus() {
         if (this.appAutofocus) {
             this.el.nativeElement.focus();

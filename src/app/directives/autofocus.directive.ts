@@ -5,6 +5,11 @@ import { Directive, AfterViewInit, ElementRef, OnChanges, Input } from '@angular
 })
 export class AutofocusDirective implements AfterViewInit, OnChanges {
     @Input() appAutofocus: boolean;
+    /**
+     *Creates an instance of AutofocusDirective.
+     * @param {ElementRef} el
+     * @memberof AutofocusDirective
+     */
     constructor(private el: ElementRef) {
     }
 
@@ -16,6 +21,11 @@ export class AutofocusDirective implements AfterViewInit, OnChanges {
         this.checkAutofocus();
     }
 
+    /**
+     *focuses a new element
+     *
+     * @memberof AutofocusDirective
+     */
     checkAutofocus() {
         if (this.appAutofocus) {
             this.el.nativeElement.focus();
