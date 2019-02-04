@@ -50,7 +50,6 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
    * @memberof RaceComponent
    */
   currentListIndex: number;
-  invalidParticpantList: boolean[] = [];
   startSubscription: Subscription;
   endSubscription: Subscription;
   measuredStopSubscription: Subscription;
@@ -69,12 +68,17 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
   }
 
   ngOnInit() {
-    this.admin.connect(); // Connect as Admin on page visit
+    // Connect as Admin on page visit
+    this.admin.connect();
     this.currentListIndex = 0;
-    // get participantlist and start time
+    // get current and start time from station
     this.startSubscription = this.admin.start.subscribe((runDto: RunStart) => {
+      // start the timer
       this.liveTimer.start(runDto.CurrentTime, runDto.StartTime);
+      // set current index to zero
       this.currentListIndex = 0;
+      // fill list of already assigned participants and hide them on the frontend => important to show rank
+      // increase current index for every assigned participant => important for autofocus
       runDto.Participants.forEach(p => {
         if (p.Time > 0) {
           this.finishedParticipantList.push(p);
@@ -85,14 +89,15 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
         }
       });
     });
-    // get time of finished participant
+    // get time of a finished participant and add to finishedParticipantList if particpant is not in list yet
+    // if participant is already in list then show the participant again and
+    // reduce the currentListIndex by one => means that user assigned participant with wrong startnumber
     this.measuredStopSubscription = this.admin.measuredStop.subscribe((time) => {
       const participant = new Participant();
       participant.Time = time;
       if (this.finishedParticipantList.filter(p => p.Time === time).length <= 0) {
         this.finishedParticipantList.push(participant);
         this.hiddenAssignedParticipants.push(false);
-        this.invalidParticpantList.push(false);
       } else {
         const index = this.finishedParticipantList.findIndex(p => p.Time === time);
         this.hiddenAssignedParticipants[index] = false;
@@ -119,7 +124,7 @@ export class RaceComponent implements OnInit, OnDestroy, AfterContentChecked {
   }
 
   /**
-   *assing start number to participant
+   *assing start number to participant, hide the participant and jump to the next participant (autofocus) with currentListIndex++
    *
    * @param {number} index
    * @memberof RaceComponent
