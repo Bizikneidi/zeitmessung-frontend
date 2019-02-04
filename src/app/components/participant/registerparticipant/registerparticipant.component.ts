@@ -14,11 +14,38 @@ import { Race } from '../../../entities/race';
 })
 export class RegisterparticipantComponent implements OnInit {
 
+  /**
+   *left arrow icon
+   *
+   * @memberof RegisterparticipantComponent
+   */
   faArrow = faLongArrowAltLeft;
+  /**
+   *participant to be registered
+   *
+   * @type {Participant}
+   * @memberof RegisterparticipantComponent
+   */
   participant: Participant;
+  /**
+   *list of all country codes
+   *
+   * @memberof RegisterparticipantComponent
+   */
   countryList = CountryList.ListOfCountries;
+  /**
+   *boolean if agreement is checked
+   *
+   * @memberof RegisterparticipantComponent
+   */
   agreed = false;
 
+  /**
+   *Creates an instance of RegisterparticipantComponent.
+   * @param {ParticipantService} ps
+   * @param {ActivatedRoute} route
+   * @memberof RegisterparticipantComponent
+   */
   constructor(private ps: ParticipantService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -33,21 +60,41 @@ export class RegisterparticipantComponent implements OnInit {
    });
   }
 
+  /**
+   *Must be changed via ts because custom checkboxes don't support binding
+   *
+   * @param {*} c
+   * @memberof RegisterparticipantComponent
+   */
   changeSex(c) {
-    // Must be changed via ts because custom checkboxes don't support binding
     this.participant.Sex = c;
   }
 
+  /**
+   *Required attribute does not work due to default values
+   *
+   * @returns {Boolean}
+   * @memberof RegisterparticipantComponent
+   */
   sexAndCountryAreSet(): Boolean {
-    // Required attribute does not work due to default values
     return this.participant.Sex !== null;
   }
 
+  /**
+   *registers participant
+   *
+   * @memberof RegisterparticipantComponent
+   */
   register() {
     this.ps.register(this.participant);
     this.ps.disconnect();
   }
 
+  /**
+   *sets agreement to new value
+   *
+   * @memberof RegisterparticipantComponent
+   */
   onAgreementClicked() {
     this.agreed = !this.agreed;
   }

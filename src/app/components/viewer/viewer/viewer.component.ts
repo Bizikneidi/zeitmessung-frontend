@@ -17,15 +17,32 @@ import { query } from '@angular/core/src/animation/dsl';
 export class ViewerComponent implements OnInit, OnDestroy {
 
   faArrow = faLongArrowAltLeft;
+  /**
+   *list of all races
+   *
+   * @memberof ViewerComponent
+   */
   races = new Array<Race>();
+  /**
+   *id of selected race or
+   *'live' if live resultlist
+   * @memberof ViewerComponent
+   */
   activeRace = 'live';
 
-  // For cleaning up in onDestroy
   startSubscription: Subscription;
   endSubscription: Subscription;
   racesSubscription: Subscription;
   queryParamMapSubscription: Subscription;
 
+  /**
+   *Creates an instance of ViewerComponent.
+   * @param {ViewerService} viewer
+   * @param {Router} router
+   * @param {ActivatedRoute} route
+   * @param {LiveTimerService} liveTimer
+   * @memberof ViewerComponent
+   */
   constructor(public viewer: ViewerService, private router: Router, private route: ActivatedRoute, public liveTimer: LiveTimerService) { }
 
   ngOnInit() {
@@ -54,6 +71,11 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.activeRace = this.router.url.includes('resultlist:old') ? this.route.snapshot.queryParamMap.get('raceid') : 'live';
   }
 
+  /**
+   *navigate back and unsubscribe from viewer
+   *
+   * @memberof ViewerComponent
+   */
   onBack() {
     this.viewer.disconnect();
   }
@@ -76,26 +98,56 @@ export class ViewerComponent implements OnInit, OnDestroy {
     this.liveTimer.stop();
   }
 
+  /**
+   *navigate to new race and set activeRace
+   *
+   * @param {*} id
+   * @memberof ViewerComponent
+   */
   selectedRace(id) {
     this.router.navigateByUrl('viewer/(resultlist:old)?raceid=' + id);
     this.activeRace = id;
   }
 
+  /**
+   *set activeRace
+   *
+   * @param {*} id
+   * @memberof ViewerComponent
+   */
   changeCurrentRace(id) {
     this.activeRace = id;
   }
 
-  getCurrentRace() {
+  /**
+   *get the current selected races title
+   *
+   * @returns
+   * @memberof ViewerComponent
+   */
+  getCurrentRaceTitle() {
     const temp = this.races.find(r => r.Id === +this.activeRace);
     if (temp) {
       return temp.Title;
     }
   }
 
+  /**
+   *call pdf generation
+   *
+   * @memberof ViewerComponent
+   */
   onPdfClick() {
     this.viewer.onPdfClick();
   }
 
+  /**
+   *check which race is selected
+   *
+   * @param {*} option
+   * @returns
+   * @memberof ViewerComponent
+   */
   optionIsSelected(option) {
     return option === this.activeRace;
   }

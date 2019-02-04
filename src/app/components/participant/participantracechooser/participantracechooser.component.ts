@@ -9,10 +9,24 @@ import { ParticipantService } from '../../../services/participant/participant.se
 })
 export class ParticipantracechooserComponent implements OnInit {
 
-  // Arrows for the frontend
+  /**
+   *left arrow icon
+   *
+   * @memberof ParticipantracechooserComponent
+   */
   faArrow = faLongArrowAltLeft;
+  /**
+   *right arrow icon
+   *
+   * @memberof ParticipantracechooserComponent
+   */
   faArrowRight = faLongArrowAltRight;
 
+  /**
+   *Creates an instance of ParticipantracechooserComponent.
+   * @param {ParticipantService} service
+   * @memberof ParticipantracechooserComponent
+   */
   constructor(public service: ParticipantService) {
   }
 
@@ -20,6 +34,12 @@ export class ParticipantracechooserComponent implements OnInit {
     this.service.connect();
   }
 
+  /**
+   *on back clicked
+   *disconnects from service
+   *
+   * @memberof ParticipantracechooserComponent
+   */
   onBack() {
     this.service.disconnect();
   }

@@ -10,17 +10,50 @@ import { Router } from '@angular/router';
   styleUrls: ['./competition.component.css']
 })
 export class CompetitionComponent implements OnInit {
+  /**
+   *left arrow icon
+   *
+   * @memberof CompetitionComponent
+   */
   faArrow = faLongArrowAltLeft;
+  /**
+   *race to be created
+   *
+   * @type {Race}
+   * @memberof CompetitionComponent
+   */
   race: Race = new Race();
+  /**
+   *date field for validation
+   *
+   * @memberof CompetitionComponent
+   */
   date = '';
+  /**
+   *time field for validation
+   *
+   * @memberof CompetitionComponent
+   */
   time = '';
 
+  /**
+   *Creates an instance of CompetitionComponent.
+   * @param {AdminService} admin
+   * @param {Router} router
+   * @memberof CompetitionComponent
+   */
   constructor(private admin: AdminService, private router: Router) { }
 
   ngOnInit() {
     this.admin.connect();
   }
 
+  /**
+   *on click of create race button
+   *creates the race and navigates back
+   *
+   * @memberof CompetitionComponent
+   */
   onAddNewRaceClicked() {
     const date = new Date(`${this.date} ${this.time}`);
     const milliseconds = date.getTime();

@@ -1,6 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Race } from '../entities/race';
 
+/**
+ *returns race Title or Date based on date
+ *
+ * @export
+ * @class RaceToStringPipe
+ * @implements {PipeTransform}
+ */
 @Pipe({
     name: 'raceToString'
 })
