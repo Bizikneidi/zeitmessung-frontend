@@ -63,9 +63,21 @@
             <code>src/app/entities/assignment.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Used to transfer a starter number and a time to assign a participant his time</p>
+
+            </p>
 
 
 
+            <p class="comment">
+                <h3>Example</h3>
+            </p>
+            <div class="io-description">
+            </div>
 
             <section>
     <h3 id="index">Index</h3>
@@ -111,12 +123,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/entities/assignment.ts:3</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/entities/assignment.ts:21</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of Assignment.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -194,10 +208,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="2" class="link-to-prism">src/app/entities/assignment.ts:2</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/entities/assignment.ts:14</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The starter number of the participant</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -229,10 +249,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/entities/assignment.ts:3</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/entities/assignment.ts:21</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The time of the participant</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -249,9 +275,27 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Assignment {
+    /**
+     *The starter number of the participant
+     *
+     * @type {number}
+     * @memberof Assignment
+     */
     public Starter: number;
+    /**
+     *The time of the participant
+     *
+     * @type {number}
+     * @memberof Assignment
+     */
     public Time: number;
 
+    /**
+     *Creates an instance of Assignment.
+     * @param {number} starter
+     * @param {number} time
+     * @memberof Assignment
+     */
     constructor(starter: number, time: number) {
         this.Starter &#x3D; starter;
         this.Time &#x3D; time;

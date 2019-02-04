@@ -43,7 +43,26 @@ export enum ParticipantCommands {
     Register = 1 // A person wants to register. Message contains data to register as a participant
 }
 
-export class Message<Commands> { // Used to send Commands and Data between websockets
-    public Command: Commands; // Command used to identify purpose of Message
-    public Data: any; // The "Arguments" which come with the command
+/**
+ *Used to send Commands and Data between websockets
+ *
+ * @export
+ * @class Message
+ * @template Commands
+ */
+export class Message<Commands> {
+    /**
+     *Command used to identify the purpose of the Message
+     *
+     * @type {Commands}
+     * @memberof Message
+     */
+    public Command: Commands;
+    /**
+     *The Data which comes with the command
+     *
+     * @type {*}
+     * @memberof Message
+     */
+    public Data: any;
 }
