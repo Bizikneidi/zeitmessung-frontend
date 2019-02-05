@@ -13,12 +13,12 @@ export class MilliSecondsToTimePipe implements PipeTransform {
      * @memberof MilliSecondsToTimePipe
      */
     transform(value: number, deciMil: boolean = false): string {
-        const deciSeconds = Math.floor((value / 100) % 10),
+        const centiSeconds = Math.floor((value / 10) % 100),
             seconds = Math.floor((value / 1000) % 60),
             minutes = Math.floor((value / (1000 * 60)) % 60),
             hours = Math.floor(value / (1000 * 60 * 60));
         if (deciMil) {
-            return this.padTime(deciSeconds);
+            return this.padTime(centiSeconds);
         }
         return this.padTime(hours) + ':' + this.padTime(minutes) + ':' + this.padTime(seconds);
     }
